@@ -1,0 +1,859 @@
+<DistDoc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xml.dowjones.net/distdoc/v8" xmlns:pd="PrivateData" doctype="article" dist="dist_id" action="add" distdocver="08.4" an="HNASNI0020170420ed4k00233">
+	<Control>
+		<Stamp date="2017-04-20" time="14:49:41" type="Normaliser" value="Normaliser  value"/>
+	</Control>
+	<PrivateData/>
+	<MetadataPT>
+		<Codes>
+			<CodeSet codeCat="ns">
+				<Code why="about" value="gvsup">
+					<CodeD index="no" lang="en">Judicial Branch</CodeD>
+					<CodeInstances>
+						<CodeI org="categoriser" action="add">
+							<CodeA name="db" value="es-EnglishNS_en_20170413142640"/>
+							<CodeA name="es_score" value="200"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="4"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="about" value="gcrim">
+					<CodeD index="no" lang="en">Crime/Legal Action</CodeD>
+					<CodeInstances>
+						<CodeI org="rbc" action="add">
+							<CodeA name="rule" value="798110"/>
+							<CodeA name="db" value="prbc---00017250-20170420-071726"/>
+						</CodeI>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="ns:gfraud"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="1"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="about" value="gfraud">
+					<CodeD index="no" lang="en">Fraud</CodeD>
+					<CodeInstances>
+						<CodeI org="rbc" action="add">
+							<CodeA name="rule" value="841298"/>
+							<CodeA name="db" value="prbc---00017250-20170420-071726"/>
+							<CodeA name="rule" value="793750"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="2"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="gcat">
+					<CodeD index="no" lang="en">Political/General News</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="ns:gvsup"/>
+							<CodeA name="root" value="ns:gcrim"/>
+							<CodeA name="root" value="ns:gfraud"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="0"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="gpir">
+					<CodeD index="no" lang="en">Politics/International Relations</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="ns:gvsup"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="1"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="gpol">
+					<CodeD index="no" lang="en">Domestic Politics</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="ns:gvsup"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="2"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="gvbod">
+					<CodeD index="no" lang="en">Government Bodies</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="ns:gvsup"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="3"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="ncat">
+					<CodeD index="no" lang="en">Content Types</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="ns:gfraud"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="nfact">
+					<CodeD index="no" lang="en">Factiva Filters</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="ns:gfraud"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="nfcpex">
+					<CodeD index="no" lang="en">C&amp;E Executive News Filter</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="ns:gfraud"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+			</CodeSet>
+			<CodeSet codeCat="re">
+				<Code why="about" value="india" subCat="cntry">
+					<CodeD index="no" lang="en">India</CodeD>
+					<CodeInstances>
+						<CodeI org="categoriser" action="add">
+							<CodeA name="db" value="es-EnglishRE_en_20170412142021"/>
+							<CodeA name="es_score" value="100"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="1"/>
+							<CodeA name="nodelevel" value="2"/>
+							<CodeA name="nodelevel" value="3"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="asiaz" subCat="snr">
+					<CodeD index="no" lang="en">Asia</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="re:india"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="0"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="bric" subCat="eco">
+					<CodeD index="no" lang="en">BRICS Countries</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="re:india"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="1"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="devgcoz" subCat="eco">
+					<CodeD index="no" lang="en">Emerging Market Countries</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="re:india"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="0"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="dvpcoz" subCat="eco">
+					<CodeD index="no" lang="en">Developing Economies</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="re:india"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="0"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="indsubz" subCat="sc">
+					<CodeD index="no" lang="en">Indian Subcontinent</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="re:india"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="2"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code why="lineage" value="sasiaz" subCat="sc">
+					<CodeD index="no" lang="en">Southern Asia</CodeD>
+					<CodeInstances>
+						<CodeI org="expansion" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="root" value="re:india"/>
+						</CodeI>
+						<CodeI org="validation" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="status" value="active"/>
+						</CodeI>
+						<CodeI org="hierarchy" action="add">
+							<CodeA name="db" value="pedv---00000662-20170419-161150"/>
+							<CodeA name="nodelevel" value="1"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+			</CodeSet>
+			<CodeSet codeCat="tpc">
+				<Code value="New Delhi" subCat="ipcre"/>
+			</CodeSet>
+			<CodeSet codeCat="rst">
+				<Code value="FSPNORMAWS0300" subCat="rstfsp"/>
+				<Code value="HNASNI" subCat="rstsc"/>
+				<Code value="fspFileId132070722" subCat="rstfsp"/>
+				<Code value="FUT" subCat="rstlva"/>
+				<Code value="ASIA" subCat="rstreg"/>
+				<Code value="CLNTALL" subCat="rsttyg"/>
+				<Code value="EN" subCat="rstlng"/>
+				<Code value="INDIA" subCat="rstreg"/>
+				<Code value="SASIAZ" subCat="rstreg"/>
+				<Code value="TCUWIR" subCat="rsttyg"/>
+				<Code value="TGPW" subCat="rsttyg"/>
+				<Code value="TNWR" subCat="rsttyg"/>
+				<Code value="TSCH" subCat="rsttyg"/>
+				<Code value="TTRK" subCat="rsttyg"/>
+				<Code value="TWIR" subCat="rsttyg"/>
+				<Code value="TWWW" subCat="rsttyg"/>
+				<Code value="TYAS" subCat="rsttyg"/>
+				<Code value="TYLB" subCat="rsttyg"/>
+				<Code value="HNASNI" subCat="rstsf"/>
+				<Code why="about" value="djsipif" subCat="rstdjnmw"/>
+				<Code value="MPCV1M0M0B212" subCat="rstmpc"/>
+				<Code value="MPCEnvPROD" subCat="rstmpc"/>
+				<Code value="MPCDocHash65097CF6E646AC55" subCat="rstmpc"/>
+				<Code value="FSPCATEGORIZER" subCat="rstmpc"/>
+				<Code value="FSPCATNS" subCat="rstmpc"/>
+				<Code value="FSP2YESNS" subCat="rstmpc"/>
+				<Code value="FSPRBC" subCat="rstmpc"/>
+				<Code value="FSPRBCNS" subCat="rstmpc"/>
+				<Code value="FSPCATRE" subCat="rstmpc"/>
+				<Code value="FSP2YESRE" subCat="rstmpc"/>
+				<Code value="FSP2NOCO" subCat="rstmpc"/>
+				<Code value="FSP2NOCOOC" subCat="rstmpc"/>
+				<Code value="FSP2NOIN" subCat="rstmpc"/>
+				<Code value="FSP2NOPEOC" subCat="rstmpc"/>
+				<Code value="FSPRBC793750" subCat="rstmpc"/>
+				<Code value="FSPRBC798110" subCat="rstmpc"/>
+				<Code value="FSPRBC817538" subCat="rstmpc"/>
+				<Code value="FSPRBC841298" subCat="rstmpc"/>
+				<Code value="FSPCVG" subCat="rstmpc"/>
+				<Code value="MPCCL" subCat="rstmpc"/>
+				<Code value="MPCJP" subCat="rstmpc"/>
+				<Code value="MPCKW" subCat="rstmpc"/>
+				<Code value="MPCKP" subCat="rstmpc"/>
+				<Code value="MPCESRE" subCat="rstmpc"/>
+				<Code value="MPCESNS" subCat="rstmpc"/>
+				<Code value="FSP2AC" subCat="rstmpc"/>
+			</CodeSet>
+			<CodeSet codeCat="fpco">
+				<Code rr="low" rs="28" why="relevance" value="27075719">
+					<CodeD index="no" lang="en">High Court</CodeD>
+					<CodeInstances>
+						<CodeI org="occurrenceCode" action="add">
+							<CodeA name="db" value="FootprintMatcher DB 2.0.0"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code rr="low" rs="23" why="relevance" value="27080777">
+					<CodeD index="no" lang="en">Asian News International</CodeD>
+					<CodeInstances>
+						<CodeI org="occurrenceCode" action="add">
+							<CodeA name="db" value="FootprintMatcher DB 2.0.0"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code rr="low" rs="28" why="relevance" value="27308148">
+					<CodeD index="no" lang="en">Jharkhand High Court</CodeD>
+					<CodeInstances>
+						<CodeI org="occurrenceCode" action="add">
+							<CodeA name="db" value="FootprintMatcher DB 2.0.0"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+				<Code rr="low" rs="4" why="relevance" value="33040353">
+					<CodeD index="no" lang="en">HT Digital</CodeD>
+					<CodeInstances>
+						<CodeI org="occurrenceCode" action="add">
+							<CodeA name="db" value="FootprintMatcher DB 2.0.0"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+			</CodeSet>
+			<CodeSet codeCat="fppe">
+				<Code rr="high" rs="100" why="relevance" value="33935820">
+					<CodeD index="no" lang="en">Lalu Prasad Yadav</CodeD>
+					<CodeInstances>
+						<CodeI org="occurrenceCode" action="add">
+							<CodeA name="db" value="FootprintMatcher DB 2.0.0"/>
+						</CodeI>
+					</CodeInstances>
+				</Code>
+			</CodeSet>
+		</Codes>
+		<Properties>
+			<PropertySet group="docdata">
+				<Property xsi:type="DatePropertyType" name="pubdate" value="2017-04-20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="pubedition" value="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="pubpage" value="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="pubvol" value="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="baselang" value="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="ipdocid" value="HNASNI0020170420ed4k00233" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="linkageno" value="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="accessionno" value="HNASNI0020170420ed4k00233" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="doctype" value="article" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="DatePropertyType" name="loaddate" value="2017-04-20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="TimePropertyType" name="loadtime" value="14:49:41Z" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="DatePropertyType" name="moddate" value="2017-04-20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="TimePropertyType" name="modtime" value="14:49:41Z" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="origsource" value="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="revisionno" value="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="allowtranslation" value="Y" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="TimePropertyType" name="besttime" value="14:49:41.654Z" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="DatePropertyType" name="bestdate" value="2017-04-20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="editor" value="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="IntegerPropertyType" name="wordcount" value="305"/>
+				<Property xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="IntegerPropertyType" name="charcount" value="1528"/>
+				<Property xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="IntegerPropertyType" name="conenrichlevel" value="1"/>
+			</PropertySet>
+			<PropertySet group="pubdata">
+				<Property xsi:type="StringPropertyType" name="attribcode" value="HNASNI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="ipid" value="HINDU" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="logolink" value="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="logoimage" value="hnasniLogo.gif" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="logosrc" value="http://logos.factiva.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="publishern" value="Asian News International" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="srccode" value="HNASNI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="srcname" value="Asian News International" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="srcprimarytype" value="NWSWR" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="srcrightstype" value="INDEM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="DatePropertyType" name="firstdate" value="2006-10-03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="CodeListPropertyType" name="regionoforigin" value="ASIA INDIA SASIAZ " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+				<Property xsi:type="StringPropertyType" name="srcsecondarytype" value="SGT1 SGT16 SGT5 " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+			</PropertySet>
+			<PropertySet group="docfeatures">
+				<Property xsi:type="FeatureListPropertyType" name="signaturefeatures" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<FeatureList>
+						<Feature>
+							<Name>fodder</Name>
+							<Instance>Fodder</Instance>
+							<Type>keyword</Type>
+							<Weight>0.49629912</Weight>
+						</Feature>
+						<Feature>
+							<Name>scam</Name>
+							<Instance>scam</Instance>
+							<Type>keyword</Type>
+							<Weight>0.40275574</Weight>
+						</Feature>
+						<Feature>
+							<Name>yadav</Name>
+							<Instance>Yadav</Instance>
+							<Type>keyword</Type>
+							<Weight>0.28878567</Weight>
+						</Feature>
+						<Feature>
+							<Name>offenc</Name>
+							<Instance>offence</Instance>
+							<Type>keyword</Type>
+							<Weight>0.22001566</Weight>
+						</Feature>
+						<Feature>
+							<Name>lalu</Name>
+							<Instance>Lalu</Instance>
+							<Type>keyword</Type>
+							<Weight>0.18908861</Weight>
+						</Feature>
+						<Feature>
+							<Name>court</Name>
+							<Instance>Court</Instance>
+							<Type>keyword</Type>
+							<Weight>0.17913927</Weight>
+						</Feature>
+						<Feature>
+							<Name>plea</Name>
+							<Instance>plea</Instance>
+							<Type>keyword</Type>
+							<Weight>0.17148536</Weight>
+						</Feature>
+						<Feature>
+							<Name>judgement</Name>
+							<Instance>judgement</Instance>
+							<Type>keyword</Type>
+							<Weight>0.14363958</Weight>
+						</Feature>
+						<Feature>
+							<Name>fraudul</Name>
+							<Instance>fraudulent</Instance>
+							<Type>keyword</Type>
+							<Weight>0.14186183</Weight>
+						</Feature>
+						<Feature>
+							<Name>prasad</Name>
+							<Instance>Prasad</Instance>
+							<Type>keyword</Type>
+							<Weight>0.13965319</Weight>
+						</Feature>
+						<Feature>
+							<Name>apex</Name>
+							<Instance>apex</Instance>
+							<Type>keyword</Type>
+							<Weight>0.13611934</Weight>
+						</Feature>
+						<Feature>
+							<Name>case</Name>
+							<Instance>case</Instance>
+							<Type>keyword</Type>
+							<Weight>0.13202745</Weight>
+						</Feature>
+						<Feature>
+							<Name>bihar</Name>
+							<Instance>Bihar</Instance>
+							<Type>keyword</Type>
+							<Weight>0.13093324</Weight>
+						</Feature>
+						<Feature>
+							<Name>imprison</Name>
+							<Instance>imprisonment</Instance>
+							<Type>keyword</Type>
+							<Weight>0.12849188</Weight>
+						</Feature>
+						<Feature>
+							<Name>withdraw</Name>
+							<Instance>withdrawal</Instance>
+							<Type>keyword</Type>
+							<Weight>0.10457325</Weight>
+						</Feature>
+						<Feature>
+							<Name>charg</Name>
+							<Instance>charge</Instance>
+							<Type>keyword</Type>
+							<Weight>0.09036774</Weight>
+						</Feature>
+						<Feature>
+							<Name>husbandri</Name>
+							<Instance>Husbandry</Instance>
+							<Type>keyword</Type>
+							<Weight>0.08932207</Weight>
+						</Feature>
+						<Feature>
+							<Name>rjd</Name>
+							<Instance>RJD</Instance>
+							<Type>keyword</Type>
+							<Weight>0.08845281</Weight>
+						</Feature>
+						<Feature>
+							<Name>proceed</Name>
+							<Instance>proceedings</Instance>
+							<Type>keyword</Type>
+							<Weight>0.08546997</Weight>
+						</Feature>
+						<Feature>
+							<Name>rashtriya</Name>
+							<Instance>Rashtriya</Instance>
+							<Type>keyword</Type>
+							<Weight>0.08503057</Weight>
+						</Feature>
+					</FeatureList>
+				</Property>
+				<Property xsi:type="FeatureListPropertyType" name="thematicfeatures" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<FeatureList>
+						<Feature>
+							<Name>scam case</Name>
+							<Instance>scam case</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.4931583</Weight>
+						</Feature>
+						<Feature>
+							<Name>apex court</Name>
+							<Instance>apex court</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.12268682</Weight>
+						</Feature>
+						<Feature>
+							<Name>jail sentence</Name>
+							<Instance>jail sentence</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.06960528</Weight>
+						</Feature>
+						<Feature>
+							<Name>fodder scam case</Name>
+							<Instance>fodder scam case</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.12364288</Weight>
+						</Feature>
+						<Feature>
+							<Name>fodder scam</Name>
+							<Instance>fodder scam</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.07931313</Weight>
+						</Feature>
+						<Feature>
+							<Name>government treasury</Name>
+							<Instance>government treasury</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.0723498</Weight>
+						</Feature>
+						<Feature>
+							<Name>conspiracy charge</Name>
+							<Instance>conspiracy charge</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.04475425</Weight>
+						</Feature>
+						<Feature>
+							<Name>fodder scam case</Name>
+							<Instance>fodder scam cases</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.12364288</Weight>
+						</Feature>
+						<Feature>
+							<Name>probe agency</Name>
+							<Instance>probe agency</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.03113919</Weight>
+						</Feature>
+						<Feature>
+							<Name>latest appeal</Name>
+							<Instance>latest appeal</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.03400412</Weight>
+						</Feature>
+						<Feature>
+							<Name>trial court</Name>
+							<Instance>trial court</Instance>
+							<Type>keyphrase</Type>
+							<Weight>0.01229341</Weight>
+						</Feature>
+					</FeatureList>
+				</Property>
+			</PropertySet>
+			<PropertySet group="dedupdata">
+				<Property xsi:type="ConceptSpacePropertyType" name="conceptvectors" index="no" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<Status value="0">success </Status>
+					<ConceptSetList>
+						<ConceptSet>
+							<ConceptSpace period="14" name="en_pub9web_20160328_20160410_14d" start="20160328" end="20160410">
+								<La>en</La>
+								<ContentType>pub</ContentType>
+								<ContentType>web</ContentType>
+							</ConceptSpace>
+							<ConceptVector compress="" factor="10000">-2562 429 -688 -472 322 761 502 126 -1009 -501 -1830 -129 -1407 -449 -789 -93 -957 1202 -473 -58 492 145 1170 981 981 371 -699 2218 1413 -498 -1676 232 418 840 837 279 -228 -920 132 -208 -266 1046 -1211 760 -1645 1597 266 -494 -1358 -970 102 200 556 767 -286 646 -493 -130 -128 461 -316 -210 719 -1251 825 1052 782 551 -126 312 548 313 -147 148 756 538 -410 -72 -443 420 -120 489 -187 -1813 -241 -445 -590 87 368 -543 -151 1346 809 350 -200 153 -225 -101 448 -578 472 5 -226 -23 -284 354 111 536 347 116 -523 -106 -227 90 -252 71 -185 -349 -379 -674 -278 239 338 -341 292 -329 53 356 16 754 -7 -45 65 -601 -704 -563 21 537 609 -74 -517 206 -90 -158 146 28 175 32 -23 -77 -144 464 25 -86 380 5 -114 164 735 -193 298 26 221 432 -203 346 265 -31 277 -167 206 388 288 76 -192 -142 111 318 442 -226 484 69 83 -141 -577 279 582 -325 -363 -336 520 218 397 -80 -680 -6 1092 -327 -332 -370 -861 408 -749 433 329 712 -597 -159 -434 167 329 -753 -299 1007 -165 658 1524 206 -96 229 -182 450 -96 1271 -261 772 -601 -77 314 443 143 1091 -195 9 159 660 -670 64 215 -377 -795 585 -168 393 -380 816 -112 -338 745 693 -197 1583 -120 -499 -439 416 -61 237 -202 131 -181 480 -470 19 -512 -210 -124 296 -185 443 748 142 -146 243 -249 178 28 -352 -438 -307 -548 -94 -69 -223 -252 -253 -257 281 576 -444 -804 423 69 719 159 -586</ConceptVector>
+						</ConceptSet>
+						<ConceptSet>
+							<ConceptSpace period="14" name="en_pub9web_20160411_20160424_14d" start="20160411" end="20160424">
+								<La>en</La>
+								<ContentType>pub</ContentType>
+								<ContentType>web</ContentType>
+							</ConceptSpace>
+							<ConceptVector compress="" factor="10000">-2673 430 27 688 703 -706 -698 136 1835 2187 -441 1478 -270 -654 947 -1353 -715 938 734 371 441 -1234 908 32 679 1053 -21 -38 -902 -215 -757 -671 -667 -1608 982 -69 -230 -249 -580 -2121 -969 -1392 -707 -1082 253 -557 1215 -68 360 -1653 574 -523 901 313 203 745 132 258 -290 -1255 -328 291 -292 1725 1332 784 -14 127 550 -483 298 -499 189 -570 353 697 -777 -27 519 209 -97 60 170 277 105 151 -143 -407 -144 -182 136 189 -131 -376 -320 -95 -222 360 -1066 -472 -130 -116 -252 -573 396 -731 -1133 42 -339 255 397 282 614 5 177 -411 -75 117 224 534 587 144 165 301 -228 203 396 668 -597 -776 -283 -5 681 -129 -612 158 -649 -322 583 -320 -318 -158 -22 -125 553 -799 46 156 -815 667 -404 -281 237 -299 -368 -65 -324 -735 -288 520 188 173 753 -449 -393 306 -98 -288 222 -665 306 405 -727 -739 -364 -125 -281 396 249 -280 130 -87 -492 177 -191 603 -301 -417 -61 364 -389 -547 72 33 -18 -986 136 80 -36 -96 464 308 319 425 103 391 -507 294 -204 245 -200 451 82 -557 -136 -179 422 327 273 -39 -68 172 -733 -256 -81 669 247 -83 420 769 -307 156 -469 1239 186 7 -55 357 468 -200 313 -601 444 511 -485 -440 -164 371 -61 -58 -400 493 -119 60 -284 68 185 -1121 546 983 279 -147 -143 456 -34 -436 187 664 319 392 -87 -11 1315 466 448 419 -127 -491 -469 -98 23 -95 173 658 -448 -1197 -39 92 -485 235 518 835 123 -231 -4 6</ConceptVector>
+						</ConceptSet>
+					</ConceptSetList>
+				</Property>
+			</PropertySet>
+			<PropertySet group="docclusters">
+				<Property xsi:type="ClusterListPropertyType" name="docclusters" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<ClusterList>
+						<Cluster>
+							<Id>136514608</Id>
+							<Type>similar</Type>
+							<ClusterStrength>0.827</ClusterStrength>
+							<DocStrength>5.0</DocStrength>
+						</Cluster>
+						<Cluster>
+							<Id>138854982</Id>
+							<Type>identical</Type>
+							<ClusterStrength>1.609</ClusterStrength>
+							<DocStrength>5.0</DocStrength>
+						</Cluster>
+					</ClusterList>
+				</Property>
+			</PropertySet>
+			<PropertySet group="replyitem">
+				<Property xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="StringPropertyType" name="truncxs" value="24"/>
+				<Property xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SnippetPropertyType" name="snippet">
+					<Snippet>
+						<Para>New Delhi, April 20 -- The Supreme Court on Thursday reserved its judgement in the Fodder scam case and asked all parties concerned to give their submissions within a week.</Para>
+					</Snippet>
+				</Property>
+			</PropertySet>
+		</Properties>
+		<Inventory>
+			<Entity itemID="1" cat="pe">
+				<Instances>
+					<Instance instID="1">
+						<PropertySet>
+							<Property xsi:type="StringPropertyType" name="extractedtext" value="Lalu Prasad Yadav" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+							<Property xsi:type="StringPropertyType" name="origin" value="ThingFinder 4.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						</PropertySet>
+					</Instance>
+				</Instances>
+				<Intrinsic>
+					<PropertySet group="externalref">
+						<Property xsi:type="FootprintRefPropertyType" name="ref" value="33935820" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="origin" value="FootprintMatcher DB 2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="IntegerPropertyType" name="confidence" value="90" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="confidencerange" value="high" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="IntegerPropertyType" name="relevance" value="100" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="relevancerange" value="high" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="refname" value="Lalu Prasad Yadav" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+					<PropertySet group="specprop">
+						<Property xsi:type="StringPropertyType" name="prefix" value="Lalu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="firstname" value="Prasad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="lastname" value="Yadav" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+				</Intrinsic>
+			</Entity>
+			<Entity itemID="2" cat="co">
+				<Instances>
+					<Instance instID="2">
+						<PropertySet>
+							<Property xsi:type="StringPropertyType" name="extractedtext" value="Jharkhand High Court" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+							<Property xsi:type="StringPropertyType" name="origin" value="ThingFinder 4.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						</PropertySet>
+					</Instance>
+				</Instances>
+				<Intrinsic>
+					<PropertySet group="externalref">
+						<Property xsi:type="FootprintRefPropertyType" name="ref" value="27308148" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="origin" value="FootprintMatcher DB 2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="IntegerPropertyType" name="confidence" value="92" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="confidencerange" value="high" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="IntegerPropertyType" name="relevance" value="28" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="relevancerange" value="low" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="refname" value="Jharkhand High Court" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+					<PropertySet group="commonprop">
+						<Property xsi:type="StringPropertyType" name="subcat" value="government" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+					<PropertySet group="specprop">
+						<Property xsi:type="StringPropertyType" name="orgname" value="Jharkhand High Court" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+				</Intrinsic>
+			</Entity>
+			<Entity itemID="3" cat="co">
+				<Instances>
+					<Instance instID="3">
+						<PropertySet>
+							<Property xsi:type="StringPropertyType" name="extractedtext" value="High Court" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+							<Property xsi:type="StringPropertyType" name="origin" value="ThingFinder 4.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						</PropertySet>
+					</Instance>
+					<Instance instID="4">
+						<PropertySet>
+							<Property xsi:type="StringPropertyType" name="extractedtext" value="High Court" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+							<Property xsi:type="StringPropertyType" name="origin" value="ThingFinder 4.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						</PropertySet>
+					</Instance>
+				</Instances>
+				<Intrinsic>
+					<PropertySet group="externalref">
+						<Property xsi:type="FootprintRefPropertyType" name="ref" value="27075719" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="origin" value="FootprintMatcher DB 2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="IntegerPropertyType" name="confidence" value="90" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="confidencerange" value="high" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="IntegerPropertyType" name="relevance" value="28" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="relevancerange" value="low" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="refname" value="High Court" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+					<PropertySet group="commonprop">
+						<Property xsi:type="StringPropertyType" name="subcat" value="government" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+					<PropertySet group="specprop">
+						<Property xsi:type="StringPropertyType" name="orgname" value="High Court" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+				</Intrinsic>
+			</Entity>
+			<Entity itemID="4" cat="co">
+				<Instances>
+					<Instance instID="5">
+						<PropertySet>
+							<Property xsi:type="StringPropertyType" name="extractedtext" value="HT Digital" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+							<Property xsi:type="StringPropertyType" name="origin" value="ThingFinder 4.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						</PropertySet>
+					</Instance>
+				</Instances>
+				<Intrinsic>
+					<PropertySet group="externalref">
+						<Property xsi:type="FootprintRefPropertyType" name="ref" value="33040353" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="origin" value="FootprintMatcher DB 2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="IntegerPropertyType" name="confidence" value="93" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="confidencerange" value="high" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="IntegerPropertyType" name="relevance" value="4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="relevancerange" value="low" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="refname" value="HT Digital" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+					<PropertySet group="commonprop">
+						<Property xsi:type="StringPropertyType" name="subcat" value="commercial" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+					<PropertySet group="specprop">
+						<Property xsi:type="StringPropertyType" name="orgname" value="HT Digital" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+				</Intrinsic>
+			</Entity>
+			<Entity itemID="5" cat="co">
+				<Instances>
+					<Instance instID="6">
+						<PropertySet>
+							<Property xsi:type="StringPropertyType" name="extractedtext" value="Asian News International" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+							<Property xsi:type="StringPropertyType" name="origin" value="ThingFinder 4.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						</PropertySet>
+					</Instance>
+				</Instances>
+				<Intrinsic>
+					<PropertySet group="externalref">
+						<Property xsi:type="FootprintRefPropertyType" name="ref" value="27080777" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="origin" value="FootprintMatcher DB 2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="IntegerPropertyType" name="confidence" value="92" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="confidencerange" value="high" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="IntegerPropertyType" name="relevance" value="23" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="relevancerange" value="low" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+						<Property xsi:type="StringPropertyType" name="refname" value="Asian News International" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+					<PropertySet group="commonprop">
+						<Property xsi:type="StringPropertyType" name="subcat" value="commercial" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+					<PropertySet group="specprop">
+						<Property xsi:type="StringPropertyType" name="orgname" value="Asian News International" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					</PropertySet>
+				</Intrinsic>
+			</Entity>
+		</Inventory>
+	</MetadataPT>
+	<ArchiveDoc xsi:type="ArticleArchiveDocType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<Article markup="pp0" index="field" lang="en">
+			<HandL fid="hlp">
+				<Title fid="hl">
+					<SectionName fid="se" index="field"/>
+					<ColumnName fid="clm" index="field"/>
+					<Headline fid="hd">
+						<Para lang="en">SC reserves judgement in Fodder scam case</Para>
+					</Headline>
+				</Title>
+				<LeadPara fid="lp">
+					<Para>New Delhi, April 20 -- The Supreme Court on Thursday reserved its judgement in the Fodder scam case and asked all parties concerned to give their submissions within a week.</Para>
+					<Para>Earlier this week, the apex court heard the plea filed by Rashtriya Janata Dal (RJD) supremo Lalu Prasad Yadav challenging his jail sentence in connection with the mid-1990s fodder scam case.</Para>
+				</LeadPara>
+			</HandL>
+			<TailParas fid="td">
+				<Para>The fodder scam involved the embezzlement of about Rs. 9.4 billion from the government treasury of Bihar.</Para>
+				<Para>The CBI had filed a plea in the apex court against the dropping of a conspiracy charge against Yadav by the Jharkhand High Court in one of the fodder scam cases.</Para>
+				<Para>The probe agency then filed its latest appeal against the High Court order upholding the agency&apos;s plea to continue proceedings in the trial court against Prasad under two sections, while dropping other charges on grounds that a person could not be tried twice for the same offence.</Para>
+				<Para>The High Court had ordered that proceedings against Yadav be continued under IPC Sections 201 (causing disappearance of evidence of an offence committed or giving false information) and 511 (attempting to commit offences punishable with imprisonment for life or imprisonment, and in such attempt doing any act towards the commission of the offence).</Para>
+				<Para>The charges are in connection with the case pertaining to fraudulent withdrawal of Rs. 96 lakh during Yadav&apos;s chief ministerial tenure.</Para>
+				<Para>The fodder scam relates to fraudulent withdrawal of around Rs. 1,000 crore by the Animal Husbandry department from various districts when Lalu was the Bihar chief minister from 1990 to 1997.</Para>
+				<Para>Published by HT Digital Content Services with permission from Asian News International.</Para>
+			</TailParas>
+			<Byline fid="by" index="field"/>
+			<Credit fid="cr" index="field"/>
+			<Contact fid="ct" index="field">For any query with respect to this article or any other content requirement, please contact Editor at htsyndication@hindustantimes.com </Contact>
+			<Notes fid="rf" index="field"/>
+			<Art fid="art" index="field"/>
+			<Copyright fid="cy" index="field">Copyright 2017. ANI </Copyright>
+		</Article>
+	</ArchiveDoc>
+	<AdocTOC adoctype="article">
+		<Item ref="distdoc:archive/ArchiveDoc::Article" size="0" type="arttext"/>
+		<Item ref="distdoc:archive/InvertText" size="0" type="invtext"/>
+	</AdocTOC>
+</DistDoc>

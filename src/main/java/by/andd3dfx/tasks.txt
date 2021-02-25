@@ -1,0 +1,31 @@
+
+* Pet Clinic REST API design
+Design REST service related with Pet Clinic, where pets have name and age.
+Add operation with pets batch update (for example add new field - owner)
+
+GET     clinic\{id}
+DELETE  clinic\{id}
+POST    clinic
+            params: { name: ..., age : ... }
+PUT     clinic\{id}
+            params: { age: ... }
+PATCH   clinic
+            params: { ids: ..., owner: ... }
+
+* Sorting big strings task
+Propose algorithm for sorting bunch of long strings situated on disk.
+We have restriction of RAM size: so only one string could be loaded into RAM simultaneously.
+
+TODO: добавить решение CS задач:
+сортировки:
+- пирамидальная
+- быстрая (со стеками/на месте)
+- подсчетом
+- блочная
+
+хеш-таблицы, пробирование (линейное, квадратичное, пвсевдослучайное), хэширование (одинарное, двойное)
+сочетания, размещения, с повторениями/без
+
+деревья:
+- добавление/поиск/удаление вершин
+- префиксные деревья
