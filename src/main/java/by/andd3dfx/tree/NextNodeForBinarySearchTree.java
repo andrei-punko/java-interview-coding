@@ -1,4 +1,4 @@
-package by.andd3dfx.interview.train2021;
+package by.andd3dfx.tree;
 
 /**
  * We have binary search tree:

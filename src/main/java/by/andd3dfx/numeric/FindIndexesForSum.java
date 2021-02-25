@@ -1,4 +1,4 @@
-package by.andd3dfx.interview.train2021;
+package by.andd3dfx.numeric;
 
 import static java.util.Arrays.binarySearch;
 

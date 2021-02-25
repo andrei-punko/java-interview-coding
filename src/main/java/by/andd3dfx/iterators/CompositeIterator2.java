@@ -1,14 +1,14 @@
-package by.andd3dfx.interview.train2021;
+package by.andd3dfx.iterators;
 
 import java.util.Iterator;
 
-public class CompositeIterator<T> implements Iterator<T> {
+public class CompositeIterator2<T> implements Iterator<T> {
 
     private final Iterator<T> a;
     private final Iterator<T> b;
     private Iterator<T> currentIterator;
 
-    public CompositeIterator(Iterator<T> a, Iterator<T> b) {
+    public CompositeIterator2(Iterator<T> a, Iterator<T> b) {
         this.a = a;
         this.b = b;
         currentIterator = a;

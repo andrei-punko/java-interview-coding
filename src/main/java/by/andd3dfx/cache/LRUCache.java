@@ -1,4 +1,4 @@
-package by.andd3dfx.interview.amazon;
+package by.andd3dfx.cache;
 
 import java.util.HashMap;
 import java.util.LinkedHashSet;

@@ -1,9 +1,10 @@
-package by.andd3dfx.interview.train2021;
+package by.andd3dfx.common;
 
+import by.andd3dfx.common.CustomEnum;
 import org.junit.Test;
 
-import static by.andd3dfx.interview.train2021.CustomEnum.MONDAY;
-import static by.andd3dfx.interview.train2021.CustomEnum.SUNDAY;
+import static by.andd3dfx.common.CustomEnum.MONDAY;
+import static by.andd3dfx.common.CustomEnum.SUNDAY;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 

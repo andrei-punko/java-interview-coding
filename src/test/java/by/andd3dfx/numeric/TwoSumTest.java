@@ -1,10 +1,11 @@
-package by.andd3dfx.interview.wf;
+package by.andd3dfx.numeric;
 
 import static org.hamcrest.CoreMatchers.anyOf;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import by.andd3dfx.numeric.TwoSum;
 import org.junit.Test;
 
 public class TwoSumTest {

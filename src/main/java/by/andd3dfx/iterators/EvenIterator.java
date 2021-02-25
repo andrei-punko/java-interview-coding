@@ -1,4 +1,4 @@
-package by.andd3dfx.interview.train2021;
+package by.andd3dfx.iterators;
 
 import java.util.Iterator;
 import java.util.Stack;

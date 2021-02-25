@@ -1,9 +1,10 @@
-package by.andd3dfx.interview.goldmansachs;
+package by.andd3dfx.numeric;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import by.andd3dfx.interview.goldmansachs.BestAverageScore.Item;
+import by.andd3dfx.numeric.BestAverageScore;
+import by.andd3dfx.numeric.BestAverageScore.Item;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;

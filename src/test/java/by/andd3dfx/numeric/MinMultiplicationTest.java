@@ -1,5 +1,6 @@
-package by.andd3dfx.interview.train2021;
+package by.andd3dfx.numeric;
 
+import by.andd3dfx.numeric.MinMultiplication;
 import org.junit.Before;
 import org.junit.Test;
 

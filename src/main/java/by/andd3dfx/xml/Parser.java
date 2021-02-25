@@ -1,4 +1,4 @@
-package by.andd3dfx.interview.dow;
+package by.andd3dfx.xml;
 
 import java.io.File;
 import java.io.IOException;

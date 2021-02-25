@@ -1,4 +1,4 @@
-package by.andd3dfx.interview.train2021;
+package by.andd3dfx.common;
 
 import java.util.ArrayList;
 import java.util.HashMap;

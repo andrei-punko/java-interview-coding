@@ -1,8 +1,9 @@
-package by.andd3dfx.interview.amazon;
+package by.andd3dfx.cache;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import by.andd3dfx.cache.LFUCache;
 import org.junit.Test;
 
 public class LFUCacheTest {

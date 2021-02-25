@@ -1,5 +1,6 @@
-package by.andd3dfx.interview.train2021;
+package by.andd3dfx.iterators;
 
+import by.andd3dfx.iterators.EvenIterator;
 import org.junit.Test;
 
 import java.util.Arrays;

@@ -1,8 +1,9 @@
-package by.andd3dfx.interview.goldmansachs;
+package by.andd3dfx.string;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import by.andd3dfx.string.LongestDictWordsFromCharacters;
 import org.junit.Test;
 
 public class LongestDictWordsFromCharactersTest {

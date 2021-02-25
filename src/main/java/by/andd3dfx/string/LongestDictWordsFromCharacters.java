@@ -1,4 +1,4 @@
-package by.andd3dfx.interview.goldmansachs;
+package by.andd3dfx.string;
 
 import java.util.ArrayList;
 import java.util.HashMap;

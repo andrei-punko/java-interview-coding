@@ -1,4 +1,4 @@
-package by.andd3dfx.interview.goldmansachs;
+package by.andd3dfx.numeric;
 
 import java.util.Collection;
 import java.util.Collections;

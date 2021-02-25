@@ -3,8 +3,6 @@ package by.andd3dfx.interview.goldmansachs;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import org.junit.Test;
 
 public class PropertiesExtractorTest {
@@ -20,5 +18,46 @@ public class PropertiesExtractorTest {
         Person person = new Person("Andrei");
         person.setCard(new Card("VISA", "123546"));
         assertThat(PropertiesExtractor.extract(person), is("Andrei VISA 123546"));
+    }
+
+    public static class Person {
+
+        private String name;
+        private Card card;
+
+        public Person(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public Card getCard() {
+            return card;
+        }
+
+        public void setCard(Card card) {
+            this.card = card;
+        }
+    }
+
+    public static class Card {
+
+        private String vendor;
+        private String number;
+
+        public Card(String vendor, String number) {
+            this.vendor = vendor;
+            this.number = number;
+        }
+
+        public String getVendor() {
+            return vendor;
+        }
+
+        public String getNumber() {
+            return number;
+        }
     }
 }
