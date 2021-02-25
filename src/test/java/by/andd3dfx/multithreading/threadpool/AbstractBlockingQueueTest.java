@@ -46,7 +46,10 @@ public abstract class AbstractBlockingQueueTest {
         Thread dequeueThread = new Thread(() -> {
             while (true) {
                 try {
-                    System.out.print(queue.dequeue() + " ");
+                    Integer number = queue.dequeue();
+
+//                    System.out.print(number + " ");
+
                     Thread.sleep(random.nextInt(10));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
