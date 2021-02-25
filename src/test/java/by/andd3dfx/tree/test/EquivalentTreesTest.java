@@ -65,6 +65,7 @@ public class EquivalentTreesTest {
         assertThat(result, hasItems(node.left, node.right));
     }
 
+    // TODO: sometimes fail a build
     @Ignore("Fail of Github CI build")
     @Test
     public void findEquivalentSubtreesComplexCase() {
