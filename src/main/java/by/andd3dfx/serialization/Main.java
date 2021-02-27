@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         // Serialize object
-        FileOutputStream fileOutputStream = new FileOutputStream("./sandbox-core/target/save.ser");
+        FileOutputStream fileOutputStream = new FileOutputStream("./target/save.ser");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
         UserInfo userInfo = new UserInfo("Ivan", "Ivanov", "Ivan Ivanov's passport data");
@@ -21,7 +21,7 @@ public class Main {
         objectOutputStream.close();
 
         // Deserialize object
-        FileInputStream fileInputStream = new FileInputStream("./sandbox-core/target/save.ser");
+        FileInputStream fileInputStream = new FileInputStream("./target/save.ser");
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
         UserInfo deserializedUserInfo = (UserInfo) objectInputStream.readObject();

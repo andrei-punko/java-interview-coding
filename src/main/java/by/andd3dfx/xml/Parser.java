@@ -12,12 +12,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
- * Parse file ./sandbox-core/src/main/resources/233.xml and find all articles inside it
+ * Parse file ./src/main/resources/233.xml and find all articles inside it
  */
 public class Parser {
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
-        File fXmlFile = new File("./sandbox-core/src/main/resources/233.xml");
+        File fXmlFile = new File("./src/main/resources/233.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(fXmlFile);
