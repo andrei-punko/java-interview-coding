@@ -1,0 +1,1585 @@
+
+- как перемешать массив?
+- дан набор строк вида "assa dfgg aga", найти 3й палиндром в строке / удалить все палиндромы
+- реализовать бинарный серч
+see example in java-sandbox repo
+
+- отличие хэштаблицы от хэшмапа
+https://www.geeksforgeeks.org/differences-between-hashmap-and-hashtable-in-java/
+= HashMap is not synchronized, so not thread-safe; HashTable is syncronized
+= HashMap allows one null key and multiple null values whereas Hashtable doesn’t allow any null key or value
+= HashMap is generally preferred over HashTable if thread synchronization is not needed
+
+- зачем -9 в kill
+https://linux.die.net/man/2/kill
+https://ru.wikipedia.org/wiki/SIGKILL
+Команде передается PID и сигнал. На большинстве платформ SIGKILL имеет значение 9; в отличие от SIGTERM или SIGINT этот сигнал не может быть перехвачен или проигнорирован, а процесс, получивший его не имеет возможности выполнить какие-либо действия перед своим завершением
+
+- LinkedHashSet
+http://developer.alexanderklimov.ru/android/java/set.php
+Если порядок хранения в множестве для вас важен, используйте контейнер TreeSet, в котором объекты хранятся отсортированными по возрастанию в порядке сравнения 
+или LinkedHashSet с хранением элементов в порядке добавления
+
+- transient in Java
+transient is a Java keyword which marks a member variable not to be serialized when it is persisted to streams of bytes. When an object is transferred through the network, the object needs to be 'serialized'. Serialization converts the object state to serial bytes
+
+- git merge vs rebase (слияние или перемещение)
+https://git-scm.com/book/ru/v1/%D0%92%D0%B5%D1%82%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-Git-%D0%9F%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D0%B5
+это 2 способа включения изменений одной ветки в другую
+В случае слияния - создается новый снимок состояния на основе 2 других - ветки с коммитами и ветки куда мержим
+В случае перемещения - изменения в нашей ветке (дельта) применяются поверх ветки относительно которой выполняется перемещение
+Риски: "Не перемещайте коммиты, которые вы уже отправили в публичный репозиторий"
+
+- ты пришел на проект, где уже много всего написано, но еще нет тестов (trollface). какие тесты будешь писать первыми?
+если почти нет разработки как таковой, а цель - зафиксировать тестами текущее состояние, то буду покрывать основные бизнес-кейсы. для этого привлеку BA, заодно можно написать или подправить имеющуюся документацию. общий подход - top-down, т.е. вначале покрывать самые высокоуровневые методы (видимо это будут методы бизнес логики), потом - спускаться ниже, к частностям
+если ведется разработка - то буду точечно фиксировать состояние до ченжей и после; так постепенно покрытие будет увеличиваться.
+также важно писать тесты в моменты фикса дефектов, причем для состояния "до фикса" они должны валиться, чтобы тесты были valuable
+
+- как реализован compareAndSwap (CAS) под капотом
+https://dzone.com/articles/how-cas-compare-and-swap-java
+Смотрим, какое значение хранится в переменной. Если оно то, какое мы ожидаем, то меняем его на новое.
+Соответственно Atomic тип в цикле выполняет это действие
+
+- AtomicReference
+https://stackoverflow.com/questions/3964211/when-to-use-atomicreference-in-java
+An atomic reference is ideal to use when you need to share and change the state of an immutable object between multiple threads.
+Under the hood AtomicReference uses CAS algorithm, so we don't need to acquire lock before access to object
+
+- хэшкод и хэшмэп в жаве - как бы писал свои?
+https://www.baeldung.com/java-hashcode
+hashcode() - we could implement it by own hands (making math expression where fields hashcodes multiplied to prime numbers and summarized after that),
+or generate by IDE, or use Apache Commons or Lombok annotation
+HashMap could be implemented using hastable based on buckets
+
+- describe usage of dynamic proxy
+https://www.baeldung.com/java-dynamic-proxies
+Dynamic proxies allow one single class with one single method to service multiple method calls to arbitrary classes with an arbitrary number of methods. A dynamic proxy can be thought of as a kind of Facade, but one that can pretend to be an implementation of any interface. Under the cover, _it routes all method invocations to a single handler_ – the invoke() method
+
+- польза использования простых чисел в хэшкод-related штуках
+Использование простых чисел в при вычислении хэшкода дает наилучшее распределение между бакетами, айтемы не кучкуются в одном месте
+
+- агрегация vs композиция vs наследование
+https://habr.com/post/354046/
+агрегация - один класс содержит другой внутри себя (экземпляр двигателя создается где-то в другом месте кода, и передается в конструктор автомобиля в качестве параметра)
+композиция - когда составляющая часть не существует отдельно от целого (двигатель автомобиля создается при создании автомобиля и передается в его конструктор)
+наследование - описывается словом "является"
+
+- отличия и сходства adapter, decorator, wrapper, proxy
+https://ru.stackoverflow.com/questions/693654/%D0%92-%D1%87%D1%91%D0%BC-%D0%BE%D1%82%D0%BB%D0%B8%D1%87%D0%B8%D1%8F-%D0%B8-%D1%81%D1%85%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0-%D0%BF%D0%B0%D1%82%D1%82%D0%B5%D1%80%D0%BD%D0%BE%D0%B2-adapter-decorator-wrapper-%D0%B8-proxy
+Wrapper - это синоним декоратора
+= Заместитель (proxy) оборачивает класс и предоставляет такой же интерфейс. Цель - "притвориться" оригинальным классом и скрыть от клиента детали. Типичные примеры использования - ленивая инициализация оборачиваемого класса или оборачивание вызовов стороннего сервиса
+= Декоратор также оборачивает класс и предоставляет такой же или расширенный интерфейс. Иногда декоратор называют "умным заместителем" (smart proxy). Т.е. декоратор может притворяться оригинальным классом и при этом расширять его функциональность. Пример: у вас есть заместитель, который прячет вызовы к стороннему сервису. Можно создать декоратор, который будет оборачивать и кэшировать результаты вызовов. Другой пример: нужно расширить функциональность оригинального класса, но он закрыт для наследования. Создается декоратор, который расширяет интерфейс оригинального класса
+= Адаптер также оборачивает класс, но при этом предоставляет другой интерфейс. Т.е. используется в случаях, когда есть класс с нужными данными и поведением, но с неподходящим интерфейсом
+---------------------------------------------------------------------------
+| Шаблон      | Что делает с интерфейсом | Что делает с функциональностью |
+---------------------------------------------------------------------------
+| Заместитель | Не изменяет              | Не изменяет                    |
+---------------------------------------------------------------------------
+| Декоратор   | Не изменяет/расширяет    | Расширяет                      |
+---------------------------------------------------------------------------
+| Адаптер     | Изменяет                 | Не изменяет                    |
+---------------------------------------------------------------------------
+
+- CAP-теорема (теорема Брюера) = consistency + availability + partitioning
+https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0_CAP
+= согласованность данных (consistency) — во всех вычислительных узлах в один момент времени данные не противоречат друг другу
+= доступность (availability) — любой запрос к распределённой системе завершается корректным откликом, однако без гарантии, что ответы всех узлов системы совпадают
+= устойчивость к разделению (partition tolerance) — расщепление распределённой системы на несколько изолированных секций не приводит к некорректности отклика от каждой из секций
+
+= В системе класса CA во всех узлах данные согласованы и обеспечена доступность, при этом она жертвует устойчивостью к распаду на секции. Такие системы возможны на основе технологического программного обеспечения, поддерживающего транзакционность в смысле ACID, примерами таких систем могут быть решения на основе кластерных систем управления базами данных или распределённая служба каталогов LDAP
+= Система класса CP в каждый момент обеспечивает целостный результат и способна функционировать в условиях распада, но достигает этого в ущерб доступности: может не выдавать отклик на запрос. Устойчивость к распаду на секции требует обеспечения дублирования изменений во всех узлах системы, в связи с этим отмечается практическая целесообразность использования в таких системах распределённых пессимистических блокировок для сохранения целостности
+= В системе класса AP не гарантируется целостность, но при этом выполнены условия доступности и устойчивости к распаду на секции. Хотя системы такого рода известны задолго до формулировки принципа CAP (например, распределённые веб-кэши или DNS), рост популярности решений с этим набором свойств связывается именно с распространением теоремы CAP. Так, большинство NoSQL-систем принципиально не гарантируют целостности данных, и ссылаются на теорему CAP как на мотив такого ограничения. Задачей при построении AP-систем становится обеспечение некоторого практически целесообразного уровня целостности данных, в этом смысле про AP-системы говорят как о «целостных в конечном итоге» (eventually consistent) или как о «слабо целостных» (weak consistent)
+
+= BASE (Basically Available, Soft-state, Eventually consistent — базовая доступность, неустойчивое состояние, согласованность в конечном счёте)
+	= Под базовой доступностью подразумевается такой подход к проектированию приложения, чтобы сбой в некоторых узлах приводил к отказу в обслуживании только для незначительной части сессий при сохранении доступности в большинстве случаев.
+	= Неустойчивое состояние подразумевает возможность жертвовать долговременным хранением состояния сессий (таких как промежуточные результаты выборок, информация о навигации, контексте), при этом концентрируясь на фиксации обновлений только критичных операций.
+	= Согласованность в конечном счёте, трактуется как возможность противоречивости данных в некоторых случаях, но при обеспечении согласования в практически обозримое время.
+
+- Xss+Xmx<1Gb, приложение занимает 3Gb в памяти. почему так может быть?
+Данные ограничения - для одного потока, приложение занимало столько памяти, потому что несколько потоков потребили столько (up to 1Gb) памяти
+
+- Zipkin
+https://habr.com/post/187902/
+Zipkin — это система распределенной трассировки, которая помогает нам собирать данные о времени выполнения всех разрозненных служб
+Сбор трассировок помогает разработчикам получить более глубокие знания о том, как определенные запросы выполняются в распределенной системе. Скажем, у нас возникли проблемы с запросами пользователей, допустим, превышение тайм-аута. Мы можем просмотреть трассировки запросов, которые отвалились и показать их в веб-интерфейсе. Мы сможем быстро найти службу, виновную за нежданную прибавку времени на ответ. Если служба была подробно проаннотирована, мы также сможем найти, в каком именно месте сервиса возникла проблема
+
+- для чего HTTP метод OPTIONS?
+https://habr.com/post/342432/
+Согласно стандарту HTTP/1.1 метод OPTIONS может быть использован клиентом для определения параметров или требований, связанных с ресурсом. Сервер также может отправлять документацию в удобочитаемом формате. Ответ на запрос OPTIONS может содержать список допустимых методов для данного ресурса в хедере Allow.
+То есть этот метод мог бы стать отличным средством для документирования наших REST-сервисов с одной стороны, и быть существенным дополнением к архитектурному ограничению HATEOAS с другой
+
+- Prometeus
+https://medium.com/southbridge/prometheus-monitoring-ba8fbda6e83
+Prometeus - система мониторинга состояния приложений и серверов, загрузку процессора, памяти, дисковую утилизацию и т.п. Когда что-то идет не так - шлются оповещения
+Визуализация - можно использовать Graphana
+
+- Dependency Injection – Field vs Constructor vs Method
+http://coders-kitchen.com/2015/01/05/dependency-injection-field-vs-constructor-vs-method/
+"Mixing setter and constructor injection" is preferred, because could distinguish between mandatory dependencies and non-mandatory
+
+- IoC vs DI
+https://stackoverflow.com/questions/6550700/inversion-of-control-vs-dependency-injection
+IoC (Inversion of Control) - is generic term and implemented in several ways (events, delegates etc).
+Giving control to the container to get an instance of the object is called IoC, means instead of you are creating an object using the new operator, let the container do that for you
+DI (Dependency Injection) - DI is a sub-type of IoC and is implemented by constructor injection, setter injection or Interface injection.
+Spring supports only Constructor Injection and Setter/Getter Injection.
+
+- приложение повисло (вроде бы), как убедиться в этом и что делать дальше?
+посмотреть использование ресурсов (процессора, памяти) приложением, возможно где-то уперлось в ограничения
+подключиться по JMX, посмотреть метрики JVM с этой же целью
+снять хипдамп/треддамп, скачать его, потом проанализировать
+
+- CQRS-шаблон (command-query responsibility segregation)
+https://ru.wikipedia.org/wiki/CQRS
+Принцип императивного программирования, в котором метод должен быть либо командой, выполняющей действия, либо запросом, возвращающим данные, но не одновременно и тем и другим. Другими словами - "задавание вопроса не должно менять ответ"
+
+- отличие ReentrantLock от synchronized
+https://stackoverflow.com/questions/11821801/why-use-a-reentrantlock-if-one-can-use-synchronizedthis
+A ReentrantLock is unstructured, unlike synchronized constructs - so you don't need to use a block structure for locking and can even hold a lock across methods. 
+Aside from that, ReentrantLock supports lock polling and interruptible lock waits that support time-out, and support for configurable fairness policy, allowing more flexible thread scheduling.
+When should you use ReentrantLocks? The answer is pretty simple - use it when you actually need something it provides that synchronized doesn't, like timed lock waits, interruptible lock waits, non-block-structured locks, multiple condition variables, or lock polling.
+
+- цикл жизни спринг-бина, как встроиться в него?
+https://www.journaldev.com/2637/spring-bean-life-cycle
+= By implementing InitializingBean and DisposableBean interfaces – Both these interfaces declare a single method where we can initialize/close resources in the bean. For post-initialization, we can implement InitializingBean interface and provide implementation of afterPropertiesSet() method. For pre-destroy, we can implement DisposableBean interface and provide implementation of destroy() method.
+This approach is simple to use but it’s not recommended because it will create tight coupling with the Spring framework in our bean implementations.
+= Providing init-method and destroy-method attribute values for the bean in the spring bean configuration file. 
+This is the recommended approach because of no direct dependency to spring framework and we can create our own methods.
+Note that both post-init and pre-destroy methods should have no arguments but they can throw Exceptions. We would also require to get the bean instance from the spring application context for these methods invocation.
+= Spring framework also support @PostConstruct and @PreDestroy annotations for defining post-init and pre-destroy methods. These annotations are part of javax.annotation package. However for these annotations to work, we need to configure our spring application to look for annotations. We can do this either by defining bean of type org.springframework.context.annotation.CommonAnnotationBeanPostProcessor or by context:annotation-config element in spring bean configuration file.
+= All of the *Aware interfaces are sub-interfaces of Aware and declare a single setter method to be implemented by the bean:
+	- ApplicationContextAware – to inject ApplicationContext object, example usage is to get the array of bean definition names.
+    - BeanFactoryAware – to inject BeanFactory object, example usage is to check scope of a bean.
+    - BeanNameAware – to know the bean name defined in the configuration file.
+    - ResourceLoaderAware – to inject ResourceLoader object, example usage is to get the input stream for a file in the classpath.
+    - ServletContextAware – to inject ServletContext object in MVC application, example usage is to read context parameters and attributes.
+    - ServletConfigAware – to inject ServletConfig object in MVC application, example usage is to get servlet config parameters.
+
+- What's new in latest Javas: 8-11?
+Java 8: https://habr.com/ru/post/216431/
+Java 9-11: https://codete.com/blog/java-8-java-11-quick-guide/
+Java 11: https://habr.com/ru/post/424683/
+
+* Java 8
+- lambda expressions (closures). lambda expression corresponds to functional interface
+- multiple new functional interfaces:
+	- Predicates: functions which take one argument and return boolean
+	- Functions: take one argument and return result
+	- Consumers: operation on one input argument
+	- Comparators: some new methods was added: reversed(), comparingInt(), comparingLong() etc
+- Optional: allow to prevent NPE
+- default methods in interfaces
+- Nashorn JS engine
+- new Date and Time API: Clock, ZoneId, LocalTime, LocalDate, LocalDateTime, DateTimeFormatter
+- links to methods and constructors, for example: String::valueOf, Person::new
+- Streams (sequencial and parallel): sequence of elements on which we could perform different operations. two types of operations:
+	- intermediate: Filter, Sorted, Map
+	- terminal: Match (return boolean), Count (return long), Reduce (return Optional)
+- new methods in Map: putIfAbsent(), computeIfPresent(), computeIfAbsent(), getOrDefault(), merge()
+- annotations became repeatable
+- CompletableFuture with about 50 different methods for composing, combining, executing asynchronous computation steps and handling errors
+
+* Java 9
+- Project Jigsaw: introduced modularity to monolithic Java SE ecosystem. The primary goal to make JDK more easily scalable down to small computing devices. Using module-info.java files we could declare which part of module we could expose
+- JShell: provides REPL - interactive programming tool
+- G1 garbage collector that introduced in Java 8 became default GC instead previous Parallel GC
+- private methods in interfaces
+- new methods in Optional class: ifPresentOrElse(), or()
+- Optional.stream(): Can treat with Optional as a Stream and use all methods from Stream API
+- static methods on the List, Set and Map interfaces for creating unmodifiable instances of those collections
+- new methods to CompletableFuture class. Most significant one relates to timeouts, for example: orTimeout(), completeOnTimeout()
+- enhancements in @Deprecated, added 2 new params to it: 'since' and 'forRemoval'
+
+* Java 10
+- "var" keyword introduced. It allows to replace strict variable type declaration if the type may be easily inferred by the compiler.
+We can use var in the context of local variables (instantly initialized), for loops and try-with-resources blocks.
+- new overloaded version of Optional.orElseThrow() without params which throws NoSuchElementException dy default
+- API for creating unmodifiable collections from existing collections: List.copyOf(), Set.copyOf(), Map.copyOf()
+- Collectors class has some new methods like toUnmodifiableList(), toUnmodifiableSet(), toUnmodifiableMap()
+- Parallel full GC for G1: G1 which was introduced in Java 9 and mainly designed to prevent "stop the world" event in this Java improved the algorithm to parallelize the full GC
+
+* Java 11
+- Local-Variable Syntax for Lambda Parameters, for example: (var x) -> x * 2. So could use 'var' here already
+- Add single-file programs support. Typing simply: 'java SimpleProgram.java' will run the program immediately.
+Support of "shebang files" added too: put '#!/usr/bin/java --source 11' into the first line of .java file for that
+- HTTP client API introduced in Java 9 as incubator project now became a part of Java SE standard
+- some modules removed from standard Java SE (corba, transaction, activation, xml.ws, xml.bind, xml.ws.annotation)
+- multiple new methods in public API: String, Pattern, Predicate, Path, Files etc
+- new optional Epsilon GC which doesn't collect garbage at all (useful for serverless usage, short-term tasks etc when guaranteed that heap will be enough and JVM should not collect statistics to decide when GC should start)
+- Flight Recorder became not-comercial and already presents in OpenJDK too
+- Nashorn as repacement of Rhino Javascript engine
+
+- предложить дизайн игры крестики-нолики
+Several VMs where each of them contains Docker image with spring-boot application inside. Requests goes through load balancer which forward them to VMs. In addition with could use some dashboard to display application metrics
+After when player notify server about intention to play, server looking for another player and create game, after that notified both players about game start.
+I think lobby creation isn't needed for such simple x-o game
+Interaction during game could be implemented by sending/retrieving players moves to/from server. In addition server collects games statistic and it could be displayed via some another service
+
+- написать сиквел на использование оконной функции
+https://en.wikipedia.org/wiki/SQL_window_function
+https://mode.com/sql-tutorial/sql-window-functions/
+In the SQL, window functions allow access to data in the records right before and after the current record. A window function defines a frame or window of rows with a given length around the current row, and performs a calculation across the set of data in the window. For example next query extracts for each row the values of a window with one preceding and one following row:
+SELECT
+	LAG(name,1) OVER(ORDER BY name) "prev",
+	name, 
+	LEAD(name,1) OVER(ORDER BY name) "next"
+	FROM people ORDER BY name
+
+List of windows functions: SUM(),COUNT(),AVG(),ROW_NUMBER(),RANK(),DENSE_RANK(),NTILE(),LAG(),LEAD()
+To narrow the window from the entire dataset to individual groups within the dataset, you can use PARTITION BY.
+To write several window functions into the same query, using the same window, you can create an alias using WINDOW:
+SELECT
+	LAG(name,1) OVER name_window "prev",
+	name, 
+	LEAD(name,1) OVER name_window "next"
+	FROM people 
+	WINDOW name_window AS (PARTITION BY country ORDER BY name)
+	ORDER BY name
+
+- LEAN принципы
+https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%80%D0%B5%D0%B6%D0%BB%D0%B8%D0%B2%D0%B0%D1%8F_%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F
+ - Исключение потерь (Eliminate waste). Потерями считается всё, что не добавляет ценности для потребителя. В частности: излишняя функциональность; ожидание (паузы) в процессе разработки; нечёткие требования; бюрократизация; медленное внутреннее сообщение
+ - Акцент на обучении (Amplify learning). Короткие циклы разработки, раннее тестирование, частая обратная связь с заказчиком
+ - Предельно отсроченное принятие решений (Decide as late as possible). Решение следует принимать не на основе предположений и прогнозов, а после открытия существенных фактов
+ - Предельно быстрая доставка заказчику (Deliver as fast as possible). Короткие итерации
+ - Мотивация команды (Empower the team). Нельзя рассматривать людей исключительно как ресурс. Людям нужно нечто большее, чем просто список заданий
+ - Интегрирование (Build integrity in). Передать целостную информацию заказчику. Стремиться к целостной архитектуре. Рефакторинг
+ - Целостное видение (See the whole). Стандартизация, установление отношений между разработчиками. Разделение разработчиками принципов бережливости. "Мыслить широко, делать мало, ошибаться быстро; учиться стремительно"
+
+- как проверить докер образ на секьюрность?
+при помощи сканирования специальными тулами
+
+- недостатки spring boot?
+достаточно большое потребление ресурсов приложением, построенным на его основе
+
+- hot/cold DB storages
+https://searchstorage.techtarget.com/definition/hot-data
+Hot data is data that needs to be accessed frequently. It is typically business-critical information that needs to be accessed quickly and is often used by a company for quick decision making (computation). Hot data usually resides on the fastest storage - typically flash in hybrid or tiered storage environments. 
+Conversely, cool data is data that is accessed less frequently by an organization. Cool data is usually stored on lower performing and less expensive storage environments in-house or in the cloud.
+
+- Репликация, фрагментация, отказоустойчивость
+https://web-creator.ru/articles/partitioning_replication_sharding
+  = Партиционирование — это разбиение таблиц, содержащих большое количество записей, на логические части по неким выбранным администратором критериям. Партиционирование таблиц делит весь объем операций по обработке данных на несколько независимых и параллельно выполняющихся потоков, что существенно ускоряет работу СУБД. Для правильного конфигурирования параметров партиционирования необходимо, чтобы в каждом потоке было примерно одинаковое количество записей.
+  Например, на новостных сайтах имеет смысл партиционировать записи по дате публикации, так как свежие новости на несколько порядков более востребованы и чаще требуется работа именно с ними, а не со всем архивом за годы существования новостного ресурса. 
+  = Репликация — это синхронное или асинхронное копирование данных между несколькими серверами. Ведущие сервера называют мастерами (master), а ведомые сервера — слэйвами (slave). Мастера используются для изменения данных, а слэйвы — для считывания. В классической схеме репликации обычно один мастер и несколько слэйвов, так как в большей части веб-проектов операций чтения на несколько порядков больше, чем операций записи.
+  Например, создание нескольких дополнительных slave-серверов позволяет снять с основного сервера нагрузку и повысить общую производительность системы, а также можно организовать слэйвы под конкретные ресурсоёмкие задачи и таким образом, например, упростить составление серьёзных аналитических отчётов — используемый для этих целей slave может быть нагружен на 100%, но на работу других пользователей приложения это не повлияет.
+  = Шардинг — это прием, который позволяет распределять данные между разными физическими серверами. Процесс шардинга предполагает разнесения данных между отдельными шардами на основе некого ключа шардинга. Связанные одинаковым значением ключа шардинга сущности группируются в набор данных по заданному ключу, а этот набор хранится в пределах одного физического шарда. Это существенно облегчает обработку данных.
+  Например, в системах типа социальных сетей ключом для шардинга может быть ID пользователя, таким образом все данные пользователя будут храниться и обрабатываться на одном сервере, а не собираться по частям с нескольких.
+	
+- недостатки node.js?
+https://toster.ru/q/171253
+Асинхронность... ее там нет. Там есть event loop что позволяет писать крайне эффективные программы в плане работы с I/O (что для web очень неплохо) и не париться о таких вещях, как потокобезопасность, блокировки и т.д. А если еще и несколько инстансов приложения запусть - по одному на ядро скажем, то утилизация вычислительных мощностей выйдет неплохой. Но распаралелить что-то в рамках одного процесса воркера мы уже не можем. Нода хороша, когда у нас все состоит из элементарных операций, которые не занимают много времени, все жирное надо выносить из основного процесса и разруливать очередями и т.д. 
+Callback-hell. Собственно наличие event loop диктует также правила о том, как должна писаться программа. Кучи колбэков, невозможность дебажить нормально и получить четкий стэктрейс из ошибки.
+Разработка больших и сложных проектов на ноде возможна, но требует от разработчика хорошие знания и понимание того, как работает его платформа. А это увеличивает стоимость разработки в то время, как можно взять более эффективные в этом плане инструменты.
+
+- 3 типа класслоадеров (загрузчиков): бутстрап, экстеншн, системный; delegation модель в класслоадерах
+http://www.quizful.net/post/Java
+https://habr.com/ru/post/103830
+В начале работы программы создается 3 основных загрузчика классов:
+	базовый загрузчик (bootstrap)
+    загрузчик расширений (extention)
+    системный загрузчик (system/application)
+	пользовательский загрузчик
+Загрузчики классов являются иерархическими. Иерархия загрузчиков: Bootstrap <- Extensions <- Application <- Пользовательский (если существует)
+  - Загрузчик, который загружает основные системные классы, называется базовым (Bootstrap или Primordial), корневым загрузчиком классов. Именно он загружает внутренние классы JDK и пакеты java.* (rt.jar и i18n.jar). Управлять загрузкой базовых классов можно с помощью ключа -Xbootclasspath, который позволяет переопределять наборы базовых классов.
+  - Загрузчик расширений – загружает различные пакеты расширений, которые располагаются в директории <JAVA_HOME>/lib/ext или другой директории, описанной в системном параметре java.ext.dirs. Это позволяет обновлять и добавлять новые расширения без необходимости модифицировать настройки используемых приложений. Управлять загрузкой расширений можно с помощью системной опции java.ext.dirs.
+  - Системный загрузчик – загружает классы, пути к которым указаны в переменной окружения CLASSPATH или пути, которые указаны после ключей –classpath или  –cp. Также управлять списком классов можно системной опцией java.class.path.
+Каждый загрузчик классов (кроме Bootstrap) имеет родительский загрузчик. Если класс уже загружался ранее текущим загрузчиком - он возвращается из кеша. Если нет - загрузчик делегирует поиск класса родительскому классу-загрузчику. Bootstrap загрузчик - загружает класс самостоятельно. Если бутстрап не находит класс для загрузки - управление передается обратно по иерархии предыдущему загрузчику и т.д.:
+	1) Системный загрузчик попытается поискать в кеше класс Student.
+		1.1) Если класс найден, загрузка окончена.
+		1.2) Если класс не найден, загрузка делегируется загрузчику расширений.
+	2) Загрузчик расширений попытается поискать в кеше класс Student.
+		2.1) Если класс найден, загрузка окончена.
+		2.2) Если класс не найден, загрузка делегируется базовому загрузчику.
+	3) Базовый загрузчик попытается поискать в кеше класс Student.
+		3.1) Если класс найден, загрузка окончена.
+		3.2) Если класс не найден, базовый загрузчик попытается его загрузить.
+			3.2.1) Если загрузка прошла успешно, она закончена ;)
+			3.2.2) Иначе управление предается загрузчику раширений.
+		3.3) Загрузчик расширений пытается загрузить класс.
+			3.3.1) Если загрузка прошла успешно, она закончена ;)
+			3.3.2) Иначе управление предается системному загрузчику.
+		3.4) Системный загрузчик пытается загрузить класс.
+			3.4.1) Если загрузка прошла успешно, она закончена ;)
+			3.4.2) Иначе генерируется исключение java.lang.ClassNotFoundException.
+Как следствие поиск классов будет происходить в источниках в порядке их доверия: сначала в библиотеке core API,  потом в папке расширений, потом в локальных файлах classpath.
+В Java существует возможность создания собственных загрузчиков классов. Это может быть полезно, когда нет возможности или нежелательно перечислять все используемые библиотеки при старте программы в CLASSPATH. Например, в программе должна быть возможность динамической загрузки плагинов. Или возможностей стандартного загрузчика недостаточно для загрузки нужных классов.
+Собственные загрузчики классов используют все серверы приложений и web-контейнеры, что и понятно – приложения, разворачиваемые на сервере приложений, должны загружаться динамически, в противном случае перечисление в переменной CLASSPATH всех библиотек, используемых приложениями, становится задачей нетривиальной.
+
+- недостатки Redis?
+https://habr.com/ru/post/178525/
+https://habr.com/ru/company/retailrocket/blog/269151/
+Redis отличная замена Memcached. Обосновался в нише быстрого кеша (скорость=достоинство), а не как основное хранилище, хотя некоторые рискуют использовать его и так.
+Персистентность (сохранение на диск) есть, отключаемая при желании; также персистентность не синхронна с записью в Redis (т.е. наступает позже), поэтому при использовании его в качестве системы основного хранения есть риск потерять данные находившиеся в памяти после последнего сохранения. Это и можно считать недостатком.
+
+- оптимистическая и пессимистическая блокировка в БД, как ее реализовать
+https://ru.wikipedia.org/wiki/%D0%91%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_(%D0%A1%D0%A3%D0%91%D0%94)
+  - Пессимистическая блокировка накладывается перед предполагаемой модификацией данных на все строки, которые такая модификация предположительно затрагивает. Всё время действия такой блокировки исключена модификация данных из сторонних сессий, данные из блокированных строк доступны согласно уровню изолированности транзакции. По завершению предполагаемой модификации гарантируется непротиворечивая запись результатов.
+  - Оптимистическая блокировка не ограничивает модификацию обрабатываемых данных сторонними сессиями, однако перед началом предполагаемой модификации запрашивает значение некоторого выделенного атрибута каждой из строк данных (обычно используется наименование VERSION и целочисленный тип с начальным значением 0). Перед записью модификаций в базу данных перепроверяется значение выделенного атрибута, и если оно изменилось, то транзакция откатывается или применяются различные схемы разрешения коллизий. Если значение выделенного атрибута не изменилось — производится фиксация модификаций с одновременным изменением значения выделенного атрибута (например, инкрементом) для сигнализации другим сессиям о том, что данные изменились. Конкретно на уровне кода это реализуется выполнением запроса с where VERSION=... .
+
+- настройка сборщика мусора
+https://dzone.com/articles/choosing-the-right-gc
+java -XX:+Use[gc_name]GC -Xmx2g -Xms32m -jar app.jar [sleep]
+Where params are next:
+    - [gc_name] will be substituted with the specific garbage collector type: G1, Parallel, ConcMarkSweep (CMS), Serial, Shenandoah etc
+    - Xms is the scaling step (32 MB in our case)
+    - Xmx is the maximum scaling limit (2 GB in our case)
+    - [sleep] is the interval between memory load cycles in milliseconds. The default is 10
+From plot in this article we see that Parallel GC not released memory to OS when it not used already
+To choose appropriate GC we need to track memory consumption of live application and experiment with different GCs and their options. In addition optimal settings depend on how fast memory usage growth is
+
+- как работает докер на пальцах?
+https://ru.wikipedia.org/wiki/Docker
+https://proglib.io/p/docker/
+  - Docker на базе Linux - это когда при помощи chroot создается отдельный sandbox со своей файловой системой.
+  - На базе Windows - виртуальная машина с Linux, где уже происходит chroot (см. выше).
+Управляет этим всем демон-сервер контейнеров, позволяющий из командной строки управлять образами и контейнерами, а также REST API, позволяющее управлять контейнерами программно. 
+Создается изолированное окружение на уровне процессов и на уровне сети, можно настраивать мэппинг портов и маунтить volumes, запускать процессы в новых контейнерах (docker run), останавливать и запускать контейнеры (docker stop и docker start), приостанавливать и возобновлять процессы в контейнерах (docker pause и docker unpause), осуществлять мониторинг запущенных процессов (docker ps по аналогии с ps в Unix-системах, docker top по аналогии с top и другие). Новые образы возможно создавать из специального сценарного файла (docker build, файл сценария носит название Dockerfile), возможно записать все изменения, сделанные в контейнере, в новый образ (docker commit). 
+Можно взаимодействовать с публичным репозиторием Docker Hub, в котором размещены предварительно собранные образы контейнеров, команда docker search позволяет осуществить поиск образов среди размещённых в нём. 
+Образы можно скачивать в локальную систему (docker pull), или отправить локально собранные образы в Docker Hub (docker push). 
+Также Docker имеет пакетный менеджер Docker Compose, позволяющий описывать и запускать многоконтейнерные приложения.
+
+- sql-запросы с агрегатными функциями
+https://ru.wikipedia.org/wiki/%D0%90%D0%B3%D1%80%D0%B5%D0%B3%D0%B0%D1%82%D0%BD%D1%8B%D0%B5_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8
+Агрегатные функции используются для обобщения данных. К их числу относятся:
+    SUM (сумма)
+    MAX(максимальное значение)
+    MIN (минимальное значение)
+    COUNT (количество значений)
+    AVG (среднее значение, обычно среднее арифметическое)
+    MODE (мода)
+    MEDIAN (медиана)
+Пример: SELECT SUM(amt) FROM Orders WHERE odate BETWEEN '2016-01-01' and '2016-12-31';
+
+- как работает lazy в jpa под капотом
+https://stackoverflow.com/questions/2990799/difference-between-fetchtype-lazy-and-eager-in-java-persistence-api
+FetchType.LAZY = fetch when needed
+FetchType.EAGER = fetch immediately
+This is implemented by creating a Proxy around the List (or Set). So for your lazy collections, the concrete types are not ArrayList and HashSet, but PersistentSet and PersistentList (or PersistentBag).
+
+- проблема n+1
+https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-object-relational-mapping
+  When you have 1-to-may relationship, for example collection of Car objects (database rows) where each Car has a collection of Wheel objects (also rows)
+You need to iterate through all the cars, and for each one, print out a list of the wheels. The naive O/R implementation would do the following: SELECT * FROM Cars. 
+And then for each Car: SELECT * FROM Wheel WHERE CarId = ?
+In other words, you have one select for the Cars, and then N additional selects, where N is the total number of cars.
+  How to solve N+1 problem:
+https://dou.ua/lenta/articles/hibernate-fetch-types/
+Используя различные FetchMode, настраиваем как мы хотим, чтобы связанные сущности или коллекции были загружены:
+	— SELECT — используя по дополнительному SQL запросу на коллекцию,
+	— JOIN — в одном запросе с корневой сущностью, используя SQL оператор JOIN,
+	— SUBSELECT— в дополнительном запросе, используя SUBSELECT.
+Мы также можем влиять на стратегию загрузки связанных коллекций при помощи аннотации @BatchSize (или атрибут batch-size в XML), которая устанавливает количество коллекций, которые будут загружаться в одном запросе.
+
+- Ehcache
+https://habr.com/ru/post/25140/
+ehcache — универсальная система распределённого кеширования, которая реализует кеш как динамический (в оперативной памяти), так и дисковый кеш, причём изначально спроектированная для работы с кешами большого объёма (порядка гигабайтов) и в распределённых системах.
+ehcache может реализовывать несколько различных стратегий кеширования, например — LFR (кеширование исходя из частоты использования) или FIFO, а также можно контролировать кеш на уровне отдельных объектов (задавая схему инвалидации объектов в кеше — по времени жизни или времени простоя).
+Одной из уникальных функций ehcache является «персистентный кеш», который позволяет хранить состояние объектов даже после перезагрузки виртуальной java-машины. Кроме этого, система кеширования поддерживает консоль управления JMX, что позволяет прозрачно интегрировать её в систему управления любым приложением, используя только стандартные протоколы и возможности.
+Синхронизация и/или репликация кешей между узлами может быть как общей, так и локальной, для отдельных кешей по своей схеме, асинхронной или синхронной. Для большинства функциональности от приложения, использующего кеш, совершенно ничего не требуется, все зависит только от одного конфигурационного XML файла.
+Кеш может быть как самостоятельной единицей в составе приложения, так и взаимодействовать с другими популярными фреймворками, в частности, с прослойкой для работы с базами данных Hibernate.
+
+- фетч-тайп/мод, сабселект
+https://stackoverflow.com/questions/25821718/difference-between-fetchmode-and-fetchtype
+https://www.solidsyntax.be/2013/10/17/fetching-collections-hibernate/ 
+FetchType (Lazy/Eager) tells whether we want entity to be loaded eagerly or lazy, when there's call in code.
+FetchMode (Select/Join) tells whether we want our entity to be loaded with additional select or in one query with join or subselect.
+	a) if you don't specify FetchMode, the default is JOIN and FetchType works normal
+	b) if you specify FetchMode.JOIN explicitly, FetchType is ignored and a query is always eager
+	c) if you specify FetchMode.SELECT or FetchMode.SUBSELECT, FetchType.Type works normal
+What mode choose: select or join:
+https://stackoverflow.com/questions/617145/hibernate-fetching-strategy-when-to-use-join-and-when-to-use-select
+Join is supposed to solve the n+1 problem. The join method is a little less efficient on the initial query because you're duplicating the parent columns in every row, but you only make one round-trip to the database.
+Select:
+	SELECT * FROM parent WHERE id=(whatever)
+	SELECT * FROM child WHERE id=(parent.child.id)
+Join:
+	SELECT * FROM parent
+	LEFT OUTER JOIN child ON parent.child.id=child.id
+	WHERE parent.id=(whatever)
+
+- рассказать о jms (connection, session, producer, consumer)
+https://jsehelper.blogspot.com/2016/12/jms.html
+JMS, Java Message Service - API для работы с message oriented middleware, чтобы создавать гибкие и слабосвязанные приложения с использованием асинхронного обмена данными между приложениями (клиентами/серверами) через посредника. Асинхронность - и есть основная причина использования JMS.
+Компоненты архитектуры обмена сообщениями: 
+	- Поставщик (брокер сообщений). обрабатывает буферизацию и доставку сообщений
+	- Клиенты. Любое приложение или компонент, который производит или потребляет сообщения с помощью поставщика. "Клиент" - это общий термин для производителя, отправителя, издателя, потребителя, приемника и подписчика
+	- Сообщения. Объект, который клиенты отправляют или получают от поставщика
+	- Администрируемые объекты. Брокер должен предоставить их клиенту (фабрики подключений и места назначения), с помощью поиска JNDI или внедрения
+Модели обмена сообщениями:
+	- точка-точка (point-to-point). место назначения называется очередью. один клиент помещает сообщение в очередь, другой получает его. как только получение сообщения подтверждено - оно удаляется
+	- подписчик-издатель (publisher-subscriber). место назначения называется темой (topic). в этом случае клиент публикует сообщение в теме, и ее подписчики получают это сообщение
+Основные интерфейсы:
+	- ConnectionFactory
+	- Connection
+	- Session
+	- Destination - Queue / Topic
+	- Producer - объект, посылающий сообщения. QueueSender / TopicPublisher
+	- Consumer - объект, принимающий сообщения. QueueReciever / TopicSubscriber
+	- Message - сообщение
+Сообщение состоит из: заголовка, свойств и тела
+Модели подтверждения получения сообщения:
+	- Auto_acknowledge - автоматическое получение подтверждения
+	- Dups_ok_acknowledge - работа по получению подтверждения перекладывается на Session. Сообщения будут вновь доставлены в случае ошибки или "гибели" системы
+	- client_acknowledge - клиент должен явно вызывать метод интерфейса Message, чтобы подтвердить получение сообщения
+	
+- какие требования к JPA классам? описать минимальный JPA-класс
+http://deskbook.info/hibernate/entity/5-entity-class.html
+	- Класс сущности (Entity класс) должен быть аннотирован аннотацией javax.persistence.Entity (или быть обозначен как таковой в XML-сопоставлении)
+    - Класс сущности должен иметь public или protected конструктор без аргументов. Entity класс также может определять дополнительные конструкторы с аргументами
+    - Класс сущности должен иметь свойство (свойства) – уникальный идентификатор, аннотированный аннотацией javax.persistence.Id
+    - Класс сущности должен быть классом верхнего уровня
+    - Перечисление [enum] или интерфейс [interface] не могут быть определены как сущность [Entity]
+    - Класс сущности не должен быть определен как final. Также ни один из методов или постоянных экземпляров переменных класса сущности не могут быть определены как final
+    - Если экземпляр Entity класса должен использоваться удаленно, как отдельный объект, класс сущности должен реализовывать интерфейс Serializable
+    - Entity классы могут быть абстрактными
+    - Entity классы могут расширять обычные Java классы (не-сущности), а также классы сущностей
+    - Обычные Java классы (классы не сущности) также могут расширять Entity классы сущностей
+    - Постоянство состояния объекта Entity класса представлено значениями его переменных. Переменные Entity класса не должны быть доступны извне. Доступ к переменным для клиентов обеспечивается только с помощью методов получения и установки значений (getter/setter methods) или иными бизнес методами, определенными разработчиком
+Минимальный JPA-класс: Наличие аннотации @Entity на классе и поля, помеченного @Id
+
+- spring bean vs factory bean
+http://www.geekabyte.io/2014/11/difference-between-beanfactory-and.html
+A FactoryBean is an interface that you implements when writing factory classes and you want the object created by the factory to be managed as a bean by Spring, 
+A BeanFactory represents the Spring IoC container, it contains the managed beans and provides access to retrieving them. It is part of the core of the framework which implements the base functionality of an inversion of control container.
+In more succinct words, the BeanFactory represents the Spring container while the FactoryBean represents factory classes whose created object are picked up and registered as a bean in the container.
+
+- iterator: fail-fast vs fail-safe
+https://www.baeldung.com/java-fail-safe-vs-fail-fast-iterator
+= Fail-fast iterators in Java don’t play along when the underlying collection gets modified.
+Collections maintain an internal counter called modCount. Each time an item is added or removed from the Collection, this counter gets incremented.
+When iterating, on each next() call, the current value of modCount gets compared with the initial value. If there’s a mismatch, it throws ConcurrentModificationException which aborts the entire operation.
+Default iterators for Collections from java.util package such as ArrayList, HashMap, etc. are Fail-Fast.
+The ConcurrentModificationException gets thrown at the beginning of a next iteration cycle after the modification was performed.
+= Fail-Safe iterators favor lack of failures over the inconvenience of exception handling.
+Those iterators create a clone of the actual Collection and iterate over it. If any modification happens after the iterator is created, the copy still remains untouched. Hence, these Iterators continue looping over the Collection even if it’s modified.
+However, it’s important to remember that there’s no such thing as a truly Fail-Safe iterator. The correct term is Weakly Consistent.
+That means, if a Collection is modified while being iterated over, what the Iterator sees is weakly guaranteed. This behavior may be different for different Collections and is documented in Javadocs of each such Collection.
+The Fail-Safe Iterators have a few disadvantages, though. One disadvantage is that the Iterator isn’t guaranteed to return updated data from the Collection, as it’s working on the clone instead of the actual Collection.
+Another disadvantage is the overhead of creating a copy of the Collection, both regarding time and memory.
+Iterators on Collections from java.util.concurrent package such as ConcurrentHashMap, CopyOnWriteArrayList, etc are Fail-Safe in nature.
+
+- OAuth 2
+https://www.digitalocean.com/community/tutorials/oauth-2-ru
+OAuth 2 представляет собой фреймворк для авторизации, позволяющий приложениям осуществлять ограниченный доступ к пользовательским аккаунтам на HTTP сервисах.
+Он работает по принципу делегирования аутентификации пользователя сервису, на котором находится аккаунт пользователя, позволяя стороннему приложению получать доступ к аккаунту пользователя.
+OAuth определяет четыре роли:
+	- Владелец ресурса
+	- Клиент
+	- Сервер ресурсов
+	- Авторизационный сервер
+= Владельцем ресурса является пользователь, который авторизует приложение для доступа к своему аккаунту. Доступ приложения к пользовательскому аккаунту ограничен "областью видимости" (scope) предоставленных прав авторизации (например, доступ на чтение или запись).
+= Сервер ресурсов непосредственно хранит защищённые данные аккаунтов пользователей, а авторизационный сервер проверяет подлинность информации, предоставленной пользователем, а затем создаёт авторизационные токены для приложения, с помощью которых приложение будет осуществлять доступ к пользовательским данным.
+= Клиентом является приложение, которое хочет осуществить доступ к аккаунту пользователя. Перед осуществлением доступа приложение должно быть авторизовано пользователем, а авторизация должна быть одобрена со стороны API.
+Порядок взаимодействовия:
+    1. Приложение запрашивает у пользователя авторизацию на доступ к серверу ресурсов.
+    2. Если пользователь авторизует запрос, приложение получает разрешение на авторизацию (authorization grant).
+    3. Приложение запрашивает авторизационный токен у сервера авторизации (API) путём предоставления информации о самом себе и разрешении на авторизацию от пользователя.
+    4. Если подлинность приложения подтверждена и разрешение на авторизацию действительно, сервер авторизации (API) создаёт токен доступа для приложения. Процесс авторизации завершён.
+    5. Приложение запрашивает ресурс у сервера ресурсов (API), предоставляя при этом токен доступа для аутентификации.
+    6. Если токен действителен, сервер ресурсов (API) предоставляет запрашиваемый ресурс приложению.
+
+- OpenID
+https://ru.wikipedia.org/wiki/OpenID
+OpenID — открытый стандарт децентрализованной системы аутентификации, предоставляющей пользователю возможность создать единую учётную запись для аутентификации на множестве не связанных друг с другом интернет-ресурсов, используя услуги третьих лиц.
+Базовой функцией OpenID является предоставление портативного, клиент-ориентированного, цифрового идентификатора для свободного и децентрализованного использования.
+На сайте, например, example.com находится форма входа с единственным полем ввода для OpenID идентификатора. Зачастую рядом с таким полем располагается логотип OpenID. Для того, чтобы авторизоваться на данном сайте с помощью своего идентификатора, например, pupkin.openid-provider.org, зарегистрированного у OpenID провайдера openid-provider.org, пользователю необходимо ввести свой идентификатор в предлагаемую на сайте форму входа. После этого сайт example.com перенаправляет пользователя на сайт провайдера. Сайт провайдера запрашивает у пользователя подтверждение, действительно ли пользователь желает предоставить информацию о своей учётной записи. Если пользователь соглашается, то сайт провайдера перенаправляет пользователя обратно на сайт зависимой стороны. При обратном перенаправлении провайдер передаст информацию о пользователе зависимой стороне.
+OpenID позволяет пользователю использовать одну учетную запись, зарегистрированную у OpenID провайдера, на множестве других сайтов. Пользователь может выбрать, какую информацию предоставить сайту.
+Существует возможность делегирования OpenID.
+Система OpenID — децентрализованная система. Это значит, что нет какой-либо центральной службы или организации, которая разрешала бы использование системы или регистрировала бы запрашивающие аутентификацию OpenID интернет-ресурсы или провайдеров OpenID. Конечный пользователь может свободно выбирать, какого провайдера OpenID использовать.
+
+- JWT
+https://habr.com/ru/post/340146/
+Приложение использует JWT для проверки аутентификации пользователя следующим образом:
+	1. Сперва пользователь заходит на сервер аутентификации с помощью аутентификационного ключа (это может быть пара логин/пароль, либо Facebook ключ, либо Google ключ, либо ключ от другой учетки).
+	2. Затем сервер аутентификации создает JWT и отправляет его пользователю.
+	3. Когда пользователь делает запрос к API приложения, он добавляет к нему полученный ранее JWT.
+	4. Приложение может проверить по переданному с запросом JWT, является ли пользователь тем, за кого себя выдает. В этой схеме сервер приложения сконфигурирован так, что сможет проверить, является ли входящий JWT именно тем, что был создан сервером аутентификации.
+JWT состоит из трех частей: заголовок header, полезные данные payload и подпись signature.
+= Хедер JWT содержит информацию о том, как должна вычисляться JWT подпись.
+= Payload — это полезные данные, которые хранятся внутри JWT. Эти данные также называют JWT-claims (заявки).
+= Signature вычисляется на основе предыдущих двух полей. Алгоритм base64url кодирует header и payload, созданные на 1 и 2 шаге. Закодированные строки соединяются через точку, затем полученная строка хешируется алгоритмом, заданным в хедере на основе нашего секретного ключа.
+Важно понимать, что использование JWT НЕ скрывает и не маскирует данные автоматически. Причина, почему JWT используются — это проверка, что отправленные данные были действительно отправлены авторизованным источником. Как было продемонстрировано выше, данные внутри JWT закодированы и подписаны, обратите внимание, это не одно и тоже, что зашифрованы.
+Проверка JWT. Только сервер аутентификации и сервер приложения знают секретный ключ. Сервер приложения получает секретный ключ от сервера аутентификации во время установки аутентификационных процессов. Поскольку приложение знает секретный ключ, когда пользователь делает API-запрос с приложенным к нему токеном, приложение может выполнить тот же алгоритм подписывания к JWT, что в шаге 3. Приложение может потом проверить эту подпись, сравнивая ее со своей собственной, вычисленной хешированием. Если подписи совпадают, значит JWT валидный, т.е. пришел от проверенного источника.
+
+- профайлинг JVM
+https://habr.com/ru/post/143468/
+CPU: time/calls, sampling
+	= Wall clock time/calls. Быстро, прямо в коде, функцией currentTimeMillis(); но она не точная, меряет только в мсек
+	= Short/fast calls. Есть вариант использовать нативный код, слинковать с жава-кодом и так измерять
+	= Sampling. Делать треддампы и смотреть, в каких местах заставаем программу часто. Если у вас в программе есть строчка, в которой она тратит все, или по крайней мере 90% своего времени, например, какой-нибудь цикл, а там, в глубине, какая-то строчка, то скорее всего, при остановке исполнения вы ее в этой строчке и застанете. Такое место в программе называется "горячей точкой". Это всегда замечательный кандидат для оптимизации. Что классно — есть встроенная фукнция под названием "thread dump", чтобы получить дамп всех потоков. В Windows она делается путем нажатия CTRL-Break на консоли, а на Linux и других юниксах это делается посылкой третьего сигнала, командой "kill -3".
+	Также в современных Java-машинах есть замечательная утилита jstack, ей можно передать идентификатор процесса, и получить на выходе thread dump.
+	Сделайте не один thread dump, сделайте несколько thread dumpов. Если первый ничего не выловит, посмотрите еще на пару-тройку. Может у вас в горячей точке не сто процентов времени программа проводит, а 50%.
+	Эту идею можно развить дальше. Можно, запустив JVM, перенаправить ее выход в файл, и запустить скрипт, который делает thread dump каждые три секунды. Это можно делать совершенно спокойно на живой системе, без какого либо риска что-то с ней сделать. Потому что сам сбор thread dump досточно быстрая процедура, занимает от силы 100 миллисекунд, даже при очень большом количестве тредов. Т.е. это совершенно безопасный инструмент профилирования живых и работающих систем. После этого, получив файл thread dump, его можно посмотреть глазками, а можно написать несложный кусок кода, который анализирует, считает какие-нибудь статистики → хотя бы тупо, посмотреть, какие методы проявились и сколько раз, посмотреть, в каком состоянии находились потоки.
+	= Integration. Более того, thread dump можно интегрировать в приложения, в Java есть замечательный метод Thread.getAllStackTraces, который позволяет получить информацию о stacktrace программно. Таким образом, вы можете интегрировать профилирование, как функциональную часть этого приложения, и распространять приложение вашим клиентам, с уже встроенным профилированием. Тем самым, у вас будет постоянный поток информации, который вы сможете анализировать для улучшения вашего приложения.
+Memory: usage, allocation
+	= Usage. Есть отличный инструмент jmap, который выводит гистограмму того, чем у вас забита память, какие объекты и сколько памяти занимают. Это замечательный инструмент для общего обзора, что же у вас происходит, и чем забита память. Проблема в том, что вы таким образом получите информацию о всех объектах, даже тех, которые сейчас в данный момент не используются, находятся в мусоре. Поэтому у jmap есть специальная опция 'live', которая перед тем, как сделать гистограмму делает сборку мусора, оставляет только используемые объекты, и только после этого строит гистограмму. Проблема, что уже с этой опцией, большую, живую систему работающую с многими гигабайтами памяти, запрофилировать нельзя, потому что сборка мусора системы, работающей с десятком гигабайт памяти занимает десяток-другой секунд, и это может быть неприемлимо.
+	Также дополнительно полезно знать дополнительные опции Java-машин. Например, у Java-машин можно попросить отпечатать гистограмму классов, когда вы делаете thread dump → "PrintClassHistogram". 
+	JVM можно попросить при исчерпании памяти записывать свое состояние на диск. Это очень полезно, потому что обычно, люди начинают оптимизировать потребление памяти только тогда, когда она заканчивается почему-то. Никто не занимается профилированием, когда все хорошо, а вот когда программе начинает памяти не хватать, она вылетает, начинают думать, как бы так соптимизировать. Поэтому это опцию полезно всегда иметь включенной. Тогда в плохом случае JVM вам запишет бинарный дамп, который вы можете потом, не на живой системе, любыми инструментами проанализировать. При этом, этот дамп можно в любой момент взять с JVM, тем же jmap-ом, с опцией '-dump', но это, опять же, останавливает JVM на долгое время, на живой системе вы это вряд ли заходите делать.
+	= Allocation. Cмотрите, на то, сколько процентов времени ваше приложение тратит на сборку мусора. Это может быть сигналом, что много и часто выделяется память, которая потом перестает использоваться - и код можно переписать так, чтобы избежать этого. Это полезная опция '-verbose:gc', '+PrintGC', '+PrintGCDetails', которые позволят вам разобраться, сколько времени вашего приложения уходит на сборку мусора. Если вы видите, что на сборку мусора уходит существенный процент времени, значит вы где-то в программе много выделяете памяти, вы это место не найдете, нужно искать, кто выделяет память. Как искать? Есть встроенный в Java-машину способ, ключик '-Xaprof'. Он вам, к сожалению, только при завершении процесса, выводит так называемый allocation profile, который говорит не о содержимом памяти, а о статистике выделяемых объектов → какие объекты и как часто выделялись. Если у вас это действительно часто происходит, вы скорее всего увидите, что где-то заведен какой-то временный класс, который действительно очень часто выделяется. Попробуйте сразу сделать 'aprof' — может вы сразу найдете вашу проблему. А что делать, если у вас нет идеи, где это происходит? Ну надо как-то добавить сбор статистики всюду, по всем местам, где выделяется память. Для такого рода задач отлично подходит аспектно-ориентированное программирование, либо прямое использование манипуляций байт-кодом. (далее в статье автор доклада делится, как это лучше делать)
+
+- как работает https в деталях?
+https://ssl.com.ua/info/how-ssl-works/
+Когда вы вводите адрес сайта в браузере, он спрашивает у сервера, установлен ли для сайта сертификат. 
+В ответ сервер отправляет общую информацию об SSL-сертификате и публичный ключ. 
+Браузер сверяет информацию со списком авторизованных центров сертификации. Такой список есть во всех популярных браузерах. 
+Если всё в порядке, браузер генерирует сеансовый ключ, зашифровывает его публичным ключом и отправляет на сервер. 
+Сервер расшифровывает сообщение и сохраняет сеансовый ключ. 
+После этого между браузером и сайтом устанавливается безопасное соединение через протокол HTTPS.
+Для взаимодействовия в течение установленного сеанса теперь используется данный сеансовый ключ.
+
+- aspects for private methods
+yes, it's possible
+
+- aop in Spring
+Spring makes everything via proxy. Proxy implements same interface as wrapped class. Aop added by extra code in generated proxy class
+
+- современные подходы в сборке мусора в последних Java (алгоритмы, память и тп)
+https://www.baeldung.com/jvm-garbage-collectors
+= Serial Garbage Collector
+This is the simplest GC implementation, as it basically works with a single thread. As a result, this GC implementation freezes all application threads when it runs. Hence, it is not a good idea to use it in multi-threaded applications like server environments.
+The Serial GC is the GC of choice for most applications that do not have small pause time requirements and run on client-style machines. 
+To enable Serial GC, we can use the following argument: -XX:+UseSerialGC
+
+= Parallel Garbage Collector
+It’s the default GC of the JVM and sometimes called Throughput Collector. Unlike Serial GC, this uses multiple threads for managing heap space. But it also freezes other application threads while performing GC.
+If we use this GC, we can specify maximum garbage collection threads and pause time, throughput and footprint (heap size).
+The numbers of garbage collector threads can be controlled with the command-line option -XX:ParallelGCThreads=<N>.
+The maximum pause time goal (gap [in milliseconds] between two GC) is specified with the command-line option -XX:MaxGCPauseMillis=<N>.
+The maximum throughput target (measured regarding the time spent doing garbage collection versus the time spent outside of garbage collection) is specified by the command-line option -XX:GCTimeRatio=<N>.
+Maximum heap footprint (the amount of heap memory that a program requires while running) is specified using the option -Xmx<N>.
+To enable Parallel GC, we can use the following argument: -XX:+UseParallelGC
+
+= CMS Garbage Collector
+The Concurrent Mark Sweep (CMS) implementation uses multiple garbage collector threads for garbage collection. It’s designed for applications that prefer shorter garbage collection pauses, and that can afford to share processor resources with the garbage collector while the application is running.
+Simply put, applications using this type of GC respond slower on average but do not stop responding to perform garbage collection.
+A quick point to note here is that since this GC is concurrent, an invocation of explicit garbage collection such as using System.gc() while the concurrent process is working, will result in Concurrent Mode Failure / Interruption.
+If more than 98% of the total time is spent in CMS garbage collection and less than 2% of the heap is recovered, then an OutOfMemoryError is thrown by the CMS collector. If necessary, this feature can be disabled by adding the option -XX:-UseGCOverheadLimit to the command line.
+This collector also has a mode knows as an incremental mode which is being deprecated in Java SE 8 and may be removed in a future major release.
+To enable the CMS GC, we can use the following flag: -XX:+UseParNewGC
+
+= G1 Garbage Collector
+G1 (Garbage First) GC is designed for applications running on multi-processor machines with large memory space. It’s available since JDK7 Update 4 and in later releases.
+G1 collector will replace the CMS collector since it’s more performance efficient.
+Unlike other collectors, G1 collector partitions the heap into a set of equal-sized heap regions, each a contiguous range of virtual memory. When performing garbage collections, G1 shows a concurrent global marking phase (i.e. phase 1 known as Marking) to determine the liveness of objects throughout the heap.
+After the mark phase is completed, G1 knows which regions are mostly empty. It collects in these areas first, which usually yields a significant amount of free space (i.e. phase 2 known as Sweeping). It is why this method of garbage collection is called Garbage-First.
+To enable G1 GC, we can use the following argument: -XX:+UseG1GC
+
+= News in Java 8
+Java 8u20 has introduced one more JVM parameter for reducing the unnecessary use of memory by creating too many instances of same String. This optimizes the heap memory by removing duplicate String values to a global single char[] array.
+This parameter can be enabled by adding -XX:+UseStringDeduplication as JVM parameter.
+
+- String.intern()
+https://habr.com/ru/post/79913/
+Сравнение через equals() медленное, т.к. осуществляется посимвольное сравнение.
+При вызове intern() строка помещается в множество (пул) строк, и потом для другой тестовой строки можно быстро проверить ее принадлежность к множеству.
+Если логика приложения такова, что приходится многократно сравнивать строки, возможно есть смысл интернировать строки, и тогда сравнивать интернированные строки можно посредством оператора ==.
+Некоторые замечания:
+= Константные строки автоматически интернируются: "version" == "version".intern(). Явно вызывать intern() стоит только для неконстантных строк.
+= Интернированные строки не хранятся вечно. Строки, на которых нет ссылок, также удаляются сборщиком мусора.
+= В большинстве случаев вы не получите существенного прироста производительности от использования intern() — если сравнение строк не является основной (или очень частой) операцией вашего приложения и сравниваемые строки разные по длине.
+
+- типы мэпингов в гибернейте
+see example in java-sandbox repo:
+https://bitbucket.org/andrei_punko/java-sandbox/src/master/hibernate-mappings/
+
+- root-aggregate philosophy
+https://deviq.com/aggregate-pattern/
+An aggregate is a collection of one or more related entities (and possibly value objects). Each aggregate has a single root entity, referred to as the aggregate root. The aggregate root is responsible for controlling access to all of the members of its aggregate. It’s perfectly acceptable to single-entity aggregates, in which case that entity is itself the root of its aggregate. In addition to controlling access, the aggregate root is also responsible for ensuring the consistency of the aggregate. This is why it is important to ensure that the aggregate root does not directly expose its children, but rather controls access itself.
+When applying the aggregate pattern, it is also important that persistence operations apply only at the aggregate root level. Thus, the aggregate root must be an entity, not a value object, so that it can be persisted to and from a data store using its ID. This is important, since it means the aggregate root can be certain that other parts of the system are not fetching its children, modifying them, and saving them without its knowledge. It also can simplify the relationships between entities, since typically navigation properties should only exist for types within aggregates, while other relationships should be by key only.
+= As an example, consider an e-commerce domain which has concepts for Orders, which have multiple OrderItems, each of which refers to some quantity of Products being purchased. Adding and removing items to an Order should be controlled by the Order – parts of the application shouldn’t be able to reach out and create an individual OrderItem as part of an Order without going through the Order. Deleting an Order should delete all of the OrderItems that are associated with it. So, Order makes sense as an aggregate root for the Order – OrderItem group.
+What about Product? Each OrderItem represents (among other things) a quantity of a product. Does it make sense for OrderItem to have a navigation property for Product? If so, that would complicate the Order aggregate, since ideally it should be able to traverse all of its navigation properties when persisting. As a test, does it make sense to delete Product A if an order for that product is deleted? Almost definitely not. Thus, Product doesn’t belong within the Order aggregate. It’s likely that Product should be its own aggregate root, in which case fetching product instances can be done using a Repository. All that’s required to do so is its ID. Thus, if OrderItem only refers to Product by Id, that’s sufficient.
+In short (by mine words): we design app in such way, when entity grouped by domain spec and Order contains OrderItems, but OrderItem refers to particular Order by id only
+
+- как работает индекс в БД (какую структуру строит)?
+https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81_(%D0%B1%D0%B0%D0%B7%D1%8B_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85)
+Индекс — объект БД, создаваемый с целью повышения производительности поиска данных.
+Для оптимальной производительности запросов индексы обычно создаются на тех столбцах таблицы, которые часто используются в запросах. Для одной таблицы может быть создано несколько индексов. Однако увеличение числа индексов замедляет операции добавления, обновления, удаления строк таблицы, поскольку при этом приходится обновлять сами индексы.
+Индексы могут быть реализованы различными структурами. Наиболее часто употребимы B*-деревья, B+-деревья, B-деревья и хеши. 
+
+(B-дерево - сбалансированное, сильно ветвистое дерево. Часто используется для хранения данных во внешней памяти.
+Сбалансированность означает, что длина любых двух путей от корня до листьев различается не более, чем на единицу.
+Ветвистость дерева — это свойство каждого узла дерева ссылаться на большое число узлов-потомков.
+B*-дерево — разновидность B-дерева, в которой каждый узел дерева заполнен не менее чем на ⅔ (в отличие от B-дерева, где этот показатель составляет 1/2).
+B+-дерево — структура данных на основе B-дерева, сбалансированное n-арное дерево поиска с переменным, но зачастую большим количеством потомков в узле. B+-дерево состоит из корня, внутренних узлов и листьев, корень может быть либо листом, либо узлом с двумя и более потомками)
+
+- ускоряет ли индекс работу с бд для запросов вида like?
+https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81_(%D0%B1%D0%B0%D0%B7%D1%8B_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85)
+Для запроса вида: SELECT email_address FROM customers WHERE email_address LIKE '%@yahoo.com'; наличие индекса для столбца email_address не ускоряет поиск.
+Этот запрос должен нам найти всех клиентов, у которых е-мейл заканчивается на @yahoo.com, однако даже если по столбцу email_address есть индекс, СУБД всё равно будет использовать полный перебор таблицы. Это связано с тем, что индексы строятся в предположении, что слова/символы идут слева направо. Использование символа подстановки в начале условия поиска исключает для СУБД возможность использования поиска по B-дереву. Эта проблема может быть решена созданием дополнительного индекса по выражению reverse(email_address) и формированием запроса вида: SELECT email_address FROM customers WHERE reverse(email_address) LIKE reverse('%@yahoo.com');.
+В данном случае символ подстановки окажется в самой правой позиции (moc.oohay@%), что не исключает использование индекса по reverse(email_address). 
+
+- композитный индекс в БД
+Составной (многоключевой, композитный) индекс — строится по нескольким столбцам. Важен порядок следования полей
+Та же структура данных, что в обычном индексе, но в узлах присутствуют дополнительные условия для других столбцов
+Один композитный индекс заменяет несколько более простых: к примеру при наличии составного индекса по А,Б,В следующие индексы уже не необходимы: индекс по А; композитный по А,Б
+
+- уровни изоляции транзакций, названия проблем, которые они решают. какой уровень по умолчанию?
+https://ru.wikipedia.org/wiki/%D0%A3%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C_%D0%B8%D0%B7%D0%BE%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D1%82%D1%80%D0%B0%D0%BD%D0%B7%D0%B0%D0%BA%D1%86%D0%B8%D0%B9
+При параллельном выполнении транзакций возможны следующие проблемы:
+= потерянное обновление (lost update) — при одновременном изменении одного блока данных разными транзакциями теряются все изменения, кроме последнего;
+= "грязное" чтение (dirty read) — чтение данных, добавленных или изменённых транзакцией, которая впоследствии не подтвердится (откатится);
+= неповторяющееся чтение (non-repeatable read) — при повторном чтении в рамках одной транзакции ранее прочитанные данные оказываются изменёнными;
+= фантомное чтение (phantom reads) — одна транзакция в ходе своего выполнения несколько раз выбирает множество строк по одним и тем же критериям. Другая транзакция в интервалах между этими выборками добавляет или удаляет строки или изменяет столбцы некоторых строк, используемых в критериях выборки первой транзакции, и успешно заканчивается. В результате получится, что одни и те же выборки в первой транзакции дают разные множества строк.
+
+Под "уровнем изоляции транзакций" понимается степень обеспечиваемой внутренними механизмами СУБД (то есть не требующей специального программирования) защиты от всех или некоторых вышеперечисленных видов несогласованности данных, возникающих при параллельном выполнении транзакций. Стандарт SQL-92 определяет шкалу из четырёх уровней изоляции: Read uncommitted, Read committed, Repeatable read, Serializable. Первый из них является самым слабым, последний — самым сильным, каждый последующий включает в себя все предыдущие.
+
+= Read uncommitted (чтение незафиксированных данных)
+Низший (первый) уровень изоляции. Он гарантирует только отсутствие потерянных обновлений. Если несколько параллельных транзакций пытаются изменять одну и ту же строку таблицы, то в окончательном варианте строка будет иметь значение, определенное всем набором успешно выполненных транзакций. При этом возможно считывание не только логически несогласованных данных, но и данных, изменения которых ещё не зафиксированы.
+Типичный способ реализации данного уровня изоляции — блокировка данных на время выполнения команды изменения, что гарантирует, что команды изменения одних и тех же строк, запущенные параллельно, фактически выполняются последовательно, и ни одно из изменений не потеряется. Транзакции, выполняющие только чтение, при данном уровне изоляции никогда не блокируются. 
+
+= Read committed (чтение фиксированных данных) (он обычно - по умолчанию)
+Большинство промышленных СУБД, в частности, Microsoft SQL Server, PostgreSQL и Oracle, по умолчанию используют именно этот уровень. На этом уровне обеспечивается защита от чернового, "грязного" чтения, тем не менее, в процессе работы одной транзакции другая может быть успешно завершена и сделанные ею изменения зафиксированы. В итоге первая транзакция будет работать с другим набором данных.
+Реализация завершённого чтения может основываться на одном из двух подходов: блокировании или версионности.
+
+= Repeatable read (повторяемость чтения)
+Уровень, при котором читающая транзакция «не видит» изменения данных, которые были ею ранее прочитаны. При этом никакая другая транзакция не может изменять данные, читаемые текущей транзакцией, пока та не окончена.
+Блокировки в разделяющем режиме применяются ко всем данным, считываемым любой инструкцией транзакции, и сохраняются до её завершения. Это запрещает другим транзакциям изменять строки, которые были считаны незавершённой транзакцией. Однако другие транзакции могут вставлять новые строки, соответствующие условиям поиска инструкций, содержащихся в текущей транзакции. При повторном запуске инструкции текущей транзакцией будут извлечены новые строки, что приведёт к фантомному чтению. Учитывая то, что разделяющие блокировки сохраняются до завершения транзакции, а не снимаются в конце каждой инструкции, степень параллелизма ниже, чем при уровне изоляции READ COMMITTED. Поэтому пользоваться данным и более высокими уровнями транзакций без необходимости обычно не рекомендуется.   
+
+= Serializable (упорядочиваемость)
+Самый высокий уровень изолированности; транзакции полностью изолируются друг от друга, каждая выполняется последовательно, как будто параллельных транзакций не существует. Только на этом уровне параллельные транзакции не подвержены эффекту "фантомного чтения"
+
+- Сокеты
+https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%BA%D0%B5%D1%82_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D1%8B%D0%B9_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81)
+Сокет (англ. socket — разъём) — название программного интерфейса для обеспечения обмена данными между процессами. Процессы при таком обмене могут исполняться как на одной ЭВМ, так и на различных ЭВМ, связанных между собой сетью. Сокет — абстрактный объект, представляющий конечную точку соединения.
+Следует различать клиентские и серверные сокеты. Клиентские сокеты грубо можно сравнить с конечными аппаратами телефонной сети, а серверные — с коммутаторами. Клиентское приложение (например, браузер) использует только клиентские сокеты, а серверное (например, веб-сервер, которому браузер посылает запросы) — как клиентские, так и серверные сокеты.
+Интерфейс сокетов впервые появился в BSD Unix. Программный интерфейс сокетов описан в стандарте POSIX и в той или иной мере поддерживается всеми современными ОС
+
+- long-polling
+https://habr.com/ru/post/335106/
+Long Polling — это технология, которая позволяет получать информацию о новых событиях с помощью «длинных запросов». Сервер получает запрос, но отправляет ответ на него не сразу, а лишь тогда, когда произойдет какое-либо событие (например, поступит новое входящее сообщение), либо истечет заданное время ожидания.
+Другими словами, получая от вас запрос, сервер ждет, когда произойдет событие, о котором он должен вас уведомить, и, когда оно происходит, Long Poll сервер отправляет ответ на ваш запрос, содержащий информацию о случившемся событии.
+
+- http
+HTTP (англ. HyperText Transfer Protocol — «протокол передачи гипертекста») — протокол прикладного уровня передачи данных изначально — в виде гипертекстовых документов в формате «HTML», в настоящий момент используется для передачи произвольных данных. Основой HTTP является технология «клиент-сервер», т.е. предполагается существование:
+	= Потребителей (клиентов), которые инициируют соединение и посылают запрос;
+	= Поставщиков (серверов), которые ожидают соединения для получения запроса, производят необходимые действия и возвращают обратно сообщение с результатом.
+HTTP используется также в качестве «транспорта» для других протоколов прикладного уровня, таких как SOAP, XML-RPC, WebDAV. 
+Основным объектом манипуляции в HTTP является ресурс, на который указывает URI (Uniform Resource Identifier) в запросе клиента. Обычно такими ресурсами являются хранящиеся на сервере файлы, но ими могут быть логические объекты или что-то абстрактное. Особенностью протокола HTTP является возможность указать в запросе и ответе способ представления одного и того же ресурса по различным параметрам: формату, кодировке, языку и т.д. (в частности, для этого используется HTTP-заголовок). Именно благодаря возможности указания способа кодирования сообщения, клиент и сервер могут обмениваться двоичными данными, хотя данный протокол является текстовым. 
+HTTP — протокол прикладного уровня; аналогичными ему являются FTP и SMTP. Обмен сообщениями идёт по обыкновенной схеме «запрос-ответ». Для идентификации ресурсов HTTP использует глобальные URI. В отличие от многих других протоколов, HTTP не сохраняет своего состояния. Это означает отсутствие сохранения промежуточного состояния между парами «запрос-ответ». Компоненты, использующие HTTP, могут самостоятельно осуществлять сохранение информации о состоянии, связанной с последними запросами и ответами (например, «куки» на стороне клиента, «сессии» на стороне сервера). Браузер, посылающий запросы, может отслеживать задержки ответов. Сервер может хранить IP-адреса и заголовки запросов последних клиентов. Однако сам протокол не осведомлён о предыдущих запросах и ответах, в нём не предусмотрена внутренняя поддержка состояния, к нему не предъявляются такие требования. 
+
+= Структура протокола
+Каждое HTTP-сообщение состоит из трёх частей, которые передаются в указанном порядке:
+	= Стартовая строка (англ. Starting line) — определяет тип сообщения;
+    = Заголовки (англ. Headers) — характеризуют тело сообщения, параметры передачи и прочие сведения;
+    = Тело сообщения (англ. Message Body) — непосредственно данные сообщения. Обязательно должно отделяться от заголовков пустой строкой.
+
+Стартовые строки различаются для запроса и ответа. Строка запроса выглядит так:
+    Метод URI HTTP/Версия
+
+Чтобы запросить страницу данной статьи, клиент должен передать строку (задан всего один заголовок):
+	GET /wiki/HTTP HTTP/1.0
+	Host: ru.wikipedia.org
+
+= Методы
+	= OPTIONS - Используется для определения возможностей веб-сервера или параметров соединения для конкретного ресурса. В ответ серверу следует включить заголовок Allow со списком поддерживаемых методов. Также в заголовке ответа может включаться информация о поддерживаемых расширениях. 
+	= GET - Используется для запроса содержимого указанного ресурса. С помощью метода GET можно также начать какой-либо процесс. В этом случае в тело ответного сообщения следует включить информацию о ходе выполнения процесса.
+	Клиент может передавать параметры выполнения запроса в URI целевого ресурса после символа «?»: GET /path/resource?param1=value1&param2=value2 HTTP/1.1
+	Согласно стандарту HTTP, запросы типа GET считаются идемпотентными
+	= HEAD - Аналогичен методу GET, за исключением того, что в ответе сервера отсутствует тело. Запрос HEAD обычно применяется для извлечения метаданных, проверки наличия ресурса (валидация URL) и чтобы узнать, не изменился ли он с момента последнего обращения. 
+	= POST - применяется для передачи пользовательских данных заданному ресурсу. Например, в блогах посетители обычно могут вводить свои комментарии к записям в HTML-форму, после чего они передаются серверу методом POST и он помещает их на страницу. При этом передаваемые данные (в примере с блогами — текст комментария) включаются в тело запроса. Аналогично с помощью метода POST обычно загружаются файлы на сервер.
+	В отличие от метода GET, метод POST не считается идемпотентным, то есть многократное повторение одних и тех же запросов POST может возвращать разные результаты (например, после каждой отправки комментария будет появляться очередная копия этого комментария).
+	При результате выполнения 200 (Ok) в тело ответа следует включить сообщение об итоге выполнения запроса. Если был создан ресурс, то серверу следует вернуть ответ 201 (Created) с указанием URI нового ресурса в заголовке Location. 
+	= PUT - Применяется для загрузки содержимого запроса на указанный в запросе URI. Если по заданному URI не существует ресурс, то сервер создаёт его и возвращает статус 201 (Created). Если же был изменён ресурс, то сервер возвращает 200 (Ok) или 204 (No Content). Сервер не должен игнорировать некорректные заголовки Content-*, передаваемые клиентом вместе с сообщением. Если какой-то из этих заголовков не может быть распознан или не допустим при текущих условиях, то необходимо вернуть код ошибки 501 (Not Implemented).
+	Фундаментальное различие методов POST и PUT заключается в понимании предназначений URI ресурсов. Метод POST предполагает, что по указанному URI будет производиться обработка передаваемого клиентом содержимого. Используя PUT, клиент предполагает, что загружаемое содержимое соответствует находящемуся по данному URI ресурсу. 
+	= PATCH - Аналогично PUT, но применяется только к фрагменту ресурса. 
+	= DELETE - Удаляет указанный ресурс. 
+	= TRACE - Возвращает полученный запрос так, что клиент может увидеть, какую информацию промежуточные серверы добавляют или изменяют в запросе. 
+
+= Заголовки HTTP (англ. HTTP Headers) — это строки в HTTP-сообщении, содержащие разделённую двоеточием пару параметр-значение.
+Примеры заголовков:
+	Server: Apache/2.2.11 (Win32) PHP/5.3.0
+	Last-Modified: Sat, 16 Jan 2010 21:16:42 GMT
+	Content-Type: text/plain; charset=windows-1251
+	Content-Language: ru
+Все заголовки разделяются на четыре основных группы:
+    General Headers («Основные заголовки») — могут включаться в любое сообщение клиента и сервера;
+    Request Headers («Заголовки запроса») — используются только в запросах клиента;
+    Response Headers («Заголовки ответа») — только для ответов от сервера;
+    Entity Headers («Заголовки сущности») — сопровождают каждую сущность сообщения.
+Именно в таком порядке рекомендуется посылать заголовки получателю. 
+
+= Тело HTTP-сообщения (message-body), если оно присутствует, используется для передачи тела объекта, связанного с запросом или ответом. Тело сообщения отличается от тела объекта (entity-body) только в том случае, когда применяется кодирование передачи, что указывается полем заголовка Transfer-Encoding.
+	message-body = entity-body
+	| <entity-body закодировано согласно Transfer-Encoding>
+Поле Transfer-Encoding должно использоваться для указания любого кодирования передачи, применённого приложением в целях гарантирования безопасной и правильной передачи сообщения. Поле Transfer-Encoding — это свойство сообщения, а не объекта, и, таким образом, может быть добавлено или удалено любым приложением в цепочке запросов/ответов. 
+
+- уровни кэша Hibernate, кэш запросов
+https://habr.com/ru/post/135176/
+Hibernate cache — это 3 уровня кеширования:
+    Кеш первого уровня (First-level cache);
+    Кеш второго уровня (Second-level cache);
+    Кеш запросов (Query cache);
+= Кеш первого уровня всегда привязан к объекту сессии. Hibernate всегда по умолчанию использует этот кеш и его нельзя отключить.
+= Кеш второго уровня привязан к объекту-фабрике сессий (Session Factory object). Что как бы подразумевает, что видимость этого кеша гораздо шире кеша первого уровня.
+Hibernate не хранит сами объекты классов. Он хранит информацию в виде массивов строк, чисел и т.д. И идентификатор объекта выступает указателем на эту информацию. Концептуально это нечто вроде Map, в которой id объекта — ключ, а массивы данных — значение. Приблизительно можно представить себе это так:
+1 -> { "Pupkin", 1, null , {1,2,5} }
+По умолчанию кеш второго уровня отключен. 
+Чтение из кеша второго уровня происходит только в том случае, если нужный объект не был найден в кеше первого уровня.
+На самом деле, Hibernate сам не реализует кеширование как таковое. А лишь предоставляет структуру для его реализации, поэтому подключить можно любую реализацию, которая соответствует спецификации нашего ORM фреймворка. Из популярных реализаций можна выделить следующие: EHCache, OSCache, SwarmCache, JBoss TreeCache
+= Кеш запросов похож на кеш второго уровня. Но в отличии от него — ключом к данным кеша выступает не идентификатор объекта, а совокупность параметров запроса. А сами данные — это идентификаторы объектов соответствующих критериям запроса. Таким образом, этот кеш рационально использовать с кешем второго уровня.
+Он тоже по умолчанию отключен. 
+Session factory также может генерировать и сохранять статистику использования всех объектов, регионов, зависимостей в кеше. Для этого есть объекты Statistics для фабрики и SessionStatistics для сессии.
+
+- Hibernate second level cache concurrency strategies (стратегии кеширования)
+http://docs.jboss.org/hibernate/core/3.3/reference/en/html/performance.html#performance-cache-mapping
+Стратегии кеширования определяют поведения кеша в определенных ситуациях. Выделяют четыре группы:
+= Read-only. If your application needs to read, but not modify, instances of a persistent class, a read-only cache can be used. This is the simplest and optimal performing strategy. It is even safe for use in a cluster. 
+= Read-write. If the application needs to update data, a read-write cache might be appropriate. This cache strategy should never be used if serializable transaction isolation level is required. 
+= Nonstrict-read-write. If the application only occasionally needs to update data (i.e. if it is extremely unlikely that two transactions would try to update the same item simultaneously), and strict transaction isolation is not required, a nonstrict-read-write cache might be appropriate. 
+= Transactional. The transactional cache strategy provides support for fully transactional cache providers such as JBoss TreeCache.
+
+- volatile
+Модификатор volatile накладывает некоторые дополнительные условия на чтение/запись переменной:
+= Операции чтения/записи volatile переменной являются атомарными
+= Результат операции записи значения в volatile переменную одним потоком, становится виден всем другим потокам, которые используют эту переменную для чтения из нее значения
+Компилятор прекращает выполнять различную оптимизацию, связанную с этой переменной, (к примеру, помещение копии в регистры) и всегда читает ее значение из памяти.
+
+- happens-before
+https://www.logicbig.com/tutorials/core-java-tutorial/java-multi-threading/happens-before.html
+Happens-before relationship is a guarantee that action performed by one thread is visible to another action in different thread.
+Happens-before defines a partial ordering on all actions within the program. To guarantee that the thread executing action Y can see the results of action X (whether or not X and Y occur in different threads), there must be a happens-before relationship between X and Y. In the absence of a happens-before ordering between two operations, the JVM is free to reorder them as it wants (JIT compiler optimization). 
+Happens-before is not just reordering of actions in 'time' but also a guarantee of ordering of read and write to memory . Two threads performing write and read to memory can be consistent to each other actions in terms of clock time but might not see each others changes consistently (Memory Consistency Errors) unless they have happens-before relationship. 
+
+How to establish happens-before relation?
+Followings are the rules for happens-before:
+= Single thread rule: Each action in a single thread happens-before every action in that thread that comes later in the program order.
+= Monitor lock rule: An unlock on a monitor lock (exiting synchronized method/block) happens-before every subsequent acquiring on the same monitor lock.
+= Volatile variable rule: A write to a volatile field happens-before every subsequent read of that same field. Writes and reads of volatile fields have similar memory consistency effects as entering and exiting monitors (synchronized block around reads and writes), but without actually aquiring monitors/locks.
+= Thread start rule: A call to Thread.start() on a thread happens-before every action in the started thread. Say thread A spawns a new thread B by calling threadA.start(). All actions performed in thread B's run method will see thread A's calling threadA.start() method and before that (only in thread A) happened before them.
+= Thread join rule: All actions in a thread happen-before any other thread successfully returns from a join on that thread. Say thread A spawns a new thread B by calling threadA.start() then calls threadA.join(). Thread A will wait at join() call until thread B's run method finishes. After join method returns, all subsequent actions in thread A will see all actions performed in thread B's run method happened before them.
+= Transitivity: If A happens-before B, and B happens-before C, then A happens-before C.
+
+- Apache Kafka & NATS
+https://habr.com/ru/post/326880/
+= Лидером по популярности у разработчиков является RabbitMQ. Это проверенное временем решение класса Enterprise с гарантиями доставки, гибкой системой маршрутизации и поддержкой всевозможных стандартов. Производительность RabbitMQ не превышает десятки тысяч сообщений в секунду.
+= Apache Kafka, которая родилась внутри компании LinkedIn как система агрегации логов. Kafka умеет выжимать бОльшую производительность из дисковой подсистемы, чем RabbitMQ, поскольку она пишет данные последовательно (sequential I/O), а не случайно (random I/O).
+В Kafka данные делятся по разделам (partition) и чтобы соблюдать порядок доставки каждый получатель сообщений читает данные ровно из одного раздела.
+Для управления кластером Kafka требуется отдельный сервис (zookeeper).
+= NATS — относительно молодой проект, созданный Derek Collison, за плечами которого более 20 лет работы над распределенными очередями сообщений. По производительности NATS опережает все очереди с “гарантированной доставкой”. NATS написан на языке Go, но имеет клиентские библиотеки для всех популярных языков. Кроме того, клиенты NATS также знают топологию кластера и способны самостоятельно переподключаться в случае потери связи со своим узлом.
+
+- different loggers configuration
+https://habr.com/ru/post/247647/	Java logging. Hello World
+https://habr.com/ru/post/113145/	Java Logging: история кошмара
+
+- MQTT
+https://ru.wikipedia.org/wiki/MQTT
+MQTT (англ. message queuing telemetry transport) — упрощённый сетевой протокол, работающий поверх TCP/IP, ориентированный для обмена сообщениями между устройствами по принципу издатель-подписчик.
+Протокол ориентируется на простоту в использовании, невысокую нагрузку на каналы связи, работу в условиях постоянной потери связи, лёгкую встраиваемость в любую систему. Основное предназначение — работа с телеметрией от различных датчиков, устройств, использование шаблона подписчика обеспечивает возможность устройствам выходить на связь и публиковать сообщения, которые не были заранее известны или предопределены, в частности, протокол не вводит ограничений на формат передаваемых данных. 
+
+- DDD (domain driven design)
+https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D0%BD%D0%BE-%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5
+Предметно-ориентированное проектирование — это набор принципов и схем, направленных на создание оптимальных систем объектов. Сводится к созданию программных абстракций, которые называются моделями предметных областей. В эти модели входит бизнес-логика, устанавливающая связь между реальными условиями области применения продукта и кодом.
+
+Предметно-ориентированное проектирование не является какой-либо конкретной технологией или методологией. DDD — это набор правил, которые позволяют принимать правильные проектные решения. Данный подход позволяет значительно ускорить процесс проектирования программного обеспечения в незнакомой предметной области.
+
+Подход DDD особо полезен в ситуациях, когда разработчик не является специалистом в области разрабатываемого продукта. К примеру: программист не может знать все области, в которых требуется создать ПО, но с помощью правильного представления структуры, посредством проблемно-ориентированного подхода, может без труда спроектировать приложение, основываясь на ключевых моментах и знаниях рабочей области. 
+
+Основные определения:
+= Область (англ. domain, домен) — предметная область, к которой применяется разрабатываемое программное обеспечение.
+= Модель (англ. model) — описывает отдельные аспекты области и может быть использована для решения проблемы.
+= Язык описания — используется для единого стиля описания домена и модели.
+
+Концепция
+В идеале, при проектировании хочется иметь одну-единственную модель, которая полностью описывает всю предметную область, но в реальности, для упрощения процесса разработки продукта, домен представляют в виде сочетания нескольких взаимосвязанных моделей.
+Схема архитектуры приложения представляет собой описание одной или нескольких моделей предметной области и их взаимосвязей между собой. 
+
+Ограниченные связи
+Использование нескольких моделей на различных уровнях проекта. Данный подход используется для уменьшения различных связей между моделями, что исключает сложность и запутанность кода. Иногда бывает неясно, в каком именно контексте должна использоваться модель.
+Решение: Точно определить контекст, в котором используется модель. Определить границы использования данной модели и её характеристики.
+
+Целостность
+Когда над проектом работает большое количество людей, то есть тенденция дробить модель на несколько более мелких, фрагментов. Чем больше людей, тем более значительна данная проблема. В конечном итоге теряется целостность проекта.
+Решение: Постоянное объединение кусков кода от различных разработчиков и проверка работоспособности посредством тестирования. Это позволяет держаться всем разработчикам в одной большой концепции.
+
+Взаимосвязь
+При работе над несколькими отдельными моделями в большой группе, различные члены команды могут не знать о сущностях других моделей, что усложняет процесс общей сборки конечного продукта.
+Решение: На этапе проектирования точно обозначьте, что именно выполняет каждая модель и как она взаимосвязана с другими моделями. В конечном итоге у вас должна получиться карта взаимосвязей моделей.
+
+Элементы DDD
+При проектировании на основе проблемно-ориентированного подхода используются следующие понятия:
+
+Контекст
+В большинстве систем для предприятий используются крупномасштабные зоны ответственности. В DDD этот высший уровень организации называется ограниченным контекстом. Например, система биллинга крупной телекоммуникационной компании может иметь следующие ключевые элементы:
+    клиентская база
+    система безопасности и защиты
+    резервное копирование
+    взаимодействие с платежными системами
+    ведение отчетности
+    администрирование
+    система уведомлений
+Все перечисленные элементы должны быть включены в единую, работающую без перебоев систему. При проектировании система уведомлений и система безопасности выделяются как совершенно разные вещи. Системы, в которых при реализации не удаётся разделить и изолировать ограниченные контексты, часто приобретают архитектурный стиль, который имеет красноречивое название «Большой ком грязи».
+Сутью проблемно-ориентированного проектирования является конкретное определение контекстов и ограничение моделирования в их рамках.
+
+Сущность
+Проще всего сущности выражать в виде существительных: люди, места, товары и т.д. У сущностей есть и индивидуальность, и жизненный цикл. Во время проектирования думать о сущностях следует как о единицах поведения, нежели как о единицах данных. Чаще всего какие-то операции, которые вы пытаетесь добавить в модель, должна получить какая-то сущность, или при этом начинает создаваться или извлекаться новая сущность. В более слабом коде можно найти массу служебных или управляющих классов, проверяющих сущности снаружи.
+
+Объект-значение 
+— это свойства, важные в той предметной области, которую вы моделируете. У них, в отличие от сущностей, нет обозначения; они просто описывают конкретные сущности, которые уже имеют обозначения. Полезность объектов-значений состоит в том, что они описывают свойства сущностей гораздо более изящным и объявляющим намерения способом. Стоит всегда помнить, что значение объекта никогда не изменяется на протяжении выполнения всего программного кода. После их создания, внесение поправок невозможно.
+
+Сводный корень 
+— специальная сущность, к которой напрямую обращаются потребители. Использование при проектировании концепции сводных корней позволяет избегать чрезмерного соединения объектов между собой, составляющих модель, за счет применения правила: сводные корни — единственный вид сущностей, на который может ссылаться используемая программа. Это позволяет избежать путаницы и упростить структуру архитектуры кода, потому что теперь у вас есть специальное ограничение, не дающее создавать тесно связанные системы, где все сопряжено со всем.
+
+Службы
+Иногда в предметной области есть операции или процессы, у которых нет обозначения или жизненного цикла. Службы области дают инструмент для моделирования этих концепций. Они характеризуются отсутствием состояния и высокой связностью, часто предоставляя один открытый метод и иногда перегрузку для действий над наборами. Если в поведение включено несколько зависимостей, и нет возможности найти подходящего места в сущности для размещения этого поведения, в этом случае используют службу. Хотя сам по себе термин «служба» в мире разработки перегружен различными значениями, но в данной тематике, это обозначает небольшой класс, не представляющий конкретного человека, место или вещь в проектируемом приложении, но включающий в себя какие-то процессы. Использование служб позволяет ввести многослойную архитектуру, так же интегрировать несколько моделей, что вносит зависимость от инфраструктуры.
+
+Взаимосвязь с подходами программирования
+Хотя по концепции проблемно-ориентированное проектирование не должно быть ограничено какими-либо представлениями, но на практике используются сильные стороны объектно-ориентированного программирования. Это использование наследования, инкапсуляции, представления в виде методов и классов. Нужно помнить, что объектно-ориентированный подход может быть применен не только к ООП языкам, таким как Java, C# или C++, но так же и к функциональным — F#, Erlang. Особенно удобны языки, поддерживающие создание и использование собственных предметно-ориентированных языков, такие как Scala.
+
+Тестирование
+- является неотъемлемой частью разработки. Оно позволяет быть уверенным в работоспособности разрабатываемого продукта на всех этапах разработки. Практичнее производить разработку посредством автотестов по технике TDD.
+При тестировании сводных корней, применяют модульное тестирование. Причем при использовании проблемно-ориентированного проектирования тесты сводных корней склоняются в сторону парадигмы черного ящика и тестирования состояния. Сводные корни и сущности часто становятся конечными автоматами, и их поведение этому соответствует. 
+
+- bounded context
+https://codeburst.io/ddd-strategic-patterns-how-to-define-bounded-contexts-2dc70927976e
+Bounded context is a logical boundary. It defines tangible boundaries of applicability of some sub-domain. It's an area where a certain sub-domain makes sense, while the others don’t.
+
+- JVM memory model
+http://tutorials.jenkov.com/java-concurrency/java-memory-model.html
+Each thread running in the Java virtual machine has its own thread stack. The thread stack contains information about what methods the thread has called to reach the current point of execution. I will refer to this as the "call stack". As the thread executes its code, the call stack changes.
+
+The thread stack also contains all local variables for each method being executed (all methods on the call stack). A thread can only access it's own thread stack. Local variables created by a thread are invisible to all other threads than the thread who created it. Even if two threads are executing the exact same code, the two threads will still create the local variables of that code in each their own thread stack. Thus, each thread has its own version of each local variable.
+
+All local variables of primitive types (boolean, byte, short, char, int, long, float, double) are fully stored on the thread stack and are thus not visible to other threads. One thread may pass a copy of a pritimive variable to another thread, but it cannot share the primitive local variable itself.
+
+The heap contains all objects created in your Java application, regardless of what thread created the object. This includes the object versions of the primitive types (e.g. Byte, Integer, Long etc). It does not matter if an object was created and assigned to a local variable, or created as a member variable of another object, the object is still stored on the heap. 
+
+A local variable may be of a primitive type, in which case it is totally kept on the thread stack.
+
+A local variable may also be a reference to an object. In that case the reference (the local variable) is stored on the thread stack, but the object itself if stored on the heap.
+
+An object may contain methods and these methods may contain local variables. These local variables are also stored on the thread stack, even if the object the method belongs to is stored on the heap.
+
+An object's member variables are stored on the heap along with the object itself. That is true both when the member variable is of a primitive type, and if it is a reference to an object.
+
+Static class variables are also stored on the heap along with the class definition.
+
+Objects on the heap can be accessed by all threads that have a reference to the object. When a thread has access to an object, it can also get access to that object's member variables. If two threads call a method on the same object at the same time, they will both have access to the object's member variables, but each thread will have its own copy of the local variables. 
+
+If two or more threads are sharing an object, without the proper use of either volatile declarations or synchronization, updates to the shared object made by one thread may not be visible to other threads.
+
+Imagine that the shared object is initially stored in main memory. A thread running on CPU one then reads the shared object into its CPU cache. There it makes a change to the shared object. As long as the CPU cache has not been flushed back to main memory, the changed version of the shared object is not visible to threads running on other CPUs. This way each thread may end up with its own copy of the shared object, each copy sitting in a different CPU cache. 
+
+- с чего начать по CI на новом проекте?
+= создать репозиторий, настроить Gitlab/Stash, добавить публичные ssh-ключи девелоперов
+= установить билд сервер Jenkins/TeamCity и артифактори JFrog/Nexus, нужную версию Java и сборщика Maven/Gradle
+= создать джобы автоматических билдов веток по пушу и релизные джобы, добавить пайплайны при необходимости, настроить интеграцию Gitlab/Stash c билд сервером
+= настроить нотификации о билдах в командные чаты и почту
+
+- как работает магия Spring Data?
+как я это понимаю: Spring парсит названия методов и анализирует JPA классы; при наличии соответствующих полей - создает прокси инстанс с нужными методами, внутри которых производит вызовы соответствующих SQL-запросов
+
+- Деловая активность как замена продуктивности:
+в отстутствие четких индикаторов того, что значить быть продуктивным и ценным на своем рабочем месте, многие интеллектуальные работники возвращаются к индикаторам продуктивности времен индустриальной эпохи, а именно пытаются производить большое количество материала максимально наглядным образом (Кэл Ньюпорт)
+
+- понимание устройства ORM-фреймворков
+через reflection читаются аннотации на классах, методах; по ним генерируются соответствующие sql-запросы для взаимодействия с нужными таблицами в БД
+
+- Kubernetes
+https://eax.me/kubernetes/
+
+- проблема распознавания символов церковнославянских текстов
+http://slavtype.ru/
+https://sci.ponomar.net/ru/fonts.html
+Нужные символы в таблицы Unicode добавлены, преобразователи текстов (в виде приложения или онлайн) из старых форматов в Unicode существуют; все уже сделано, в общем
+
+- синхронизаторы
+https://habr.com/ru/post/277669/
+
+= Семафоры необходимы, когда нужно ограничить доступ к некоторому общему ресурсу. В конструктор этого класса (Semaphore(int permits) или Semaphore(int permits, boolean fair)) обязательно передается количество потоков, которому семафор будет разрешать одновременно использовать заданный ресурс.
+
+= CountDownLatch (замок с обратным отсчетом) предоставляет возможность любому количеству потоков в блоке кода ожидать до тех пор, пока не завершится определенное количество операций, выполняющихся в других потоках, перед тем как они будут «отпущены», чтобы продолжить свою деятельность. Примером CountDownLatch из жизни может служить сбор экскурсионной группы: пока не наберется определенное количество человек, экскурсия не начнется.
+
+= CyclicBarrier реализует шаблон синхронизации Барьер. Циклический барьер является точкой синхронизации, в которой указанное количество параллельных потоков встречается и блокируется. Как только все потоки прибыли, выполняется опционное действие (или не выполняется, если барьер был инициализирован без него), и, после того, как оно выполнено, барьер ломается и ожидающие потоки «освобождаются». Барьер похож на CountDownLatch, но главное различие между ними в том, что вы не можете заново использовать «замок» после того, как его счётчик достигнет нуля, а барьер вы можете использовать снова, даже после того, как он сломается. CyclicBarrier является альтернативой метода join(), который «собирает» потоки только после того, как они выполнились.
+
+= Exchanger (обменник) может понадобиться, для того, чтобы обменяться данными между двумя потоками в определенной точки работы обоих потоков. Обменник — обобщенный класс, он параметризируется типом объекта для передачи. Обменник является точкой синхронизации пары потоков: поток, вызывающий у обменника метод exchange() блокируется и ждет другой поток. Когда другой поток вызовет тот же метод, произойдет обмен объектами: каждая из них получит аргумент другой в методе exchange(). Стоит отметить, что обменник поддерживает передачу null значения. Это дает возможность использовать его для передачи объекта в одну сторону, или, просто как точку синхронизации двух потоков.
+
+= Phaser (фазер), как и CyclicBarrier, является реализацией шаблона синхронизации Барьер, но, в отличии от CyclicBarrier, предоставляет больше гибкости. Этот класс позволяет синхронизировать потоки, представляющие отдельную фазу или стадию выполнения общего действия. Как и CyclicBarrier, Phaser является точкой синхронизации, в которой встречаются потоки-участники. Когда все стороны прибыли, Phaser переходит к следующей фазе и снова ожидает ее завершения.
+
+- Difference Between Mocks and Stubs
+https://www.martinfowler.com/articles/mocksArentStubs.html
+= Dummy objects are passed around but never actually used. Usually they are just used to fill parameter lists.
+= Fake objects actually have working implementations, but usually take some shortcut which makes them not suitable for production (an in memory database is a good example).
+= Stubs provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test.
+= Spies are stubs that also record some information based on how they were called. One form of this might be an email service that records how many messages it was sent.
+= Mocks are what we are talking about here: objects pre-programmed with expectations which form a specification of the calls they are expected to receive.
+
+- Which sorting algorithm is stable?
+https://stackoverflow.com/questions/1517793/what-is-stability-in-sorting-algorithms-and-why-is-it-important
+= Stable Sorting Algorithms:
+	Insertion Sort
+	Merge Sort
+	Bubble Sort
+	Tim Sort
+	Counting Sort
+
+= Unstable Sorting Algorithms:
+	Heap Sort
+	Selection sort
+	Shell sort
+	Quick Sort
+
+- Задачка про "сколько телефонных операторов надо?":
+Есть 2 массива времЕн длиной N каждый, содержащие времена начала звонка (1й массив) и конца звонка (2й массив). Определить, сколько телефонных операторов колл-центра надо, чтобы обработать все эти звонки (чтобы никто из клиентов не ждал).
+
+- Инкапсуляция - в общем случае в разных языках программирования термин относится к одной или обеим одновременно следующим нотациям:
+= механизм языка, позволяющий ограничить доступ одних компонентов программы к другим;
+= языковая конструкция, позволяющая связать данные с методами, предназначенными для обработки этих данных.
+
+- Differences between the use of synchronized block and using Lock API's:
+https://www.baeldung.com/java-concurrent-locks
+= A synchronized block is fully contained within a method – we can have Lock API's lock() and unlock() operation in separate methods
+= A synchronized block doesn't support the fairness, any thread can acquire the lock once released, no preference can be specified. We can achieve fairness within the Lock APIs by specifying the fairness property. It makes sure that longest waiting thread is given access to the lock
+= A thread gets blocked if it can't get an access to the synchronized block. The Lock API provides tryLock() method. The thread acquires lock only if it's available and not held by any other thread. This reduces blocking time of thread waiting for the lock
+= A thread which is in “waiting” state to acquire the access to synchronized block, can't be interrupted. The Lock API provides a method lockInterruptibly() which can be used to interrupt the thread when it's waiting for the lock
+
+- Аутентификация и авторизация
+https://artismedia.by/blog/difference-between-authentication-and-authorization/
+= Аутентификация используется для подтверждения личности зарегистрированного пользователя. Проверка подлинности – это процесс проверки учетных данных: идентификатора пользователя (имени, адреса электронной почты, номера телефона) и пароля.
+	* Однофакторная аутентификация (SFA) – базовый, традиционный метод проверки подлинности с использованием только одной категории. Наиболее распространенным примером SFA являются учетные данные, связанные с введением имени пользователя и обычного пароля.
+	* Двухфакторная аутентификация (2FA) – двухступенчатый процесс проверки, который учитывает два разных типа пользовательских данных. Помимо логина и пароля, для обеспечения дополнительного уровня защиты, система может запросить особый код, присланный в SMS сообщении или в письме электронной почты.
+	* Многофакторная аутентификация (MFA) – самый современный метод проверки подлинности, который использует два, три (или больше) уровня безопасности. Категории всех уровней должны быть независимыми друг от друга, чтобы устранить любую уязвимость в системе. Финансовые организации, банки, правоохранительные органы пользуются многофакторной аутентификацией для защиты своих данных от потенциальных угроз.
+
+= Авторизация - происходит после того, как личность пользователя успешно аутентифицируется системой. Процесс авторизации определяет, имеет ли прошедший проверку человек доступ к определенным ресурсам: информации, файлам, базе данных. Факторы проверки подлинности, необходимые для авторизации, могут различаться в зависимости от уровня безопасности.
+
+- Copy-On-Write
+https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%BF%D1%80%D0%B8_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B8
+Механизм копирования при записи (Copy-On-Write, COW) используется для оптимизации многих процессов, происходящих в операционной системе, таких как, например, работа с оперативной памятью или файлами на диске.
+Идея подхода copy-on-write заключается в том, что при чтении области данных используется общая копия, в случае изменения данных — создается новая копия.
+
+- Spring: инициализация prototype бина как поле в синглтоне (spring bean scope proxy)
+
+- Описать как происходит оптимистическая/пессимистическа блокировка в БД:
+    пессимистическая: создание лока до и снятие после транзакции
+    оптимистическая: как compare-and-set, только проверяется column version
+
+- GRASP (general responsibility assignment software patterns) - общие шаблоны распределения ответственностей, используемые в ООП для решения общих задач по назначению ответственностей классам и объектам.
+https://ru.wikipedia.org/wiki/GRASP
+
+GRASP содержит 9 шаблонов:
+1. Информационный эксперт (Information Expert)
+Ответственность должна быть назначена тому, кто владеет максимумом необходимой информации для исполнения — информационному эксперту.
+Если его не учесть — получится спагетти-код, в котором трудно разобраться.
+    Повышает:
+        Инкапсуляцию;
+        Простоту восприятия;
+        Готовность компонентов к повторному использованию;
+    Снижает:
+        степень зацепления.
+
+2. Создатель (Creator)
+Класс должен создавать экземпляры тех классов, которые он может:
+    Содержать или агрегировать;
+    Записывать;
+    Использовать;
+    Инициализировать, имея нужные данные.
+
+3. Контроллер (Controller)
+Отвечает за операции, запросы на которые приходят от пользователя, и может выполнять сценарии одного или нескольких вариантов использования (например, создание и удаление);
+Не выполняет работу самостоятельно, а делегирует компетентным исполнителям;
+	Может представлять собой:
+        Систему в целом;
+        Подсистему;
+        Корневой объект;
+        Устройство.
+
+4. Слабое зацепление (Low Coupling)
+«Степень зацепления» — мера неотрывности элемента от других элементов (либо мера данных, имеющихся у него о них).
+«Слабое» зацепление является оценочной моделью, которая диктует, как распределить обязанности, которые необходимо поддерживать.
+«Слабое» зацепление — распределение ответственностей и данных, обеспечивающее взаимную независимость классов.
+Класс со «слабым» зацеплением:
+    Имеет слабую зависимость от других классов;
+    Не зависит от внешних изменений (изменение в одном классе оказывает слабое влияние на другие классы);
+    Прост для повторного использования.
+
+5. Высокая связность (High Cohesion)
+Высокая связность класса — это оценочная модель, направленная на удержание объектов должным образом сфокусированными, управляемыми и понятными. Высокая связность обычно используется для поддержания низкого зацепления. Высокая связность означает, что обязанности данного элемента тесно связаны и сфокусированы. Разбиение программ на классы и подсистемы является примером деятельности, которая увеличивает связность системы.
+И наоборот, низкая связность — это ситуация, при которой данный элемент имеет слишком много несвязанных обязанностей. Элементы с низкой связностью часто страдают от того, что их трудно понять, трудно использовать, трудно поддерживать.
+Связность класса — мера сфокусированности предметных областей его методов:
+    «Высокая» связность — сфокусированные подсистемы (предметная область определена, управляема и понятна);
+    «Низкая» связность — абстрактные подсистемы, затруднены:
+        Восприятие;
+        Повторное использование;
+        Поддержка;
+        Устойчивость к внешним изменениям.
+
+6. Полиморфизм (Polymorphism)
+Устройство и поведение системы:
+    Определяется данными;
+    Задано полиморфными операциями её интерфейса.
+
+7. Чистая выдумка (Pure Fabrication)
+Не относится к предметной области, но:
+    Уменьшает зацепление;
+    Повышает связность;
+    Упрощает повторное использование.
+«Pure Fabrication» отражает концепцию сервисов в модели предметно-ориентированного проектирования. 
+
+8. Посредник (Indirection)
+Слабое зацепление между элементами системы (и возможность повторного использования) обеспечивается назначением промежуточного объекта их посредником.
+
+9. Устойчивость к изменениям (Protected Variations)
+Шаблон защищает элементы от изменения другими элементами (объектами или подсистемами) с помощью вынесения взаимодействия в фиксированный интерфейс, через который (и только через который) возможно взаимодействие между элементами. Поведение может варьироваться лишь через создание другой реализации интерфейса. 
+
+
+- Рассказать про Gitflow
+https://www.atlassian.com/ru/git/tutorials/comparing-workflows/gitflow-workflow
+Gitflow Workflow — это модель рабочего процесса Git. Gitflow идеально подходит для проектов, в которых цикл релиза протекает по графику. Помимо веток feature в рамках этого рабочего процесса используются отдельные ветки для подготовки, поддержки и регистрации выпусков.
+Набор инструментов git-flow представляет собой отдельную командную строку, которая требует установки.
+После установки git-flow необходимо выполнить команду git flow init, чтобы использовать его в проекте. Этот набор играет роль оболочки Git.
+
+= Основные ветки (master) и ветки разработки (develop)
+Для фиксации истории проекта в рамках этого процесса вместо одной ветки master используются две ветки. В ветке master хранится официальная история релиза, а ветка develop предназначена для объединения всех функций. Кроме того, для удобства рекомендуется присваивать всем коммитам в ветке master номер версии.
+Первый шаг рабочего процесса заключается в создании ветки develop от стандартной ветки master.
+В этой ветке будет храниться полная история проекта, а в ветке master — сокращенная. Теперь другим разработчикам следует клонировать центральный репозиторий и создать отслеживающую ветку для ветки develop.
+
+= Функциональные ветки (feature)
+Под каждую новую функцию должна быть отведена собственная ветка feature, которую можно отправлять в центральный репозиторий для создания резервной копии или совместной работы команды. Ветки feature создаются не на основе master, а на основе develop. Когда работа над функцией завершается, соответствующая ветка сливается обратно с веткой develop. Функции не следует отправлять напрямую в ветку master.
+Как правило, ветки feature создаются на основе последней ветки develop.
+По завершении работы над функцией следует объединить ветку feature с develop.
+
+= Ветки выпуска (release)
+Когда в ветке develop оказывается достаточно функций для выпуска (или приближается назначенная дата выпуска), от ветки develop создается ветка release. Создание этой ветки запускает следующий цикл выпуска, и с этого момента новые функции добавить больше нельзя — допускается лишь отладка багов, создание документации и решение других задач, связанных с выпуском. Когда подготовка к поставке завершается, ветка release сливается с master и ей присваивается номер версии. Кроме того, для нее нужно выполнить слияние с веткой develop, в которой с момента создания ветки релиза могли возникнуть изменения.
+Благодаря тому, что для подготовки выпусков используется специальная ветка, одна команда может дорабатывать текущий выпуск, в то время как другая команда продолжает работу над функциями для следующего. Это также позволяет разграничить этапы разработки (например, можно без труда посвятить неделю подготовке к версии 4.0 и действительно увидеть это в структуре репозитория).
+Создание веток release — это еще одна простая операция ветвления. Как и ветки feature, ветки release основаны на ветке develop
+Когда релиз готов к отправке, он сливается в master и develop, а ветка release удаляется. Важно влить ее обратно в ветку develop, поскольку в ветку release могут быть добавлены критические обновления, и они должны быть доступны для новых функций. Если в вашей организации уделяют повышенное внимание проверке кода, это идеальное место для осуществления запроса pull.
+
+= Ветки исправления (hotfix) 
+Ветки поддержки или ветки hotfix используются для быстрого внесения исправлений в рабочие релизы. Ветки hotfix очень похожи на ветки release и feature, за исключением того, что они создаются от master, а не от develop. Это единственная ветка, которая должна быть создана непосредственно от master. Как только исправление завершено, ветку следует объединить с master и develop (или текущей веткой release), а ветка master должна быть помечена обновленным номером версии.
+Наличие специальной ветки для исправления ошибок позволяет команде решать проблемы, не прерывая остальную часть рабочего процесса и не ожидая следующего цикла релиза. Ветки поддержки можно рассматривать как специальные ветки release, которые работают непосредственно с master. 
+По завершении работы ветка hotfix, так же как и в случае с веткой release, объединяется с master и develop.
+
+= Пример
+Далее продемонстрирован полный цикл работы с функциональной веткой (предположим, что у нас есть репозиторий с веткой master):
+git checkout master
+git checkout -b develop
+git checkout -b feature_branch
+# work happens on feature branch
+git checkout develop
+git merge feature_branch
+git checkout master
+git merge develop
+git branch -d feature_branch
+
+Помимо работы с ветками feature и release, продемонстрируем работу с веткой hotfix:
+git checkout master
+git checkout -b hotfix_branch
+# идет работа, в hotfix_branch добавляются коммиты
+git checkout develop
+git merge hotfix_branch
+git checkout master
+git merge hotfix_branch
+
+= Последовательность действий при работе по модели Gitflow:
+Из ветки master создается ветка develop.
+Из ветки develop создается ветка release.
+Из ветки develop создаются ветки feature.
+Когда работа над веткой feature завершена, она сливается с веткой develop.
+Когда работа над веткой релиза release завершена, она сливается в ветки develop и master.
+Если в master обнаружена проблема, из master создается ветка hotfix.
+Когда работа над веткой исправления hotfix завершена, она сливается в ветки develop и master.
+
+
+- Написать сократитель ссылок
+1. записываем строку из символов англ. алфавита и цифр: abc..zABC..Z01..9 (62 символа)
+2. записываем исходную ссылку в БД, кодируем полученную ID записи по основанию 62 в цифро-буквенную строку
+3. записываем в БД (в ту же строку) сгенерированную цифро-буквенную строку
+4. возвращаем юзеру сгенерированную цифро-буквенную строку
+
+- Описать реализацию шардирования сократителя ссылок
+= Кодирование длинного урла (1й вариант):
+1. из исходного url отбрасываем 'http://' вначале, берем 1+ первых букв (сколько - зависит от кол-ва шард N у нас), кодируем эту пару букв в число (с основанием 26), берем остаток от деления числа этого на N - это будет номер шарды
+2. добавляем в таблицу БД новую запись вида (ID, LONG_STRING), генерируем короткую строку SHORT_STRING по ID, дописываем SHORT_STRING в эту строку.
+3. возвращаем пользователю строку вида 'http://' + домен кодировщика урлов + '/' + (использованые первые буквы исх. урла) + SHORT_STRING
+
+= Декодирование короткого урла (1й вариант):
+1. достаем нужное кол-во первых букв, декодируем в номер шарды
+2. из данной шарды достаем данные по ключу, полученного декодированием остальной строки
+3. возвращаем юзеру LONG_STRING
+
+= Кодирование url-a (2й вариант):
+1. выбираем случайную шарду. конвертируем номер шарды в букву (либо несколько букв, если шард много). так получим строку SHARD_STRING
+2. см. п.2 выше
+3. возвращаем пользователю строку вида 'http://' + домен кодировщика урлов + '/' + SHARD_STRING + SHORT_STRING
+
+= Декодирование короткого урла (2й вариант):
+совпадает с первым вариантом
+
+
+- Паттерн Стратегия
+https://refactoring.guru/ru/design-patterns/strategy
+Стратегия — это поведенческий паттерн проектирования, который определяет семейство схожих алгоритмов и помещает каждый из них в собственный класс, после чего алгоритмы можно взаимозаменять прямо во время исполнения программы.
+
+- Паттерн Шаблонный метод
+https://refactoring.guru/ru/design-patterns/template-method
+Шаблонный метод — это поведенческий паттерн проектирования, который определяет скелет алгоритма, перекладывая ответственность за некоторые его шаги на подклассы. Паттерн позволяет подклассам переопределять шаги алгоритма, не меняя его общей структуры.
+
+- What Is Inversion of Control?
+https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
+= Inversion of Control is a principle in software engineering by which the control of objects or portions of a program is transferred to a container or framework. It's most often used in the context of object-oriented programming.
+
+= By contrast with traditional programming, in which our custom code makes calls to a library, IoC enables a framework to take control of the flow of a program and make calls to our custom code. To enable this, frameworks use abstractions with additional behavior built in. If we want to add our own behavior, we need to extend the classes of the framework or plugin our own classes.
+
+= The advantages of this architecture are:
+  - decoupling the execution of a task from its implementation
+  - making it easier to switch between different implementations
+  - greater modularity of a program
+  - greater ease in testing a program by isolating a component or mocking its dependencies and allowing components to communicate through contracts
+
+= Inversion of Control can be achieved through various mechanisms such as: Strategy design pattern, Service Locator pattern, Factory pattern, and Dependency Injection (DI).
+
+
+- What Is Dependency Injection?
+https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
+Dependency injection is a pattern through which to implement IoC, where the control being inverted is the setting of object's dependencies.
+The act of connecting objects with other objects, or “injecting” objects into other objects, is done by an assembler rather than by the objects themselves.
+
+
+- Describe Asynchronous and Reactive approaches
+https://dzone.com/articles/5-things-to-know-about-reactive-programming
+= Asynchronous
+You organize you code in some way, when code for processing results of some actions works in separate (non-main) thread.
+
+= Reactive
+When using reactive programming, data streams are going to be the spine of your application. Events, messages, calls, and even failures are going to be conveyed by a data stream. With reactive programming, you observe these streams and react when a value is emitted.
+So, in your code, _you are going to create data streams of anything and from anything_: click events, HTTP requests, ingested messages, availability notifications, changes on a variable, cache events, measures from a sensor, literally anything that may change or happen. 
+RX Java (for example) is an implementation of the reactive programming principles to “compose asynchronous and event-based programs by using observable sequence”. With RX, your code creates and subscribes to data streams named Observables. While Reactive Programming is about the concepts, RX provides you an amazing toolbox. By combining the observer and iterator patterns and functional idioms, RX gives you superpowers. You have an arsenal of functions to combine, merge, filter, transform and create the data streams.
+
+- Разница между Serializable и Externalizable
+https://javarush.ru/groups/posts/2023-znakomstvo-s-interfeysom-externalizable
+= В случае использования Serializable, все что можем сделать для управления процессом сериализации - это использовать ключевое слово transient, идентификатор версии и в общем-то все. Весь остальной процесс "зашит" в Java и к нему доступа нет
+Также производительность Serializable оставляет желать лучшего, т.к.:
+	- во время работы генерирует большой объем служебной информации и разного рода временных данных.
+	- основано на Reflection API (а это не быстро)
+Недостаточная гибкость
+Проблемы с безопасностью (не все поля возможно стоит раскрывать для "чужих ушей/глаз")
+
+= В случае использования Externalizable мы должны описать имплементацию методов writeExternal, readExternal. В итоге вся ответственность за сериализацию и десериализацию будет лежать на программисте.
+В итоге решается проблема отсутствия контроля над этим процессом, получаем определенную гибкость, решаем проблемы с безопасностью.
+Поскольку отсутствуем использование Reflection, скорость также должна увеличиться.
+Пример:
+{
+   ...
+   @Override
+   public void writeExternal(ObjectOutput out) throws IOException {
+       out.writeObject(this.getFirstName());
+       out.writeObject(this.getLastName());
+       out.writeObject(this.encryptString(this.getSuperSecretInformation()));
+   }
+
+   @Override
+   public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+       firstName = (String) in.readObject();
+       lastName = (String) in.readObject();
+       superSecretInformation = this.decryptString((String) in.readObject());
+   }
+
+   private String encryptString(String data) {
+       String encryptedData = Base64.getEncoder().encodeToString(data.getBytes());
+       System.out.println(encryptedData);
+       return encryptedData;
+   }
+
+   private String decryptString(String data) {
+       String decrypted = new String(Base64.getDecoder().decode(data));
+       System.out.println(decrypted);
+       return decrypted;
+   }
+}
+
+= Еще нюанс:
+При использовании Serializable под объект просто выделяется память, после чего из потока считываются значения, которыми заполняются все его поля. Т.е. конструктор объекта не вызывается! Вся работа производится через рефлексию.
+В случае с Externalizable механизм десериализации будет иным. В начале вызывается конструктор по умолчанию. И только потом у созданного объекта вызывается метод readExternal(), который и отвечает за заполнение полей объекта.
+Именно поэтому любой класс, имплементирующий интерфейс Externalizable, обязан иметь конструктор по умолчанию.
+
+= When Hibernate is not good choice?
+when long time to app start - isn't appropriate
+
+= Spring @PreDestroy - is it running when performs System.exit() in some part of code?
+it will be runned because shutdown hook used for that
+
+= queue broker - забрали месседж из очереди и при процессинге упали. надо репроцессинг - как действовать?
+use acknowledge mechanism for that
+
+= How to make undo/rollback in Flyway
+use file with name 'u' (undo)
+
+= How to apply some script during each migration in Flyway
+use file with name 'r' (repeatable)
+
+= вывести все значения, которые есть в колонке одной таблицы (T1.col1) и отсутствуют в колонке другой таблицы (T2.col2)
+select t2.col1 from T1 t1 left join T2 t2 on t2.col2 == null;
+
+- вызов транзакц. метода из не транзакц. метода - будет ли начата транзакция?
+нет, т.к. при вызове должна пересекаться граница прокси-объекта
+
+- как работает магия Spring Boot?
+...
+
+- зачем нужен файл spring.factories?
+Файл spring.factories нужен, чтобы избежать сканирования пакетов для нахождения классов автоконфигурации (с аннотациями).
+Его нужно поместить в папку META-INF получающегося jar-файла. В нем надо указать наши AutoConfiguration-классы:
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration,\
+org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration
+
+- как сделать стрим из листа/массива?
+из листа: list.stream()
+из массива: Arrays.stream(array) или Stream.of(array)
+
+- зачем peek в стриме, ленивый ли он?
+Stream peek(Consumer action) returns a stream consisting of the elements of this stream, additionally performing the provided action on each element as elements are consumed from the resulting stream. This is an intermediate operation i.e, it creates a new stream that, when traversed, contains the elements of the initial stream that match the given predicate.
+В итоге ответ: при вызове peek, без терминальной операции - ничего не происходит
+
+- Richardson maturity model
+https://restfulapi.net/richardson-maturity-model/
+Leonard Richardson analyzed a hundred different web service designs and divided them into four categories based on how much they are REST compliant. This model of division of REST services to identify their maturity level – is called Richardson Maturity Model.
+Richardson used three factors to decide the maturity of a service i.e. URI, HTTP Methods and HATEOAS (Hypermedia). The more a service employs these technologies – more mature it shall be considered.
+
+= Level Zero of maturity does not make use of any of URI, HTTP Methods, and HATEOAS capabilities.
+These services have a single URI and use a single HTTP method (typically POST). For example, most Web Services (WS-*)-based services use a single URI to identify an endpoint, and HTTP POST to transfer SOAP-based payloads, effectively ignoring the rest of the HTTP verbs.
+Similarly, XML-RPC based services send data as Plain Old XML (POX). These are the most primitive way of building SOA applications with a single POST method and using XML to communicate between services.
+
+= Level One of maturity makes use of URIs out of URI, HTTP Methods, and HATEOAS.
+These services employ many URIs but only a single HTTP verb – generally HTTP POST. They give each resource in their universe a URI. A unique URI separately identifies one unique resource – and that makes them better than level zero.
+
+= Level Two maturity makes use of URIs and HTTP out of URI, HTTP Methods, and HATEOAS.
+Level two services host numerous URI-addressable resources. Such services support several of the HTTP verbs on each exposed resource – Create, Read, Update and Delete (CRUD) services. Here the state of resources, typically representing business entities, can be manipulated over the network.
+Here service designer expects people to put some effort into mastering the APIs – generally by reading the supplied documentation.
+Level two is the excellent use-case of REST principles, which advocate using different verbs based on the HTTP request methods, and the system can have multiple resources.
+
+= Level Three of maturity makes use of all three, i.e. URIs and HTTP and HATEOAS.
+This level is the most mature level of Richardson’s model, which encourages easy discoverability. This level makes it easy for the responses to be self-explanatory by using HATEOAS.
+The service leads consumers through a trail of resources, causing application state transitions as a result.
+
+- What is the difference between import and static import ?
+The import allows the java programmer to access classes of a package without package qualification whereas the static import feature allows to access the static members of a class without the class qualification.
+
+- Имеется таблица User(id, age, sex). Необходимо посчитать сколько записей у которых age>20, и сколько записей у которых sex="M"
+select count(u.id) from User u where u.age>20 union select count(u.id) from User u where u.sex='M';
+select count(u.age>20), count(u.sex='M') from User u; (в PostgreSQL такое работает)
+
+- Xss*N+Xmx - весь ли это объем памяти, занимаемый JVM?
+Нет, поскольку есть т.н. off heap (память, выделяемая нативными тулами)
+
+- В чем отличие Spring MVC от Spring REST ?
+в Spring MVC в методах контроллера возвращаем имя view темплейта, который надо отобразить,
+в Spring REST - методы контроллера матчатся на URI, для реализации CRUD-операций в отношении ресурсов
+
+- how to create array/list populated with int values?
+int[] data = new int[] {0, 1, 3};
+List<Integer> list = Arrays.asList(0, 1, 3);
+
+- list<->array conversions
+List->Array: list.toArray(new String[0])
+Array->List: Arrays.asList(arr) or for type-safe: Arrays.<String>asList(arr)
+
+- Describe levels of transactions isolation in DB
+https://ru.wikipedia.org/wiki/%D0%A3%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C_%D0%B8%D0%B7%D0%BE%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D1%82%D1%80%D0%B0%D0%BD%D0%B7%D0%B0%D0%BA%D1%86%D0%B8%D0%B9
+= Проблемы:
+== Потерянное обновление - при одновременном изменении одного блока данных разными транзакциями одно из изменений теряется.
+== «Грязное» чтение - чтение данных, добавленных или изменённых транзакцией, которая впоследствии не подтвердится (откатится).
+== Неповторяющееся чтение - при повторном чтении в рамках одной транзакции ранее прочитанные данные оказываются изменёнными.
+== Чтение «фантомов» - при повторном чтении в рамках одной транзакции одна и та же выборка дает разные множества строк.  От неповторяющегося чтения оно отличается тем, что результат повторного обращения к данным изменился не из-за изменения/удаления самих этих данных, а из-за появления новых (фантомных) данных.
+
+= Уровни изоляции
+== Read uncommitted - «грязное» чтение, неповторяющееся чтение, фантомы
+== Read commited - неповторяющееся чтение, фантомы
+== Repeatable read - фантомы
+== Serializable - все ок
+
+- Docker: describe namespaces / cgroups
+https://stackoverflow.com/questions/34820558/difference-between-cgroups-and-namespaces
+Under the hood, Docker is built on the following components: the cgroups and namespaces capabilities of the Linux kernel
+In long:
+    = cgroup: Control Groups provide a mechanism for aggregating/partitioning sets of tasks, and all their future children, into hierarchical groups with specialized behaviour. It determines how much host machine resources to be given to containers.
+	Cgroups involve resource metering and limiting:
+		memory
+		CPU
+		block I/O
+		network
+    = namespace: wraps a global system resource in an abstraction that makes it appear to the processes within the namespace that they have their own isolated instance of the global resource. Namespaces provide processes with their own view of the system. 
+	Multiple namespaces:
+		pid - process id isolation
+		net - takes care of different ip allocation to different containers
+		mnt - for file system
+		uts (unique time sharing) - which checks for different hostnames of running containers
+		ipc - interprocess communication
+		user - different username (uid)
+
+In short:
+    = Cgroups - limits how much you can use;
+    = namespaces - limits what you can see (and therefore use)
+
+- как БД восстанавливается после сбоя (рассказать о "write-ahead log")
+https://ru.wikipedia.org/wiki/%D0%A3%D0%BF%D1%80%D0%B5%D0%B6%D0%B4%D0%B0%D1%8E%D1%89%D0%B0%D1%8F_%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F
+Упреждающая журнализация — техника для обеспечения атомарности и устойчивости БД — двух ключевых ACID-свойств — посредством ведения журнала упреждающей записи (англ. write-ahead log), в который информация об изменениях в БД вносится и фиксируется перед записью в БД.
+В журнал могут вноситься записи как для осуществления повтора операции (redo), так и отмены (undo), могут вестись оба вида записей. В случае неожиданного перезапуска системы управления БД (например, из-за сбоя по питанию), журналирование позволяет установить, не была ли прервана какая-либо операция, и основываясь на этом завершить операцию, или произвести необходимые действия по отмене частичных изменений. 
+
+- вызов @Transactional метода из другого (не @Transactional) метода этого класса - будет ли транзакция?
+нет, не будет. при вызове должна пересекаться граница прокси-объекта
+
+- если есть поле GUID - какой тип индекса в БД лучше использовать для него?
+при помещении новой записи - в случае B-tree будет часто происходить перестроение дерева, поэтому вроде как лучше hashtable
+
+- как реализовать версионирование соап сервисов?
+...
+
+- метод содержащий вызов repository.findByOne() - можно ли с него убрать @Transactional?
+Нет, надо оставить @Transactional с readOnly=true. Это позволит не конфликтовать операциям чтения между собой, а лок защитит при операции записи от вычитывания частично модифицированного ентити.
+
+- How to realize optimistic blocking via JDBC (and the same question, but without usage of DB record versions)
+https://stackoverflow.com/questions/8691684/how-to-code-optimistic-and-pessimistic-locking-from-java-code
+= Use next steps:
+	1. Add integer "version" column to your table.
+	2. Increase the value of this column with each update of corresponding row.
+	3. To obtain lock, just read "version" value of the row.
+	4. Add "version = obtained_version" condition to where clause of your update statement. Verify number of affected rows after update. If no rows were affected - someone has already modified your entry.
+In result your update should look like: UPDATE mytable SET name='Andy',version=3 WHERE id=1 and version=2
+
+= How to make optimistic blocking without versions usage - still don't know :(
+
+- задачка про турникет: есть таблица (id, timestamp), куда сохраняются проходы через турникет. написать запрос, чтобы посчитать, сколько людей 
+сейчас в здании (часть может быть на обеде). интервал рабочего времени - известный, фиксированный
+select count(*) from T where DATE(`timestamp`) = CURDATE() group by id having count(id) mod 2 = 1;
+
+- public/private/protection метод с @Transactional на нем - будет ли открываться транзакция?
+https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction-declarative-annotations
+Из документации, пункт "Method visibility and @Transactional":
+When you use proxies, you should apply the @Transactional annotation only to methods with public visibility. If you do annotate protected, private or package-visible methods with the @Transactional annotation, no error is raised, but the annotated method does not exhibit the configured transactional settings. If you need to annotate non-public methods, consider using AspectJ.
+Таким образом, если вы используете (по умолчанию) Spring Proxy AOP, то все функциональные возможности AOP, предоставляемые Spring (например @Transational), будут приниматься во внимание, только если вызов проходит через прокси. Обычно это так, если аннотированный метод вызывается из другого компонента.
+Способы заставить работать непубличные методы - использовать режим AspectJ вместо Spring Proxies.
+Также можно выполнить self injection компонента и вызывать метод на нем.
+
+- использование Spring Boot admin для мониторинга сервисов
+https://www.baeldung.com/spring-boot-admin
+https://habr.com/ru/post/479954/
+Spring Boot Admin предлагает удобную и полезную прослойку пользовательского интерфейса поверх конечных точек Actuator. Более того, он позволяет централизованно контролировать несколько приложений с несколькими экземплярами, что неоценимо при работе в облаке и с микросервисами. 
+
+- что плохого в том, чтобы вешать @Transactional на контроллер? аналогичный вопрос - насколько высоко или низко по иерархии вызовов надо вешать @Transactional?
+https://stackoverflow.com/questions/1079114/where-does-the-transactional-annotation-belong
+Надо вешать на уровне сервиса:
+I think transactions belong on the Service layer. It's the one that knows about units of work and use cases. It's the right answer if you have several DAOs injected into a Service that need to work together in a single transaction.
+Sometimes it does not matter, but sometimes you can benefit from that e.g. Hibernate session is spanned for the while transaction, so all loaded objects are in 1st-level cache and you don't need to reattach the objects to session again, plus lazily loaded properties function without fuzz.
+И хорошее замечание:
+However, in the mean time I also started adding @Transactional(propagation = Propagation.MANDATORY) to my DAO layer (and other layers that are not allowed to start transactions but require existing ones) because it is much easier to detect errors where you have forgotten to start a transaction in the caller (e.g. the service). If your DAO is annotated with mandatory propagation you will get an exception stating that there is no active transaction when the method is invoked.
+
+- как посмотреть логи сервиса, запущенного в докер-контейнере?
+https://linux-notes.org/rabota-s-logami-logs-v-docker/
+docker logs <имя контейнера> # Если при старте дали контейнеру имя
+docker logs $(docker ps -aql) #a - Show all containers (default shows just running), q - Only display container IDs, l - Show the latest created container
+
+- Рассказать подробно, как работает https запрос (вопрос возник из другого - почему для секьюрности надо использовать POST, а не GET?)
+= https://firstssl.ru/faq/general-questions/chto-takoe-https
+HTTPS — протокол безопасной передачи данных, поддерживает технологию шифрования TLS/SSL.
+Стандартный протокол HTTP передаёт данные в открытом виде. Злоумышленники могут "вклиниться" в передачу — изменить или перехватить данные. В HTTPS для передачи данных создаётся защищённый канал. Вот как это происходит:
+Вася хочет перейти на сайт FirstSSL, защищённый SSL-сертификатом
+- Васин браузер посылает запрос к сайту
+- сайт отправляет в ответ копию сертификата
+- браузер проверяет подлинность сертификата — узнаёт у центра сертификации, который его выдал
+- если сертификат не поддельный, сайт и браузер тайно (как - см. ниже) договариваются о секретном симметричном ключе
+С помощью этого ключа Васин браузер и сайт устанавливают защищённое HTTPS-соединение. Ключ шифрует данные – мошенники не могут получить доступ к паролям и номерам кредитных карт пользователей.
+Для каждого соединения с сайтом создается новый секретный ключ. Его нельзя перехватить – сайт и браузер договариваются о ключе тайно. И невозможно подобрать – обычно это набор из 100 и более букв и цифр.
+
+= Как сайт и браузер договариваются о секретном симметричном ключе:
+https://firstssl.ru/faq/general-questions/kluch-shifrovania
+Протокол SSL использует асимметричное шифрование или шифрование с открытым ключом для установки соединения. Несмотря на название, здесь используются 2 ключа: открытый и закрытый. Оба формируются при запросе SSL-сертификата.
+Открытый (публичный ключ) доступен всем. Используется для шифрования данных при обращении браузера к серверу.
+Закрытый (секретный ключ) известен только владельцу сайта. Используется для расшифровки данных, отправленных браузером.
+Шифрование с двумя ключами разного типа гарантирует сохранность информации. Даже если мошенник перехватит трафик, не сможет расшифровать его без закрытого ключа.
+Однако асимметричный алгоритм ресурсоемок, а скорость шифрования на 2-3 порядка ниже симметричного алгоритма. Поэтому в SSL-технологии шифрование с открытым ключом используется только для согласования секретного симметричного ключа. С его помощью устанавливается защищённое HTTPS-соединение – данные передаются быстро и безопасно.
+Сразу использовать симметричное шифрование ненадежно. В этом алгоритме один и тот же ключ шифрует и расшифровывает информацию. Посетитель сайта и владелец сервера должны договориться о нем без свидетелей.
+Передать по почте, телефону или смской не получится – перехватят или подслушают.
+Значит, нужно отправить симметричный ключ в зашифрованном сообщении. Но сначала убедиться, что его получит правильный адресат.
+    Чтобы аутентифицировать сервер, браузер посетителя проверяет, подписан ли SSL-сертификат сертификатом доверенного центра.
+    Чтобы договориться о симметричном ключе шифрования сервер и браузер используют асимметричное шифрование с открытым ключом.
+
+= Рассмотрим этот процесс на примере реальных ключей:
+- Боб (сервер) отправляет Алисе (браузеру) замок, ключ от которого есть только у него. Замок здесь – публичный ключ.
+- Алиса закрывает замком Боба ящик с секретом и посылает обратно.
+Так же браузер шифрует сообщение с помощью публичного ключа и передаёт на сервер.
+Открыть ящик не сможет никто: ни сама Алиса, ни сотрудники почты. Мошенник точно так же не может расшифровать сообщение браузера без закрытого ключа.
+- Боб получает ящик, открывает своим единственным ключом и узнаёт секрет.
+Сервер расшифровывает сообщение закрытым ключом, который есть только у него.
+Как Алиса и Боб ведут тайную переписку, так браузер и сервер устанавливают защищённое HTTPS-соединение и обмениваются данными.
+
+- DAU, WAU, MAU метрики
+https://gravitec.net/ru/blog/mau-dau-arpu-ili-metriki-poseshhaemosti-kotory-e-nado-znat/
+DAU (Daily Active Users) - ежедневные активные пользователи. Метрика демонстрирует, сколько пользователей зашло в приложение за день.
+WAU (Weekly Active Users) – еженедельные активные пользователи.
+MAU (Monthly Active Users) - уникальные пользователи, которые посещают приложение хотя бы раз в месяц. Уникальность пользователей определяется по ID или логину.
+Чтобы получить коэффициент вовлеченности пользователя за неделю, нужно разделить «ежедневный» показатель на «еженедельный» (DAU/WAU).
+Если нужно знать коэффициент «прилипаемости» пользователей к сервису в месяц, сопоставляем «ежедневный» и «ежемесячный» результаты (DAU/MAU).
+
+- CSI метрика
+CSI (customer satisfaction index) - индекс удовлетворенности клиентов. Оценка удовлетворенности производится за четыре шага: 
+http://www.marketch.ru/marketing_dictionary/marketing_terms_i/customer-satisfaction-index/
+1. произвольно и экспертно определяются параметры, которые компания считает важными. Для определения показателей можно воспользоваться экспертным мнением, результатами предварительного опроса активной части ЦА. Чаще всего оценивают отношение покупателей к следующим параметрам маркетинга:
+    = к товару или услуге (качеством продукта, упаковки, удобства покупки и пользования); 
+    = клиентскому сервису (скорость обслуживания, компетентность, дружелюбие и проч.); 
+    = к качеству и количеству информационно-маркетингового воздействия;
+    = соответствие цен с потребительским ожиданием и сравнение цен с ценами конкурентов.
+2. в результате опроса потребителей, выявляется их отношение к этим параметрам по пятибалльной шкале: один балл означает неудовлетворенность, пять — удовлетворенность. 
+3. выяснение у покупателей, насколько важен для них тот или иной параметр из экспертного списка  — также по пятибалльной шкале.  
+4. необходимо провести анализ полученных ответов потребителей о их удовлетовренности. 
+
+- KVM
+KVM (Kernel-based Virtual Machine) - программное решение, обеспечивающее виртуализацию в среде Linux на платформе x86, которая поддерживает аппаратную виртуализацию на базе Intel VT (Virtualization Technology) либо AMD SVM (Secure Virtual Machine). 
+
+- LXC
+LXC (Linux Containers) — система виртуализации на уровне ОС для запуска нескольких изолированных экземпляров ОС Linux на одном узле. LXC не использует виртуальные машины, а создаёт виртуальное окружение с собственным пространством процессов и сетевым стеком. Все экземпляры LXC используют один экземпляр ядра операционной системы.
+https://stackoverflow.com/questions/20578039/difference-between-kvm-and-lxc
+The main difference between the KVM virtualization and Linux Containers is that virtual machines require a separate kernel instance to run on, while containers can be deployed from the host operating system. This significantly reduces the complexity of container creation and maintenance. Also, the reduced overhead lets you create a large number of containers with faster startup and shutdown speeds.
+
+- Kotlin coroutines
+Coroutines - lightweight threads
+
+- Как потерять объект в хэшмапе? что делать чтобы такого не было?
+Это случится, если использовать не-immutable ключи. Чтобы предотвратить это - надо использовать immutable ключи.
+
+- Каков размер ссылки в JVM в 32/64-битных системах?
+https://habr.com/ru/post/440166/
+Сжатие указателей в JVM 64-bit, контролируется опцией UseCompressedOops и включено по-умолчанию для 64-битных систем начиная с Java SE 6u23.
+Так что в итоге ответ - 32 бита
+
+- @EntityGraph в JPA
+https://sysout.ru/entity-graph-v-spring-data-jpa/
+https://habr.com/ru/post/444240/
+С помощью Entity Graph можно задать для каждого запроса свою стратегию загрузки данных: LAZY либо EAGER.
+(всё, что указано в  attributeNodes будет загружаться EAGER)
+В репозиторий-классе можно как сослаться на граф, прописанный в аннотации @NamedEntityGraph, так и создать свой на ходу.
+
+- cglib-proxy vs dynamic-proxy
+https://coderoad.ru/10664182/%D0%92-%D1%87%D0%B5%D0%BC-%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%BC-%D0%BF%D1%80%D0%BE%D0%BA%D1%81%D0%B8-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%BE%D0%BC-JDK-%D0%B8-CGLib
+= Динамический прокси-сервер JDK может работать только через интерфейс (поэтому ваш целевой класс должен реализовать интерфейс, который затем также реализуется прокси-классом).
+= CGLIB (и javassist) могут создать прокси-сервер путем подклассов. В этом случае прокси-сервер становится подклассом целевого класса. Нет необходимости в интерфейсах.
+
+- full-text index in DB for queries with "like '%text%'"
+https://www.mssqltips.com/sqlservertutorial/9136/sql-server-full-text-indexes/
+A full-text index is a special type of index that provides index access for full-text queries against character or binary column data. A full-text index breaks the column into tokens and these tokens make up the index data. Before you can create a full-text index you must create a FULL TEXT CATALOG and this catalog is where the full-text index data is stored. A full-text catalog can contain many indexes but a full-text index can only be part of one catalog. Also, only one full-text index can be created on each table so if you have more than one column you need to be indexed the columns have to be moved to separate tables. It is also important to note that full-text indexes are not updated right away as is the case with regular indexes. Populating full-text indexes can be resource intensive so there are more options that let you control when they are updated.
+
+- Describe date/time types in Java 8
+https://www.baeldung.com/java-8-date-time-intro
+- LocalDate represents a date in ISO format (yyyy-MM-dd) without time.
+- LocalTime represents time without a date.
+- LocalDateTime is used to represent a combination of date and time.
+- ZonedDateTime used when we need to deal with time zone specific date and time.
+- ZoneId is an identifier used to represent different zones. There are about 40 different time zones and the ZoneId are used to represent them as follows.
+- OffsetDateTime is an immutable representation of a date-time with an offset. This class stores all date and time fields, to a precision of nanoseconds, as well as the offset from UTC/Greenwich.
+- Period represents a quantity of time in terms of years, months and days.
+- Duration class represents a quantity of time in terms of seconds and nano seconds.
+- DateTimeFormatter provides various standard formatting options.
+https://www.baeldung.com/java-clock
+- Clock provides access to an instant in time using the best available system clock, and to be used as a time provider which can be effectively stubbed for testing purposes.
+
+- как реализовать параллельное вычитывание месседжей из брокера?
+https://habr.com/ru/post/466585/
+(в Кафка) Партиции являются основным механизмом распараллеливания чтения и масштабирования топика за пределы пропускной способности одного экземпляра брокера.
+В то время, как в JMS мы используем структуру сообщения с метаданными (заголовками и свойствами) и телом, содержащим полезную нагрузку (payload), в Kafka сообщение является парой «ключ-значение». Полезная нагрузка сообщения отправляется как значение (value). Ключ, с другой стороны, используется главным образом для партиционирования и должен содержать специфичный для бизнес-логики ключ, чтобы поместить связанные сообщения в ту же партицию.
+
+- как несколько раз обработать одно и то же сообщение в очереди?
+https://habr.com/ru/post/466585/
+Прочитанные сообщения все равно не удаляются, в отличие от обычного брокера, и клиент может перемотать (rewind) смещение, чтобы повторно обработать уже просмотренные сообщения.
+
+- одно- и двунаправленные ссылки в JPA ентитях. владелец связи в JPA
+https://coderoad.ru/11938253/%D0%92-%D1%87%D0%B5%D0%BC-%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-JoinColumn-%D0%B8-mappedBy-%D0%BF%D1%80%D0%B8-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8-%D0%B0%D1%81%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D1%86%D0%B8%D0%B8-JPA
+Простые правила двунаправленных отношений:
+= For many-to-one - двунаправленные отношения, сторона многих всегда является стороной владения отношениями. Пример: 1 комната имеет много человек (человек принадлежит только одной комнате) -> владеющая сторона-это человек
+= For one-to-one - двунаправленные отношения, сторона-владелец соответствует стороне, содержащей соответствующий внешний ключ.
+= For many-to-many - двунаправленные отношения, любая сторона может быть стороной-владельцем. 
+
+- Describe assertions in Java
+https://www.baeldung.com/java-assert
+= Using assertions we can remove the 'if' and 'throw' statement with a single assert statement.
+JVM disables assertion validation by default. They must be explicitly enabled using either the -enableassertions command line argument, or its shorthand -ea:
+	java -ea com.baeldung.assertion.Assertion
+We can also enable assertions for specific packages and classes:
+	java -ea:com.baeldung.assertion... com.baeldung.assertion.Assertion
+Here, we've enabled assertions for all the classes in the com.baeldung.assertion package.
+Likewise, they can be disabled for specific packages and classes using the -disableassertions command line argument, or its shorthand -da. We can also use all four of these arguments together.
+
+= JVM will automatically throw an AssertionError. The class AssertionError extends Error, which itself extends Throwable. This means that AssertionError is an unchecked exception.
+Therefore methods that use assertions are not required to declare them, and further calling code should not try and catch them.
+AssertionErrors are meant to indicate unrecoverable conditions in an application, so never try to handle them or attempt recovery.
+
+= Just remember that assertions aren't enabled by default, so never assume they will be executed when used in the code.
+
+- Service mesh
+https://habr.com/ru/company/flant/blog/478306/
+Service mesh - это всего лишь куча userspace-прокси, расположенных «рядом» с сервисами, плюс набор управляющих процессов. Прокси в совокупности получили название data plane, а управляющие процессы именуются control plane. Data plane перехватывает вызовы между сервисами и делает с ними «всякое-разное»; control plane, соответственно, координирует поведение прокси и обеспечивает доступ для вас, т.е. оператора, к API, позволяя манипулировать сетью и изменять её как единое целое.
+
+- Рекурсивный вызов в JPA - как с ним бороться? Например у классов ентитей А и В есть взаимные ссылки друг на друга.
+в случае если это в toString() или сериализации в json - исключить из toString, или при помощи соответствующей аннотации в json.
+также при необходимости некоторые сущности можно загружать как lazy, управляя этим при помощи FetchType/FetchMode
+
+- рассказать об алгоритмах сборки мусора; что точно не надо собирать?
+
+- Какие есть gc? какой бы выбрал?
+https://www.baeldung.com/jvm-garbage-collectors
+= Serial Garbage Collector
+This is the simplest GC implementation, as it basically works with a single thread. As a result, this GC implementation freezes all application threads when it runs. Hence, it is not a good idea to use it in multi-threaded applications like server environments.
+The Serial GC is the garbage collector of choice for most applications that do not have small pause time requirements and run on client-style machines. To enable Serial Garbage Collector, we can use the following argument: java -XX:+UseSerialGC -jar Application.java
+
+= Parallel Garbage Collector
+It's the default GC of the JVM and sometimes called Throughput Collectors. Unlike Serial Garbage Collector, this uses multiple threads for managing heap space. But it also freezes other application threads while performing GC.
+If we use this GC, we can specify maximum garbage collection threads and pause time, throughput, and footprint (heap size).
+The numbers of garbage collector threads can be controlled with the command-line option -XX:ParallelGCThreads=<N>.
+The maximum pause time goal (gap [in milliseconds] between two GC)is specified with the command-line option -XX:MaxGCPauseMillis=<N>.
+The maximum throughput target (measured regarding the time spent doing garbage collection versus the time spent outside of garbage collection) is specified by the command-line option -XX:GCTimeRatio=<N>.
+The maximum heap footprint (the amount of heap memory that a program requires while running) is specified using the option -Xmx<N>.
+To enable Parallel Garbage Collector, we can use the following argument: java -XX:+UseParallelGC -jar Application.java
+
+= CMS Garbage Collector
+The Concurrent Mark Sweep (CMS) implementation uses multiple garbage collector threads for garbage collection. It's designed for applications that prefer shorter garbage collection pauses, and that can afford to share processor resources with the garbage collector while the application is running.
+Simply put, applications using this type of GC respond slower on average but do not stop responding to perform garbage collection.
+A quick point to note here is that since this GC is concurrent, an invocation of explicit garbage collection such as using System.gc() while the concurrent process is working, will result in Concurrent Mode Failure / Interruption.
+If more than 98% of the total time is spent in CMS garbage collection and less than 2% of the heap is recovered, then an OutOfMemoryError is thrown by the CMS collector. If necessary, this feature can be disabled by adding the option -XX:-UseGCOverheadLimit to the command line.
+This collector also has a mode knows as an incremental mode which is being deprecated in Java SE 8 and may be removed in a future major release.
+To enable the CMS Garbage Collector, we can use the following flag: java -XX:+UseParNewGC -jar Application.java
+As of Java 9, the CMS garbage collector has been deprecated.
+Moreover, Java 14 completely dropped the CMS support.
+
+= G1 Garbage Collector
+G1 (Garbage First) Garbage Collector is designed for applications running on multi-processor machines with large memory space. It's available since JDK7u4.
+G1 collector will replace the CMS collector since it's more performance efficient.
+Unlike other collectors, G1 collector partitions the heap into a set of equal-sized heap regions, each a contiguous range of virtual memory. When performing garbage collections, G1 shows a concurrent global marking phase (i.e. phase 1 known as Marking) to determine the liveness of objects throughout the heap.
+After the mark phase is completed, G1 knows which regions are mostly empty. It collects in these areas first, which usually yields a significant amount of free space (i.e. phase 2 known as Sweeping). It is why this method of garbage collection is called Garbage-First.
+To enable the G1 Garbage Collector, we can use the following argument: java -XX:+UseG1GC -jar Application.java
+
+= ZGC
+https://wiki.openjdk.java.net/display/zgc/Main
+The Z Garbage Collector, also known as ZGC, is a scalable low latency garbage collector designed to meet the following goals:
+    Max pause times of a few milliseconds
+    Pause times do not increase with the heap or live-set size
+    Handle heaps ranging from a 8MB to 16TB in size
+At a glance, ZGC is:
+    Concurrent
+    Region-based
+    Compacting
+    NUMA-aware
+    Using colored pointers
+    Using load barriers
+At its core, ZGC is a concurrent garbage collector, meaning all heavy lifting work is done while Java threads continue to execute. This greatly limits the impact garbage collection will have on your application's response time.
+
+= Shenandoah
+
+= Какой бы GC выбрал - зависит от конкретной задачи
+
+- есть ли транзакции в MongoDB?
+В июне 2018 года (в версии 4.0) добавлена поддержка транзакций, удовлетворяющих требованиям ACID
+
+- Транзакции в NoSQL базах данных
+https://ru.wikipedia.org/wiki/NoSQL
+Традиционные СУБД ориентируются на требования ACID к транзакционной системе: атомарность (atomicity), согласованность (consistency), изолированность (isolation), надёжность (durability), тогда как в NoSQL вместо ACID может рассматриваться набор свойств BASE:
+= базовая доступность (basic availability) — каждый запрос гарантированно завершается (успешно или безуспешно).
+= гибкое состояние (soft state) — состояние системы может изменяться со временем, даже без ввода новых данных, для достижения согласования данных.
+= согласованность в конечном счёте (eventual consistency) — данные могут быть некоторое время рассогласованы, но приходят к согласованию через некоторое время.
+
+- Как при работе со стримами получить и значения и индексы эл-тов в коллекции?
+https://youtu.be/vxikpWnnnCU
+IntStream.range(0, list.size()).mapToObj(idx -> new IndexedValue<>(idx, list.get(idx))), где IndexedValue - собственный тип с двумя полями
+
+- рассказать о lazy-initialization exception
+
+- partitioning vs sharding vs sectioning
