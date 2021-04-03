@@ -3,7 +3,7 @@ package by.andd3dfx.regexp;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import by.andd3dfx.interview.wf.exam.Paragraph;
+import by.andd3dfx.interview.exam.Paragraph;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.junit.Test;
