@@ -102,9 +102,8 @@ public class DateTimeTest {
         System.out.println(legacyDate);     // Wed Dec 31 23:59:59 CET 2014
 
         // Formatting:
-        DateTimeFormatter formatter =
-                DateTimeFormatter
-                        .ofPattern("MMM dd, yyyy - HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter
+                .ofPattern("MMM dd, yyyy - HH:mm", Locale.US);
 
         LocalDateTime parsed = LocalDateTime.parse("Nov 03, 2014 - 07:13", formatter);
         String string = formatter.format(parsed);
