@@ -17,7 +17,7 @@ public class CompositeIteratorTest {
     public void testNextAndHasNext() {
         List<Integer> list1 = Arrays.asList(12, 52);
         List<Integer> list2 = Arrays.asList(34, 98, 2);
-        CompositeIterator<Integer> compositeIterator = new CompositeIterator(list1.iterator(), list2.iterator());
+        CompositeIterator<Integer> compositeIterator = new CompositeIterator<>(list1.iterator(), list2.iterator());
 
         List<Integer> result = new ArrayList<>();
 
@@ -43,7 +43,7 @@ public class CompositeIteratorTest {
             add("car");
             add("cat");
         }};
-        CompositeIterator<String> compositeIterator = new CompositeIterator(set1.iterator(), set2.iterator());
+        CompositeIterator<String> compositeIterator = new CompositeIterator<>(set1.iterator(), set2.iterator());
 
         List<String> list = new ArrayList<>();
         list.add(compositeIterator.next());
@@ -62,7 +62,7 @@ public class CompositeIteratorTest {
     public void callNextAfterEndOfIterator() {
         List<Integer> list1 = Arrays.asList(12, 52);
         List<Integer> list2 = Arrays.asList(34, 98, 2);
-        CompositeIterator<Integer> compositeIterator = new CompositeIterator(list1.iterator(), list2.iterator());
+        CompositeIterator<Integer> compositeIterator = new CompositeIterator<>(list1.iterator(), list2.iterator());
 
         while (compositeIterator.hasNext()) {
             compositeIterator.next();

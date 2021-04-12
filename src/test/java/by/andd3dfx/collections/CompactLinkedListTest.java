@@ -1,6 +1,5 @@
 package by.andd3dfx.collections;
 
-import by.andd3dfx.collections.CompactLinkedList;
 import by.andd3dfx.collections.CompactLinkedList.Node;
 import org.junit.Test;
 
@@ -28,8 +27,8 @@ public class CompactLinkedListTest {
     }
 
     private CompactLinkedList<Integer> buildLinkedList() {
-        Node head = new Node(3, new Node(7, new Node(12, new Node(10, null))));
-        return (CompactLinkedList<Integer>) new CompactLinkedList(head);
+        Node<Integer> head = new Node<>(3, new Node<>(7, new Node<>(12, new Node<>(10, null))));
+        return new CompactLinkedList<>(head);
     }
 
     private void checkSourceList(CompactLinkedList<Integer> linkedList) {

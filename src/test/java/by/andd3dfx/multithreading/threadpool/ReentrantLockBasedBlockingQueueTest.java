@@ -4,6 +4,6 @@ public class ReentrantLockBasedBlockingQueueTest extends AbstractBlockingQueueTe
 
     @Override
     protected CustomBlockingQueue<Integer> buildQueue(int size) {
-        return new ReentrantLockBasedBlockingQueue(size);
+        return new ReentrantLockBasedBlockingQueue<>(size);
     }
 }

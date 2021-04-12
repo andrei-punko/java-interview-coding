@@ -20,7 +20,7 @@ public class CustomCache {
 Известно, что кол-во разных объектов в кеше - небольшое, не более 1000
 */
 public class CustomCache {
-    private List<AtomicReference> storage = new ArrayList<AtomicReference>() {{
+    private final List<AtomicReference> storage = new ArrayList<>() {{
         for (int i = 0; i < 1000; i++) {
             add(new AtomicReference());
         }
