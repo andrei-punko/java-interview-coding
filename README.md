@@ -3,6 +3,8 @@
 
 [![Java CI with Maven](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml/badge.svg)](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml)
 
+#### Migrated from https://github.com/andrei-punko/java-sandbox
+
 Covered wide set of areas like next:
 - [annotations](./src/main/java/by/andd3dfx/annotation)
 - [cache](./src/main/java/by/andd3dfx/cache)
