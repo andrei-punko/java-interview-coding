@@ -29,6 +29,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RestClientTest {
+    private final String URL = "http://localhost:8080/any-path";
 
     @InjectMocks
     private RestClient restClient;
@@ -37,26 +38,35 @@ public class RestClientTest {
     private RestTemplate restTemplate;
 
     @Test
-    public void getForObjectWithoutQueryParams() {
-        testGetForObject(new HashMap<>());
-    }
-
-    @Test
-    public void getForObjectWithQueryParams() {
-        testGetForObject(buildQueryParams());
-    }
-
-    private void testGetForObject(Map<String, String> queryParams) {
-        final String url = "http://localhost:8080/any-path";
-        final Map<String, String> headers = buildHeaders();
-
-        final String expectedUrl = buildExpectedUrl(url, queryParams);
+    public void getForObjectWithoutQueryParamsNHeaders() {
+        final String expectedUrl = buildExpectedUrl(URL, new HashMap<>());
         final MoneyAmount stubResult = new MoneyAmount(54.8, "BYN");
         final ResponseEntity<MoneyAmount> responseEntity = ResponseEntity.ok(stubResult);
         when(restTemplate.exchange(eq(expectedUrl), eq(HttpMethod.GET), any(HttpEntity.class), eq(MoneyAmount.class)))
                 .thenReturn(responseEntity);
 
-        MoneyAmount result = restClient.getForObject(url, headers, queryParams, MoneyAmount.class);
+        MoneyAmount result = restClient.getForObject(URL, MoneyAmount.class);
+
+        assertThat(result.getAmount(), is(stubResult.getAmount()));
+        assertThat(result.getCurrency(), is(stubResult.getCurrency()));
+
+        ArgumentCaptor<HttpEntity> httpEntityCaptor = ArgumentCaptor.forClass(HttpEntity.class);
+        verify(restTemplate).exchange(eq(expectedUrl), eq(HttpMethod.GET), httpEntityCaptor.capture(), eq(MoneyAmount.class));
+
+        HttpEntity capturedHttpEntity = httpEntityCaptor.getValue();
+        assertThat(capturedHttpEntity.getBody(), nullValue());
+    }
+
+    @Test
+    public void getForObjectWithoutQueryParams() {
+        final Map<String, String> headers = buildHeaders();
+        final String expectedUrl = buildExpectedUrl(URL, new HashMap<>());
+        final MoneyAmount stubResult = new MoneyAmount(54.8, "BYN");
+        final ResponseEntity<MoneyAmount> responseEntity = ResponseEntity.ok(stubResult);
+        when(restTemplate.exchange(eq(expectedUrl), eq(HttpMethod.GET), any(HttpEntity.class), eq(MoneyAmount.class)))
+                .thenReturn(responseEntity);
+
+        MoneyAmount result = restClient.getForObject(URL, headers, MoneyAmount.class);
 
         assertThat(result.getAmount(), is(stubResult.getAmount()));
         assertThat(result.getCurrency(), is(stubResult.getCurrency()));
@@ -74,27 +84,68 @@ public class RestClientTest {
     }
 
     @Test
-    public void postForObjectWithoutQueryParams() {
-        testPostForObject(new HashMap<>());
+    public void getForObject() {
+        final Map<String, String> queryParams = buildQueryParams();
+        final Map<String, String> headers = buildHeaders();
+
+        final String expectedUrl = buildExpectedUrl(URL, queryParams);
+        final MoneyAmount stubResult = new MoneyAmount(54.8, "BYN");
+        final ResponseEntity<MoneyAmount> responseEntity = ResponseEntity.ok(stubResult);
+        when(restTemplate.exchange(eq(expectedUrl), eq(HttpMethod.GET), any(HttpEntity.class), eq(MoneyAmount.class)))
+                .thenReturn(responseEntity);
+
+        MoneyAmount result = restClient.getForObject(URL, headers, queryParams, MoneyAmount.class);
+
+        assertThat(result.getAmount(), is(stubResult.getAmount()));
+        assertThat(result.getCurrency(), is(stubResult.getCurrency()));
+
+        ArgumentCaptor<HttpEntity> httpEntityCaptor = ArgumentCaptor.forClass(HttpEntity.class);
+        verify(restTemplate).exchange(eq(expectedUrl), eq(HttpMethod.GET), httpEntityCaptor.capture(), eq(MoneyAmount.class));
+
+        HttpEntity capturedHttpEntity = httpEntityCaptor.getValue();
+        HttpHeaders capturedHeaders = capturedHttpEntity.getHeaders();
+        assertThat(capturedHeaders.getAccept(), is(Arrays.asList(MediaType.APPLICATION_JSON)));
+        headers.forEach((key, value) -> {
+            assertThat(capturedHeaders.get(key), is(Arrays.asList(value)));
+        });
+        assertThat(capturedHttpEntity.getBody(), nullValue());
     }
 
     @Test
-    public void postForObjectWithQueryParams() {
-        testPostForObject(buildQueryParams());
-    }
-
-    private void testPostForObject(Map<String, String> queryParams) {
-        final String url = "http://localhost:8080/any-path";
-        final Map<String, String> headers = buildHeaders();
-
-        final String expectedUrl = buildExpectedUrl(url, queryParams);
+    public void postForObjectWithoutQueryParamsNHeaders() {
+        final String expectedUrl = buildExpectedUrl(URL, new HashMap<>());
         final MoneyAmount stubResult = new MoneyAmount(54.8, "BYN");
         final ResponseEntity<MoneyAmount> responseEntity = ResponseEntity.ok(stubResult);
         final String bodyJsonString = "{ \"name\": \"Axton\" }";
         when(restTemplate.exchange(eq(expectedUrl), eq(HttpMethod.POST), any(HttpEntity.class), eq(MoneyAmount.class)))
                 .thenReturn(responseEntity);
 
-        MoneyAmount result = restClient.postForObject(url, headers, queryParams, bodyJsonString, MoneyAmount.class);
+        MoneyAmount result = restClient.postForObject(URL, bodyJsonString, MoneyAmount.class);
+
+        assertThat(result.getAmount(), is(stubResult.getAmount()));
+        assertThat(result.getCurrency(), is(stubResult.getCurrency()));
+
+        ArgumentCaptor<HttpEntity> httpEntityCaptor = ArgumentCaptor.forClass(HttpEntity.class);
+        verify(restTemplate).exchange(eq(expectedUrl), eq(HttpMethod.POST), httpEntityCaptor.capture(), eq(MoneyAmount.class));
+
+        HttpEntity capturedHttpEntity = httpEntityCaptor.getValue();
+        HttpHeaders capturedHeaders = capturedHttpEntity.getHeaders();
+        assertThat(capturedHeaders.getAccept(), is(Arrays.asList(MediaType.APPLICATION_JSON)));
+        assertThat(capturedHeaders.getContentType(), is(MediaType.APPLICATION_JSON));
+        assertThat(capturedHttpEntity.getBody(), is(bodyJsonString));
+    }
+
+    @Test
+    public void postForObjectWithoutQueryParams() {
+        final Map<String, String> headers = buildHeaders();
+        final String expectedUrl = buildExpectedUrl(URL, new HashMap<>());
+        final MoneyAmount stubResult = new MoneyAmount(54.8, "BYN");
+        final ResponseEntity<MoneyAmount> responseEntity = ResponseEntity.ok(stubResult);
+        final String bodyJsonString = "{ \"name\": \"Axton\" }";
+        when(restTemplate.exchange(eq(expectedUrl), eq(HttpMethod.POST), any(HttpEntity.class), eq(MoneyAmount.class)))
+                .thenReturn(responseEntity);
+
+        MoneyAmount result = restClient.postForObject(URL, headers, bodyJsonString, MoneyAmount.class);
 
         assertThat(result.getAmount(), is(stubResult.getAmount()));
         assertThat(result.getCurrency(), is(stubResult.getCurrency()));
@@ -110,6 +161,114 @@ public class RestClientTest {
             assertThat(capturedHeaders.get(key), is(Arrays.asList(value)));
         });
         assertThat(capturedHttpEntity.getBody(), is(bodyJsonString));
+    }
+
+    @Test
+    public void postForObjectWithQueryParams() {
+        final Map<String, String> queryParams = buildQueryParams();
+        final Map<String, String> headers = buildHeaders();
+        final String expectedUrl = buildExpectedUrl(URL, queryParams);
+        final MoneyAmount stubResult = new MoneyAmount(54.8, "BYN");
+        final ResponseEntity<MoneyAmount> responseEntity = ResponseEntity.ok(stubResult);
+        final String bodyJsonString = "{ \"name\": \"Axton\" }";
+        when(restTemplate.exchange(eq(expectedUrl), eq(HttpMethod.POST), any(HttpEntity.class), eq(MoneyAmount.class)))
+                .thenReturn(responseEntity);
+
+        MoneyAmount result = restClient.postForObject(URL, headers, queryParams, bodyJsonString, MoneyAmount.class);
+
+        assertThat(result.getAmount(), is(stubResult.getAmount()));
+        assertThat(result.getCurrency(), is(stubResult.getCurrency()));
+
+        ArgumentCaptor<HttpEntity> httpEntityCaptor = ArgumentCaptor.forClass(HttpEntity.class);
+        verify(restTemplate).exchange(eq(expectedUrl), eq(HttpMethod.POST), httpEntityCaptor.capture(), eq(MoneyAmount.class));
+
+        HttpEntity capturedHttpEntity = httpEntityCaptor.getValue();
+        HttpHeaders capturedHeaders = capturedHttpEntity.getHeaders();
+        assertThat(capturedHeaders.getAccept(), is(Arrays.asList(MediaType.APPLICATION_JSON)));
+        assertThat(capturedHeaders.getContentType(), is(MediaType.APPLICATION_JSON));
+        headers.forEach((key, value) -> {
+            assertThat(capturedHeaders.get(key), is(Arrays.asList(value)));
+        });
+        assertThat(capturedHttpEntity.getBody(), is(bodyJsonString));
+    }
+
+    @Test
+    public void putForObjectWithoutQueryParams() {
+        final Map<String, String> headers = buildHeaders();
+        final String expectedUrl = buildExpectedUrl(URL, new HashMap<>());
+        final MoneyAmount stubResult = new MoneyAmount(54.8, "BYN");
+        final ResponseEntity<MoneyAmount> responseEntity = ResponseEntity.ok(stubResult);
+        when(restTemplate.exchange(eq(expectedUrl), eq(HttpMethod.PUT), any(HttpEntity.class), eq(MoneyAmount.class)))
+                .thenReturn(responseEntity);
+
+        MoneyAmount result = restClient.putForObject(URL, headers, MoneyAmount.class);
+
+        assertThat(result.getAmount(), is(stubResult.getAmount()));
+        assertThat(result.getCurrency(), is(stubResult.getCurrency()));
+
+        ArgumentCaptor<HttpEntity> httpEntityCaptor = ArgumentCaptor.forClass(HttpEntity.class);
+        verify(restTemplate).exchange(eq(expectedUrl), eq(HttpMethod.PUT), httpEntityCaptor.capture(), eq(MoneyAmount.class));
+
+        HttpEntity capturedHttpEntity = httpEntityCaptor.getValue();
+        HttpHeaders capturedHeaders = capturedHttpEntity.getHeaders();
+        assertThat(capturedHeaders.getAccept(), is(Arrays.asList(MediaType.APPLICATION_JSON)));
+        assertThat(capturedHeaders.getContentType(), is(MediaType.APPLICATION_JSON));
+        headers.forEach((key, value) -> {
+            assertThat(capturedHeaders.get(key), is(Arrays.asList(value)));
+        });
+    }
+
+    @Test
+    public void putForObject() {
+        final Map<String, String> queryParams = buildQueryParams();
+        final Map<String, String> headers = buildHeaders();
+        final String expectedUrl = buildExpectedUrl(URL, queryParams);
+        final MoneyAmount stubResult = new MoneyAmount(54.8, "BYN");
+        final ResponseEntity<MoneyAmount> responseEntity = ResponseEntity.ok(stubResult);
+        when(restTemplate.exchange(eq(expectedUrl), eq(HttpMethod.PUT), any(HttpEntity.class), eq(MoneyAmount.class)))
+                .thenReturn(responseEntity);
+
+        MoneyAmount result = restClient.putForObject(URL, headers, queryParams, MoneyAmount.class);
+
+        assertThat(result.getAmount(), is(stubResult.getAmount()));
+        assertThat(result.getCurrency(), is(stubResult.getCurrency()));
+
+        ArgumentCaptor<HttpEntity> httpEntityCaptor = ArgumentCaptor.forClass(HttpEntity.class);
+        verify(restTemplate).exchange(eq(expectedUrl), eq(HttpMethod.PUT), httpEntityCaptor.capture(), eq(MoneyAmount.class));
+
+        HttpEntity capturedHttpEntity = httpEntityCaptor.getValue();
+        HttpHeaders capturedHeaders = capturedHttpEntity.getHeaders();
+        assertThat(capturedHeaders.getAccept(), is(Arrays.asList(MediaType.APPLICATION_JSON)));
+        assertThat(capturedHeaders.getContentType(), is(MediaType.APPLICATION_JSON));
+        headers.forEach((key, value) -> {
+            assertThat(capturedHeaders.get(key), is(Arrays.asList(value)));
+        });
+    }
+
+    @Test
+    public void deleteForObject() {
+        final Map<String, String> headers = buildHeaders();
+        final String expectedUrl = buildExpectedUrl(URL, new HashMap<>());
+        final MoneyAmount stubResult = new MoneyAmount(54.8, "BYN");
+        final ResponseEntity<MoneyAmount> responseEntity = ResponseEntity.ok(stubResult);
+        when(restTemplate.exchange(eq(expectedUrl), eq(HttpMethod.DELETE), any(HttpEntity.class), eq(MoneyAmount.class)))
+                .thenReturn(responseEntity);
+
+        MoneyAmount result = restClient.deleteForObject(URL, headers, MoneyAmount.class);
+
+        assertThat(result.getAmount(), is(stubResult.getAmount()));
+        assertThat(result.getCurrency(), is(stubResult.getCurrency()));
+
+        ArgumentCaptor<HttpEntity> httpEntityCaptor = ArgumentCaptor.forClass(HttpEntity.class);
+        verify(restTemplate).exchange(eq(expectedUrl), eq(HttpMethod.DELETE), httpEntityCaptor.capture(), eq(MoneyAmount.class));
+
+        HttpEntity capturedHttpEntity = httpEntityCaptor.getValue();
+        HttpHeaders capturedHeaders = capturedHttpEntity.getHeaders();
+        assertThat(capturedHeaders.getAccept(), is(Arrays.asList(MediaType.APPLICATION_JSON)));
+        assertThat(capturedHeaders.getContentType(), is(MediaType.APPLICATION_JSON));
+        headers.forEach((key, value) -> {
+            assertThat(capturedHeaders.get(key), is(Arrays.asList(value)));
+        });
     }
 
     private String buildExpectedUrl(String url, Map<String, String> queryParams) {
