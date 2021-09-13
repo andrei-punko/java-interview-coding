@@ -5,8 +5,8 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 
-/*
-    To perform check - start Active MQ broker with JMX enabled in configuration according to notes in JmsUtil
+/**
+ * To perform check - start Active MQ broker with JMX enabled in configuration according to notes in JmsUtil
  */
 public class JmsUtilTest {
     private final String ACTIVEMQ_URL = "service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi";

@@ -29,6 +29,6 @@ public class ShufflerTest {
                 counter++;
             }
         }
-        assertThat("Bad shuffling quality", counter/(double)result.length, lessThan(0.1d));
+        assertThat("Bad shuffling quality", counter / (double) result.length, lessThan(0.1d));
     }
 }

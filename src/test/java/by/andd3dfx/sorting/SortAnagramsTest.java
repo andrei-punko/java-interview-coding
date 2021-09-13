@@ -18,7 +18,7 @@ public class SortAnagramsTest {
     }
 
     @Test
-    public void groupAnagrams() throws Exception {
+    public void groupAnagrams() {
         List<List<String>> result = sortAnagrams.groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
 
         assertThat("Size should be equal to 3", result.size(), is(3));

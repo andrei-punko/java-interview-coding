@@ -11,13 +11,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ClassThatShouldBeTestedTest {
 
-    /*
-        To mock real class, not interface, we need to set imposteriser into mockery
+    /**
+     * To mock real class, not interface, we need to set imposteriser into mockery
      */
     private Mockery mockery = new Mockery() {{
         setImposteriser(ClassImposteriser.INSTANCE);
     }};
-    ClassThatShouldBeTested classThatShouldBeTested;
+    private ClassThatShouldBeTested classThatShouldBeTested;
 
     @Before
     public void setup() {
@@ -26,7 +26,7 @@ public class ClassThatShouldBeTestedTest {
     }
 
     @Test
-    public void someMethod() throws Exception {
+    public void someMethod() {
         mockery.checking(new Expectations() {
             {
                 oneOf(classThatShouldBeTested.realClass).someMethod(2, 5);

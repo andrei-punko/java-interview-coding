@@ -27,6 +27,6 @@ public abstract class AbstractSortTest {
         sorterClass.sort();
 
         assertThat("Wrong elements order", sorterClass.getItems(),
-            is(new long[]{TOO_LOW_VALUE, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, TOO_HIGH_VALUE}));
+                is(new long[]{TOO_LOW_VALUE, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, TOO_HIGH_VALUE}));
     }
 }
