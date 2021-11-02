@@ -2,8 +2,8 @@
 ## Playground for preparation to Java interviews
 
 [![Java CI with Maven](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml/badge.svg)](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml)
-[![Coverage](.github/badges/jacoco.svg)](jacoco.svg)
-[![Branches](.github/badges/branches.svg)](branches.svg)
+[![Coverage](.github/badges/jacoco.svg)](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml)
+[![Branches](.github/badges/branches.svg)](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml)
 
 #### Migrated from https://github.com/andrei-punko/java-sandbox
 
