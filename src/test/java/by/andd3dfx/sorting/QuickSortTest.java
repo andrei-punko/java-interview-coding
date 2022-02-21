@@ -1,9 +1,9 @@
 package by.andd3dfx.sorting;
 
-public class QuickSortTest extends AbstractSortTest {
+public class QuickSortTest extends AbstractModernSortTest {
 
     @Override
-    protected AbstractSort createSorterClass() {
+    protected AbstractModernSort createSorterClass() {
         return new QuickSort();
     }
 }

@@ -1,13 +1,13 @@
 package by.andd3dfx.sorting;
 
-public class QuickSort extends AbstractSort {
+public class QuickSort extends AbstractModernSort {
 
     @Override
     public void sort() {
         quickSort(items, 0, items.length - 1);
     }
 
-    private void quickSort(Long[] items, int low, int high) {
+    private <T extends Comparable<T>> void quickSort(T[] items, int low, int high) {
         if (low < high) {
             int p = partition(items, low, high);
             quickSort(items, low, p);
@@ -15,16 +15,16 @@ public class QuickSort extends AbstractSort {
         }
     }
 
-    private int partition(Long[] items, int low, int high) {
-        Long v = items[(low + high) / 2];
+    private <T extends Comparable<T>> int partition(T[] items, int low, int high) {
+        var v = items[(low + high) / 2];
         int i = low;
         int j = high;
 
         while (i <= j) {
-            while (items[i] < v) {
+            while (lessThan(items[i], v)) {
                 i++;
             }
-            while (items[j] > v) {
+            while (greaterThan(items[j], v)) {
                 j--;
             }
             if (i >= j) {

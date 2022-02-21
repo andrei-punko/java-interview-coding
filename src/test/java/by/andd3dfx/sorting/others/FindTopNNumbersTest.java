@@ -1,4 +1,4 @@
-package by.andd3dfx.sorting;
+package by.andd3dfx.sorting.others;
 
 import org.junit.Test;
 

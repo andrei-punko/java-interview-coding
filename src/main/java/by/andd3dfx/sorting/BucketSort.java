@@ -25,12 +25,12 @@ public class BucketSort extends AbstractSort {
       List<Long> bucket = buckets.get(bucketIndex);
 
       // Sort elements in each bucket
-      InsertionSort insertionSort = new InsertionSort();
-      insertionSort.insert(bucket);
-      insertionSort.sort();
+      MergeSort sorter = new MergeSort();
+      sorter.insert(bucket);
+      sorter.sort();
 
       // Populate result array with values from bucket
-      for (long item : insertionSort.items) {
+      for (long item : sorter.items) {
         items[currIndex] = item;
         currIndex++;
       }

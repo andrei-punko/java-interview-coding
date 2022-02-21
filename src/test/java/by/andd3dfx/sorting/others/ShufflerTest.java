@@ -1,9 +1,10 @@
-package by.andd3dfx.sorting;
+package by.andd3dfx.sorting.others;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import by.andd3dfx.sorting.others.Shuffler;
 import org.junit.Before;
 import org.junit.Test;
 

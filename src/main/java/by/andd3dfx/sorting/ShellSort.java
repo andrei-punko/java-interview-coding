@@ -1,6 +1,6 @@
 package by.andd3dfx.sorting;
 
-public class ShellSort extends AbstractSort {
+public class ShellSort extends AbstractModernSort {
 
     @Override
     public void sort() {
@@ -12,11 +12,11 @@ public class ShellSort extends AbstractSort {
         {
             // h-сортировка файла
             for (int outer = h; outer < items.length; outer++) {
-                long temp = items[outer];
+                var temp = items[outer];
                 int inner = outer;
 
                 // Первый подмассив (0, 4, 8)
-                while (inner > h - 1 && items[inner - h] >= temp) {
+                while (inner > h - 1 && greaterOrEqualsThan(items[inner - h], temp)) {
                     items[inner] = items[inner - h];
                     inner -= h;
                 }
