@@ -22,7 +22,7 @@ public abstract class AbstractModernSortTest {
     @Test
     public void sort() {
         Long[] items = new Long[]{10L, TOO_HIGH_VALUE, 9L, 8L, TOO_LOW_VALUE, 7L, 6L, 5L, 4L, 1L, 3L, 2L};
-        sorterClass.insert(items);
+        sorterClass.init(items);
 
         sorterClass.sort();
 

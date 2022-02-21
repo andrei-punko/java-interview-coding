@@ -3,6 +3,7 @@ package by.andd3dfx.sorting;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: parameterize this sorter
 public class BucketSort extends AbstractSort {
 
   private final int BUCKETS_COUNT = 10;
@@ -26,7 +27,7 @@ public class BucketSort extends AbstractSort {
 
       // Sort elements in each bucket
       InsertionSort sorter = new InsertionSort();
-      sorter.insert(bucket.toArray(new Long[0]));
+      sorter.init(bucket.toArray(new Long[0]));
       sorter.sort();
 
       // Populate result array with values from bucket

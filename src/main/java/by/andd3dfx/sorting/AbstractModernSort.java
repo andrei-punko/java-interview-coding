@@ -6,7 +6,7 @@ public abstract class AbstractModernSort<T extends Comparable<T>> {
 
     protected T[] items;
 
-    public void insert(T[] items) {
+    public void init(T[] items) {
         this.items = items;
     }
 
