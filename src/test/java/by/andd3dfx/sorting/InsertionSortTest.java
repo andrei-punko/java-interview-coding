@@ -1,9 +1,9 @@
 package by.andd3dfx.sorting;
 
-public class InsertionSortTest extends AbstractModernSortTest {
+public class InsertionSortTest extends AbstractSortTest {
 
     @Override
-    protected AbstractModernSort createSorterClass() {
+    protected AbstractSort createSorterClass() {
         return new InsertionSort();
     }
 }

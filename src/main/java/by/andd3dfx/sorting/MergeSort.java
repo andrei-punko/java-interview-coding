@@ -2,7 +2,7 @@ package by.andd3dfx.sorting;
 
 import java.lang.reflect.Array;
 
-public class MergeSort extends AbstractModernSort {
+public class MergeSort extends AbstractSort {
 
     @Override
     public void sort() {

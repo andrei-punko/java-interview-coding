@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // TODO: parameterize this sorter
-public class BucketSort extends AbstractSort {
+public class BucketSort extends AbstractSort<Long> {
 
   private final int BUCKETS_COUNT = 10;
 

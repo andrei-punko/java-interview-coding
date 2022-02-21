@@ -1,6 +1,6 @@
 package by.andd3dfx.sorting;
 
-public class BubbleSort extends AbstractModernSort {
+public class BubbleSort extends AbstractSort {
 
     @Override
     public void sort() {

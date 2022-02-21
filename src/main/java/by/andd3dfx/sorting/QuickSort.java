@@ -1,6 +1,6 @@
 package by.andd3dfx.sorting;
 
-public class QuickSort extends AbstractModernSort {
+public class QuickSort extends AbstractSort {
 
     @Override
     public void sort() {

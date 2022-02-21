@@ -1,9 +1,9 @@
 package by.andd3dfx.sorting;
 
-public class BubbleSortTest extends AbstractModernSortTest {
+public class BubbleSortTest extends AbstractSortTest {
 
     @Override
-    protected AbstractModernSort createSorterClass() {
+    protected AbstractSort createSorterClass() {
         return new BubbleSort();
     }
 }
