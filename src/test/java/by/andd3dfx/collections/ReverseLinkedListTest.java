@@ -25,4 +25,19 @@ public class ReverseLinkedListTest {
         }
         assertThat(current).isNull();
     }
+
+    @Test
+    public void reverseForListWithSizeOne() {
+        ReverseLinkedList.ListNode head = new ReverseLinkedList.ListNode(null, 6);
+
+        ReverseLinkedList.ListNode current = ReverseLinkedList.reverse(head);
+
+        assertThat(current.val).isEqualTo(6);
+        assertThat(current.next).isNull();
+    }
+
+    @Test
+    public void reverseForNull() {
+        assertThat(ReverseLinkedList.reverse(null)).isNull();
+    }
 }
