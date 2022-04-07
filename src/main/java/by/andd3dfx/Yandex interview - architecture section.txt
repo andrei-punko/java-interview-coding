@@ -1,0 +1,51 @@
+
+'feedbacks' table in SQL DB:
+id, product_id, user_id, ts, text, feedback_number
+id=PK
+
+indexes:
+- product_id, ts
+- user_id, ts
+
+REST API:
+
+POST /feedbacks/{productId}
+{ user_id, ts, text }
+
+GET /feedbacks/products?pageNumber=1&pageSize=50&sort=ts_desc
+
+GET /feedbacks/products/{productId}?pageNumber=1&pageSize=50&sort=ts_desc
+
+GET /feedbacks/users/{userId}?pageNumber=1&pageSize=50&sort=ts_desc
+
+PUT /feedbacks/products/{productId}/{userId}/{feedback_number}
+{ text }
+
+
+read/write replicas
+
+caches (Redis):
+(productId, pageNumber, sort) -> ([...]) (save for greater pageSize value, return first N requested items)
+(userId, pageNumber, sort) -> ([...]) (save for greater pageSize value, return first N requested items)
+
+---
+
+feedback_likes table in SQL DB:
+{ id, feedback_id, up_counter, down_counter, version }
+id=PK
+index: feedback_id
+
+feedback_user_likes:
+{ id, feedback_id, user_id, vote, ts }
+id=PK
+index: feedback_id, user_id
+
+PUT /likes/{feedbackId}/{userId}
+{ vote }
+
+GET /likes?feedbackIds=[...]
+
+
+caches (Redis):
+([feedbackIds]) -> ([(up, down), ...])
+
