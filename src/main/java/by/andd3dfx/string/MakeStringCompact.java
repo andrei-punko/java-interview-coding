@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Convert incoming string into string with char frequencies: AAABBCDDDDEFFFFFFF -> A3B2C1D4E1F7
+ * Convert incoming string into string with char frequencies: AAABBCDDDDEFFFFFFF -> A3B2CD4EF7
  */
 public class MakeStringCompact {
 
@@ -23,7 +23,12 @@ public class MakeStringCompact {
         });
 
         return map.entrySet().stream()
-            .map(entry -> String.format("%s%d", entry.getKey(), entry.getValue()))
+            .map(entry -> {
+                if (entry.getValue() == 1) {
+                    return entry.getKey().toString();
+                }
+                return String.format("%s%d", entry.getKey(), entry.getValue());
+            })
             .collect(Collectors.joining());
     }
 }
