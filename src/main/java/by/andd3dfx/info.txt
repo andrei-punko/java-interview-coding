@@ -1,5 +1,6 @@
 
-First of all, it is highly recommended to start reading the following book (engineering sections): http://www.crackingthecodinginterview.com/contents.html
+First, it is highly recommended to start reading the following book (engineering sections):
+http://www.crackingthecodinginterview.com/contents.html
 
 What to revise:
 •	complexity of sorting algorithms
