@@ -5,15 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-/*
-    Дан класс Node:
-    class Node {
-        int value;
-        Node left, right;
-    }
-
-    Реализовать алгоритм обхода бинарного дерева из нод, чтобы в итоге развернуть его в список
-    Исходно - дана корневая нода
+/**
+ * Дан класс Node:
+ * <pre>
+ *    class Node {
+ *        int value;
+ *        Node left, right;
+ *    }
+ * </pre>
+ * <p>
+ * Реализовать алгоритм обхода бинарного дерева из нод, чтобы в итоге развернуть его в список.
+ * Исходно - дана корневая нода.
  */
 public class BinaryTreeWalking {
 
