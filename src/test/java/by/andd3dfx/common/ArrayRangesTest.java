@@ -1,6 +1,5 @@
 package by.andd3dfx.common;
 
-import by.andd3dfx.common.ArrayRanges;
 import org.junit.Before;
 import org.junit.Test;
 
