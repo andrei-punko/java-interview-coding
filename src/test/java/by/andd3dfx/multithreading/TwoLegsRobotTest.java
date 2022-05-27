@@ -1,41 +1,34 @@
 package by.andd3dfx.multithreading;
 
+import org.junit.Test;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.junit.Ignore;
-import org.junit.Test;
-
 public class TwoLegsRobotTest {
 
-    private final String LEFT = "left";
-    private final String RIGHT = "right";
+    private String[] expectedStrings = {"left steps", "right steps"};
 
-    // TODO: Out of memory during Github CI build
-    @Ignore("Out of memory during Github CI build")
     @Test
     public void testMain() throws InterruptedException {
         TwoLegsRobot.main(new String[]{});
 
-        String outContent = TwoLegsRobot.getWriter().toString();
-        checkLogs(outContent);
+        String logs = TwoLegsRobot.getWriter().toString();
+        checkLogs(logs);
     }
 
-    private void checkLogs(String log) {
-        String[] lines = log.split("\r\n");
+    private void checkLogs(String logs) {
+        String[] lines = logs.split("!");
+        var expectedStringIndex = lines[0].equals(expectedStrings[0]) ? 1 : 0;
 
-        Boolean leftExpected = null;
-        for (String line : lines) {
-            if (!line.startsWith(LEFT) && !line.startsWith(RIGHT)) {
-                continue;
+        for (int i = 1; i < lines.length; i++) {
+            assertThat(lines[i], is(expectedStrings[expectedStringIndex]));
+
+            if (expectedStringIndex == 0) {
+                expectedStringIndex = 1;
+            } else {
+                expectedStringIndex = 0;
             }
-            if (leftExpected == null) {
-                leftExpected = line.startsWith(RIGHT);
-                continue;
-            }
-            String expectedString = leftExpected ? LEFT : RIGHT;
-            assertThat("Expected " + expectedString + ", but actual is " + line, line.startsWith(expectedString), is(true));
-            leftExpected = !leftExpected;
         }
     }
 }

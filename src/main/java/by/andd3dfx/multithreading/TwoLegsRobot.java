@@ -1,67 +1,74 @@
 package by.andd3dfx.multithreading;
 
-import static java.lang.Thread.sleep;
+import lombok.SneakyThrows;
 
 import java.io.StringWriter;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.Semaphore;
 
-/*
-Дан класс:
-class Foot implements Runnable {
-	private String name;
+import static java.lang.Thread.sleep;
 
-	public Foot(String name) {
-		this.name = name;
-	}
-
-	public void run() {
-		for(;;) {
-			step();
-		}
-	}
-
-	private void step() {
-		System.out.println(name + " steps!");
-	}
-}
-
-И программа:
-public class MainClass {
-    public static void main(String[] args) {
-        new Thread(new Foot("left")).start();
-        new Thread(new Foot("right")).start();
-
-        while(true);
-    }
-}
-
-Исправить программу, чтобы робот шагал ногами по очереди.
-Сделать так, чтобы не потреблялись ресурсы CPU, пока ожидаем передвижения очередной ноги.
-*/
+/**
+ * <pre>
+ * Дан класс:
+ * class Foot implements Runnable {
+ * 	   private String name;
+ *
+ * 	   public Foot(String name) {
+ * 	   	this.name = name;
+ *     }
+ *
+ * 	   public void run() {
+ * 	   	for (int i = 0; i < 10; i++) {
+ * 	   		step();
+ *         }
+ *     }
+ *
+ * 	   private void step() {
+ * 	   	System.out.println(name + " steps!");
+ *     }
+ * }
+ *
+ * И программа:
+ * public class MainClass {
+ *     public static void main(String[] args) {
+ *         new Thread(new Foot("left")).start();
+ *         new Thread(new Foot("right")).start();
+ *
+ *         while(true);
+ *     }
+ * }
+ *
+ * Исправить программу, чтобы робот шагал ногами по очереди.
+ * Сделать так, чтобы не потреблялись ресурсы CPU, пока ожидаем передвижения очередной ноги.
+ * </pre>
+ */
 public class TwoLegsRobot {
 
-    private static final StringWriter writer = new StringWriter();
+    private static StringWriter writer = new StringWriter();
 
     static class Foot implements Runnable {
 
-        private String name;
-        private volatile static AtomicBoolean monitor = new AtomicBoolean(false);
+        private final String name;
+        private final Semaphore mySemaphore;
+        private final Semaphore notMySemaphore;
 
-        public Foot(String name) {
+        public Foot(String name, Semaphore mySemaphore, Semaphore notMySemaphore) {
             this.name = name;
+            this.mySemaphore = mySemaphore;
+            this.notMySemaphore = notMySemaphore;
         }
 
+        @SneakyThrows
         public void run() {
-            for (; ; ) {
+            for (int i = 0; i < 10; i++) {
                 step();
             }
         }
 
-        private void step() {
-            synchronized (monitor) {
-                monitor.set(!monitor.get());
-                log();
-            }
+        private void step() throws InterruptedException {
+            mySemaphore.acquire();
+            log();
+            notMySemaphore.release();
         }
 
         private void log() {
@@ -70,10 +77,13 @@ public class TwoLegsRobot {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        new Thread(new Foot("left")).start();
-        new Thread(new Foot("right")).start();
+        Semaphore leftSemaphore = new Semaphore(1);
+        Semaphore rightSemaphore = new Semaphore(0);
 
-        sleep(1);
+        new Thread(new Foot("left", leftSemaphore, rightSemaphore)).start();
+        new Thread(new Foot("right", rightSemaphore, leftSemaphore)).start();
+
+        sleep(100);
     }
 
     public static StringWriter getWriter() {
