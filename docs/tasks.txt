@@ -12,11 +12,13 @@ PUT     clinic\{id}
 PATCH   clinic
             params: { ids: ..., owner: ... }
 
+
 * Sorting big strings task
 Propose algorithm for sorting a bunch of long strings situated on disk.
 We have restriction of RAM size: so only one string could be loaded into RAM simultaneously.
 
-TODO: добавить решение CS задач:
+
+* Добавить решение CS задач:
 сортировки:
 - пирамидальная
 - быстрая

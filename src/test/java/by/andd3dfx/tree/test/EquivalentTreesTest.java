@@ -17,7 +17,7 @@ public class EquivalentTreesTest {
     private EquivalentTrees equivalentTrees;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         equivalentTrees = new EquivalentTrees();
     }
 
