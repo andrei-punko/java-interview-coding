@@ -9,6 +9,7 @@ public class FirstMissingPositiveTest {
     @Test
     public void find() {
         assertThat(FirstMissingPositive.find(new int[]{-1, 7, -3, 2, 1, 4, -5, 3, 6})).isEqualTo(5);
+        assertThat(FirstMissingPositive.find(new int[]{1, 2, 0})).isEqualTo(3);
     }
 
     @Test

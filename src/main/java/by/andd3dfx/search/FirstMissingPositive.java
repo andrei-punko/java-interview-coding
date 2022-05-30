@@ -13,10 +13,10 @@ public class FirstMissingPositive {
      * Good idea was that if we have n-length array, the smallest missing positive integer will not be greater than n
      */
     public static int find(int[] nums) {
-        int[] presence = new int[nums.length];
+        int[] presence = new int[nums.length + 1];
 
         for (int num : nums) {
-            if (num > 0 && num < nums.length) {
+            if (num > 0 && num < presence.length) {
                 presence[num] = 1;
             }
         }
@@ -27,6 +27,6 @@ public class FirstMissingPositive {
                 return position;
             }
         }
-        return presence.length + 1;
+        return position;
     }
 }
