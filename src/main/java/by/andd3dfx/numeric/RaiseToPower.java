@@ -14,11 +14,16 @@ public class RaiseToPower {
     if (p == 0) {
       return 1;
     }
+    boolean reversePowerFlag = false;
+    if (p < 0) {
+      p = -p;
+      reversePowerFlag = true;
+    }
 
     // Вычисляем a, a^2 , a^4 , a^8 и т.д., пока не получим значение a^N , где N + 1 > p
     TreeMap<Integer, Float> map = new TreeMap<>();
     map.put(1, a);
-    for (int power = 1; 2 * power <= p; power *= 2) {
+    for (int power = 1; 2 * power < p; power *= 2) {
       map.put(2 * power, map.get(power) * map.get(power));
     }
 
@@ -29,10 +34,13 @@ public class RaiseToPower {
       while (p >= power) {
         result *= map.get(power);
         p -= power;
-        System.out.println(power);
+        // System.out.println(power);
       }
     }
 
+    if (reversePowerFlag) {
+      return 1/result;
+    }
     return result;
   }
 

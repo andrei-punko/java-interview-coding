@@ -12,5 +12,8 @@ public class RaiseToPowerTest {
     assertThat("3^3 = 9", RaiseToPower.raise(3f, 3), is(27f));
     assertThat("3^5 = 243", RaiseToPower.raise(3f, 5), is(243f));
     assertThat("2^13 = 8192", RaiseToPower.raise(2f, 13), is(8192f));
+
+    assertThat("2^-2 = 0.25", RaiseToPower.raise(2f, -2), is(0.25f));
+    assertThat("3^-3 = 0.037037037", RaiseToPower.raise(3f, -3), is(0.037037037f));
   }
 }
