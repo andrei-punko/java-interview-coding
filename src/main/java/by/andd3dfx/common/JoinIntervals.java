@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * Пример:
  * [2, 3, 5, 6, 7, 8, 11, 20, 21, 22] -> "2-3,5-8,11,20-22"
  */
-public class NumberIntervals {
+public class JoinIntervals {
 
     public static String transform(int[] a) {
         List<String> items = new ArrayList<>();
@@ -51,5 +51,40 @@ public class NumberIntervals {
         }
 
         return items.stream().collect(Collectors.joining(","));
+    }
+
+    /**
+     * Interview version
+     */
+    public static String transform2(int[] nums) {
+        var result = new ArrayList<String>();
+        var len = nums.length;
+        int leftBorderIndex = 0;
+        boolean intervalDetected = false;
+
+        int i = 0;
+        for (; i < len - 1; i++) {
+            if (nums[i + 1] - nums[i] == 1) {
+                if (!intervalDetected) {
+                    leftBorderIndex = i;
+                    intervalDetected = true;
+                }
+            } else {
+                if (intervalDetected) {
+                    result.add(nums[leftBorderIndex] + "-" + nums[i]);
+                    intervalDetected = false;
+                } else {
+                    result.add(String.valueOf(nums[i]));
+                }
+            }
+        }
+
+        if (intervalDetected) {
+            result.add(nums[leftBorderIndex] + "-" + nums[i]);
+        } else {
+            result.add(String.valueOf(nums[i]));
+        }
+
+        return result.stream().collect(Collectors.joining(","));
     }
 }
