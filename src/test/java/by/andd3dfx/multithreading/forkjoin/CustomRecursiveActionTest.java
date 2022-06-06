@@ -1,10 +1,11 @@
-package by.andd3dfx.multithreading.forkjoin2;
+package by.andd3dfx.multithreading.forkjoin;
 
-import static java.lang.Thread.sleep;
-
-import java.util.concurrent.ForkJoinPool;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.concurrent.ForkJoinPool;
+
+import static java.lang.Thread.sleep;
 
 public class CustomRecursiveActionTest {
 

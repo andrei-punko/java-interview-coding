@@ -1,4 +1,4 @@
-package by.andd3dfx.multithreading.forkjoin2;
+package by.andd3dfx.multithreading.forkjoin;
 
 import java.util.Arrays;
 import java.util.List;

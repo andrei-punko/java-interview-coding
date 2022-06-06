@@ -1,12 +1,13 @@
-package by.andd3dfx.multithreading.forkjoin2;
+package by.andd3dfx.multithreading.forkjoin;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CustomRecursiveTaskTest {
 
