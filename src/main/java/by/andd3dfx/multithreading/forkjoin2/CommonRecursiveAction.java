@@ -1,16 +1,17 @@
 package by.andd3dfx.multithreading.forkjoin2;
 
+import java.util.List;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 import java.util.logging.Logger;
 
 // TODO: consider to add of CommonRecursiveTask
 //
-public abstract class CommonRecursiveAction<T extends IWorkContainer> extends RecursiveAction {
-
-    private final T workload;
+public abstract class CommonRecursiveAction<T extends CommonRecursiveAction.IWorkContainer> extends RecursiveAction {
 
     private static Logger logger = Logger.getLogger(CommonRecursiveAction.class.getName());
+
+    private final T workload;
 
     public CommonRecursiveAction(T workload) {
         this.workload = workload;
@@ -21,16 +22,25 @@ public abstract class CommonRecursiveAction<T extends IWorkContainer> extends Re
         if (workload.length() > workload.threshold()) {
             ForkJoinTask.invokeAll(workload.createSubtasks());
         } else {
-            processing(workload);
+            processNLog(workload);
         }
     }
 
-    private void processing(T work) {
-        process(work);
-
+    private void processNLog(T work) {
         String threadName = Thread.currentThread().getName();
         logger.info(String.format("Work (%s) was processed by %s", work, threadName));
+
+        process(work);
     }
 
     public abstract void process(T work);
+
+    public interface IWorkContainer {
+
+        int length();
+
+        int threshold();
+
+        List<CommonRecursiveAction> createSubtasks();
+    }
 }

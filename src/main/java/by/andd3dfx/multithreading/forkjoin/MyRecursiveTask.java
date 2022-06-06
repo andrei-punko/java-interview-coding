@@ -15,6 +15,7 @@ public class MyRecursiveTask extends RecursiveTask<Long> {
     this.workLoad = workLoad;
   }
 
+  @Override
   protected Long compute() {
 
     //if work is above threshold, break tasks up into smaller tasks

@@ -11,10 +11,10 @@ import java.util.logging.Logger;
  */
 public class CustomRecursiveAction extends RecursiveAction {
 
+    private static Logger logger = Logger.getLogger(CustomRecursiveAction.class.getName());
+
     private static final int LENGTH_THRESHOLD = 4;
     private String workload;
-
-    private static Logger logger = Logger.getAnonymousLogger();
 
     public CustomRecursiveAction(String workload) {
         this.workload = workload;
@@ -25,7 +25,7 @@ public class CustomRecursiveAction extends RecursiveAction {
         if (workload.length() > LENGTH_THRESHOLD) {
             ForkJoinTask.invokeAll(createSubtasks());
         } else {
-            processing(workload);
+            processNLong(workload);
         }
     }
 
@@ -36,10 +36,15 @@ public class CustomRecursiveAction extends RecursiveAction {
         return Arrays.asList(new CustomRecursiveAction(partOne), new CustomRecursiveAction(partTwo));
     }
 
-    private void processing(String work) {
-        String result = work.toUpperCase();
+    private void processNLong(String work) {
         String threadName = Thread.currentThread().getName();
+        logger.info(String.format("Work (%s) was processed by thread %s", work, threadName));
 
-        logger.info(String.format("This result - (%s) - was processed by %s", result, threadName));
+        String result = process(work);
+        logger.info(String.format("Processed %s with result: %s", work, result));
+    }
+
+    private String process(String work) {
+        return work.toUpperCase();
     }
 }
