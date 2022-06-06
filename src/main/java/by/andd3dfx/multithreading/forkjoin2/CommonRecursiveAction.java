@@ -5,8 +5,6 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 import java.util.logging.Logger;
 
-// TODO: consider to add of CommonRecursiveTask
-//
 public abstract class CommonRecursiveAction<T extends CommonRecursiveAction.IWorkContainer> extends RecursiveAction {
 
     private static Logger logger = Logger.getLogger(CommonRecursiveAction.class.getName());

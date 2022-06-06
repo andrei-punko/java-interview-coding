@@ -11,9 +11,10 @@ import java.util.logging.Logger;
  */
 public class CustomRecursiveTask extends RecursiveTask<Integer> {
 
+    private static Logger logger = Logger.getLogger(CustomRecursiveTask.class.getName());
+
     private static final int LENGTH_THRESHOLD = 4;
     private int[] arr;
-    private static Logger logger = Logger.getAnonymousLogger();
 
     public CustomRecursiveTask(int[] arr) {
         this.arr = arr;
@@ -22,15 +23,13 @@ public class CustomRecursiveTask extends RecursiveTask<Integer> {
     @Override
     protected Integer compute() {
         if (arr.length <= LENGTH_THRESHOLD) {
-            Integer processingResult = processing(arr);
-            logger.info(String.format("Processed %s with result: %d", Arrays.toString(arr), processingResult));
-            return processingResult;
+            return processNLog(arr);
         }
 
         return ForkJoinTask.invokeAll(createSubtasks())
-            .stream()
-            .mapToInt(ForkJoinTask::join)
-            .sum();
+                .stream()
+                .mapToInt(ForkJoinTask::join)
+                .sum();
     }
 
     private Collection<CustomRecursiveTask> createSubtasks() {
@@ -40,10 +39,16 @@ public class CustomRecursiveTask extends RecursiveTask<Integer> {
         return Arrays.asList(new CustomRecursiveTask(leftArray), new CustomRecursiveTask(rightArray));
     }
 
-    private Integer processing(int[] arr) {
-        return Arrays.stream(arr)
-            .filter(a -> a > 10 && a < 27)
-            .map(a -> a * 10)
-            .sum();
+    private Integer processNLog(int[] arr) {
+        String threadName = Thread.currentThread().getName();
+        logger.info(String.format("Work (%s) was processed by thread %s", arr, threadName));
+
+        int result = process(arr);
+        logger.info(String.format("Processed %s with result: %d", Arrays.toString(arr), result));
+        return result;
+    }
+
+    private int process(int[] arr) {
+        return Arrays.stream(arr).sum();
     }
 }
