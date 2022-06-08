@@ -26,12 +26,24 @@ public class EquivalentTreesTest {
         assertThat(equivalentTrees.findEquivalentSubtrees(null), is(nullValue()));
     }
 
+    /**
+     * <pre>
+     *  A
+     * </pre>
+     */
     @Test
-    public void findEquivalentSubtreesForOneNode() {
+    public void findEquivalentSubtreesForRootNodeOnly() {
         EquivalentTrees.Node node = new EquivalentTrees.Node('A');
         assertThat(equivalentTrees.findEquivalentSubtrees(node), is(nullValue()));
     }
 
+    /**
+     * <pre>
+     *    A
+     *   /
+     *  B
+     * </pre>
+     */
     @Test
     public void findEquivalentSubtreesWhenNoCandidates() {
         EquivalentTrees.Node node = new EquivalentTrees.Node('A');
@@ -39,11 +51,18 @@ public class EquivalentTreesTest {
         assertThat(equivalentTrees.findEquivalentSubtrees(node), is(nullValue()));
     }
 
+    /**
+     * <pre>
+     *    A
+     *   / \
+     *  B   C
+     * </pre>
+     */
     @Test
     public void findEquivalentSubtreesWhenOneCandidate() {
         EquivalentTrees.Node node = new EquivalentTrees.Node('A');
         node.left = new EquivalentTrees.Node('B');
-        node.right = new EquivalentTrees.Node('B');
+        node.right = new EquivalentTrees.Node('C');
 
         List<EquivalentTrees.Node> result = equivalentTrees.findEquivalentSubtrees(node);
 
@@ -51,6 +70,15 @@ public class EquivalentTreesTest {
         assertThat(result, hasItems(node.left, node.right));
     }
 
+    /**
+     * <pre>
+     *      A
+     *     / \
+     *    B   B
+     *   /     \
+     *  X       X
+     * </pre>
+     */
     @Test
     public void findEquivalentSubtreesWhenTwoCandidate() {
         EquivalentTrees.Node node = new EquivalentTrees.Node('A');
@@ -65,8 +93,17 @@ public class EquivalentTreesTest {
         assertThat(result, hasItems(node.left, node.right));
     }
 
-    // TODO: sometimes fail a build
-    @Ignore("Fail of Github CI build")
+    /**
+     * <pre>
+     *        A
+     *       / \
+     *      B   C
+     *     /   / \
+     *    E   B   E
+     *   /       / \
+     *  D       E   D
+     * </pre>
+     */
     @Test
     public void findEquivalentSubtreesComplexCase() {
         EquivalentTrees.Node root = new EquivalentTrees.Node('A');
@@ -76,7 +113,7 @@ public class EquivalentTreesTest {
         root.left.left = new EquivalentTrees.Node('E');
         root.left.left.left = new EquivalentTrees.Node('D');
 
-        root.right.left = new EquivalentTrees.Node('D');
+        root.right.left = new EquivalentTrees.Node('B');
         root.right.right = new EquivalentTrees.Node('E');
         root.right.right.left = new EquivalentTrees.Node('E');
         root.right.right.right = new EquivalentTrees.Node('D');
@@ -85,7 +122,6 @@ public class EquivalentTreesTest {
 
         assertThat("Two nodes expected", result.size(), is(2));
         assertThat("Left node is absent", result, hasItem(root.left));
-        assertThat("Right node is absent", result, hasItem(root.right));
+        assertThat("Right node is absent", result, hasItem(root.right.right));
     }
-
 }

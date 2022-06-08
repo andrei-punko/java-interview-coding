@@ -1,23 +1,19 @@
 package by.andd3dfx.tree.test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
  * Дано бинарное дерево с выделенным корнем, в каждой вершине которого записано по одной букве A-Z.
  * Две вершины считаются эквивалентными, если поддеревья этих вершин содержат одинаковое множество (т.е. без учета частот) букв.
- * Нужно найти две эквивалентные вершины с максимальным суммарным размеров поддеревьев.
- * <p>
+ * Нужно найти две эквивалентные вершины с максимальным суммарным размером поддеревьев.
+ * <pre>
  * public class Node {
- * char value;  // [A-Z]
- * Node left;
- * Node right;
- * };
+ *     char value;  // [A-Z]
+ *     Node left;
+ *     Node right;
+ * }
+ * </pre>
  */
 public class EquivalentTrees {
 
@@ -43,6 +39,19 @@ public class EquivalentTrees {
                     ((left != null) ? (", l=" + left) : "") +
                     ((right != null) ? (", r=" + right) : "") +
                     '}';
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Node node = (Node) o;
+            return value == node.value && Objects.equals(left, node.left) && Objects.equals(right, node.right);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(value, left, right);
         }
     }
 
