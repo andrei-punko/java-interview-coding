@@ -1,27 +1,26 @@
 package by.andd3dfx.common;
 
-import static java.util.stream.Collectors.toList;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * Solution for matrix rotation task: https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
- *
- * Input next line to test:
- * 2 3 1
- * 1 2 3
- * 4 5 6
+ * <p>
+ * You are given a 2D matrix of dimension m*n and a positive integer r. You have to rotate the matrix times and
+ * print the resultant matrix. Rotation should be in anti-clockwise direction.
+ * It is guaranteed that the minimum of m and n will be even.
+ * <p>
+ * As an example rotate the Start matrix by 2:
+ * <pre>
+ *     Start         First           Second
+ *      1 2 3 4       2  3  4  5      3  4  5  6
+ *     12 1 2 5  ->   1  2  3  6 ->   2  3  4  7
+ *     11 4 3 6      12  1  4  7      1  2  1  8
+ *     10 9 8 7      11 10  9  8     12 11 10  9
+ * </pre>
  */
 public class MatrixRotation {
 
-    // Complete the matrixRotation function below.
-    static void matrixRotation(List<List<Integer>> matrix, int r) {
+    public static List<List<Integer>> matrixRotation(List<List<Integer>> matrix, int r) {
         int m = matrix.size();
         int n = matrix.get(0).size();
         int left = 0;
@@ -82,35 +81,6 @@ public class MatrixRotation {
             up++;
         }
 
-        for (List<Integer> row : matrix) {
-            for (Integer item : row) {
-                System.out.print(item + " ");
-            }
-            System.out.println();
-        }
-    }
-
-    public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String[] mnr = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
-        int m = Integer.parseInt(mnr[0]);
-        int n = Integer.parseInt(mnr[1]);
-        int r = Integer.parseInt(mnr[2]);
-
-        List<List<Integer>> matrix = new ArrayList<>();
-        IntStream.range(0, m).forEach(i -> {
-            try {
-                matrix.add(
-                    Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-                        .map(Integer::parseInt)
-                        .collect(toList())
-                );
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-
-        matrixRotation(matrix, r);
-        bufferedReader.close();
+        return matrix;
     }
 }
