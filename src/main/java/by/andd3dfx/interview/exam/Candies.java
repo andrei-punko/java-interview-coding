@@ -1,5 +1,14 @@
 package by.andd3dfx.interview.exam;
 
+/**
+ * You are given startingAmount of candies. Whenever you eat a certain number of candies (newEvery), you get an additional candy.
+ * What is the maximum number of candies you can eat?
+ * <p>
+ * For example, if startingAmount equals 3 and newEvery equals 2, you can eat 5 candies in total:
+ * - Eat 2, Get 1, Remaining 2.
+ * - Eat 2, Get 1, Remaining 1.
+ * - Eat 1.
+ */
 public class Candies {
 
   public static int countCandies(int startingAmount, int newEvery) {
@@ -17,9 +26,5 @@ public class Candies {
       candiesAmount += bonus;
     }
     return eaten + candiesAmount;
-  }
-
-  public static void main(String[] args) {
-    System.out.println(Candies.countCandies(3, 2));
   }
 }

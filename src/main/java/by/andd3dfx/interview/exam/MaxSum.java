@@ -1,14 +1,13 @@
 package by.andd3dfx.interview.exam;
 
-/*
-Implement the findMaxSum method that returns the largest sum of any two elements in the given list of positive numbers.
-
-For example, the largest sum of the list {5, 9, 7, 11} is the sum of the elements 9 and 11, which is 20.
- */
-
-import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Implement the findMaxSum method that returns the largest sum of any two elements
+ * in the given list of positive numbers.
+ * <p>
+ * For example, the largest sum of the list {5, 9, 7, 11} is the sum of the elements 9 and 11, which is 20.
+ */
 public class MaxSum {
 
   public static int findMaxSum(List<Integer> list) {
@@ -38,10 +37,5 @@ public class MaxSum {
       }
     }
     return m1 + m2;
-  }
-
-  public static void main(String[] args) {
-    List<Integer> list = Arrays.asList(-5, -10, 7);
-    System.out.println(findMaxSum(list));
   }
 }
