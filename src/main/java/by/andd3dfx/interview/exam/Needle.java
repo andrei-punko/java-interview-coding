@@ -5,6 +5,18 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * Implement the function count(), which returns the number of lines from the InputStream that contains text
+ * matching the provided string.
+ * <p>
+ * For example, when the `String needle` is "there" and the `InputStream haystack` contains:
+ * <pre>
+ * 	Hello, there!
+ * 	How are you today?
+ * 	Yes, you over there.
+ * </pre>
+ * The count() function should return 2 {"Hello, there!" and "Yes, you over there."}.
+ */
 public class Needle {
 
   public static int count(String needle, InputStream haystack) throws Exception {
@@ -17,13 +29,5 @@ public class Needle {
       }
     }
     return count;
-  }
-
-  public static void main(String[] args) throws Exception {
-    String inMessage = "Hello, 1!\nHow are you today?\nYes, you over there.";
-
-    try (InputStream inStream = new ByteArrayInputStream(inMessage.getBytes())) {
-      System.out.println(Needle.count("there", inStream));
-    }
   }
 }

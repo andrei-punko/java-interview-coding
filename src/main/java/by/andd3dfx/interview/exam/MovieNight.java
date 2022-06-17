@@ -1,12 +1,21 @@
 package by.andd3dfx.interview.exam;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Implement the canViewAll() method, which given a collection of movies, checks if they all can be
+ * viewed completely without overlap.
+ * <p>
+ * For example, for the movies below, the method should return true because they don't overlap:
+ * <pre>
+ * - 1/1/2015 20:00-21:30
+ * - 1/1/2015 23:10-23:30
+ * - 1/1/2015 21:30-23:00
+ * </pre>
+ */
 public class MovieNight {
 
   public static Boolean canViewAll(Collection<Movie> movies) {
@@ -21,18 +30,6 @@ public class MovieNight {
 
     return true;
   }
-
-  public static void main(String[] args) throws Exception {
-    SimpleDateFormat sdf = new SimpleDateFormat("y-M-d H:m");
-
-    ArrayList<Movie> movies = new ArrayList<Movie>();
-    movies.add(new Movie(sdf.parse("2015-01-01 20:00"), sdf.parse("2015-01-01 21:30")));
-    movies.add(new Movie(sdf.parse("2015-01-01 23:10"), sdf.parse("2015-01-01 23:30")));
-    movies.add(new Movie(sdf.parse("2015-01-01 21:30"), sdf.parse("2015-01-01 23:00")));
-
-    System.out.println(MovieNight.canViewAll(movies));
-  }
-
 
   public static class Movie implements Comparable<Movie> {
 
