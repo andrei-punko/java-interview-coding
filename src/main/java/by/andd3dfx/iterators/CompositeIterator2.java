@@ -2,6 +2,15 @@ package by.andd3dfx.iterators;
 
 import java.util.Iterator;
 
+/**
+ * Реализовать методы next(), hasNext(), remove() у составного итератора, содержащего 2 обычных итератора внутри себя:
+ * <pre>
+ * class CompositeIterator<Integer> {
+ *   Iterator<Integer> a;
+ * 	 Iterator<Integer> b;
+ * }
+ * </pre>
+ */
 public class CompositeIterator2<T> implements Iterator<T> {
 
     private final Iterator<T> a;

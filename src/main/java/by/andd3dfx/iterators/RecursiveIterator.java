@@ -4,12 +4,12 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 
-/*
-Дан итератор CustomIterator<Object>, который может возвращать String или CustomIterator.
-Возможная вложенность внутренних итераторов неограниченна.
-
-Написать для него методы next() и hasNext()
-*/
+/**
+ * Дан итератор CustomIterator<Object>, который может возвращать String или CustomIterator.
+ * Возможная вложенность внутренних итераторов неограниченна.
+ * <p>
+ * Написать для него методы next() и hasNext()
+ */
 public class RecursiveIterator<Object> implements Iterator<Object> {
 
     private Stack<Iterator<Object>> stack = new Stack<>();
