@@ -1,8 +1,8 @@
 package by.andd3dfx.numeric;
 
-/*
-  Determine greatest common divisor
-  Based on "Stephens - Essential Algorithms"
+/**
+ * Determine the greatest common divisor
+ * Based on "Stephens - Essential Algorithms"
  */
 public class GreatestCommonDivisor {
 

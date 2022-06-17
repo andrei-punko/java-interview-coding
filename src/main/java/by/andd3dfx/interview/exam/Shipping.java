@@ -1,14 +1,14 @@
 package by.andd3dfx.interview.exam;
 
-/*
-A large package can hold five items, while the small package can hold only one item. All items must be placed in
-packages and used packages have to be filled up completely.
-
-Write a function that calculates the minimum number of packages needed to hold a given number of items. If it's not
-possible to meet the requirements, return -1.
-
-For example, if we have 16 items, 2 large and 10 small packages, the function should return 8 (2 large packages +
-6 small packages).
+/**
+ * A large package can hold five items, while the small package can hold only one item. All items must be placed in
+ * packages and used packages have to be filled up completely.
+ * <p>
+ * Write a function that calculates the minimum number of packages needed to hold a given number of items. If it's not
+ * possible to meet the requirements, return -1.
+ * <p>
+ * For example, if we have 16 items, 2 large and 10 small packages, the function should return 8 (2 large packages +
+ * 6 small packages).
  */
 public class Shipping {
 

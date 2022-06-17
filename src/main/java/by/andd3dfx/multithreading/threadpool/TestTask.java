@@ -1,7 +1,7 @@
 package by.andd3dfx.multithreading.threadpool;
 
-/*
-    TestTask simulates the task to be submitted to thread pool
+/**
+ * TestTask simulates the task to be submitted to thread pool
  */
 public class TestTask implements Runnable {
 

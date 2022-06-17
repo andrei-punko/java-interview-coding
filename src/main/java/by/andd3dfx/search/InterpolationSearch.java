@@ -1,7 +1,7 @@
 package by.andd3dfx.search;
 
-/*
- Implement interpolation search. Return element index or -1 if it's not exist
+/**
+ * Implement interpolation search. Return element index or -1 if it's not exist
  */
 public class InterpolationSearch {
 

@@ -3,14 +3,14 @@ package by.andd3dfx.multithreading.threadpool;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/*
-    1.BlockingQueue simulates the blocking queue implementation.
-    2.We have used LinkedList as underlying data structure.
-    3.BlockingQueue contains couple of synchronized methods
-        - enqueue : It enqueue (push) Task to the queue
-        - dequeue : This method takes (pop) the task from the queue.
-
-    This queue implementation based on synchronized methods
+/**
+ *   1.BlockingQueue simulates the blocking queue implementation.
+ *   2.We have used LinkedList as underlying data structure.
+ *   3.BlockingQueue contains a couple of synchronized methods
+ *       - enqueue : It enqueue (push) Task to the queue
+ *       - dequeue : This method takes (pop) the task from the queue.
+ *
+ *   This queue implementation based on synchronized methods
  */
 public class SynchronizedBlocksBasedBlockingQueue<Type> implements CustomBlockingQueue<Type> {
 

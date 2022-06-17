@@ -1,11 +1,11 @@
 package by.andd3dfx.multithreading;
 
-/*
-Дан класс с методами
-native int current(); и
-native boolean compareAndSwap(int oldValue, int newValue);
-
-Написать для него метод int getAndIncrement(), обладающий atomic функциональностью
+/**
+ * Дан класс с методами
+ * native int current(); и
+ * native boolean compareAndSwap(int oldValue, int newValue);
+ * <p>
+ * Написать для него метод int getAndIncrement(), обладающий atomic функциональностью
  */
 public abstract class CustomAtomic {
     public abstract int current();

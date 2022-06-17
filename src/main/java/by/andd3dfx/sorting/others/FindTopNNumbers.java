@@ -2,13 +2,13 @@ package by.andd3dfx.sorting.others;
 
 import java.util.Arrays;
 
-/*
-  Find top ten numbers in array
+/**
+ * Find top ten numbers in array
  */
 public class FindTopNNumbers {
 
-  /*
-    We use short version of selection sort algorithm with O(kn) complexity
+  /**
+   * We use short version of selection sort algorithm with O(kn) complexity
    */
   public static int[] find(int[] array, int k) {
     for (int i = 0; i < k; i++) {

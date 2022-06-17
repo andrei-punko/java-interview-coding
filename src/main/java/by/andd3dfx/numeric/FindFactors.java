@@ -3,9 +3,9 @@ package by.andd3dfx.numeric;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-  Determine simple dividers
-  Based on "Stephens - Essential Algorithms"
+/**
+ * Determine simple dividers.
+ * Based on "Stephens - Essential Algorithms"
  */
 public class FindFactors {
 

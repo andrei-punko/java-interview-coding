@@ -1,7 +1,7 @@
 package by.andd3dfx.numeric;
 
-/*
-  Revert order of digits in Integer number
+/**
+ * Revert order of digits in Integer number
  */
 public class ReverseDigitsOrder {
 

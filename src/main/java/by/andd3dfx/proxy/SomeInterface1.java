@@ -1,7 +1,7 @@
 package by.andd3dfx.proxy;
 
-/*
-  Check usage of it in ProxyCreationByInterfacesTest
+/**
+ * Check usage of it in {@link ProxyCreationByInterfacesTest}
  */
 public interface SomeInterface1 {
 
