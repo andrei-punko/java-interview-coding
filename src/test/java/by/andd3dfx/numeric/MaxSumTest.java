@@ -1,9 +1,11 @@
-package by.andd3dfx.interview.exam;
+package by.andd3dfx.numeric;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.Arrays;
+
+import by.andd3dfx.numeric.MaxSum;
 import org.junit.Test;
 
 public class MaxSumTest {
