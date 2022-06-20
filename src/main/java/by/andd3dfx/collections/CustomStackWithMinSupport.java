@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
  * pop() – берет элемент из стека
  * getMin() – возвращает значение минимального элемента в стеке
  * </pre>
- * Методы pop и getMin вызываются всегда для непустого стека.
+ * Методы pop() и getMin() вызываются всегда для непустого стека.
  */
 public class CustomStackWithMinSupport {
 
