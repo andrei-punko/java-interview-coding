@@ -1,0 +1,34 @@
+
+Материалы для подготовки:
+
+Как проходит процесс найма в Яндекс (и советы, как повысить шансы на успех + много материалов для подготовки):
+https://yandex.ru/jobs/pages/dev_interview
+
+Примеры задач, которые могут встретиться на интервью (6 задачек подходящие для Python, С++, С#, Java, JavaScript, Kotlin, Swift, Objective-C):
+https://contest.yandex.ru/contest/8458/enter/
+
+Пост на Хабре об алгоритмической секции с кодом :
+https://m.habr.com/ru/company/yandex/blog/449890/
+
+В этих видео мы разбираем решение алгоритмических задач:
+https://www.youtube.com/watch?v=0yxjWwoZtLw
+https://www.youtube.com/watch?v=zU-LndSG5RE
+
+Как проходят архитектурные секции собеседования в Яндексе: практика дизайна распределённых систем:
+https://habr.com/ru/company/yandex/blog/564132/
+
+Числа, которые точно нужно знать:
+https://github.com/donnemartin/system-design-primer/blob/master/README.md#appendix
+
+Практикум - подготовка к алгоритмической секции
+https://practicum.yandex.ru/algorithms-interview/
+
+FAQ с ответами на часто задаваемые вопросы:
+https://yandex.ru/jobs/faq
+
+Код:
+https://leetcode.com/problemset/all/
+https://leetcode.com/problemset/algorithms/
+https://leetcode.com/problems/reverse-linked-list/solution/
+https://www.geeksforgeeks.org/reverse-a-linked-list/
+https://www.interviewbit.com/practice/
