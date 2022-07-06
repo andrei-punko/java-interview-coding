@@ -11,6 +11,24 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * You receive a string that contains an XML log file like the following:
+ * <pre>
+ *   &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ *   &lt;log&gt;
+ *       &lt;entry id="1"&gt;
+ *           &lt;message&gt;Application started&lt;/message&gt;
+ *       &lt;/entry&gt;
+ *       &lt;entry id="2"&gt;
+ *           &lt;message&gt;Application ended&lt;/message&gt;
+ *       &lt;/entry&gt;
+ *   &lt;/log&gt;
+ * </pre>
+ * <p>
+ * Implement a function getIdsByMessage that returns the ids of the entries that contain a specific message.
+ * <p>
+ * For example, getIdsByMessage for the XML log above and for the message "Application ended" should return { 2 }.
+ */
 public class LogParser {
 
   public static Collection<Integer> getIdsByMessage(String xml, String message) throws Exception {
@@ -30,23 +48,5 @@ public class LogParser {
       }
     }
     return result;
-  }
-
-  public static void main(String[] args) throws Exception {
-    String xml =
-        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-            "<log>\n" +
-            "    <entry id=\"1\">\n" +
-            "        <message>Application started</message>\n" +
-            "    </entry>\n" +
-            "    <entry id=\"2\">\n" +
-            "        <message>Application ended</message>\n" +
-            "    </entry>\n" +
-            "</log>";
-
-    Collection<Integer> ids = getIdsByMessage(xml, "Application ended");
-    for (int id : ids) {
-      System.out.println(id);
-    }
   }
 }
