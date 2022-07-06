@@ -1,21 +1,22 @@
 package by.andd3dfx.interview.exam;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class UsernameTest {
 
   @Test
   public void validate() {
-    assertThat("Valid username", Username.validate("Mike-Standish"), is(true));
-    assertThat("Valid username with digits", Username.validate("Mike-Standish78"), is(true));
-    assertThat("Invalid username: starts from digit", Username.validate("8MikeStand"), is(false));
-    assertThat("Invalid username: 2 '-'", Username.validate("Mike--Standish"), is(false));
-    assertThat("Invalid username: '-' at the end", Username.validate("MikeStandish-"), is(false));
-    assertThat("Invalid username: space presents", Username.validate("Mike Standish"), is(false));
-    assertThat("Invalid username: too long", Username.validate("MikegfhgfhgfhgfhgfhStandish"), is(false));
-    assertThat("Invalid username: too short", Username.validate("Mik"), is(false));
+    assertTrue("Valid username", Username.validate("Mike-Standish"));
+    assertTrue("Valid username with digits", Username.validate("Mike-Standish78"));
+
+    assertFalse("Invalid username: starts from digit", Username.validate("8MikeStand"));
+    assertFalse("Invalid username: 2 '-'", Username.validate("Mike--Standish"));
+    assertFalse("Invalid username: '-' at the end", Username.validate("MikeStandish-"));
+    assertFalse("Invalid username: space presents", Username.validate("Mike Standish"));
+    assertFalse("Invalid username: too long", Username.validate("MikegfhgfhgfhgfhgfhStandish"));
+    assertFalse("Invalid username: too short", Username.validate("Mik"));
   }
 }

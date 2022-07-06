@@ -34,8 +34,4 @@ public class Shipping {
 
     return result;
   }
-
-  public static void main(String[] args) {
-    System.out.println(minimalNumberOfPackages(16, 2, 10));
-  }
 }

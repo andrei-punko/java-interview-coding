@@ -28,7 +28,7 @@ public class ParagraphTest {
   }
 
   @Test
-  public void changeFormatWithNewStringDelimeter() {
+  public void changeFormatWithNewStringDelimiter() {
     assertThat("Unexpected string", changeFormat("Please quote your policy number: 112-39-\n8552."),
         is("Please quote your policy number: 112/\n8552/39."));
   }
@@ -52,7 +52,7 @@ public class ParagraphTest {
   }
 
   @Test
-  public void changeFormatAnotherWayWithNewStringDelimeter() {
+  public void changeFormatAnotherWayWithNewStringDelimiter() {
     assertThat("Unexpected string", changeFormatAnotherWay("Please quote your policy number: 112-39-\n8552."),
         is("Please quote your policy number: 112/\n8552/39."));
   }

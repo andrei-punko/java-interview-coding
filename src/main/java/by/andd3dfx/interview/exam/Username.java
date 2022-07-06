@@ -1,5 +1,16 @@
 package by.andd3dfx.interview.exam;
 
+/**
+ * Implement the validate function, which accepts a username and returns true if it's acceptable and false if it's not.
+ * <p>
+ * A username is valid if it satisfies the following rules:
+ * <pre>
+ * - The username must be at least 6 characters long and not exceed 16 characters.
+ * - The username must contain only letters, numbers and optionally one hyphen (-).
+ * - The username must start with a letter, and must not end with a hyphen.
+ * </pre>
+ * For example, Username.validate("Mike Standish") would return false because it contains a space.
+ */
 public class Username {
 
   static String[] patterns = {
@@ -16,10 +27,5 @@ public class Username {
       }
     }
     return true;
-  }
-
-  public static void main(String[] args) {
-    System.out.println(validate("Mike-Standish"));    // Valid username
-    System.out.println(validate("Mike Standish"));    // Invalid username
   }
 }

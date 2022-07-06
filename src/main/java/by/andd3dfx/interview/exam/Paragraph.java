@@ -3,6 +3,14 @@ package by.andd3dfx.interview.exam;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * An insurance company has decided to change the format of its policy numbers from XXX-YY-ZZZZ to XXX/ZZZZ/YY
+ * (where X, Y and Z each represent the digits 0-9). Write a method that re-format all policy numbers in a
+ * well-formatted paragraph ('-' may appear elsewhere in the text).
+ * <p>
+ * For example, changeFormat("Please quote your number: 112-39-8552.") should return
+ * "Please quote your policy number: 112/8552/39".
+ */
 public class Paragraph {
 
   private static final String PATTERN = "\\d[\n]*\\d[\n]*\\d[\n]*-[\n]*\\d[\n]*\\d[\n]*-[\n]*\\d[\n]*\\d[\n]*\\d[\n]*\\d";
@@ -26,10 +34,5 @@ public class Paragraph {
       paragraph = m.replaceAll("$1/$3/$2");
     }
     return paragraph;
-  }
-
-  public static void main(String[] args) {
-    System.out.println(changeFormatAnotherWay("Please quote your policy number: 112-39-8552."));
-    System.out.println(changeFormatAnotherWay("Please quote your policy number: 112-39-\n8552."));
   }
 }
