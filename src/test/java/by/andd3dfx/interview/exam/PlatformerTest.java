@@ -28,6 +28,8 @@ public class PlatformerTest {
     assertThat("5 expected", platformer.position(), is(5));
 
     platformer.jumpLeft();
-    assertThat("5 expected", platformer.position(), is(5));
+    assertThat("5 expected, could not jump more", platformer.position(), is(5));
+    platformer.jumpRight();
+    assertThat("5 expected, could not jump more 2", platformer.position(), is(5));
   }
 }
