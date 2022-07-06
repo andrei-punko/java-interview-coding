@@ -41,10 +41,4 @@ public class Permutations {
         nums[i] = nums[j];
         nums[j] = tmp;
     }
-
-    public static void main(String[] args) {
-        System.out.println(
-                permute(new int[]{1, 2, 3})
-        );
-    }
 }

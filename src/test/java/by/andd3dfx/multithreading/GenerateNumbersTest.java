@@ -5,7 +5,7 @@ import org.junit.Test;
 public class GenerateNumbersTest {
 
     @Test
-    public void main() throws Exception {
+    public void generate() {
         new GenerateNumbers().generate();
     }
 }

@@ -44,8 +44,6 @@ public class ReverseLinkedList {
 
     /**
      * This main method was part of the task
-     *
-     * @param args
      */
     public static void main(String[] args) {
         ListNode head = new ListNode(new ListNode(new ListNode(new ListNode(null, 3), 4), 5), 6);

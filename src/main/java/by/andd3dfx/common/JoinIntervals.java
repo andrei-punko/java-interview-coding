@@ -14,6 +14,9 @@ import java.util.stream.Collectors;
  */
 public class JoinIntervals {
 
+    /**
+     * Home version
+     */
     public static String transform(int[] a) {
         List<String> items = new ArrayList<>();
         if (a.length == 0) {

@@ -3,15 +3,17 @@ package by.andd3dfx.common;
 import java.util.Iterator;
 import java.util.Map;
 
-/*
-We have class:
-public class Condition<A> {
-    public bool check(A a) {
-        // ...
-    }
-}
-
-Implement class with method to filter items in map in case if key satisfy to check() method
+/**
+ * <pre>
+ * We have a class:
+ * public class Condition<A> {
+ *     public bool check(A a) {
+ *         // ...
+ *     }
+ * }
+ *
+ * Implement class with method to filter items in map in case if key satisfy to check() method.
+ * </pre>
  */
 public class SkipItemsByCondition {
 
