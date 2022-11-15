@@ -28,7 +28,7 @@ public class CountStreamers {
             events.add(new EventItem(time[1], EventType.STOP));
         }
 
-        Collections.sort(events, Comparator.comparingInt(o -> o.time));
+        Collections.sort(events, Comparator.comparingInt(eventItem -> eventItem.time));
 
         int current = 0;
         int max = 0;

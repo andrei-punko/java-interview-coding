@@ -9,15 +9,15 @@ import java.util.Map;
  */
 public class Fibonacci {
 
-    private static final Map<Integer, Long> map = new HashMap<>() {{
-        put(0, 0L);
-        put(1, 1L);
+    private static final Map<Integer, Integer> map = new HashMap<>() {{
+        put(0, 0);
+        put(1, 1);
     }};
 
     /**
      * Top-down approach (recursive, better)
      */
-    public static long calculate(int n) {
+    public static int calculate(int n) {
         if (n < 0) throw new IllegalArgumentException("Number should be not less than 0!");
 
         if (!map.containsKey(n)) {
@@ -30,7 +30,7 @@ public class Fibonacci {
     /**
      * Down-top approach (just as example)
      */
-    public static long calculate2(int n) {
+    public static int calculate2(int n) {
         if (n < 0) throw new IllegalArgumentException("Number should be not less than 0!");
 
         for (int i = 2; i <= n; i++) {

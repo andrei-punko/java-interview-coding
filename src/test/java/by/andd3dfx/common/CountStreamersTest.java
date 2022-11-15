@@ -2,13 +2,34 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CountStreamersTest {
 
     @Test
-    public void count() {
-        var result = CountStreamers.count(new int[][]{
+    public void countWithoutOverlapping() {
+        int[][] times = {
+                {10, 30},
+                {40, 50}
+        };
+
+        assertThat(CountStreamers.count(times), is(1));
+    }
+
+    @Test
+    public void countWithOverlapping() {
+        int[][] times = {
+                {10, 30},
+                {20, 50}
+        };
+
+        assertThat(CountStreamers.count(times), is(2));
+    }
+
+    @Test
+    public void countComplexCase() {
+        int[][] times = {
                 {10, 30},
                 {20, 40},
                 {39, 50},
@@ -16,8 +37,8 @@ public class CountStreamersTest {
                 {80, 90},
                 {30, 70},
                 {10, 120}
-        });
+        };
 
-        assertThat(result).isEqualTo(4);
+        assertThat(CountStreamers.count(times), is(4));
     }
 }
