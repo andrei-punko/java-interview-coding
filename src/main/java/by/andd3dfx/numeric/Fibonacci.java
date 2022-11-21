@@ -28,7 +28,7 @@ public class Fibonacci {
     }
 
     /**
-     * Down-top approach (just as example)
+     * Down-top approach (loop, just as example)
      */
     public static int calculate2(int n) {
         if (n < 0) throw new IllegalArgumentException("Number should be not less than 0!");
