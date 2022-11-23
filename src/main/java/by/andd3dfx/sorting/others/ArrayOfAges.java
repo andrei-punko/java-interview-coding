@@ -1,10 +1,11 @@
 package by.andd3dfx.sorting.others;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * We have very long array of people ages.
- * Need to print amount of people for each age.
+ * Need to count amount of people for each age.
  */
 public class ArrayOfAges {
 
@@ -14,13 +15,13 @@ public class ArrayOfAges {
      * <p>
      * In result we got O(1) consumption of additional memory.
      */
-    public static LinkedHashMap<Integer, Long> process(int[] ages) {
+    public static Map<Integer, Long> process(int[] ages) {
         long[] buckets = new long[130];
-        for (int age : ages) {
+        for (var age : ages) {
             buckets[age]++;
         }
 
-        LinkedHashMap<Integer, Long> map = new LinkedHashMap<>();
+        Map<Integer, Long> map = new LinkedHashMap<>();
         for (int age = 0; age < buckets.length; age++) {
             if (buckets[age] > 0) {
                 map.put(age, buckets[age]);
