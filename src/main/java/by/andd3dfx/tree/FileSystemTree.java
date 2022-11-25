@@ -19,24 +19,24 @@ public class FileSystemTree {
         private NodeType type;
         private Long size;
 
-        public enum NodeType {
-            FILE, FOLDER
-        }
-
         public long calcSize() {
             return calcSize(this);
         }
 
-        private long calcSize(Node node) {
-            if (node.type == Node.NodeType.FILE) {
+        public static long calcSize(Node node) {
+            if (node.type == NodeType.FILE) {
                 return node.size;
             }
 
-            long result = 0;
+            var result = 0;
             for (var child : node.children) {
                 result += calcSize(child);
             }
             return result;
         }
+    }
+
+    public enum NodeType {
+        FILE, FOLDER
     }
 }

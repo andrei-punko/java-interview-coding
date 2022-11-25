@@ -16,23 +16,24 @@ public class FileSystemTreeTest {
         var folder2 = buildFolder(List.of());
 
         var file3 = buildFile(50);
-        var root = buildFolder(List.of(folder1, folder2, file3));
+        var rootFolder = buildFolder(List.of(folder1, folder2, file3));
 
-        assertThat(root.calcSize()).isEqualTo(61);
+        assertThat(file2.calcSize()).isEqualTo(10);
         assertThat(folder1.calcSize()).isEqualTo(11);
         assertThat(folder2.calcSize()).isEqualTo(0);
+        assertThat(rootFolder.calcSize()).isEqualTo(61);
     }
 
     private FileSystemTree.Node buildFolder(List<FileSystemTree.Node> children) {
         return FileSystemTree.Node.builder()
-                .type(FileSystemTree.Node.NodeType.FOLDER)
+                .type(FileSystemTree.NodeType.FOLDER)
                 .children(children)
                 .build();
     }
 
     private FileSystemTree.Node buildFile(long size) {
         return FileSystemTree.Node.builder()
-                .type(FileSystemTree.Node.NodeType.FILE)
+                .type(FileSystemTree.NodeType.FILE)
                 .size(size)
                 .build();
     }
