@@ -1,23 +1,27 @@
 package by.andd3dfx.common;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
+ * <pre>
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
- * <p>
+ *
  * Example 1:
  * Input: n = 3
  * Output: ["((()))","(()())","(())()","()(())","()()()"]
- * <p>
+ *
  * Example 2:
  * Input: n = 1
  * Output: ["()"]
- * <p>
+ *
  * Constraints:
  * 1 <= n <= 8
- * <p>
+ *
  * https://leetcode.com/problems/generate-parentheses/
+ * <pre/>
  */
 public class GenerateParentheses {
 
@@ -27,12 +31,12 @@ public class GenerateParentheses {
         }
 
         List<String> strings = generate(n - 1);
-        Set<String> result = new HashSet<>();
+        Set<String> set = new HashSet<>();
         for (String string : strings) {
-            result.add("(" + string + ")"); // Wrap with "()"
-            result.add("()" + string);      // Add "()" at the left
-            result.add(string + "()");      // Add "()" at the right
+            set.add("(" + string + ")");    // Wrap with "()"
+            set.add("()" + string);         // Add "()" at the left
+            set.add(string + "()");         // Add "()" at the right
         }
-        return result.stream().collect(Collectors.toList());
+        return set.stream().collect(Collectors.toList());
     }
 }
