@@ -12,16 +12,17 @@ import java.util.Map;
  * Постараться сделать класс расширяемым, чтобы можно легко можно было добавить новые значения.
  */
 public final class WeekDaysEnum {
+
     private static final List<WeekDaysEnum> items = new ArrayList<>();
-    private static final Map<String, WeekDaysEnum> entityByValueMap = new HashMap<>();
-
-    public static WeekDaysEnum SUNDAY = add("SUNDAY");
-    public static WeekDaysEnum MONDAY = add("MONDAY");
-
+    private static final Map<String, WeekDaysEnum> map = new HashMap<>();
     private final String value;
     private final int ordinal;
 
-    public WeekDaysEnum(String value, int ordinal) {
+    public static final WeekDaysEnum SUNDAY = add("SUNDAY");
+    public static final WeekDaysEnum MONDAY = add("MONDAY");
+    //...
+
+    private WeekDaysEnum(String value, int ordinal) {
         this.value = value;
         this.ordinal = ordinal;
     }
@@ -31,7 +32,7 @@ public final class WeekDaysEnum {
     }
 
     public static WeekDaysEnum valueOf(String value) {
-        return entityByValueMap.get(value);
+        return map.get(value);
     }
 
     public int ordinal() {
@@ -45,7 +46,7 @@ public final class WeekDaysEnum {
     private static WeekDaysEnum add(String value) {
         WeekDaysEnum item = new WeekDaysEnum(value, items.size());
         items.add(item);
-        entityByValueMap.put(value, item);
+        map.put(value, item);
         return item;
     }
 }

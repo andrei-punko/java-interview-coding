@@ -5,26 +5,24 @@ import java.util.Map;
 
 /**
  * <pre>
- * We have a class:
- * public class Condition<A> {
- *     public bool check(A a) {
- *         // ...
- *     }
+ * We have an interface:
+ * public interface Condition<K> {
+ *     boolean check(K key);
  * }
  *
- * Implement class with method to filter items in map in case if key satisfy to check() method.
+ * Implement class with method to filter items in map in case if key satisfy to check(K key) method.
  * </pre>
  */
 public class SkipItemsByCondition {
 
-    public interface Condition<A> {
-        boolean check(A a);
+    public interface Condition<K> {
+        boolean check(K key);
     }
 
-    public <A, B> Map<A, B> filter(Map<A, B> map, Condition<A> condition) {
-        Iterator<A> iterator = map.keySet().iterator();
+    public <K, V> Map<K, V> filter(Map<K, V> map, Condition<K> condition) {
+        Iterator<K> iterator = map.keySet().iterator();
         while (iterator.hasNext()) {
-            A key = iterator.next();
+            K key = iterator.next();
             if (condition.check(key)) {
                 iterator.remove();
             }

@@ -16,6 +16,7 @@ Covered next set of areas:
 - [iterators](./src/main/java/by/andd3dfx/iterators)
 - [java 8](./src/main/java/by/andd3dfx/java8)
 - [jms](./src/main/java/by/andd3dfx/jms)
+- [jvm](./src/main/java/by/andd3dfx/jvm)
 - [masking](./src/main/java/by/andd3dfx/masking)
 - [math](./src/main/java/by/andd3dfx/math)
 - [multithreading](./src/main/java/by/andd3dfx/multithreading)
