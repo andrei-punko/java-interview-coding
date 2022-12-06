@@ -1,22 +1,27 @@
 package by.andd3dfx.numeric;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import by.andd3dfx.numeric.SecondLargestElement;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class SecondLargestElementTest {
 
     @Test
-    public void find1() {
-        assertThat(SecondLargestElement.find1(new int[]{3, 1, 2, 4}), is(3));
-        assertThat(SecondLargestElement.find1(new int[]{3, 1, 2, 3}), is(3));
+    public void find() {
+        int[] array = {3, 1, 2, 4};
+        assertThat(SecondLargestElement.find(array), is(3));
+
+        int[] array2 = {3, 1, 2, 5, 8, 3, 7};
+        assertThat(SecondLargestElement.find(array2), is(7));
     }
 
     @Test
     public void find2() {
-        assertThat(SecondLargestElement.find2(new int[]{3, 1, 2, 4}), is(3));
-        assertThat(SecondLargestElement.find2(new int[]{3, 1, 1, 3}), is(3));
+        int[] array = {3, 1, 2, 4};
+        assertThat(SecondLargestElement.find2(array), is(3));
+
+        int[] array2 = {3, 1, 2, 5, 8, 3, 7};
+        assertThat(SecondLargestElement.find2(array2), is(7));
     }
 }
