@@ -7,7 +7,7 @@ import java.util.Iterator;
  * <pre>
  * class CompositeIterator<Integer> {
  *   Iterator<Integer> a;
- * 	 Iterator<Integer> b;
+ *   Iterator<Integer> b;
  * }
  * </pre>
  */
@@ -16,7 +16,6 @@ public class CompositeIterator<T> implements Iterator<T> {
     private final Iterator<T> a;
     private final Iterator<T> b;
     private Iterator<T> currentIterator;
-    private Iterator<T> lastUsedIterator;
 
     public CompositeIterator(Iterator<T> a, Iterator<T> b) {
         this.a = a;
@@ -37,12 +36,14 @@ public class CompositeIterator<T> implements Iterator<T> {
         if (currentIterator == a && !currentIterator.hasNext()) {
             currentIterator = b;
         }
-        lastUsedIterator = currentIterator;
         return currentIterator.next();
     }
 
     @Override
     public void remove() {
-        lastUsedIterator.remove();
+        if (currentIterator == a && !currentIterator.hasNext()) {
+            currentIterator = b;
+        }
+        currentIterator.remove();
     }
 }
