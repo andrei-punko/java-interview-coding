@@ -2,6 +2,9 @@ package by.andd3dfx.numeric;
 
 import java.util.Arrays;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
 /**
  * Find the second-largest element in array of numbers
  */
@@ -36,13 +39,5 @@ public class SecondLargestElement {
             }
         }
         return max_2;
-    }
-
-    private static int max(int a, int b) {
-        return (a > b) ? a : b;
-    }
-
-    private static int min(int a, int b) {
-        return (a < b) ? a : b;
     }
 }

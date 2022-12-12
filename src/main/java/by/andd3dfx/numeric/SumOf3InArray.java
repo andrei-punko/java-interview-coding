@@ -1,22 +1,33 @@
 package by.andd3dfx.numeric;
 
+import lombok.Builder;
+
 import static java.util.Arrays.binarySearch;
 
 /**
  * Даны массивы a[], b[], c[] и число N.
  * Найти такие индексы i,j,k, что выполняется условие: a[i] + b[j] + c[k] == N
  */
-public class FindIndexesForSum {
+public class SumOf3InArray {
 
-    public int[] find(int[] a, int[] b, int[] c, int N) {
+    public SearchResult find(int[] a, int[] b, int[] c, int N) {
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < b.length; j++) {
                 int k = binarySearch(c, N - a[i] - b[j]);
                 if (k >= 0) {
-                    return new int[]{i, j, k};
+                    return SearchResult.builder()
+                            .indexes(new int[]{i, j, k})
+                            .exists(true)
+                            .build();
                 }
             }
         }
-        throw new RuntimeException("Indexes set does not exist!");
+        return SearchResult.builder().build();
+    }
+
+    @Builder
+    public static class SearchResult {
+        boolean exists;
+        int[] indexes;
     }
 }
