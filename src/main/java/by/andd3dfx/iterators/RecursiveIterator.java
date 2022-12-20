@@ -20,36 +20,28 @@ public class RecursiveIterator<Object> implements Iterator<Object> {
 
     @Override
     public boolean hasNext() {
-        return determineHasNext();
-    }
-
-    private boolean determineHasNext() {
         if (stack.isEmpty()) {
             return false;
         }
 
         Iterator<Object> currentIterator = stack.peek();
-        if (!currentIterator.hasNext()) {
-            stack.pop();
-            return determineHasNext();
+        if (currentIterator.hasNext()) {
+            return true;
         }
-        return true;
+        stack.pop();
+        return hasNext();
     }
 
     @Override
     public Object next() {
-        return determineNext();
-    }
-
-    private Object determineNext() {
-        if (stack.empty()) {
+        if (stack.isEmpty()) {
             throw new NoSuchElementException();
         }
-        Iterator<Object> currentIterator = stack.peek();
 
+        Iterator<Object> currentIterator = stack.peek();
         if (!currentIterator.hasNext()) {
             stack.pop();
-            return determineNext();
+            return next();
         }
 
         Object object = currentIterator.next();
@@ -57,6 +49,6 @@ public class RecursiveIterator<Object> implements Iterator<Object> {
             return object;
         }
         stack.push((Iterator<Object>) object);
-        return determineNext();
+        return next();
     }
 }
