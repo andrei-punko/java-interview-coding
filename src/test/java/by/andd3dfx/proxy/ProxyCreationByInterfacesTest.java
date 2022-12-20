@@ -20,7 +20,7 @@ public class ProxyCreationByInterfacesTest {
         new DynamicInvocationHandler()
     );
 
-    assertThat("Double value expected", ((SomeInterface1) proxyInstance).performActionOne(10), is(20));
-    assertThat("Square value expected", ((SomeInterface2) proxyInstance).performActionTwo(10), is(100));
+    assertThat("x2 value expected", ((SomeInterface1) proxyInstance).performActionOne(10), is(20));
+    assertThat("x4 value expected", ((SomeInterface2) proxyInstance).performActionTwo(10), is(100));
   }
 }
