@@ -1,72 +1,66 @@
 package by.andd3dfx.serialization;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.util.Base64;
 
+/**
+ * Check link for details: https://javarush.ru/groups/posts/2023-znakomstvo-s-interfeysom-externalizable
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserInfo implements Externalizable {
+
+    private static final long serialVersionUID = 2019L;
 
     private String firstName;
     private String lastName;
+    private String email;
+    private String url;
     private String superSecretInformation;
-
-    private static final long serialVersionUID = 1L;
-
-    public UserInfo() {
-    }
-
-    public UserInfo(String firstName, String lastName, String superSecretInformation) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.superSecretInformation = superSecretInformation;
-    }
 
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {
-        out.writeObject(this.getFirstName());
-        out.writeObject(this.getLastName());
-        out.writeObject(this.encryptString(this.getSuperSecretInformation()));
+        out.writeObject(firstName);
+        out.writeObject(lastName);
+        out.writeObject(email);
+        out.writeObject(url);
+        out.writeObject(encryptString(superSecretInformation));
     }
 
     @Override
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         firstName = (String) in.readObject();
         lastName = (String) in.readObject();
-        superSecretInformation = this.decryptString((String) in.readObject());
+        email = (String) in.readObject();
+        url = (String) in.readObject();
+        superSecretInformation = decryptString((String) in.readObject());
     }
 
     private String encryptString(String data) {
-        String encryptedData = Base64.getEncoder().encodeToString(data.getBytes());
-        System.out.println(encryptedData);
-        return encryptedData;
+        if (data == null) {
+            return null;
+        }
+        return Base64.getEncoder().encodeToString(data.getBytes());
     }
 
     private String decryptString(String data) {
-        String decrypted = new String(Base64.getDecoder().decode(data));
-        System.out.println(decrypted);
-        return decrypted;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getSuperSecretInformation() {
-        return superSecretInformation;
-    }
-
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-            "firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
-            ", superSecretInformation='" + superSecretInformation + '\'' +
-            '}';
+        if (data == null) {
+            return null;
+        }
+        try {
+            return new String(Base64.getDecoder().decode(data));
+        } catch (IllegalArgumentException iae) {
+            throw new RuntimeException("Error during decode of " + data);
+        }
     }
 }
