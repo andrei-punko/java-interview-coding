@@ -28,6 +28,22 @@ public class HorseWalkTest {
     }
 
     @Test
+    public void solveFor2x2Board() {
+        int boardSize = 2;
+        HorseWalk.Solution solution = horseWalk.solve(boardSize);
+
+        assertFalse(solution.isFound);
+    }
+
+    @Test
+    public void solveFor3x3Board() {
+        int boardSize = 3;
+        HorseWalk.Solution solution = horseWalk.solve(boardSize);
+
+        assertFalse(solution.isFound);
+    }
+
+    @Test
     public void solveFor4x4Board() {
         int boardSize = 4;
         HorseWalk.Solution solution = horseWalk.solve(boardSize);

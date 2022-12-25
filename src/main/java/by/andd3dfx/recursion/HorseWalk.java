@@ -1,21 +1,19 @@
 package by.andd3dfx.recursion;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import lombok.AllArgsConstructor;
+
 import java.util.Stack;
 
+/**
+ * Find solution for Horse Walk task: horse should visit each cell of NxN board one time
+ */
 public class HorseWalk {
 
+    @AllArgsConstructor
     public class Solution {
         final boolean isFound;
         final boolean[][] cellsTaken;
         final Stack<String> log;
-
-        public Solution(boolean isFound, boolean[][] cellsTaken, Stack<String> log) {
-            this.isFound = isFound;
-            this.cellsTaken = cellsTaken;
-            this.log = log;
-        }
     }
 
     public Solution solve(int boardSize) {
@@ -36,30 +34,31 @@ public class HorseWalk {
         }
 
         final int[][] moves = {{-2, -1}, {-2, 1}, {2, 1}, {2, -1}, {1, 2}, {1, -2}, {-1, 2}, {-1, -2}};
-        for (int i = 0; i < 8; i++) {
-            int row = currX + moves[i][0];
-            int col = currY + moves[i][1];
-            if (row < 0 || row >= size || col < 0 || col >= size) {
+        for (int i = 0; i < moves.length; i++) {
+            int nextX = currX + moves[i][0];
+            int nextY = currY + moves[i][1];
+            if (nextX < 0 || nextX >= size || nextY < 0 || nextY >= size) {
                 continue;
             }
 
-            if (!cellsTaken[row][col]) {
-                cellsTaken[row][col] = true;
+            if (!cellsTaken[nextX][nextY]) {
+                cellsTaken[nextX][nextY] = true;
 
-                log.push(convertToCheckMateCoordinateSystem(row, col));
-                if (checkSolution(size, cellsTaken, cellsVisited + 1, row, col, log)) {
+                log.push(convertToCheckMateCoordinateSystem(nextX, nextY));
+                if (checkSolution(size, cellsTaken, cellsVisited + 1, nextX, nextY, log)) {
                     return true;
                 } else {
                     log.pop();
-                    cellsTaken[row][col] = false;
+                    cellsTaken[nextX][nextY] = false;
                 }
             }
         }
         return false;
     }
 
+    private final char[] CHARS = "abcdefgh".toCharArray();
+
     private String convertToCheckMateCoordinateSystem(int row, int col) {
-        final char[] chars = "abcdefgh".toCharArray();
-        return String.format("%s%d", chars[col], row + 1);
+        return String.format("%s%d", CHARS[col], row + 1);
     }
 }
