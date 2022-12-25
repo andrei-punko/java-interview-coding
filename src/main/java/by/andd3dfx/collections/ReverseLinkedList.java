@@ -1,5 +1,7 @@
 package by.andd3dfx.collections;
 
+import lombok.AllArgsConstructor;
+
 import java.util.Stack;
 
 /**
@@ -7,14 +9,10 @@ import java.util.Stack;
  */
 public class ReverseLinkedList {
 
+    @AllArgsConstructor
     public static class ListNode {
         public ListNode next;
         public int val;
-
-        public ListNode(ListNode next, int val) {
-            this.next = next;
-            this.val = val;
-        }
     }
 
     public static ListNode reverse(ListNode head) {

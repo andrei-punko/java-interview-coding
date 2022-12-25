@@ -13,10 +13,11 @@ import java.util.regex.Pattern;
  */
 public class Paragraph {
 
-  private static final String PATTERN = "\\d[\n]*\\d[\n]*\\d[\n]*-[\n]*\\d[\n]*\\d[\n]*-[\n]*\\d[\n]*\\d[\n]*\\d[\n]*\\d";
+  private static final String PATTERN_1 = "\\d\n*\\d\n*\\d\n*-\n*\\d\n*\\d\n*-\n*\\d\n*\\d\n*\\d\n*\\d";
+  private static final String PATTERN_2 = "(\\d{3}[^-]*)-([^-]*\\d{2}[^-]*)-([^-]*\\d{4})";
 
   public static String changeFormat(String paragraph) {
-    Pattern p = Pattern.compile(PATTERN);
+    Pattern p = Pattern.compile(PATTERN_1);
     Matcher m = p.matcher(paragraph);
     while (m.find()) {
       String s = m.group(0);
@@ -27,8 +28,8 @@ public class Paragraph {
     return paragraph;
   }
 
-  public static String changeFormatAnotherWay(String paragraph) {
-    Pattern p = Pattern.compile("(\\d{3}[^-]*)-([^-]*\\d{2}[^-]*)-([^-]*\\d{4})");
+  public static String changeFormat2(String paragraph) {
+    Pattern p = Pattern.compile(PATTERN_2);
     Matcher m = p.matcher(paragraph);
     while (m.find()) {
       paragraph = m.replaceAll("$1/$3/$2");

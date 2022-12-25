@@ -11,7 +11,7 @@ import org.junit.Test;
 /**
  * For replacement example
  *
- * @see Paragraph#changeFormatAnotherWay(java.lang.String)
+ * @see Paragraph#changeFormat2(java.lang.String)
  */
 public class RegExpCheckerTest {
 
