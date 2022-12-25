@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ClassThatShouldBeTestedTest {
+public class ClassThatShouldBeTestedUsingJMockTest {
 
     /**
      * To mock real class, not interface, we need to set imposteriser into mockery
