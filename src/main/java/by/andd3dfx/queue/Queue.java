@@ -1,16 +1,21 @@
 package by.andd3dfx.queue;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
 public class Queue {
 
     private Item head;
+
+    public Queue(Item head) {
+        if (head == null) {
+            throw new IllegalArgumentException("Head should be not null!");
+        }
+        this.head = head;
+    }
 
     public Item revertUsingAdditionalArray() {
         List<Item> items = new ArrayList<Item>();

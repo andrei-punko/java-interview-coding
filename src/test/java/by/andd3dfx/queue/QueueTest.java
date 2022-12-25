@@ -11,13 +11,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public class QueueTest {
 
-    @Test(expected = AssertionError.class)
+    @Test(expected = IllegalArgumentException.class)
     public void revertUsingAdditionalArrayForEmptyQueue() {
         Queue queue = new Queue(null);
         queue.revertUsingAdditionalArray();
     }
 
-    @Test(expected = AssertionError.class)
+    @Test(expected = IllegalArgumentException.class)
     public void revertUsingRecursionForEmptyQueue() {
         Queue queue = new Queue(null);
         queue.revertUsingRecursion();
