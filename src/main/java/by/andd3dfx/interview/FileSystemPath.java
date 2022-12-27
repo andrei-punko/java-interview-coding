@@ -1,5 +1,7 @@
 package by.andd3dfx.interview;
 
+import lombok.Getter;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -23,12 +25,13 @@ import java.util.Deque;
  *     should display '/a/b/c/x'.
  * </pre>
  */
-public class Path {
+public class FileSystemPath {
 
+  @Getter
   private String path;
   private Deque<String> deque = new ArrayDeque<>();
 
-  public Path(String path) {
+  public FileSystemPath(String path) {
     this.path = path;
 
     String[] directories = path.split("/");
@@ -37,15 +40,11 @@ public class Path {
     }
   }
 
-  public String getPath() {
-    return path;
-  }
-
   public void cd(String newPath) {
-    path = process(path, newPath);
+    path = process(newPath);
   }
 
-  private String process(String path, String newPath) {
+  private String process(String newPath) {
     if (newPath.startsWith("/")) {
       return newPath;
     }
@@ -63,11 +62,5 @@ public class Path {
       }
     }
     return String.join("/", deque);
-  }
-
-  public static void main(String[] args) {
-    Path path = new Path("/a/b/c/d");
-    path.cd("../x");
-    System.out.println(path.getPath());
   }
 }
