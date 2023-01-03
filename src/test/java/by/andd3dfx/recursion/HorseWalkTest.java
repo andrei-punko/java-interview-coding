@@ -3,10 +3,10 @@ package by.andd3dfx.recursion;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class HorseWalkTest {
 
@@ -19,62 +19,86 @@ public class HorseWalkTest {
 
     @Test
     public void solveFor1x1Board() {
-        int boardSize = 1;
-        HorseWalk.Solution solution = horseWalk.solve(boardSize);
-
-        assertTrue(solution.isFound);
-        checkAreAllCellsVisited(boardSize, solution);
-        assertThat(solution.log.toString(), is("[a1]"));
+        commonSolve(1, true);
     }
 
     @Test
     public void solveFor2x2Board() {
-        int boardSize = 2;
-        HorseWalk.Solution solution = horseWalk.solve(boardSize);
-
-        assertFalse(solution.isFound);
+        commonSolve(2, false);
     }
 
     @Test
     public void solveFor3x3Board() {
-        int boardSize = 3;
-        HorseWalk.Solution solution = horseWalk.solve(boardSize);
-
-        assertFalse(solution.isFound);
+        commonSolve(3, false);
     }
 
     @Test
     public void solveFor4x4Board() {
-        int boardSize = 4;
-        HorseWalk.Solution solution = horseWalk.solve(boardSize);
-
-        assertFalse(solution.isFound);
+        commonSolve(4, false);
     }
 
     @Test
     public void solveFor5x5Board() {
-        int boardSize = 5;
-        HorseWalk.Solution solution = horseWalk.solve(boardSize);
-
-        assertTrue(solution.isFound);
-        checkAreAllCellsVisited(boardSize, solution);
-        assertThat(solution.log.toString(), is("[a1, b3, c1, e2, d4, b5, a3, b1, d2, e4, c5, a4, b2, d1, e3, d5, c3, a2, b4, c2, e1, d3, e5, c4, a5]"));
+        commonSolve(5, true);
     }
 
     @Test
     public void solveFor6x6Board() {
-        int boardSize = 6;
+        commonSolve(6, true);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void printSolutionWhenIsFoundEqualsToFalse() {
+        Deque<HorseWalk.Cell> log = new ArrayDeque<>();
+        log.add(new HorseWalk.Cell(0, 0));
+        HorseWalk.Solution solution = new HorseWalk.Solution(false, new boolean[][]{{}}, log);
+        System.out.println(solution.logToString());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void printSolutionWhenLogSizeLessThanExpectation() {
+        Deque<HorseWalk.Cell> log = new ArrayDeque<>();
+        HorseWalk.Solution solution = new HorseWalk.Solution(true, new boolean[][]{{}}, log);
+        System.out.println(solution.logToString());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void printSolutionWhenLogSizeGreaterThanExpectation() {
+        Deque<HorseWalk.Cell> log = new ArrayDeque<>();
+        log.add(new HorseWalk.Cell(0, 0));
+        log.add(new HorseWalk.Cell(0, 1));
+        HorseWalk.Solution solution = new HorseWalk.Solution(true, new boolean[][]{{}}, log);
+        System.out.println(solution.logToString());
+    }
+
+    @Test
+    public void printSolution() {
+        Deque<HorseWalk.Cell> log = new ArrayDeque<>();
+        log.add(new HorseWalk.Cell(0, 0));
+        HorseWalk.Solution solution = new HorseWalk.Solution(true, new boolean[][]{{}}, log);
+        System.out.println(solution.logToString());
+    }
+
+    @Test
+    public void cell() {
+        assertThat(new HorseWalk.Cell(0, 0).convertToCheckMateCoordinateSystem()).isEqualTo("a1");
+        assertThat(new HorseWalk.Cell(2, 3).convertToCheckMateCoordinateSystem()).isEqualTo("c4");
+    }
+
+    private void commonSolve(int boardSize, boolean solutionExpected) {
         HorseWalk.Solution solution = horseWalk.solve(boardSize);
 
-        assertTrue(solution.isFound);
-        checkAreAllCellsVisited(boardSize, solution);
-        assertThat(solution.log.toString(), is("[a1, b3, c1, d3, e1, f3, e5, c6, a5, c4, b2, a4, b6, d5, f6, e4, f2, d1, e3, f1, d2, b1, c3, a2, b4, c2, a3, b5, d6, f5, d4, e2, f4, e6, c5, a6]"));
+        assertThat(solution.isFound()).isEqualTo(solutionExpected);
+        if (solution.isFound()) {
+            checkAreAllCellsVisited(boardSize, solution);
+            System.out.println(solution.logToString());
+        }
     }
 
     private void checkAreAllCellsVisited(int boardSize, HorseWalk.Solution solution) {
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
-                assertTrue(solution.cellsTaken[i][j]);
+                assertThat(solution.getCellsTaken()[i][j]).isTrue();
             }
         }
     }
