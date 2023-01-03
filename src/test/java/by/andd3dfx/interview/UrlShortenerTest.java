@@ -1,6 +1,5 @@
 package by.andd3dfx.interview;
 
-import by.andd3dfx.interview.UrlShortener;
 import org.junit.Before;
 import org.junit.Test;
 

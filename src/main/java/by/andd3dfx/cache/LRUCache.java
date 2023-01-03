@@ -1,5 +1,7 @@
 package by.andd3dfx.cache;
 
+import lombok.RequiredArgsConstructor;
+
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -21,23 +23,20 @@ import java.util.Set;
  * Leetcode task: https://leetcode.com/problems/lru-cache/
  * <pre/>
  */
+@RequiredArgsConstructor
 public class LRUCache {
 
-    private int capacity;
+    private final int capacity;
     private Map<Integer, Integer> map = new HashMap<>();
     private Set<Integer> set = new LinkedHashSet<>();
 
-    public LRUCache(int capacity) {
-        this.capacity = capacity;
-    }
-
     public int get(int key) {
-        if (set.contains(key)) {
-            set.remove(key);
-            set.add(key);
-            return map.get(key);
+        if (!map.containsKey(key)) {
+            return -1;
         }
-        return -1;
+        set.remove(key);
+        set.add(key);
+        return map.get(key);
     }
 
     public void put(int key, int value) {
@@ -48,7 +47,7 @@ public class LRUCache {
         if (set.contains(key)) {
             set.remove(key);
         } else if (set.size() == capacity) {
-            Integer keyToDelete = (Integer) set.toArray()[0];
+            var keyToDelete = set.toArray()[0];
             set.remove(keyToDelete);
             map.remove(keyToDelete);
         }

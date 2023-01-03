@@ -39,23 +39,4 @@ public class ReverseLinkedList {
 
         return newHead;
     }
-
-    /**
-     * This main method was part of the task
-     */
-    public static void main(String[] args) {
-        ListNode head = new ListNode(new ListNode(new ListNode(new ListNode(null, 3), 4), 5), 6);
-        printLinkedList(head);
-
-        ListNode current = reverse(head);
-
-        printLinkedList(current);
-    }
-
-    private static void printLinkedList(ListNode current) {
-        while (current != null) {
-            System.out.println(current.val);
-            current = current.next;
-        }
-    }
 }

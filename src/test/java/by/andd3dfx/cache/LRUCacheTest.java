@@ -1,33 +1,31 @@
 package by.andd3dfx.cache;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import by.andd3dfx.cache.LRUCache;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 
 public class LRUCacheTest {
 
     @Test
     public void testCache() {
-        LRUCache cache = new LRUCache(2 /* capacity */);
-
+        LRUCache cache = new LRUCache(2);
         cache.put(1, 1);
-        cache.put(2, 2);
-        assertThat("returns 1", cache.get(1), is(1));
-        cache.put(3, 3);    // evicts key 2
-        assertThat("returns -1 (not found)", cache.get(2), is(-1));
-        cache.put(4, 4);    // evicts key 1
-        assertThat("returns -1 (not found)", cache.get(1), is(-1));
-        assertThat("returns 3", cache.get(3), is(3));
-        assertThat("returns 4", cache.get(4), is(4));
+        cache.put(2, 4);
+        assertThat(cache.get(1), is(1));
+        cache.put(3, 9);    // evicts key 2
+        assertThat(cache.get(2), is(-1));
+        cache.put(4, 16);    // evicts key 1
+        assertThat(cache.get(1), is(-1));
+        assertThat(cache.get(3), is(9));
+        assertThat(cache.get(4), is(16));
     }
 
     @Test
     public void testCacheForZeroCapacity() {
         LRUCache cache = new LRUCache(0);
-        assertThat("returns -1", cache.get(2), is(-1));
-        cache.put(2, 1);
-        assertThat("returns -1", cache.get(2), is(-1));
+        cache.put(2, 4);
+        assertThat(cache.get(2), is(-1));
+        assertThat(cache.get(1), is(-1));
     }
 }
