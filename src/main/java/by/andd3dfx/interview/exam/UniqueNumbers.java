@@ -2,6 +2,7 @@ package by.andd3dfx.interview.exam;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
@@ -11,16 +12,17 @@ import java.util.Set;
  */
 public class UniqueNumbers {
 
-  public static Collection<Integer> findUniqueNumbers(Collection<Integer> numbers) {
-    Set<Integer> setNum = new HashSet<>();
-    Set<Integer> exists = new HashSet<>();
+    public static Collection<Integer> findUniqueNumbers(Collection<Integer> numbers) {
+        Set<Integer> result = new LinkedHashSet<>();
+        Set<Integer> existedNumbers = new HashSet<>();
 
-    for (Integer i : numbers) {
-      if (exists.contains(i) || !setNum.add(i)) {
-        setNum.remove(i);
-        exists.add(i);
-      }
+        for (var number : numbers) {
+            boolean additionResult = result.add(number);
+            if (existedNumbers.contains(number) || !additionResult) {
+                result.remove(number);
+                existedNumbers.add(number);
+            }
+        }
+        return result;
     }
-    return setNum;
-  }
 }

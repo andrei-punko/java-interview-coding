@@ -1,7 +1,7 @@
 package by.andd3dfx.interview.exam;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -19,15 +19,16 @@ import java.io.InputStreamReader;
  */
 public class Needle {
 
-  public static int count(String needle, InputStream haystack) throws Exception {
-    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(haystack));
-    String line;
-    int count = 0;
-    while ((line = bufferedReader.readLine()) != null) {
-      if (line.contains(needle)) {
-        count++;
-      }
+    public static int count(String needle, InputStream haystack) throws IOException {
+        try (var bufferedReader = new BufferedReader(new InputStreamReader(haystack))) {
+            String line;
+            var count = 0;
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line.contains(needle)) {
+                    count++;
+                }
+            }
+            return count;
+        }
     }
-    return count;
-  }
 }
