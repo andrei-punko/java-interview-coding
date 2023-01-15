@@ -1,5 +1,6 @@
 package by.andd3dfx.multithreading;
 
+import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 
 import java.io.StringWriter;
@@ -46,17 +47,11 @@ public class TwoLegsRobot {
 
     private static StringWriter writer = new StringWriter();
 
-    static class Foot implements Runnable {
-
+    @AllArgsConstructor
+    public static class Foot implements Runnable {
         private final String name;
         private final Semaphore mySemaphore;
         private final Semaphore notMySemaphore;
-
-        public Foot(String name, Semaphore mySemaphore, Semaphore notMySemaphore) {
-            this.name = name;
-            this.mySemaphore = mySemaphore;
-            this.notMySemaphore = notMySemaphore;
-        }
 
         @SneakyThrows
         public void run() {

@@ -1,5 +1,8 @@
 package by.andd3dfx.numeric;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,23 +19,11 @@ import java.util.stream.Collectors;
  */
 public class BestAverageScore {
 
+    @Getter
+    @AllArgsConstructor
     public static class Item {
-
         private String name;
         private int mark;
-
-        public Item(String name, int mark) {
-            this.name = name;
-            this.mark = mark;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public int getMark() {
-            return mark;
-        }
     }
 
     public static double calculate(Collection<Item> items) {
@@ -46,8 +37,8 @@ public class BestAverageScore {
             .get(0).getValue();
     }
 
+    @Getter
     public static class Accumulator {
-
         private double value;
         private int count;
 
@@ -56,16 +47,8 @@ public class BestAverageScore {
             count = 1;
         }
 
-        public double getValue() {
-            return value;
-        }
-
         public void setValue(double value) {
             this.value = value;
-        }
-
-        public int getCount() {
-            return count;
         }
 
         public void add(double mark) {
