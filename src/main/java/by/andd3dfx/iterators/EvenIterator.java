@@ -1,21 +1,21 @@
 package by.andd3dfx.iterators;
 
+import lombok.RequiredArgsConstructor;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Stack;
 
 /**
  * Build iterator which returns only even numbers of underlying array:
  * [1, 3, 5, 7, 8, 9] -> [8]
  */
+@RequiredArgsConstructor
 public class EvenIterator implements Iterator<Integer> {
 
     private final Iterator<Integer> it;
-    private Stack<Integer> stack = new Stack<>();
-
-    public EvenIterator(Iterator<Integer> it) {
-        this.it = it;
-    }
+    private Deque<Integer> stack = new ArrayDeque<>();
 
     @Override
     public Integer next() {
@@ -26,15 +26,10 @@ public class EvenIterator implements Iterator<Integer> {
         while (it.hasNext()) {
             Integer value = it.next();
             if (value % 2 == 0) {
-                stack.push(value);
-                break;
+                return value;
             }
         }
-
-        if (!it.hasNext()) {
-            throw new NoSuchElementException("Iterator is empty!");
-        }
-        return stack.pop();
+        throw new NoSuchElementException("Iterator is empty!");
     }
 
     @Override
@@ -44,18 +39,16 @@ public class EvenIterator implements Iterator<Integer> {
         }
 
         while (it.hasNext()) {
-            stack.push(it.next());
-
-            if (stack.peek() % 2 == 0) {
+            var value = it.next();
+            if (value % 2 == 0) {
+                stack.push(value);
                 break;
             }
-
-            stack.pop();
         }
 
-        if (!stack.isEmpty()) {
-            return true;
+        if (stack.isEmpty()) {
+            return it.hasNext();
         }
-        return it.hasNext();
+        return true;
     }
 }
