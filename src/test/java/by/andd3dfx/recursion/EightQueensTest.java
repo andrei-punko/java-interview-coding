@@ -3,11 +3,9 @@ package by.andd3dfx.recursion;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class EightQueensTest {
@@ -15,7 +13,7 @@ public class EightQueensTest {
     private EightQueens eightQueens;
 
     @Before
-    public void setup() {
+    public void setUp() throws Exception {
         eightQueens = new EightQueens();
     }
 
@@ -23,36 +21,38 @@ public class EightQueensTest {
     public void solveFor1x1() {
         EightQueens.Solution solution = eightQueens.solve(1);
 
-        assertTrue(solution.isFound);
+        assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 1);
-        assertTrue("Solution for 1x1 board", solution.cellsTaken[0][0]);
+        assertThat(solution.prettyPrint(), is(new int[][]{
+                {1}
+        }));
     }
 
     @Test
     public void solveFor2x2() {
         EightQueens.Solution solution = eightQueens.solve(2);
 
-        assertFalse("Solution for 2x2 board doesn't exist", solution.isFound);
+        assertFalse(solution.isFound());
     }
 
     @Test
     public void solveFor3x3() {
         EightQueens.Solution solution = eightQueens.solve(3);
 
-        assertFalse("Solution for 3x3 board doesn't exist", solution.isFound);
+        assertFalse(solution.isFound());
     }
 
     @Test
     public void solveFor4x4() {
         EightQueens.Solution solution = eightQueens.solve(4);
 
-        assertTrue(solution.isFound);
+        assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 4);
-        assertThat("Solution for 4x4 board", solution.cellsTaken, is(new boolean[][]{
-                {false, true, false, false},
-                {false, false, false, true},
-                {true, false, false, false},
-                {false, false, true, false},
+        assertThat(solution.prettyPrint(), is(new int[][]{
+                {0, 1, 0, 0},
+                {0, 0, 0, 1},
+                {1, 0, 0, 0},
+                {0, 0, 1, 0}
         }));
     }
 
@@ -60,14 +60,14 @@ public class EightQueensTest {
     public void solveFor5x5() {
         EightQueens.Solution solution = eightQueens.solve(5);
 
-        assertTrue(solution.isFound);
+        assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 5);
-        assertThat("Solution for 5x5 board", solution.cellsTaken, is(new boolean[][]{
-                {true, false, false, false, false},
-                {false, false, true, false, false},
-                {false, false, false, false, true},
-                {false, true, false, false, false},
-                {false, false, false, true, false},
+        assertThat(solution.prettyPrint(), is(new int[][]{
+                {1, 0, 0, 0, 0},
+                {0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 1},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 1, 0}
         }));
     }
 
@@ -75,44 +75,82 @@ public class EightQueensTest {
     public void solveFor8x8() {
         EightQueens.Solution solution = eightQueens.solve(8);
 
-        assertTrue(solution.isFound);
+        assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 8);
-        assertThat("Solution for 8x8 board", solution.cellsTaken, is(new boolean[][]{
-                {true, false, false, false, false, false, false, false},
-                {false, false, false, false, true, false, false, false},
-                {false, false, false, false, false, false, false, true},
-                {false, false, false, false, false, true, false, false},
-                {false, false, true, false, false, false, false, false},
-                {false, false, false, false, false, false, true, false},
-                {false, true, false, false, false, false, false, false},
-                {false, false, false, true, false, false, false, false}
+        assertThat(solution.prettyPrint(), is(new int[][]{
+                {1, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 1, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 1, 0},
+                {0, 1, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0, 0}
         }));
     }
 
     @Test
-    public void isLegal() {
-        assertTrue("empty board", eightQueens.isLegal(2, new boolean[][]{{false, false}, {false, false}}));
+    public void prettyPrint() {
+        var solution = new EightQueens.Solution(true, new boolean[][]{
+                {true, false},
+                {false, true}
+        });
 
-        assertTrue("one queen", eightQueens.isLegal(2, new boolean[][]{{true, false}, {false, false}}));
-
-        assertTrue("two queens", eightQueens.isLegal(3, new boolean[][]{{true, false, false}, {false, false, true}, {false, false, false}}));
-
-        assertFalse("same row", eightQueens.isLegal(2, new boolean[][]{{true, true}, {false, false}}));
-
-        assertFalse("same column", eightQueens.isLegal(2, new boolean[][]{{true, false}, {true, false}}));
-
-        assertFalse("same diagonal", eightQueens.isLegal(2, new boolean[][]{{true, false}, {false, true}}));
+        assertThat(solution.prettyPrint(), is(new int[][]{
+                {1, 0},
+                {0, 1}
+        }));
     }
 
-    private void checkAmountOfPositionedQueens(EightQueens.Solution solution, int boardSize) {
-        AtomicInteger queensCount = new AtomicInteger();
-        for (var booleans : solution.cellsTaken) {
-            for (var bool : booleans) {
-                if (bool) {
-                    queensCount.getAndIncrement();
+    @Test
+    public void isLegalEmptyBoard() {
+        assertTrue(eightQueens.isLegal(2, new boolean[][]{
+                {false, false},
+                {false, false}
+        }));
+    }
+
+    @Test
+    public void isLegalOneQueen() {
+        assertTrue(eightQueens.isLegal(2, new boolean[][]{
+                {true, false},
+                {false, false}
+        }));
+    }
+
+    @Test
+    public void isLegalSameCol() {
+        assertFalse(eightQueens.isLegal(2, new boolean[][]{
+                {true, false},
+                {true, false}
+        }));
+    }
+
+    @Test
+    public void isLegalSameRow() {
+        assertFalse(eightQueens.isLegal(2, new boolean[][]{
+                {true, true},
+                {false, false}
+        }));
+    }
+
+    @Test
+    public void isLegalSameDiagonal() {
+        assertFalse(eightQueens.isLegal(2, new boolean[][]{
+                {true, false},
+                {false, true}
+        }));
+    }
+
+    private void checkAmountOfPositionedQueens(EightQueens.Solution solution, int size) {
+        int queensAmount = 0;
+        for (var isTakenFlags : solution.getCellsTaken()) {
+            for (var isTaken : isTakenFlags) {
+                if (isTaken) {
+                    queensAmount++;
                 }
             }
         }
-        assertThat(queensCount.get(), is(boardSize));
+        assertThat(queensAmount, is(size));
     }
 }

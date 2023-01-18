@@ -1,35 +1,44 @@
 package by.andd3dfx.recursion;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 /**
- * Place N queens to NxN board
+ * Place N Queens to NxN board
  * <p>
  * Used Rod Stephens - 'Essential Algorithms' book
  */
 public class EightQueens {
 
-    public class Solution {
-        boolean isFound;
-        boolean[][] cellsTaken;
+    @Data
+    @AllArgsConstructor
+    public static class Solution {
+        private boolean isFound;
+        private boolean[][] cellsTaken;
 
-        public Solution(boolean isFound, boolean[][] cellsTaken) {
-            this.isFound = isFound;
-            this.cellsTaken = cellsTaken;
+        public int[][] prettyPrint() {
+            int size = cellsTaken.length;
+            int[][] result = new int[size][size];
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    result[i][j] = cellsTaken[i][j] ? 1 : 0;
+                }
+            }
+            return result;
         }
     }
 
     public Solution solve(int boardSize) {
         boolean[][] cellsTaken = new boolean[boardSize][boardSize];
-
         boolean isFound = checkSolution(boardSize, cellsTaken, 0);
 
         return new Solution(isFound, cellsTaken);
     }
 
-    public boolean checkSolution(int size, boolean[][] cellsTaken, int queensPositioned) {
+    private boolean checkSolution(int size, boolean[][] cellsTaken, int queensPositioned) {
         if (!isLegal(size, cellsTaken)) {
             return false;
         }
-
         if (queensPositioned == size) {
             return true;
         }
