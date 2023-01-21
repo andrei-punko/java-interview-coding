@@ -2,34 +2,27 @@ package by.andd3dfx.numeric;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class SymmetricMatrixTest {
 
     @Test
-    public void checkIsSymmetricPositive() {
+    public void isSymmetric() {
         int[][] matrix = {
-                {0, 1, 2},
-                {1, 2, 3},
-                {2, 3, 4}
+                {0, 1, 5},
+                {1, 1, 3},
+                {5, 3, 2},
         };
-
-        boolean result = SymmetricMatrix.checkIsSymmetric(3, matrix);
-
-        assertTrue(result);
+        assertTrue(SymmetricMatrix.isSymmetric(matrix));
     }
 
     @Test
-    public void checkIsSymmetricNegative() {
+    public void isSymmetricNegative() {
         int[][] matrix = {
                 {0, 1, 5},
-                {1, 2, 3},
-                {2, 3, 4}
+                {1, 1, 4},
+                {5, 3, 2},
         };
-
-        boolean result = SymmetricMatrix.checkIsSymmetric(3, matrix);
-
-        assertFalse(result);
+        assertFalse(SymmetricMatrix.isSymmetric(matrix));
     }
 }
