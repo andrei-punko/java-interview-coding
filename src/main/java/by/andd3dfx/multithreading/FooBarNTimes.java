@@ -1,6 +1,7 @@
 package by.andd3dfx.multithreading;
 
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 
 import java.util.concurrent.Semaphore;
 
@@ -38,15 +39,16 @@ public class FooBarNTimes {
         private Semaphore fooSemaphore = new Semaphore(1);
         private Semaphore barSemaphore = new Semaphore(0);
 
-        public void foo() throws InterruptedException {
+        @SneakyThrows
+        public void foo() {
             for (int i = 0; i < n; i++) {
                 fooSemaphore.acquire();
                 System.out.print("foo");
                 barSemaphore.release();
             }
         }
-
-        public void bar() throws InterruptedException {
+        @SneakyThrows
+        public void bar() {
             for (int i = 0; i < n; i++) {
                 barSemaphore.acquire();
                 System.out.print("bar");
