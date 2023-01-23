@@ -1,31 +1,34 @@
 package by.andd3dfx.recursion;
 
-import java.util.Stack;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+@Getter
 public class HanoiTowers {
 
+    @RequiredArgsConstructor
     public class Column {
-        String name;
-        Stack<Integer> stack = new Stack<>();
-
-        public Column(String name) {
-            this.name = name;
-        }
+        private final String name;
+        @Getter
+        private Deque<Integer> stack = new ArrayDeque<>();
     }
 
-    final int height;
-    Column left;
-    Column middle;
-    Column right;
+    private final int height;
+    private Column left;
+    private Column middle;
+    private Column right;
 
     public HanoiTowers(int height) {
         this.height = height;
-        this.left = new Column("Left");
+        left = new Column("Left");
         for (int i = 0; i < height; i++) {
             left.stack.push(height - i);
         }
-        this.middle = new Column("Middle");
-        this.right = new Column("Right");
+        middle = new Column("Middle");
+        right = new Column("Right");
     }
 
     public void solve() {
