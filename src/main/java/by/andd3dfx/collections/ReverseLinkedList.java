@@ -1,42 +1,70 @@
 package by.andd3dfx.collections;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
-/**
- * Reverse linked list
- */
 public class ReverseLinkedList {
 
+    @Data
     @AllArgsConstructor
-    public static class ListNode {
-        public ListNode next;
-        public int val;
+    public static class Node<T> {
+        private T value;
+        private Node next;
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "value=" + value +
+                    '}';
+        }
     }
 
-    public static ListNode reverse(ListNode head) {
-        if (head == null) {
-            return null;
-        }
+    public static Node reverseUsingLoop(Node head) {
+        Node prev = null;
+        Node curr = head;
 
-        Stack<ListNode> stack = new Stack<>();
-        ListNode curr = head;
+        while (curr != null) {
+            Node tmp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = tmp;
+        }
+        return prev;
+    }
+
+    public static Node reverseUsingStack(Node head) {
+        Deque<Node> stack = new ArrayDeque<>();
+        Node curr = head;
         while (curr != null) {
             stack.push(curr);
             curr = curr.next;
         }
 
-        ListNode newHead = stack.pop();
-        newHead.next = null;
+        Node result = stack.peek();
 
-        ListNode currItem = newHead;
+        curr = result;
         while (!stack.isEmpty()) {
-            currItem.next = stack.pop();
-            currItem = currItem.next;
+            curr.next = stack.pop();
+            curr = curr.next;
+            curr.next = null;
         }
-        currItem.next = null;
 
-        return newHead;
+        return result;
+    }
+
+    public static Node reverseUsingRecursion(Node head) {
+        return recursion(null, head);
+    }
+
+    private static Node recursion(Node prev, Node curr) {
+        if (curr == null) {
+            return prev;
+        }
+        Node next = curr.next;
+        curr.next = prev;
+        return recursion(curr, next);
     }
 }
