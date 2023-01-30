@@ -1,5 +1,8 @@
 package by.andd3dfx.tree;
 
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,16 +22,12 @@ import java.util.Queue;
  */
 public class BinaryTreeWalking {
 
+    @Data
+    @RequiredArgsConstructor
     public static class Node<T> {
-        Node<T> left;
-        Node<T> right;
-        T value;
-
-        public Node(Node<T> left, Node<T> right, T value) {
-            this.left = left;
-            this.right = right;
-            this.value = value;
-        }
+        private final T value;
+        private final Node<T> left;
+        private final Node<T> right;
     }
 
     public <T> List<Node<T>> breadthWalk(Node<T> root) {
@@ -56,21 +55,18 @@ public class BinaryTreeWalking {
     public <T> List<Node<T>> forwardVerticalWalk(Node<T> root) {
         List<Node<T>> result = new ArrayList<>();
         forwardProcess(root, result);
-
         return result;
     }
 
     public <T> List<Node<T>> symmetricVerticalWalk(Node<T> root) {
         List<Node<T>> result = new ArrayList<>();
         symmetricProcess(root, result);
-
         return result;
     }
 
     public <T> List<Node<T>> backwardVerticalWalk(Node<T> root) {
         List<Node<T>> result = new ArrayList<>();
         backwardProcess(root, result);
-
         return result;
     }
 

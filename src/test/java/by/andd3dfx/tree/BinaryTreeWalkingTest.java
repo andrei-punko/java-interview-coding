@@ -7,14 +7,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 
 public class BinaryTreeWalkingTest {
 
     private BinaryTreeWalking binaryTreeWalking;
 
     @Before
-    public void setup() {
+    public void setUp() throws Exception {
         binaryTreeWalking = new BinaryTreeWalking();
     }
 
@@ -54,29 +54,29 @@ public class BinaryTreeWalkingTest {
         checkResultList(result, new int[]{11, 4, 7, 9, 34, 12, 5});
     }
 
-    private void checkResultList(List<BinaryTreeWalking.Node<Integer>> result, int[] expectedResult) {
-        List<Integer> values = result.stream().map(node -> node.value).collect(Collectors.toList());
-        assertThat(values.size(), is(expectedResult.length));
-        assertThat(values.toArray(), is(expectedResult));
+    private void checkResultList(List<BinaryTreeWalking.Node<Integer>> result, int[] expectation) {
+        List<Integer> values = result.stream().map(node -> node.getValue()).collect(Collectors.toList());
+        assertThat(values.size(), is(expectation.length));
+        assertThat(values.toArray(), is(expectation));
     }
 
     /**
      * <pre>
-     *       5
-     *   4      12
-     *    11   9  34
-     *        7
+     *      5
+     *  4      12
+     *   11   9  34
+     *       7
      * </pre>
      */
     private BinaryTreeWalking.Node<Integer> buildTree() {
-        BinaryTreeWalking.Node eleven = new BinaryTreeWalking.Node(null, null, 11);
-        BinaryTreeWalking.Node four = new BinaryTreeWalking.Node(null, eleven, 4);
-        BinaryTreeWalking.Node seven = new BinaryTreeWalking.Node(null, null, 7);
-        BinaryTreeWalking.Node nine = new BinaryTreeWalking.Node(seven, null, 9);
-        BinaryTreeWalking.Node thirtyFour = new BinaryTreeWalking.Node(null, null, 34);
-        BinaryTreeWalking.Node<Integer> root = new BinaryTreeWalking.Node(
-                four, new BinaryTreeWalking.Node(nine, thirtyFour, 12), 5
-        );
-        return root;
+        BinaryTreeWalking.Node eleven = new BinaryTreeWalking.Node(11, null, null);
+        BinaryTreeWalking.Node four = new BinaryTreeWalking.Node(4, null, eleven);
+
+        BinaryTreeWalking.Node seven = new BinaryTreeWalking.Node(7, null, null);
+        BinaryTreeWalking.Node nine = new BinaryTreeWalking.Node(9, seven, null);
+        BinaryTreeWalking.Node thirtyFour = new BinaryTreeWalking.Node(34, null, null);
+        BinaryTreeWalking.Node twelve = new BinaryTreeWalking.Node(12, nine, thirtyFour);
+
+        return new BinaryTreeWalking.Node(5, four, twelve);
     }
 }
