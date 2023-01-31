@@ -1,18 +1,19 @@
 package by.andd3dfx.annotation;
 
+@CustomClassAnnotation(MonthType.SEPTEMBER)
 public class SomeAnnotatedClass {
 
-    public void notAnnotatedMethod() {
-        System.out.println("Hello from notAnnotatedMethod");
+    public String notAnnotatedMethod() {
+        return "Hello from notAnnotatedMethod";
     }
 
-    @CustomAnnotation
-    public void annotatedMethodWithDefaultParameter() {
-        System.out.println("Hello from annotatedMethodWithDefaultParameter");
+    @CustomMethodAnnotation
+    public String annotatedMethodWithDefaultAnnotationParameter() {
+        return "Hello from annotatedMethodWithDefaultAnnotationParameter";
     }
 
-    @CustomAnnotation(value = 15)
-    public void annotatedMethodWithParameter() {
-        System.out.println("Hello from annotatedMethodWithParameter");
+    @CustomMethodAnnotation(value = 15)
+    public String annotatedMethodWithAnnotationParameter() {
+        return "Hello from annotatedMethodWithAnnotationParameter";
     }
 }
