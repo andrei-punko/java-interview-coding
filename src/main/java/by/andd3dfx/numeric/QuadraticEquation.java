@@ -1,4 +1,4 @@
-package by.andd3dfx.math;
+package by.andd3dfx.numeric;
 
 /**
  * Реализовать функцию решения уравнения вида ax^2 + bx + c = 0.

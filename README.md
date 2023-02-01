@@ -18,7 +18,6 @@ Covered next set of areas:
 - [jms](./src/main/java/by/andd3dfx/jms)
 - [jvm](./src/main/java/by/andd3dfx/jvm)
 - [masking](./src/main/java/by/andd3dfx/masking)
-- [math](./src/main/java/by/andd3dfx/math)
 - [multithreading](./src/main/java/by/andd3dfx/multithreading)
 - [numeric](./src/main/java/by/andd3dfx/numeric)
 - [proxies](./src/main/java/by/andd3dfx/proxy)

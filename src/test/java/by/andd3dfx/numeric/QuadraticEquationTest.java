@@ -1,4 +1,4 @@
-package by.andd3dfx.math;
+package by.andd3dfx.numeric;
 
 import org.junit.Test;
 
