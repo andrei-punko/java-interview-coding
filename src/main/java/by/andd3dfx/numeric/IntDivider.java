@@ -1,6 +1,7 @@
 package by.andd3dfx.numeric;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * Реализовать вручную функцию целочисленного деления int divide(int a, int b)
@@ -20,13 +21,13 @@ public class IntDivider {
         return counter;
     }
 
-    public static int divide2(int a, int b) {
+    public static int divideOptimized(int a, int b) {
         int iterationsCounter = 0;
 
         int remains = a;
         int counter = 0;
         int power = 1;
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
         stack.push(power);
         while (remains >= b) {
             int curr = power * b;
@@ -42,7 +43,8 @@ public class IntDivider {
 
             iterationsCounter++;
         }
-        System.out.println(String.format("Division: %d/%d. Iterations performed: %d", a, b, iterationsCounter));
+
+        System.out.println(String.format("Division: %d/%d=%d. Iterations performed: %d", a, b, counter, iterationsCounter));
         return counter;
     }
 }
