@@ -1,25 +1,15 @@
 package by.andd3dfx.collections;
 
+import lombok.AllArgsConstructor;
+import lombok.ToString;
+
 public class FullFledgedCustomLinkedList<T> {
 
+    @ToString
+    @AllArgsConstructor
     public class Node {
-
         private T value;
-
         private Node next;
-
-        public Node(T value, Node next) {
-            this.value = value;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            return "{" +
-                    "value=" + value +
-                    ", next=" + next +
-                    '}';
-        }
     }
 
     private Node head;

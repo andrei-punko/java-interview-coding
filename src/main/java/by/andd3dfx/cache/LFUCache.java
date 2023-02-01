@@ -1,5 +1,9 @@
 package by.andd3dfx.cache;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -18,16 +22,14 @@ import java.util.stream.Collectors;
  * <p>
  * Leetcode task: https://leetcode.com/problems/lfu-cache/
  */
+@RequiredArgsConstructor
 public class LFUCache {
 
-    private int capacity;
+    private final int capacity;
+
     private Map<Integer, Integer> map = new HashMap<>();
     private Map<Integer, Item> freqs = new HashMap<>();
     private LinkedHashSet<Integer> keysSet = new LinkedHashSet<>();
-
-    public LFUCache(int capacity) {
-        this.capacity = capacity;
-    }
 
     public int get(int key) {
         if (freqs.containsKey(key)) {
@@ -81,38 +83,10 @@ public class LFUCache {
         map.put(key, value);
     }
 
+    @Data
+    @AllArgsConstructor
     public class Item {
-
         private Integer value;
-        private int hitsCount = 0;
-
-        public Item(Integer value, int hitsCount) {
-            this.value = value;
-            this.hitsCount = hitsCount;
-        }
-
-        public Integer getValue() {
-            return value;
-        }
-
-        public void setValue(Integer value) {
-            this.value = value;
-        }
-
-        public int getHitsCount() {
-            return hitsCount;
-        }
-
-        public void setHitsCount(int hitsCount) {
-            this.hitsCount = hitsCount;
-        }
-
-        @Override
-        public String toString() {
-            return "Item{" +
-                "value=" + value +
-                ", hitsCount=" + hitsCount +
-                '}';
-        }
+        private int hitsCount;
     }
 }
