@@ -7,9 +7,9 @@ import java.util.List;
  * Determine simple dividers.
  * Based on "Stephens - Essential Algorithms"
  */
-public class FindFactors {
+public class SimpleDividers {
 
-  public static List<Integer> determine(Integer number) {
+  public static int[] determine(int number) {
     List<Integer> factors = new ArrayList<>();
 
     // Проверяем делимость на 2:
@@ -24,7 +24,7 @@ public class FindFactors {
     while (i <= maxFactor) {
       // Проверяем делимость на i:
       while (number % i == 0) {
-        // i является множителем. Добавляем его в список:
+        // Число i является множителем. Добавляем его в список:
         factors.add(i);
         // Делим число на i:
         number /= i;
@@ -41,6 +41,6 @@ public class FindFactors {
       factors.add(number);
     }
 
-    return factors;
+    return factors.stream().mapToInt(value -> value).toArray();
   }
 }
