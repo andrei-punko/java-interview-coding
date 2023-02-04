@@ -17,7 +17,7 @@ public class IntDividerTest {
     }
 
     @Test
-    public void divide2() {
+    public void divideOptimized() {
         assertThat(IntDivider.divideOptimized(5, 2), is(2));
         assertThat(IntDivider.divideOptimized(36, 4), is(9));
         assertThat(IntDivider.divideOptimized(45, 7), is(6));

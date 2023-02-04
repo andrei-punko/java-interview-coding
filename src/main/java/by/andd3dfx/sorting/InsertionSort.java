@@ -1,16 +1,22 @@
 package by.andd3dfx.sorting;
 
+/**
+ * По мотивам алгоритма из "Вирт - Алгоритмы и структуры данных"
+ */
 public class InsertionSort extends AbstractSort {
 
     @Override
     public void sort() {
-        for (int out_index = 1; out_index < items.length; out_index++) {
-            var temp = items[out_index];
-            int in_index;
-            for (in_index = out_index; in_index > 0 && greaterOrEqualsThan(items[in_index - 1], temp); in_index--) {
-                swap(in_index, in_index - 1);
+        for (int i = 1; i < items.length; i++) {
+            var x = items[i];
+
+            // Вставить х в правильную позицию среди items[0] ... items[i-1]
+            var j = i;
+            while (j > 0 && lessThan(x, items[j - 1])) {
+                items[j] = items[j - 1];
+                j--;
             }
-            items[in_index] = temp;
+            items[j] = x;
         }
     }
 }
