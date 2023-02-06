@@ -14,29 +14,21 @@ import java.util.Deque;
  */
 public class TrainComposition {
 
-  Deque<Integer> deque = new ArrayDeque<>();
+    private Deque<Integer> deque = new ArrayDeque<>();
 
-  public void attachWagonFromLeft(int wagonId) {
-    deque.addFirst(wagonId);
-  }
+    public void attachWagonFromLeft(int wagonId) {
+        deque.addFirst(wagonId);
+    }
 
-  public void attachWagonFromRight(int wagonId) {
-    deque.addLast(wagonId);
-  }
+    public void attachWagonFromRight(int wagonId) {
+        deque.addLast(wagonId);
+    }
 
-  public int detachWagonFromLeft() {
-    return deque.removeFirst();
-  }
+    public int detachWagonFromLeft() {
+        return deque.removeFirst();
+    }
 
-  public int detachWagonFromRight() {
-    return deque.removeLast();
-  }
-
-  public static void main(String[] args) {
-    TrainComposition tree = new TrainComposition();
-    tree.attachWagonFromLeft(7);
-    tree.attachWagonFromLeft(13);
-    System.out.println(tree.detachWagonFromRight()); // 7
-    System.out.println(tree.detachWagonFromLeft()); // 13
-  }
+    public int detachWagonFromRight() {
+        return deque.removeLast();
+    }
 }
