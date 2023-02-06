@@ -12,7 +12,6 @@ Covered next set of areas:
 - [core java](./src/main/java/by/andd3dfx/core)
 - [digital signatures](./src/main/java/by/andd3dfx/digitalsignature)
 - [encryption](./src/main/java/by/andd3dfx/encrypt)
-- [Guice](./src/main/java/by/andd3dfx/guice)
 - [iterators](./src/main/java/by/andd3dfx/iterators)
 - [java 8](./src/main/java/by/andd3dfx/java8)
 - [jms](./src/main/java/by/andd3dfx/jms)
