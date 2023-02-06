@@ -1,6 +1,7 @@
 package by.andd3dfx.collections;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * Напишите стек, который поддерживает следующие операции:
@@ -15,8 +16,8 @@ import java.util.Stack;
  */
 public class CustomStackWithMinSupportO1 {
 
-    private Stack<Integer> stack = new Stack<>();
-    private Stack<Integer> minElementsStack = new Stack<>();
+    private Deque<Integer> stack = new ArrayDeque<>();
+    private Deque<Integer> minElementsStack = new ArrayDeque<>();
 
     public void push(int element) {
         stack.push(element);

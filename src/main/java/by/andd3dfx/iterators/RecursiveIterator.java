@@ -1,8 +1,9 @@
 package by.andd3dfx.iterators;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Stack;
 
 /**
  * Дан итератор CustomIterator<Object>, который может возвращать String или CustomIterator.
@@ -12,7 +13,7 @@ import java.util.Stack;
  */
 public class RecursiveIterator<Object> implements Iterator<Object> {
 
-    private Stack<Iterator<Object>> stack = new Stack<>();
+    private Deque<Iterator<Object>> stack = new ArrayDeque<>();
 
     public RecursiveIterator(Iterator<Object> iterator) {
         stack.push(iterator);

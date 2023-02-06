@@ -1,8 +1,9 @@
 package by.andd3dfx.common;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Map;
 import java.util.Set;
-import java.util.Stack;
 
 /**
  * Есть скобочное выражение с разными видами скобок {}, (), [], <>.
@@ -21,7 +22,7 @@ public class BracketsExpressionValidator {
      * После обхода, если стек пустой - валидация прошла успешно.
      */
     public static boolean validate(String expression) {
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> stack = new ArrayDeque<>();
         Set<Character> closingBrackets = Set.of('}', ')', ']', '>');
         Map<Character, Character> close2OpenBracketMap = Map.of(
                 ')', '(',
