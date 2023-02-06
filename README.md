@@ -20,7 +20,6 @@ Covered next set of areas:
 - [multithreading](./src/main/java/by/andd3dfx/multithreading)
 - [numeric](./src/main/java/by/andd3dfx/numeric)
 - [proxies](./src/main/java/by/andd3dfx/proxy)
-- [queues](./src/main/java/by/andd3dfx/queue)
 - [recursion](./src/main/java/by/andd3dfx/recursion)
 - [refactoring](./src/main/java/by/andd3dfx/refactoring)
 - [rest clients](./src/main/java/by/andd3dfx/restclient)

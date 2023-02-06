@@ -1,7 +1,7 @@
 package by.andd3dfx.numeric;
 
 /**
- * For given array of heights find largest pit
+ * For given array of heights find the largest pit
  */
 public class LargestPit {
 
