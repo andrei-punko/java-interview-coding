@@ -14,6 +14,7 @@ public class IntDividerTest {
         assertThat(IntDivider.divide(45, 7), is(6));
         assertThat(IntDivider.divide(500, 2), is(250));
         assertThat(IntDivider.divide(100, 1), is(100));
+        assertThat(IntDivider.divide(3, 5), is(0));
     }
 
     @Test
@@ -23,5 +24,6 @@ public class IntDividerTest {
         assertThat(IntDivider.divideOptimized(45, 7), is(6));
         assertThat(IntDivider.divideOptimized(500, 2), is(250));
         assertThat(IntDivider.divideOptimized(100, 1), is(100));
+        assertThat(IntDivider.divideOptimized(3, 5), is(0));
     }
 }

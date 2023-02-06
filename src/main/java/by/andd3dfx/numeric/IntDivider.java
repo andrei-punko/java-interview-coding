@@ -13,7 +13,7 @@ public class IntDivider {
             return a;
         }
 
-        int counter = 0;
+        var counter = 0;
         while (a >= b) {
             a -= b;
             counter++;
@@ -22,17 +22,17 @@ public class IntDivider {
     }
 
     public static int divideOptimized(int a, int b) {
-        int iterationsCounter = 0;
-
         int remains = a;
         int counter = 0;
         int power = 1;
+
         Deque<Integer> stack = new ArrayDeque<>();
         stack.push(power);
+
+        int iterationsAmount = 0;
         while (remains >= b) {
-            int curr = power * b;
-            if (remains >= curr) {
-                remains -= curr;
+            if (remains >= power * b) {
+                remains -= power * b;
                 counter += power;
 
                 stack.push(power);
@@ -41,10 +41,10 @@ public class IntDivider {
                 power = stack.pop();
             }
 
-            iterationsCounter++;
+            iterationsAmount++;
         }
 
-        System.out.println(String.format("Division: %d/%d=%d. Iterations performed: %d", a, b, counter, iterationsCounter));
+        System.out.println(String.format("Division: %d/%d=%d. Iterations performed: %d", a, b, counter, iterationsAmount));
         return counter;
     }
 }
