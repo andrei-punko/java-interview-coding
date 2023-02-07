@@ -30,55 +30,10 @@
           </execution>
         </executions>
       </plugin>
-
-      <!--
-          Starts a minimal embedded ActiveMQ broker for the test.
-      -->
-      <plugin>
-        <groupId>org.apache.activemq.tooling</groupId>
-        <artifactId>activemq-maven-plugin</artifactId>
-        <version>${activemq.version}</version>
-        <configuration>
-          <configUri>xbean:file:${project.build.testOutputDirectory}/activemq.xml</configUri>
-          <fork>true</fork>
-          <systemProperties>
-            <property>
-              <name>org.apache.activemq.default.directory.prefix</name>
-              <value>./target/</value>
-            </property>
-          </systemProperties>
-        </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-spring</artifactId>
-            <version>${activemq.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-leveldb-store</artifactId>
-            <version>${activemq.version}</version>
-          </dependency>
-        </dependencies>
-        <executions>
-          <execution>
-            <id>start-activemq</id>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <phase>process-test-resources</phase>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
   </build>
 
   <dependencies>
-    <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-broker</artifactId>
-      <version>${activemq.version}</version>
-    </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
@@ -172,8 +127,6 @@
 
     <lombok.version>1.18.10</lombok.version>
     <commons-lang.version>3.8.1</commons-lang.version>
-
-    <activemq.version>5.14.5</activemq.version>
   </properties>
 
   <dependencyManagement>
