@@ -29,6 +29,5 @@ Covered next set of areas:
 
 With some uncategorized staff:
 - [common](./src/main/java/by/andd3dfx/common)
-- [interview](./src/main/java/by/andd3dfx/interview)
 
 Additionally, don't miss [tests](./src/test/java/by/andd3dfx), they contain enough code which describe implementation somehow.

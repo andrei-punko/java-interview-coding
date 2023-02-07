@@ -1,10 +1,9 @@
 package by.andd3dfx.common;
 
+import org.junit.Test;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-
-import by.andd3dfx.common.PropertiesExtractor;
-import org.junit.Test;
 
 public class PropertiesExtractorTest {
 

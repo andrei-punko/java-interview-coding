@@ -1,6 +1,5 @@
 package by.andd3dfx.common;
 
-import by.andd3dfx.common.CustomEnum;
 import org.junit.Test;
 
 import static by.andd3dfx.common.CustomEnum.MONDAY;
