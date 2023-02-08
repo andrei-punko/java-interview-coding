@@ -12,12 +12,24 @@ import static org.junit.Assert.assertTrue;
 public class HanoiTowersTest {
 
     @Test
-    public void solve() {
-        for (int height = 3; height <= 3; height++) {
-            HanoiTowers hanoiTowers = new HanoiTowers(height);
-            hanoiTowers.solve();
-            checkIsFinished(hanoiTowers);
-        }
+    public void solve1() {
+        HanoiTowers hanoiTowers = new HanoiTowers(1);
+        hanoiTowers.solve();
+        checkIsFinished(hanoiTowers);
+    }
+
+    @Test
+    public void solve2() {
+        HanoiTowers hanoiTowers = new HanoiTowers(2);
+        hanoiTowers.solve();
+        checkIsFinished(hanoiTowers);
+    }
+
+    @Test
+    public void solve3() {
+        HanoiTowers hanoiTowers = new HanoiTowers(3);
+        hanoiTowers.solve();
+        checkIsFinished(hanoiTowers);
     }
 
     private void checkIsFinished(HanoiTowers ht) {
