@@ -10,7 +10,7 @@ public class ArrayMixer {
     private static final Random random = new Random();
 
     public static <T> void apply(T[] array) {
-        for (int iteration = 0; iteration <= array.length / 2; iteration++) {
+        for (int iteration = 0; iteration <= array.length; iteration++) {
             var i = random.nextInt(array.length);
             var j = random.nextInt(array.length);
             swap(array, i, j);
