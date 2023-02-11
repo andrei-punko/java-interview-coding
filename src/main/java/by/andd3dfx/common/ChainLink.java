@@ -21,36 +21,34 @@ enum Side {NONE, LEFT, RIGHT}
  */
 public class ChainLink {
 
-  private ChainLink left, right;
+  private ChainLink left;
+  private ChainLink right;
 
-  public void append(ChainLink rightPart) {
+  public void append(ChainLink newRightLink) {
     if (this.right != null) {
       throw new IllegalStateException("Link is already connected.");
     }
 
-    this.right = rightPart;
-    rightPart.left = this;
+    this.right = newRightLink;
+    newRightLink.left = this;
   }
 
   public Side longerSide() {
-    ChainLink startLeft = this.left;
-    ChainLink startRight = this.right;
+    ChainLink left = this.left;
+    ChainLink right = this.right;
 
     while (true) {
-      if (startLeft == this || startRight == this) {
+      if (left == right) {
         return Side.NONE;
       }
-      if (startLeft == null && startRight == null) {
-        return Side.NONE;
-      }
-      if (startLeft == null) {
+      if (left == null) {
         return Side.RIGHT;
       }
-      if (startRight == null) {
+      if (right == null) {
         return Side.LEFT;
       }
-      startLeft = startLeft.left;
-      startRight = startRight.right;
+      left = left.left;
+      right = right.right;
     }
   }
 }

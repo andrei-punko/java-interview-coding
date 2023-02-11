@@ -8,6 +8,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ChainLinkTest {
 
     @Test
+    public void longerSideOneLink() {
+        ChainLink link = new ChainLink();
+        assertThat(link.longerSide(), is(Side.NONE));
+    }
+
+    @Test
     public void longerSide() {
         ChainLink left = new ChainLink();
         ChainLink one = new ChainLink();
@@ -43,5 +49,8 @@ public class ChainLinkTest {
 
         assertThat(left.longerSide(), is(Side.NONE));
         assertThat(one.longerSide(), is(Side.NONE));
+        assertThat(two.longerSide(), is(Side.NONE));
+        assertThat(three.longerSide(), is(Side.NONE));
+        assertThat(right.longerSide(), is(Side.NONE));
     }
 }
