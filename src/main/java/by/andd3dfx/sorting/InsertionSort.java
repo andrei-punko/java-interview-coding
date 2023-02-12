@@ -1,4 +1,4 @@
-package by.andd3dfx.sorting.others;
+package by.andd3dfx.sorting;
 
 /**
  * По мотивам алгоритма из "Вирт - Алгоритмы и структуры данных"

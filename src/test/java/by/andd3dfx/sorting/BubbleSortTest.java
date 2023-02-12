@@ -1,9 +1,8 @@
-package by.andd3dfx.sorting.others;
+package by.andd3dfx.sorting;
 
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 public class BubbleSortTest {
 

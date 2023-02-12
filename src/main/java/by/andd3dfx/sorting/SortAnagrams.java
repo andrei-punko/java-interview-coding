@@ -1,4 +1,4 @@
-package by.andd3dfx.sorting.others;
+package by.andd3dfx.sorting;
 
 import java.util.ArrayList;
 import java.util.Arrays;

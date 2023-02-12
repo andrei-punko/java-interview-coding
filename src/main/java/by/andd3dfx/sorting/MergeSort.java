@@ -2,22 +2,17 @@ package by.andd3dfx.sorting;
 
 import java.lang.reflect.Array;
 
-public class MergeSort extends AbstractSort {
+public class MergeSort {
 
-    @Override
-    public void sort() {
-        mergeSort(items);
-    }
-
-    public <T extends Comparable> void mergeSort(T[] items) {
+    public static <T extends Comparable> void apply(T[] items) {
         int n = items.length;
         if (n < 2) {
             return;
         }
         int mid = n / 2;
 
-        T[] left = (T[]) buildGenericArray(Comparable.class, mid);
-        T[] right = (T[]) buildGenericArray(Comparable.class, n - mid);
+        T[] left = (T[]) Array.newInstance(Comparable.class, mid);
+        T[] right = (T[]) Array.newInstance(Comparable.class, n - mid);
 
         for (int i = 0; i < mid; i++) {
             left[i] = items[i];
@@ -25,17 +20,13 @@ public class MergeSort extends AbstractSort {
         for (int i = mid; i < n; i++) {
             right[i - mid] = items[i];
         }
-        mergeSort(left);
-        mergeSort(right);
+        apply(left);
+        apply(right);
 
         merge(items, left, right);
     }
 
-    public <E> E[] buildGenericArray(Class<E> clazz, int capacity) {
-        return (E[]) Array.newInstance(clazz, capacity);
-    }
-
-    public <T extends Comparable> void merge(T[] items, T[] left, T[] right) {
+    private static <T extends Comparable> void merge(T[] items, T[] left, T[] right) {
         int leftLength = left.length;
         int rightLength = right.length;
         int i = 0, j = 0, k = 0;
@@ -62,5 +53,9 @@ public class MergeSort extends AbstractSort {
             k++;
             j++;
         }
+    }
+
+    private static <T extends Comparable> boolean lessOrEqualsThan(T a, T b) {
+        return a.compareTo(b) <= 0;
     }
 }
