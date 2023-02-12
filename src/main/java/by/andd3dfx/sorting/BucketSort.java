@@ -25,7 +25,7 @@ public class BucketSort extends AbstractSort {
             List<Comparable> bucket = buckets.get(bucketIndex);
 
             // Sort elements in each bucket
-            InsertionSort sorter = new InsertionSort();
+            MergeSort sorter = new MergeSort();
             sorter.init(bucket.toArray(new Comparable[0]));
             sorter.sort();
 

@@ -26,10 +26,6 @@ public abstract class AbstractSort<T extends Comparable<T>> {
         return a.compareTo(b) < 0;
     }
 
-    protected boolean greaterThan(T a, T b) {
-        return a.compareTo(b) > 0;
-    }
-
     protected boolean lessOrEqualsThan(T a, T b) {
         return a.compareTo(b) <= 0;
     }
