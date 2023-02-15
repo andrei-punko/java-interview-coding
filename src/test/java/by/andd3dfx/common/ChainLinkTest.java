@@ -2,15 +2,16 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
+import static by.andd3dfx.common.ChainLink.Side;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 
 public class ChainLinkTest {
 
     @Test
-    public void longerSideOneLink() {
-        ChainLink link = new ChainLink();
-        assertThat(link.longerSide(), is(Side.NONE));
+    public void longerSideWhenOneLink() {
+        ChainLink chainLink = new ChainLink();
+        assertThat(chainLink.longerSide(), is(Side.NONE));
     }
 
     @Test
@@ -34,7 +35,7 @@ public class ChainLinkTest {
     }
 
     @Test
-    public void longerSideClosedLoop() {
+    public void longerSideWhenClosedChain() {
         ChainLink left = new ChainLink();
         ChainLink one = new ChainLink();
         ChainLink two = new ChainLink();
