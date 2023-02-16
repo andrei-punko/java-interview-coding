@@ -20,56 +20,56 @@ import java.util.Deque;
  * public class Platformer {
  *
  *   public Platformer(int n, int position) {
- *     throw new UnsupportedOperationException("Waiting to be implemented.);
+ *     throw new UnsupportedOperationException("Waiting to be implemented");
  *   }
  *
  *   public void jumpLeft() {
- *     throw new UnsupportedOperationException("Waiting to be implemented.);
+ *     throw new UnsupportedOperationException("Waiting to be implemented");
  *   }
  *
  *   public void jumpRight() {
- *     throw new UnsupportedOperationException("Waiting to be implemented.);
+ *     throw new UnsupportedOperationException("Waiting to be implemented");
  *   }
  *
  *   public int position() {
- *     throw new UnsupportedOperationException("Waiting to be implemented.);
+ *     throw new UnsupportedOperationException("Waiting to be implemented");
  *   }
  * }
  * </pre>
  */
 public class Platformer {
 
-  private Deque<Integer> left = new ArrayDeque<>();
-  private Deque<Integer> right = new ArrayDeque<>();
-  private Integer position;
+    private Deque<Integer> left = new ArrayDeque<>();
+    private Deque<Integer> right = new ArrayDeque<>();
+    private Integer position;
 
-  public Platformer(int n, int position) {
-    for (int i = 0; i < position; i++) {
-      left.add(i);
+    public Platformer(int n, Integer position) {
+        for (int i = 0; i < position; i++) {
+            left.add(i);
+        }
+        for (int i = position + 1; i < n; i++) {
+            right.add(i);
+        }
+        this.position = position;
     }
-    for (int i = position + 1; i < n; i++) {
-      right.add(i);
-    }
-    this.position = position;
-  }
 
-  public void jumpLeft() {
-    if (left.size() < 2) {
-      return;
+    public void jumpLeft() {
+        if (left.size() < 2) {
+            return;
+        }
+        right.addFirst(left.pollLast());
+        position = left.pollLast();
     }
-    right.addFirst(left.pollLast());
-    position = left.pollLast();
-  }
 
-  public void jumpRight() {
-    if (right.size() < 2) {
-      return;
+    public void jumpRight() {
+        if (right.size() < 2) {
+            return;
+        }
+        left.addLast(right.pollFirst());
+        position = right.pollFirst();
     }
-    left.addLast(right.pollFirst());
-    position = right.pollFirst();
-  }
 
-  public int position() {
-    return position;
-  }
+    public int position() {
+        return position;
+    }
 }

@@ -38,7 +38,7 @@ public class TrickyFinally {
     public int case2() {
         try {
             return 1;
-        } catch(Exception e) {
+        } catch (Exception e) {
             return 2;
         } finally {
             return 3;
