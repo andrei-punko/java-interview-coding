@@ -1,21 +1,26 @@
 package by.andd3dfx.common;
 
+import lombok.AllArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * <pre>
  * Build string with ranges for defined list:
  * [1,4,5,2,3,9,8,11,0] => "0-5,8-9,11"
  * [1,4,3,2] => "1-4"
  * [1,4] => "1,4"
+ * </pre>
  */
 public class ArrayRanges {
 
+    @AllArgsConstructor
     public class Range {
-        int left;
-        int right;
+        private int left;
+        private int right;
     }
 
     public String compact(int[] values) {
@@ -26,25 +31,24 @@ public class ArrayRanges {
         Arrays.sort(values);
 
         List<Range> ranges = new ArrayList<>();
-        Range tmpRange = new Range();
-        tmpRange.left = values[0];
-        tmpRange.right = values[0];
+        Range draftRange = new Range(values[0], values[0]);
+        ranges.add(draftRange);
 
-        for (int value : values) {
-            if (value == tmpRange.right + 1) {
-                tmpRange.right = value;
-            } else {
-                tmpRange = new Range();
-                tmpRange.left = value;
-                tmpRange.right = value;
-                ranges.add(tmpRange);
+        for (var value : values) {
+            if ((value - draftRange.right) <= 1) {
+                draftRange.right = value;
+                continue;
             }
+
+            draftRange = new Range(value, value);
+            ranges.add(draftRange);
         }
 
         return ranges.stream()
                 .map(range -> {
-                    if (range.left == range.right) return String.valueOf(range.left);
-
+                    if (range.left == range.right) {
+                        return String.valueOf(range.left);
+                    }
                     return range.left + "-" + range.right;
                 })
                 .collect(Collectors.joining(","));
