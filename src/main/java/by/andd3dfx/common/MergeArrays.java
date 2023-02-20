@@ -29,13 +29,13 @@ public class MergeArrays {
         }
 
         int[] result = new int[k * n];
-        int[] marker = new int[3];
+        int[] marker = new int[k];
         int globalIndex = 0;
 
         PriorityQueue<Item> queue = new PriorityQueue<>(Comparator.comparingInt(item -> item.value));
-        queue.add(new Item(arrays[0][0], 0));
-        queue.add(new Item(arrays[1][0], 1));
-        queue.add(new Item(arrays[2][0], 2));
+        for (int i = 0; i < k; i++) {
+            queue.add(new Item(arrays[i][0], i));
+        }
 
         while (globalIndex < k * n) {
             Item item = queue.poll();
@@ -52,7 +52,7 @@ public class MergeArrays {
 
     @AllArgsConstructor
     public static class Item {
-        int value;
-        int arrayIndex;
+        private int value;
+        private int arrayIndex;
     }
 }

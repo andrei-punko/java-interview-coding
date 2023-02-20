@@ -7,23 +7,34 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MergeArraysTest {
 
     @Test
-    public void merge() {
+    public void mergeForEmpty() {
         assertThat(MergeArrays.merge(new int[][]{
-                {1, 2, 3}, {4, 6, 7}, {2, 5, 9}
-        })).isEqualTo(new int[]{1, 2, 2, 3, 4, 5, 6, 7, 9});
+                {}
+        })).isEqualTo(new int[]{});
 
+        assertThat(MergeArrays.merge(new int[][]{
+                {}, {}, {}
+        })).isEqualTo(new int[]{});
+    }
+
+    @Test
+    public void merge2() {
+        assertThat(MergeArrays.merge(new int[][]{
+                {3, 6, 8}, {1, 4, 9}
+        })).isEqualTo(new int[]{1, 3, 4, 6, 8, 9});
+    }
+
+    @Test
+    public void merge3() {
         assertThat(MergeArrays.merge(new int[][]{
                 {3, 6, 8}, {1, 4, 9}, {1, 2, 8}
         })).isEqualTo(new int[]{1, 1, 2, 3, 4, 6, 8, 8, 9});
     }
 
     @Test
-    public void mergeForEmpty() {
-        assertThat(MergeArrays.merge(new int[][]{}))
-                .isEqualTo(new int[]{});
-
+    public void merge4() {
         assertThat(MergeArrays.merge(new int[][]{
-                {}, {}, {}
-        })).isEqualTo(new int[]{});
+                {3, 6, 8}, {1, 4, 9}, {1, 2, 8}, {1, 2, 90}
+        })).isEqualTo(new int[]{1, 1, 1, 2, 2, 3, 4, 6, 8, 8, 9, 90});
     }
 }
