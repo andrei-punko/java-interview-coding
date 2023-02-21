@@ -5,6 +5,42 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * <pre>
+ * The Hobbies class contains a set of hobbyists and their respective hobbies.
+ * Implement the findHobbyists() function that takes a hobby and should return a List containing
+ * the names of the people (in any order) that enjoy the hobby.
+ *
+ * public class Hobbies {
+ *     private final HashMap<String, String[]> hobbies = new HashMap<String, String[]>();
+ *
+ *     public void add(String hobbyist, String... hobbies) {
+ *        this.hobbies.put(hobbyist, hobbies);
+ *     }
+ *
+ *     public List<String> findHobbyists(String hobby) {
+ *        throw new UnsupportedOperationException("Waiting to be implemented.");
+ *     }
+ *
+ *     public static void main(String[] args) {
+ *        Hobbies hobbies = new Hobbies();
+ *        hobbies.add("John", "Piano", "Puzzles", "Yoga");
+ *        hobbies.add("Adam", "Drama", "Fashion", "Pets");
+ *        hobbies.add("Mary", "Magic", "Pets", "Reading");
+ *
+ *        System.out.println(Arrays.toString(hobbies.findHobbyists("Yoga").toArray()));
+ *     }
+ * }
+ *
+ * For example, the following code should display the name 'John':
+ *    Hobbies hobbies = new Hobbies();
+ *    hobbies.add("John", "Piano", "Puzzles", "Yoga");
+ *    hobbies.add("Adam", "Drama", "Fashion", "Pets");
+ *    hobbies.add("Mary", "Magic", "Pets", "Reading");
+ *
+ *    System.out.println(Arrays.toString(hobbies.findHobbyists("Yoga").toArray()));
+ * </pre>
+ */
 public class Hobbies {
 
   private final HashMap<String, List<String>> hobbyists = new HashMap<>();
