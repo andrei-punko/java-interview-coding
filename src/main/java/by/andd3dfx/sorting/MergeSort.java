@@ -1,6 +1,6 @@
 package by.andd3dfx.sorting;
 
-import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class MergeSort {
 
@@ -11,15 +11,9 @@ public class MergeSort {
         }
         int mid = n / 2;
 
-        T[] left = (T[]) Array.newInstance(Comparable.class, mid);
-        T[] right = (T[]) Array.newInstance(Comparable.class, n - mid);
+        var left = Arrays.copyOfRange(items, 0, mid);
+        var right = Arrays.copyOfRange(items, mid, n);
 
-        for (int i = 0; i < mid; i++) {
-            left[i] = items[i];
-        }
-        for (int i = mid; i < n; i++) {
-            right[i - mid] = items[i];
-        }
         apply(left);
         apply(right);
 
