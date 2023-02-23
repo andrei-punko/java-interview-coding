@@ -10,7 +10,8 @@ package by.andd3dfx.search;
 public class FirstMissingPositive {
 
     /**
-     * Good idea was that if we have n-length array, the smallest missing positive integer will not be greater than n
+     * Good idea was that if we have n-length array,
+     * the smallest missing positive integer will not be greater than n
      */
     public static int find(int[] nums) {
         int[] presence = new int[nums.length + 1];
