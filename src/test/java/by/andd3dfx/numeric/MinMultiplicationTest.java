@@ -1,39 +1,32 @@
 package by.andd3dfx.numeric;
 
-import by.andd3dfx.numeric.MinMultiplication;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 
 public class MinMultiplicationTest {
 
-    private MinMultiplication multiplication;
+    private MinMultiplication minMultiplication;
 
     @Before
     public void setUp() throws Exception {
-        multiplication = new MinMultiplication();
+        minMultiplication = new MinMultiplication();
     }
 
     @Test
-    public void minMultiplicationWhenAllPositive() {
-        int result = multiplication.minMultiplication(new int[]{1, 4, 3, 2});
-
-        assertThat(result, is(2));
+    public void determineWhenAllPositive() {
+        assertThat(minMultiplication.determine(new int[]{9, 4, 2, 5, 3}), is(6));
     }
 
     @Test
-    public void minMultiplicationWhenAllNegative() {
-        int result = multiplication.minMultiplication(new int[]{-1, -2, -4, -3});
-
-        assertThat(result, is(2));
+    public void determineWhenAllNegative() {
+        assertThat(minMultiplication.determine(new int[]{-9, -4, -2, -5, -1, -3}), is(2));
     }
 
     @Test
-    public void minMultiplicationWhenBothNegativeNPositive() {
-        int result = multiplication.minMultiplication(new int[]{1, 2, -3, 4, -2});
-
-        assertThat(result, is(-12));
+    public void determineWhenBothPositiveAndNegative() {
+        assertThat(minMultiplication.determine(new int[]{9, 4, -2, 5, -1, 3}), is(-18));
     }
 }

@@ -1,22 +1,24 @@
 package by.andd3dfx.numeric;
 
 /**
- * Дана последовательность целых чисел. Необходимо найти минимально возможное произведение
- * пары эл-тов последовательности.
- * Например, для последовательности чисел 9 4 2 5 3 ответ будет 6.
+ * <pre>
+ * Дана последовательность целых чисел.
+ * Необходимо найти минимально возможное произведение пары элементов последовательности.
+ * Например, для последовательности чисел {9 4 2 5 3} ответ будет 6.
  * Попробовать сделать это за O(n)
+ * </pre>
  */
 public class MinMultiplication {
 
-    public int minMultiplication(int[] arr) {
-        // 1. negative at the left, positive at the right - multiplication of most left and right numbers
-        // 2. all are positive - multiplication of two left numbers
-        // 3. all are negative - multiplication of two right numbers
-
+    public int determine(int[] arr) {
         int n = arr.length;
         if (n < 2) {
-            throw new IllegalArgumentException("Not enough elements in array!");
+            throw new IllegalArgumentException("Should be at least 2 elements in array!");
         }
+
+        // 1. if all are positive - return multiplication of two left
+        // 2. if all are negative - return multiplication of two right
+        // 3. if both negative and positive present - return multiplication of left and right
 
         int[] left = sortPair(arr[0], arr[1]);
         int[] right = sortPair(arr[0], arr[1]);
@@ -38,19 +40,24 @@ public class MinMultiplication {
             }
         }
 
-        // 3
-        if (right[1] < 0) {
-            return right[0] * right[1];
-        }
-        // 2
+        // 1. if all are positive - return multiplication of two left
         if (left[0] > 0) {
             return left[0] * left[1];
         }
-        // 1
+
+        // 2. if all are negative - return multiplication of two right
+        if (right[1] < 0) {
+            return right[0] * right[1];
+        }
+
+        // 3. if both negative and positive present - return multiplication of left and right
         return left[0] * right[1];
     }
 
     private int[] sortPair(int first, int second) {
-        return (first < second) ? new int[]{first, second} : new int[]{second, first};
+        if (first < second) {
+            return new int[]{first, second};
+        }
+        return new int[]{second, first};
     }
 }
