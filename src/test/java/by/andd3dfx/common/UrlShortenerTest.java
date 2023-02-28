@@ -28,15 +28,21 @@ public class UrlShortenerTest {
 
     @Test
     public void encodePrimaryKeyToShortString() {
-        assertThat("Wrong short string for PK=1", urlShortener.encodePrimaryKeyToShortString(1L), is("b"));
-        assertThat("Wrong short string for PK=100", urlShortener.encodePrimaryKeyToShortString(100L), is("bM"));
-        assertThat("Wrong short string for PK=1000", urlShortener.encodePrimaryKeyToShortString(1000L), is("qi"));
+        assertThat("Wrong short string for PK=1",
+                urlShortener.encodePrimaryKeyToShortString(1L), is("b"));
+        assertThat("Wrong short string for PK=100",
+                urlShortener.encodePrimaryKeyToShortString(100L), is("bM"));
+        assertThat("Wrong short string for PK=101",
+                urlShortener.encodePrimaryKeyToShortString(101L), is("bN"));
     }
 
     @Test
     public void decodeShortStringToPrimaryKey() {
-        assertThat("Wrong PK for shortString=b", urlShortener.decodeShortStringToPrimaryKey("b"), is(1L));
-        assertThat("Wrong PK for shortString=bM", urlShortener.decodeShortStringToPrimaryKey("bM"), is(100L));
-        assertThat("Wrong PK for shortString=qi", urlShortener.decodeShortStringToPrimaryKey("qi"), is(1000L));
+        assertThat("Wrong PK for shortString=b",
+                urlShortener.decodeShortStringToPrimaryKey("b"), is(1L));
+        assertThat("Wrong PK for shortString=bM",
+                urlShortener.decodeShortStringToPrimaryKey("bM"), is(100L));
+        assertThat("Wrong PK for shortString=bN",
+                urlShortener.decodeShortStringToPrimaryKey("bN"), is(101L));
     }
 }

@@ -40,25 +40,25 @@ public class UrlShortener {
     private final int BASE = ALPHABET.length();
 
     private Long dbPrimaryKey = 0L;
-    private final Map<Long, String> pkToLongStringMap = new HashMap<>();
-    private final Map<String, String> longStringToShortStringMap = new HashMap<>();
+    private final Map<Long, String> db = new HashMap<>();
+    private final Map<String, String> cache = new HashMap<>();
 
     public String buildShortUrl(String longString) {
-        if (longStringToShortStringMap.containsKey(longString)) {
-            return longStringToShortStringMap.get(longString);
+        if (cache.containsKey(longString)) {
+            return cache.get(longString);
         }
 
         dbPrimaryKey++;
-        pkToLongStringMap.put(dbPrimaryKey, longString);
+        db.put(dbPrimaryKey, longString);
 
         String shortString = encodePrimaryKeyToShortString(dbPrimaryKey);
-        longStringToShortStringMap.put(longString, shortString);
+        cache.put(longString, shortString);
         return shortString;
     }
 
     public String restoreLongUrl(String shortString) {
         Long primaryKey = decodeShortStringToPrimaryKey(shortString);
-        return pkToLongStringMap.get(primaryKey);
+        return db.get(primaryKey);
     }
 
     String encodePrimaryKeyToShortString(Long dbPrimaryKey) {
@@ -74,9 +74,8 @@ public class UrlShortener {
     Long decodeShortStringToPrimaryKey(String shortString) {
         Long result = 0L;
         for (char character : shortString.toCharArray()) {
-            result *= BASE;
             int charIndex = ALPHABET.indexOf(character);
-            result += charIndex;
+            result = result * BASE + charIndex;
         }
         return result;
     }
