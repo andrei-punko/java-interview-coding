@@ -10,41 +10,55 @@ import java.util.TreeMap;
  */
 public class RaiseToPower {
 
-  public static float raise(float a, int p) {
-    if (p == 0) {
-      return 1;
-    }
-    boolean reversePowerFlag = false;
-    if (p < 0) {
-      p = -p;
-      reversePowerFlag = true;
+    public static float apply(float a, int p) {
+        boolean reversePowerFlag = (p < 0);
+        if (reversePowerFlag) {
+            p = -p;
+        }
+
+        float result = 1;
+        for (int i = 0; i < p; i++) {
+            result *= a;
+        }
+
+        if (reversePowerFlag) {
+            return 1 / result;
+        }
+        return result;
     }
 
-    // Вычисляем a, a^2 , a^4 , a^8 и т.д., пока не получим значение a^N , где N + 1 > p
-    TreeMap<Integer, Float> map = new TreeMap<>();
-    map.put(1, a);
-    for (int power = 1; 2 * power < p; power *= 2) {
-      map.put(2 * power, map.get(power) * map.get(power));
-    }
+    public static float applyEnhanced(float a, int p) {
+        boolean reversePowerFlag = (p < 0);
+        if (reversePowerFlag) {
+            p = -p;
+        }
 
-    // Используем эти степени a, чтобы вычислить a^P
-    NavigableSet<Integer> descendingKeySet = map.descendingKeySet();
-    float result = 1;
-    for (Integer power : descendingKeySet) {
-      while (p >= power) {
-        result *= map.get(power);
-        p -= power;
-        // System.out.println(power);
-      }
-    }
+        // Calculate a, a^2, a^4 , a^8 etc, until we get a^N, where N + 1 > p
+        TreeMap<Integer, Float> map = new TreeMap<>();
+        map.put(1, a);
+        for (int power = 1; 2 * power < p; power *= 2) {
+            map.put(2 * power, map.get(power) * map.get(power));
+        }
 
-    if (reversePowerFlag) {
-      return 1/result;
+        // Use {a, a^2, ...} to calculate a^P
+        NavigableSet<Integer> descendingKeySet = map.descendingKeySet();
+        float result = 1;
+        for (Integer power : descendingKeySet) {
+            while (p >= power) {
+                result *= map.get(power);
+                p -= power;
+                // System.out.println(power);
+            }
+        }
+
+        if (reversePowerFlag) {
+            return 1 / result;
+        }
+        return result;
     }
-    return result;
-  }
 
     public static void main(String[] args) {
-        raise(2, 6);
+        System.out.println("Usual: 2^6=" + apply(2, 6));
+        System.out.println("Enhanced: 2^6=" + applyEnhanced(2, 6));
     }
 }
