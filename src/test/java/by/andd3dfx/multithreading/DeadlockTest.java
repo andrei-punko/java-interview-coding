@@ -6,14 +6,13 @@ import org.junit.Test;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertFalse;
 
 public class DeadlockTest {
 
     @Ignore("Fail of Github CI build")
     @Test
-    public void testDeadlock() throws InterruptedException {
+    public void makeDeadlock() throws InterruptedException {
         CompletableFuture<Void> future = CompletableFuture.supplyAsync(() -> {
             new Deadlock().makeDeadlock();
             return null;
@@ -22,15 +21,15 @@ public class DeadlockTest {
         new Thread(() -> {
             try {
                 future.get();
-                System.out.printf("Completed");
+                System.out.println("Future completed!");
             } catch (InterruptedException | ExecutionException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         }).start();
 
         // Wait 1 sec
         Thread.sleep(1000);
 
-        assertThat("Should not be completed after 1 sec wait", future.isDone(), is(false));
+        assertFalse("Should not be completed after 1 sec wait", future.isDone());
     }
 }
