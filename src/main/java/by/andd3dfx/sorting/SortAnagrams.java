@@ -8,25 +8,28 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * <pre>
  * We have an array: ["eat", "tea", "tan", "ate", "nat", "bat"]
- * <p>
  * We need to transform it next way:
  * [
- * 3  ["ate", "eat", "tea"],  --> sorted
- * 2  ["nat", "tan"],  --> sorted
- * 1  ["bat"]  -->  sorted
+ *      ["ate", "eat", "tea"],  --> 3 items, sorted
+ *      ["nat", "tan"],         --> 2 items, sorted
+ *      ["bat"]                 --> 1 item, sorted
  * ]
- * <p>
  * Determine complexity of proposed algorithm
+ * </pre>
  */
 public class SortAnagrams {
 
-    private Map<String, List<String>> vocabulary = new HashMap<>();
+    public List<List<String>> apply(String[] items) {
+        Map<String, List<String>> vocabulary = new HashMap<>();
 
-    public List<List<String>> groupAnagrams(String[] items) {
         for (String item : items) {
             String key = normalize(item);
-            addValue(key, item);
+            if (!vocabulary.containsKey(key)) {
+                vocabulary.put(key, new ArrayList<>());
+            }
+            vocabulary.get(key).add(item);
         }
 
         for (String key : vocabulary.keySet()) {
@@ -47,12 +50,5 @@ public class SortAnagrams {
         char[] chars = original.toCharArray();
         Arrays.sort(chars);
         return new String(chars);
-    }
-
-    private void addValue(String key, String value) {
-        if (!vocabulary.containsKey(key)) {
-            vocabulary.put(key, new ArrayList<>());
-        }
-        vocabulary.get(key).add(value);
     }
 }
