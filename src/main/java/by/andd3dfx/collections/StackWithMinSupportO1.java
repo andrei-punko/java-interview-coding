@@ -4,17 +4,17 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * Напишите стек, который поддерживает следующие операции:
  * <pre>
- * push(x) – кладет элемент в стек
- * pop() – берет элемент из стека
- * getMin() – возвращает значение минимального элемента в стеке
- * </pre>
+ * Напишите стек, который поддерживает следующие операции:
+ * - push(x) – кладет элемент в стек
+ * - pop() – берет элемент из стека
+ * - getMin() – возвращает значение минимального элемента в стеке
  * Методы pop() и getMin() вызываются всегда для непустого стека.
- * <p>
+ *
  * push() and getMin() should have O(1) complexity.
+ * </pre>
  */
-public class CustomStackWithMinSupportO1 {
+public class StackWithMinSupportO1 {
 
     private Deque<Integer> stack = new ArrayDeque<>();
     private Deque<Integer> minElementsStack = new ArrayDeque<>();
