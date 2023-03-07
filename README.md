@@ -1,11 +1,11 @@
 
-## Playground for preparation to Java interview
+# Playground for preparation to Java interview
 
 [![Java CI with Maven](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml/badge.svg)](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml)
 [![Coverage](.github/badges/jacoco.svg)](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml)
 [![Branches](.github/badges/branches.svg)](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml)
 
-Covered next set of areas:
+## Packages list
 - [annotations](./src/main/java/by/andd3dfx/annotation)
 - [cache](./src/main/java/by/andd3dfx/cache)
 - [collections](./src/main/java/by/andd3dfx/collections)
@@ -26,8 +26,10 @@ Covered next set of areas:
 - [testing](./src/main/java/by/andd3dfx/testing)
 - [trees](./src/main/java/by/andd3dfx/tree)
 - [xml](./src/main/java/by/andd3dfx/xml)
-
-With some uncategorized staff:
-- [common](./src/main/java/by/andd3dfx/common)
+- [common](./src/main/java/by/andd3dfx/common) (some uncategorized stuff)
 
 Additionally, don't miss [tests](./src/test/java/by/andd3dfx), they contain enough code which describe implementation somehow.
+
+## Prerequisites
+- JDK 17
+- Maven 3
