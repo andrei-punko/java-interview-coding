@@ -43,4 +43,8 @@ public class StackWithMinSupportO1 {
     public int getMin() {
         return minElementsStack.peek();
     }
+
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
 }
