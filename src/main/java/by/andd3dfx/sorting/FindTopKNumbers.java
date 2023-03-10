@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Find top k numbers in array
  */
-public class FindTopNNumbers {
+public class FindTopKNumbers {
 
     /**
      * We use short version of selection sort algorithm with O(kn) complexity
