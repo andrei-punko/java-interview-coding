@@ -1,34 +1,46 @@
 package by.andd3dfx.refactoring.refactored;
 
 import by.andd3dfx.refactoring.refactored.model.Event;
+import by.andd3dfx.refactoring.refactored.model.EventType;
 import by.andd3dfx.refactoring.refactored.parser.IEventParser;
-import by.andd3dfx.refactoring.refactored.parser.OneMoreEventParser;
-import by.andd3dfx.refactoring.refactored.parser.SomeEventParser;
-import by.andd3dfx.refactoring.refactored.parser.SomeOtherEventParser;
+import lombok.SneakyThrows;
+import org.reflections.Reflections;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static by.andd3dfx.refactoring.refactored.model.Event.EventType.ONE_MORE_EVENT;
-import static by.andd3dfx.refactoring.refactored.model.Event.EventType.SOME_EVENT;
-import static by.andd3dfx.refactoring.refactored.model.Event.EventType.SOME_OTHER_EVENT;
-
 public class EventParser {
-    private static final Map<Event.EventType, IEventParser> map = Map.of(
-            SOME_EVENT, new SomeEventParser(),
-            SOME_OTHER_EVENT, new SomeOtherEventParser(),
-            ONE_MORE_EVENT, new OneMoreEventParser()
-    );
+
+    private static final Map<EventType, IEventParser> map = new HashMap<>();
+
+    static {
+        Reflections reflections = new Reflections(IEventParser.class.getPackageName());
+        reflections.getSubTypesOf(IEventParser.class).stream()
+                .forEach(aClass -> extracted(aClass));
+
+        for (EventType eventType : EventType.values()) {
+            if (!map.containsKey(eventType)) {
+                throw new IllegalStateException("Not all values of EventType have appropriate EventParser!");
+            }
+        }
+    }
+
+    @SneakyThrows
+    private static void extracted(Class<? extends IEventParser> aClass) {
+        var instance = aClass.newInstance();
+        map.put(instance.getEventType(), instance);
+    }
+
+    public String parse(Event event) {
+        return map.get(event.getType())
+                .parse(event.getData());
+    }
 
     public List<String> parse(List<Event> events) {
         return events.stream()
-                .map(this::apply)
+                .map(this::parse)
                 .collect(Collectors.toList());
-    }
-
-    private String apply(Event event) {
-        return map.get(event.getType())
-                .parse(event.getData());
     }
 }
