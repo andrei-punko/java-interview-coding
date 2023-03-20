@@ -1,4 +1,4 @@
-package by.andd3dfx.xml;
+package by.andd3dfx.parser.xml;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;

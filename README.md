@@ -16,6 +16,7 @@
 - [masking](./src/main/java/by/andd3dfx/masking)
 - [multithreading](./src/main/java/by/andd3dfx/multithreading)
 - [numeric](./src/main/java/by/andd3dfx/numeric)
+- [parsers](src/main/java/by/andd3dfx/parser)
 - [proxies](./src/main/java/by/andd3dfx/proxy)
 - [recursion](./src/main/java/by/andd3dfx/recursion)
 - [refactoring](./src/main/java/by/andd3dfx/refactoring)
@@ -25,11 +26,10 @@
 - [strings](./src/main/java/by/andd3dfx/string)
 - [testing](./src/main/java/by/andd3dfx/testing)
 - [trees](./src/main/java/by/andd3dfx/tree)
-- [xml](./src/main/java/by/andd3dfx/xml)
 - [common](./src/main/java/by/andd3dfx/common) (some uncategorized stuff)
 
 Additionally, don't miss [tests](./src/test/java/by/andd3dfx), they contain enough code which describe implementation somehow.
 
 ## Prerequisites
-- JDK 17
 - Maven 3
+- JDK 17
