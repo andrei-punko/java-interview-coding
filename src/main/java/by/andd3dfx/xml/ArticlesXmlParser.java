@@ -1,39 +1,50 @@
 package by.andd3dfx.xml;
 
-import java.io.File;
-import java.io.IOException;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Parse file ./src/main/resources/233.xml and find all articles inside it
  */
-public class Parser {
+@Slf4j
+public class ArticlesXmlParser {
 
-    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
-        File fXmlFile = new File("./src/main/resources/233.xml");
+    public static final String ARTICLE_TAG = "Article";
+
+    @SneakyThrows
+    public static List<String> parse(String filePath) {
+        File fXmlFile = new File(filePath);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(fXmlFile);
 
         NodeList childNodes = doc.getChildNodes();
-        find(childNodes);
+
+        List<String> articles = new ArrayList<>();
+        find(childNodes, articles);
+        return articles;
     }
 
-    private static void find(NodeList childNodes) {
+    private static void find(NodeList childNodes, List<String> articles) {
         for (int i = 0; i < childNodes.getLength(); i++) {
             Node item = childNodes.item(i);
-            if ("Article".equals(item.getNodeName())) {
-                System.out.println("Found it");
-                System.out.println(prettyFormat(item));
+            if (ARTICLE_TAG.equals(item.getNodeName())) {
+                articles.add(prettyFormat(item));
             }
-            find(item.getChildNodes());
+            find(item.getChildNodes(), articles);
         }
     }
 
@@ -54,5 +65,11 @@ public class Parser {
         }
 
         return result;
+    }
+
+    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+        List<String> articles = new ArticlesXmlParser().parse("./src/main/resources/233.xml");
+
+        System.out.println(articles);
     }
 }

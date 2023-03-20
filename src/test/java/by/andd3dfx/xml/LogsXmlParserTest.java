@@ -1,4 +1,4 @@
-package by.andd3dfx.common;
+package by.andd3dfx.xml;
 
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class LogParserTest {
+public class LogsXmlParserTest {
 
   @Test
   public void getIdsByMessage() throws Exception {
@@ -29,7 +29,7 @@ public class LogParserTest {
             "    </entry>\n" +
             "</log>";
 
-    Collection<Integer> ids = LogParser.getIdsByMessage(xml, "Application ended");
+    Collection<Integer> ids = LogsXmlParser.getIdsByMessage(xml, "Application ended");
 
     assertThat("Two items expected", ids.size(), is(2));
     assertThat("Collection should contain items", ids, hasItems(2, 24));
@@ -48,7 +48,7 @@ public class LogParserTest {
                     "    </entry>\n" +
                     "</log>";
 
-    Collection<Integer> ids = LogParser.getIdsByMessage(xml, "Application stopped");
+    Collection<Integer> ids = LogsXmlParser.getIdsByMessage(xml, "Application stopped");
 
     assertThat("Empty array expected", ids.isEmpty(), is(true));
   }
