@@ -9,10 +9,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ConverterTest {
 
     /**
-     * Same as another ConverterTest but use a link to method
+     * Same as another ConverterTest but uses a link to method
      */
     @Test
-    public void convert() throws Exception {
+    public void convert() {
         Converter<String, Integer> converter = Integer::valueOf;
         Integer converted = converter.convert("123");
 

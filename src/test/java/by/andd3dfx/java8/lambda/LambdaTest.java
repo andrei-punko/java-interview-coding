@@ -1,57 +1,55 @@
 package by.andd3dfx.java8.lambda;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LambdaTest {
+
+    private Lambda lambda;
+
+    @Before
+    public void setUp() throws Exception {
+        lambda = new Lambda();
+    }
 
     @Test
     public void usualApproach() {
         List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
 
-        new Lambda().usualApproach(names);
+        lambda.usualApproach(names);
 
-        checkSorting(names);
+        assertThat(names).isEqualTo(List.of("anna", "mike", "peter", "xenia"));
     }
 
     @Test
-    public void lamda1() {
+    public void lambda1() {
         List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
 
-        new Lambda().lamda1(names);
+        lambda.lambda1(names);
 
-        checkSorting(names);
+        assertThat(names).isEqualTo(List.of("anna", "mike", "peter", "xenia"));
     }
 
     @Test
-    public void lamda2() {
+    public void lambda2() {
         List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
 
-        new Lambda().lamda2(names);
+        lambda.lambda2(names);
 
-        checkSorting(names);
+        assertThat(names).isEqualTo(List.of("anna", "mike", "peter", "xenia"));
     }
 
     @Test
-    public void lamda3() {
+    public void lambda3() {
         List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
 
-        new Lambda().lamda3(names);
+        lambda.lambda3(names);
 
-        checkSorting(names);
-    }
-
-    private void checkSorting(List<String> names) {
-        assertThat("Size should be unchanged", names.size(), is(4));
-
-        String[] sortedArray = {"anna", "mike", "peter", "xenia"};
-        for (int i = 0; i < sortedArray.length; i++) {
-            assertThat("Items should be equal", names.get(i), is(sortedArray[i]));
-        }
+        assertThat(names).isEqualTo(List.of("anna", "mike", "peter", "xenia"));
     }
 }

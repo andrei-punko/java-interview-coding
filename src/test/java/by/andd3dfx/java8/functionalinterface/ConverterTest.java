@@ -8,7 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ConverterTest {
 
     @Test
-    public void convert() throws Exception {
+    public void convert() {
         Converter<String, Integer> converter = (from) -> Integer.valueOf(from);
         Integer converted = converter.convert("123");
 

@@ -15,17 +15,17 @@ public class Lambda {
         });
     }
 
-    public void lamda1(List<String> names) {
+    public void lambda1(List<String> names) {
         Collections.sort(names, (String a, String b) -> {
             return a.compareTo(b);
         });
     }
 
-    public void lamda2(List<String> names) {
+    public void lambda2(List<String> names) {
         Collections.sort(names, (String a, String b) -> a.compareTo(b));
     }
 
-    public void lamda3(List<String> names) {
+    public void lambda3(List<String> names) {
         Collections.sort(names, (a, b) -> a.compareTo(b));
     }
 }
