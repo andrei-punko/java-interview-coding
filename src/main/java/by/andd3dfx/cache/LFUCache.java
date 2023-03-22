@@ -67,18 +67,7 @@ public class LFUCache<K, V> {
         }
 
         if (map.size() == capacity) {
-            var entries = map.entrySet().stream()
-                    .sorted((o1, o2) -> {
-                        int delta = o1.getValue().getHitsCount() - o2.getValue().getHitsCount();
-                        if (delta != 0) {
-                            return delta;
-                        }
-
-                        List<K> integers = keySet.stream().collect(Collectors.toList());
-                        return integers.indexOf(o1.getKey()) - integers.indexOf(o2.getKey());
-                    }).collect(Collectors.toList());
-            var keyToDelete = entries.get(0).getKey();
-
+            K keyToDelete = determineKeyToDelete();
             map.remove(keyToDelete);
             keySet.remove(keyToDelete);
         }
@@ -86,6 +75,20 @@ public class LFUCache<K, V> {
         map.put(key, new Item(value, 0));
         keySet.add(key);
         log.debug("Added counter for key={}", key);
+    }
+
+    private K determineKeyToDelete() {
+        var entries = map.entrySet().stream()
+                .sorted((o1, o2) -> {
+                    int delta = o1.getValue().getHitsCount() - o2.getValue().getHitsCount();
+                    if (delta != 0) {
+                        return delta;
+                    }
+
+                    List<K> keys = keySet.stream().collect(Collectors.toList());
+                    return keys.indexOf(o1.getKey()) - keys.indexOf(o2.getKey());
+                }).collect(Collectors.toList());
+        return entries.get(0).getKey();
     }
 
     @Data
