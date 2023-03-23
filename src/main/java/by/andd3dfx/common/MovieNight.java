@@ -1,6 +1,9 @@
 package by.andd3dfx.common;
 
-import java.util.Collection;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -18,45 +21,33 @@ import java.util.List;
  */
 public class MovieNight {
 
-  public static Boolean canViewAll(Collection<Movie> movies) {
-    List<Movie> m = (List<Movie>) movies;
-    Collections.sort(m);
+    public static boolean canViewAll(List<Movie> movies) {
+        movies = new ArrayList<>(movies);
+        Collections.sort(movies);
 
-    for (int i = 1; i < movies.size(); i++) {
-      if (m.get(i - 1).getEnd().after(m.get(i).getStart())) {
-        return false;
-      }
+        for (int i = 1; i < movies.size(); i++) {
+            if (movies.get(i - 1).end.after(movies.get(i).start)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
-    return true;
-  }
+    @AllArgsConstructor
+    @Getter
+    public static class Movie implements Comparable<Movie> {
+        private Date start, end;
 
-  public static class Movie implements Comparable<Movie> {
-
-    private Date start, end;
-
-    public Movie(Date start, Date end) {
-      this.start = start;
-      this.end = end;
+        @Override
+        public int compareTo(Movie movie) {
+            if (start.before(movie.start)) {
+                return -1;
+            }
+            if (start.after(movie.start)) {
+                return 1;
+            }
+            return 0;
+        }
     }
-
-    public Date getStart() {
-      return this.start;
-    }
-
-    public Date getEnd() {
-      return this.end;
-    }
-
-    @Override
-    public int compareTo(Movie m) {
-      if (this.start.before(m.start)) {
-        return -1;
-      }
-      if (this.start.after(m.start)) {
-        return 1;
-      }
-      return 0;
-    }
-  }
 }

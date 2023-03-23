@@ -1,36 +1,52 @@
 package by.andd3dfx.common;
 
 import by.andd3dfx.common.MovieNight.Movie;
+import lombok.SneakyThrows;
 import org.junit.Test;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static by.andd3dfx.common.MovieNight.canViewAll;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class MovieNightTest {
 
-  @Test
-  public void canViewAll() throws ParseException {
-    SimpleDateFormat sdf = new SimpleDateFormat("y-M-d H:m");
-    ArrayList<Movie> movies = new ArrayList<Movie>();
-    movies.add(new Movie(sdf.parse("2015-01-01 20:00"), sdf.parse("2015-01-01 21:30")));
-    movies.add(new Movie(sdf.parse("2015-01-01 23:10"), sdf.parse("2015-01-01 23:30")));
-    movies.add(new Movie(sdf.parse("2015-01-01 21:30"), sdf.parse("2015-01-01 23:00")));
+    private final SimpleDateFormat sdf = new SimpleDateFormat("y-M-d H:m");
 
-    assertThat("True expected", MovieNight.canViewAll(movies), is(true));
-  }
+    @Test
+    public void canViewAllForEmptyList() {
+        assertTrue(canViewAll(new ArrayList<>()));
+    }
 
-  @Test
-  public void canViewAllWithOverlap() throws ParseException {
-    SimpleDateFormat sdf = new SimpleDateFormat("y-M-d H:m");
-    ArrayList<Movie> movies = new ArrayList<Movie>();
-    movies.add(new Movie(sdf.parse("2015-01-01 20:00"), sdf.parse("2015-01-01 21:30")));
-    movies.add(new Movie(sdf.parse("2015-01-01 23:10"), sdf.parse("2015-01-01 23:30")));
-    movies.add(new Movie(sdf.parse("2015-01-01 23:20"), sdf.parse("2015-01-01 23:40")));
+    @Test
+    public void canViewAllForSingleMovie() {
+        assertTrue(canViewAll(List.of(buildMovie("2023-01-01 20:00", "2023-01-01 21:00"))));
+    }
 
-    assertThat("False expected", MovieNight.canViewAll(movies), is(false));
-  }
+    @Test
+    public void canViewAllWhenNoOverlap() {
+        assertTrue(canViewAll(List.of(
+                buildMovie("2023-01-01 20:00", "2023-01-01 21:00"),
+                buildMovie("2023-01-01 22:30", "2023-01-01 23:45"),
+                buildMovie("2023-01-01 21:00", "2023-01-01 22:30"),
+                buildMovie("2023-01-01 23:47", "2023-01-01 23:49")
+        )));
+    }
+
+    @Test
+    public void canViewAllWhenOverlapPresent() {
+        assertFalse(canViewAll(List.of(
+                buildMovie("2023-01-01 20:00", "2023-01-01 22:00"),
+                buildMovie("2023-01-01 22:30", "2023-01-01 23:45"),
+                buildMovie("2023-01-01 21:45", "2023-01-01 22:30")
+        )));
+    }
+
+    @SneakyThrows
+    private Movie buildMovie(String start, String end) {
+        return new Movie(sdf.parse(start), sdf.parse(end));
+    }
 }
