@@ -3,13 +3,17 @@ package by.andd3dfx.collections;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
-public class FullFledgedCustomLinkedList<T> {
+public class CustomLinkedList<T> {
 
-    @ToString
     @AllArgsConstructor
     public class Node {
         private T value;
         private Node next;
+
+        @Override
+        public String toString() {
+            return "{%s, next=%s}".formatted(value, next);
+        }
     }
 
     private Node head;
@@ -61,8 +65,6 @@ public class FullFledgedCustomLinkedList<T> {
 
     @Override
     public String toString() {
-        return "CustomLinkedList{" +
-                "head=" + head +
-                '}';
+        return "CustomLinkedList{head=%s}".formatted(head);
     }
 }

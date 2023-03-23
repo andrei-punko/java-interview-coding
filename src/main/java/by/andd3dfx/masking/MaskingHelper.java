@@ -1,5 +1,7 @@
 package by.andd3dfx.masking;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 
 import java.lang.annotation.Annotation;
@@ -14,10 +16,8 @@ import java.util.stream.Collectors;
  * and its fields with {@link MaskedProperty}.
  * Use {@link MaskedProperty#pattern()} and {@link MaskedProperty#replacement()} when needed.
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MaskingHelper {
-
-    private MaskingHelper() {
-    }
 
     @SneakyThrows
     public static <T> T mask(T object) {

@@ -3,7 +3,7 @@ package by.andd3dfx.sorting;
 public class ShellSort {
 
     public static <T extends Comparable> void apply(T[] array) {
-        int h = 1; // Вычисление исходного значения h
+        int h = 1;
         while (h <= array.length / 3)
             h = h * 3 + 1; // (1, 4, 13, 40, 121, ...)
 
