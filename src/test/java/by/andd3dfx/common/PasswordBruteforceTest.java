@@ -20,7 +20,7 @@ public class PasswordBruteforceTest {
 
     @Before
     public void setUp() throws Exception {
-        alphabet = new char[]{'P', 'u', 't', 'i', 'n'};
+        alphabet = new char[]{'P', 'u', 'n', 'k', 'o'};
         var alphabetStr = new String(alphabet);
 
         hashFunction = s -> {
@@ -37,19 +37,19 @@ public class PasswordBruteforceTest {
     }
 
     @Test
-    public void encode() {                                                 // öPutin -> 012345
+    public void encode() {                                                 // ☺Punko -> 012345
         assertThat(passwordBruteforce.encode(1), is("P"));      // 1 = 1*6^0 = 1 = P
         assertThat(passwordBruteforce.encode(2), is("u"));      // 2 = 2*6^0 = 2 = u
-        assertThat(passwordBruteforce.encode(31), is("nP"));    // 31 = 5*6^1 + 1*6^0 = 30 + 1 = nP
-        assertThat(passwordBruteforce.encode(59), is("Ptn"));   // 59 = 1*6^2 + 3*6^1 + 5*6^0 = 36 + 18 + 5 = Ptn
+        assertThat(passwordBruteforce.encode(31), is("oP"));    // 31 = 5*6^1 + 1*6^0 = 30 + 1 = oP
+        assertThat(passwordBruteforce.encode(59), is("Pno"));   // 59 = 1*6^2 + 3*6^1 + 5*6^0 = 36 + 18 + 5 = Pno
     }
 
     @Test
     public void decodeSimple() {
         decodeUsingDefinitePassword("P");
         decodeUsingDefinitePassword("PuPu");
-        decodeUsingDefinitePassword("unit");
-        decodeUsingDefinitePassword("nuiPin");
+        decodeUsingDefinitePassword("Punk");
+        decodeUsingDefinitePassword("nuk");
     }
 
     @Test

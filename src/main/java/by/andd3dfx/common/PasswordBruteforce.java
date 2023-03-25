@@ -13,7 +13,7 @@ public class PasswordBruteforce {
 
     private final String alphabet;
     private final Function<String, String> hashFunction;
-    private final String ZERO_CHARACTER = "ö";
+    private final String ZERO_CHARACTER = "☺";
 
     public PasswordBruteforce(char[] alphabet, Function<String, String> hashFunction) {
         this.alphabet = ZERO_CHARACTER + new String(alphabet);
