@@ -6,7 +6,6 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -24,6 +23,25 @@ public class CustomStream<T> {
 
     public CustomStream(List<T> list) {
         this.list = list;
+    }
+
+    public static <T> CustomStream<T> empty() {
+        return new CustomStream<>(List.of());
+    }
+
+    public static <T> CustomStream<T> of(T value) {
+        return new CustomStream<>(List.of(value));
+    }
+
+    public static <T> CustomStream<T> of(T... values) {
+        return new CustomStream<>(List.of(values));
+    }
+
+    public static <T> CustomStream<T> ofNullable(T value) {
+        if (value == null) {
+            return empty();
+        }
+        return of(value);
     }
 
     public CustomStream<T> filter(Predicate<T> predicate) {
@@ -57,9 +75,43 @@ public class CustomStream<T> {
         return this;
     }
 
+    /**
+     * Like limit() but with condition instead of number
+     */
+    public CustomStream<T> takeWhile(Predicate<T> predicate) {
+        actions.add(stream -> {
+            int i = 0;
+            for (var item : list) {
+                if (!predicate.test(item)) {
+                    break;
+                }
+                i++;
+            }
+            list = list.subList(0, i);
+        });
+        return this;
+    }
+
     public CustomStream<T> skip(int n) {
         actions.add(stream -> {
             list = list.subList(Math.min(n, list.size()), list.size());
+        });
+        return this;
+    }
+
+    /**
+     * Like skip() but with condition instead of number
+     */
+    public CustomStream<T> dropWhile(Predicate<T> predicate) {
+        actions.add(stream -> {
+            int i = 0;
+            for (var item : list) {
+                if (!predicate.test(item)) {
+                    break;
+                }
+                i++;
+            }
+            list = list.subList(i, list.size());
         });
         return this;
     }
@@ -83,6 +135,15 @@ public class CustomStream<T> {
             action.apply(this);
         }
         return list.toArray();
+    }
+
+    public void forEach(Function<T, Object> function) {
+        for (var action : actions) {
+            action.apply(this);
+        }
+        for (var item : list) {
+            function.apply(item);
+        }
     }
 
     public static void main(String[] args) {
