@@ -6,7 +6,9 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -48,11 +50,39 @@ public class CustomStream<T> {
         return this;
     }
 
+    public CustomStream<T> limit(int n) {
+        actions.add(stream -> {
+            list = list.subList(0, Math.min(n, list.size()));
+        });
+        return this;
+    }
+
+    public CustomStream<T> skip(int n) {
+        actions.add(stream -> {
+            list = list.subList(Math.min(n, list.size()), list.size());
+        });
+        return this;
+    }
+
     public List<T> collectToList() {
         for (var action : actions) {
             action.apply(this);
         }
         return list;
+    }
+
+    public int count() {
+        for (var action : actions) {
+            action.apply(this);
+        }
+        return list.size();
+    }
+
+    public Object[] toArray() {
+        for (var action : actions) {
+            action.apply(this);
+        }
+        return list.toArray();
     }
 
     public static void main(String[] args) {
