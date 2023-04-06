@@ -20,7 +20,7 @@ public class CustomAnnotationTest {
     public void notAnnotatedMethod() throws NoSuchMethodException {
         SomeAnnotatedClass annotatedClass = new SomeAnnotatedClass();
 
-        var method = annotatedClass.getClass().getMethod("notAnnotatedMethod", null);
+        var method = annotatedClass.getClass().getMethod("notAnnotatedMethod", (Class<?>[]) null);
         var annotation = method.getAnnotation(CustomMethodAnnotation.class);
         assertThat(annotation).isNull();
     }
@@ -29,7 +29,7 @@ public class CustomAnnotationTest {
     public void annotatedMethodWithDefaultParameter() throws NoSuchMethodException {
         SomeAnnotatedClass someAnnotatedClass = new SomeAnnotatedClass();
 
-        var method = someAnnotatedClass.getClass().getMethod("annotatedMethodWithDefaultAnnotationParameter", null);
+        var method = someAnnotatedClass.getClass().getMethod("annotatedMethodWithDefaultAnnotationParameter", (Class<?>[]) null);
         var annotation = method.getAnnotation(CustomMethodAnnotation.class);
         assertThat(annotation).isNotNull();
         assertThat(annotation.value()).isEqualTo(21);
@@ -39,7 +39,7 @@ public class CustomAnnotationTest {
     public void annotatedMethodWithParameter() throws NoSuchMethodException {
         SomeAnnotatedClass someAnnotatedClass = new SomeAnnotatedClass();
 
-        var method = someAnnotatedClass.getClass().getMethod("annotatedMethodWithAnnotationParameter", null);
+        var method = someAnnotatedClass.getClass().getMethod("annotatedMethodWithAnnotationParameter", (Class<?>[]) null);
         var annotation = method.getAnnotation(CustomMethodAnnotation.class);
         assertThat(annotation).isNotNull();
         assertThat(annotation.value()).isEqualTo(15);

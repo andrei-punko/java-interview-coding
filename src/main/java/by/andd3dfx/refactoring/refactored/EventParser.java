@@ -29,7 +29,7 @@ public class EventParser {
 
     @SneakyThrows
     private static void extracted(Class<? extends IEventParser> aClass) {
-        var instance = aClass.newInstance();
+        var instance = aClass.getDeclaredConstructor().newInstance();
         map.put(instance.getEventType(), instance);
     }
 

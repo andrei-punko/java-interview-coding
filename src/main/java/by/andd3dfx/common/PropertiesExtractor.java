@@ -36,7 +36,7 @@ public class PropertiesExtractor {
     }
 
     private static Object extractValue(Field field, Object obj) throws IllegalAccessException {
-        boolean accessibleFlag = field.isAccessible();
+        boolean accessibleFlag = field.canAccess(obj);
         field.setAccessible(true);
         Object value = field.get(obj);
         field.setAccessible(accessibleFlag);

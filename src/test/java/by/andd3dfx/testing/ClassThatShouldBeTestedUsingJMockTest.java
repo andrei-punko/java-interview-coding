@@ -2,7 +2,7 @@ package by.andd3dfx.testing;
 
 import org.jmock.Expectations;
 import org.jmock.Mockery;
-import org.jmock.lib.legacy.ClassImposteriser;
+import org.jmock.imposters.ByteBuddyClassImposteriser;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class ClassThatShouldBeTestedUsingJMockTest {
      * To mock real class, not interface, we need to set imposteriser into mockery
      */
     private Mockery mockery = new Mockery() {{
-        setImposteriser(ClassImposteriser.INSTANCE);
+        setImposteriser(ByteBuddyClassImposteriser.INSTANCE);
     }};
     private ClassThatShouldBeTested classThatShouldBeTested;
 
