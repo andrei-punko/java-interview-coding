@@ -6,6 +6,8 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -116,6 +118,37 @@ public class CustomStream<T> {
         return this;
     }
 
+    public CustomStream<T> distinct() {
+        actions.add(stream -> {
+            var result = new ArrayList<T>();
+            extLoop:
+            for (var item : list) {
+                for (var addedItem : result) {
+                    if (isEquals(item, addedItem)) {
+                        continue extLoop;
+                    }
+                }
+                result.add(item);
+            }
+            list = result;
+        });
+        return this;
+    }
+
+    public CustomStream<T> sorted(Comparator<? super T> comparator) {
+        actions.add(stream -> {
+            Collections.sort(list, comparator);
+        });
+        return this;
+    }
+
+    static <T> boolean isEquals(T item1, T item2) {
+        if (item1 == null) {
+            return item2 == null;
+        }
+        return item1.equals(item2);
+    }
+
     public List<T> collectToList() {
         for (var action : actions) {
             action.apply(this);
@@ -135,6 +168,13 @@ public class CustomStream<T> {
             action.apply(this);
         }
         return list.toArray();
+    }
+
+    public List<T> toList() {
+        for (var action : actions) {
+            action.apply(this);
+        }
+        return Collections.unmodifiableList(list);
     }
 
     public void forEach(Function<T, Object> function) {

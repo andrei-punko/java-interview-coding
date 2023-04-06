@@ -4,9 +4,14 @@ import by.andd3dfx.java8.stream.CustomStream.Item;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class CustomStreamTest {
 
@@ -159,6 +164,46 @@ public class CustomStreamTest {
     }
 
     @Test
+    public void isEquals() {
+        assertTrue(CustomStream.isEquals(null, null));
+        Object object = new Object();
+        assertTrue(CustomStream.isEquals(object, object));
+        assertFalse(CustomStream.isEquals(null, object));
+        assertFalse(CustomStream.isEquals(object, null));
+        assertFalse(CustomStream.isEquals(object, new Object()));
+    }
+
+    @Test
+    public void testDistinct() {
+        List<Item> list = buildList();
+        list.addAll(buildList());
+
+        var result = new CustomStream<>(list)
+                .distinct()
+                .collectToList();
+
+        assertThat(result).isEqualTo(
+                List.of(new Item(1, 3), new Item(2, 18), new Item(5, 11))
+        );
+    }
+
+    @Test
+    public void testDistinctWhenNullsPresent() {
+        List<Item> list = buildList();
+        list.add(null);
+        list.addAll(buildList());
+        list.add(null);
+
+        var result = new CustomStream<>(list)
+                .distinct()
+                .collectToList();
+
+        assertThat(result).isEqualTo(
+                Arrays.asList(new Item(1, 3), new Item(2, 18), new Item(5, 11), null)
+        );
+    }
+
+    @Test
     public void testToArray() {
         List<Item> list = buildList();
 
@@ -166,6 +211,24 @@ public class CustomStreamTest {
                 .toArray();
 
         assertThat(result).isEqualTo(new Object[]{new Item(1, 3), new Item(2, 18), new Item(5, 11)});
+    }
+
+    @Test
+    public void testToList() {
+        List<Item> list = buildList();
+
+        List<Item> result = new CustomStream<>(list)
+                .toList();
+
+        assertThat(result).isEqualTo(
+                Arrays.asList(new Item(1, 3), new Item(2, 18), new Item(5, 11))
+        );
+        try {
+            result.add(new Item(3, 3));
+            fail("Exception should be thrown!");
+        } catch (UnsupportedOperationException uoe) {
+            // Don't need to check anything
+        }
     }
 
     @Test
@@ -179,9 +242,28 @@ public class CustomStreamTest {
         assertThat(result).isEqualTo(List.of(3, 36, 55));
     }
 
+    @Test
+    public void sorted() {
+        List<Item> list = buildList();
+        list.add(new Item(4, 10));
+        list.add(new Item(78, 7));
+
+        List<Item> result = new CustomStream<>(list)
+                .sorted(Comparator.comparingInt(Item::getY))
+                .toList();
+
+        assertThat(result).isEqualTo(Arrays.asList(
+                new Item(1, 3),
+                new Item(78, 7),
+                new Item(4, 10),
+                new Item(5, 11),
+                new Item(2, 18)
+        ));
+    }
+
     private List<Item> buildList() {
-        return List.of(
+        return new ArrayList<>(List.of(
                 new Item(1, 3), new Item(2, 18), new Item(5, 11)
-        );
+        ));
     }
 }
