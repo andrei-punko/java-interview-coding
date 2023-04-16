@@ -1,7 +1,7 @@
 
 # Playground with task solutions for preparation to Java interview
 
-[![Java CI with Maven](https://github.com/andrei-punko/java-interview-coding/actions/workflows/maven.yml/badge.svg)](https://github.com/andrei-punko/java-interview/actions/workflows/maven.yml)
+[![Java CI with Maven](https://github.com/andrei-punko/java-interview-coding/actions/workflows/maven.yml/badge.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/maven.yml)
 [![Coverage](.github/badges/jacoco.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/maven.yml)
 [![Branches](.github/badges/branches.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/maven.yml)
 
