@@ -10,8 +10,7 @@ import java.util.Map;
  */
 public class SequenceEquation {
 
-    // Complete the permutationEquation function below.
-    static int[] permutationEquation(int[] p) {
+    public static int[] permutationEquation(int[] p) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < p.length; i++) {
             map.put(p[i], i + 1);
