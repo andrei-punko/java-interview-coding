@@ -1,4 +1,4 @@
-package by.andd3dfx.common;
+package by.andd3dfx.dynamic;
 
 import java.util.HashMap;
 import java.util.Map;
