@@ -1,29 +1,22 @@
 package by.andd3dfx.multithreading.threadpool;
 
+import lombok.RequiredArgsConstructor;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- *   1.BlockingQueue simulates the blocking queue implementation.
- *   2.We have used LinkedList as underlying data structure.
- *   3.BlockingQueue contains a couple of synchronized methods
- *       - enqueue : It enqueue (push) Task to the queue
- *       - dequeue : This method takes (pop) the task from the queue.
- *
- *   This queue implementation based on synchronized methods
+ * Implementation of blocking queue based on synchronized methods.
  */
-public class SynchronizedBlocksBasedBlockingQueue<Type> implements CustomBlockingQueue<Type> {
+@RequiredArgsConstructor
+public class SynchronizedBlocksBasedBlockingQueue<T> implements CustomBlockingQueue<T> {
 
-    private final int MAX_QUEUE_SIZE;
-    private Queue<Type> queue = new LinkedList<>();
-
-    public SynchronizedBlocksBasedBlockingQueue(int size) {
-        this.MAX_QUEUE_SIZE = size;
-    }
+    private final int size;
+    private Queue<T> queue = new LinkedList<>();
 
     @Override
-    public synchronized void enqueue(Type task) throws InterruptedException {
-        while (queue.size() == MAX_QUEUE_SIZE) {
+    public synchronized void enqueue(T task) throws InterruptedException {
+        while (queue.size() == size) {
             wait();
         }
         if (queue.isEmpty()) {
@@ -33,11 +26,11 @@ public class SynchronizedBlocksBasedBlockingQueue<Type> implements CustomBlockin
     }
 
     @Override
-    public synchronized Type dequeue() throws InterruptedException {
+    public synchronized T dequeue() throws InterruptedException {
         while (queue.isEmpty()) {
             wait();
         }
-        if (queue.size() == MAX_QUEUE_SIZE) {
+        if (queue.size() == size) {
             notifyAll();
         }
         return queue.poll();

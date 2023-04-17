@@ -1,32 +1,33 @@
 package by.andd3dfx.multithreading.threadpool;
 
+import lombok.RequiredArgsConstructor;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Lock-based implementation of queue.
+ * <pre>
+ * Implementation of blocking queue based on locks.
  *
  * With help of https://www.baeldung.com/java-concurrent-locks
+ * </pre>
  */
-public class ReentrantLockBasedBlockingQueue<Type> implements CustomBlockingQueue<Type> {
+@RequiredArgsConstructor
+public class ReentrantLockBasedBlockingQueue<T> implements CustomBlockingQueue<T> {
 
-    private final int MAX_QUEUE_SIZE;
-    private Queue<Type> queue = new LinkedList<>();
+    private final int size;
+    private Queue<T> queue = new LinkedList<>();
     private ReentrantLock lock = new ReentrantLock();
     private Condition queueEmptyCondition = lock.newCondition();
     private Condition queueFullCondition = lock.newCondition();
 
-    public ReentrantLockBasedBlockingQueue(int size) {
-        this.MAX_QUEUE_SIZE = size;
-    }
-
     @Override
-    public void enqueue(Type item) throws InterruptedException {
+    public void enqueue(T item) throws InterruptedException {
         lock.lock();
         try {
-            while (queue.size() == MAX_QUEUE_SIZE) {
+            while (queue.size() == size) {
                 queueFullCondition.await();
             }
             queue.offer(item);
@@ -37,7 +38,7 @@ public class ReentrantLockBasedBlockingQueue<Type> implements CustomBlockingQueu
     }
 
     @Override
-    public Type dequeue() throws InterruptedException {
+    public T dequeue() throws InterruptedException {
         lock.lock();
         try {
             while (queue.isEmpty()) {

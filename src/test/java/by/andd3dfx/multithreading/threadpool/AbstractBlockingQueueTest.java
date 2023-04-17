@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public abstract class AbstractBlockingQueueTest {
 
-    private CustomBlockingQueue<Integer> queue;
+    private CustomBlockingQueue<String> queue;
     private Random random = new Random();
 
     @Before
@@ -14,7 +14,7 @@ public abstract class AbstractBlockingQueueTest {
         queue = buildQueue(10);
     }
 
-    protected abstract CustomBlockingQueue<Integer> buildQueue(int size);
+    protected abstract CustomBlockingQueue<String> buildQueue(int size);
 
     @Test
     public void test() throws InterruptedException {
@@ -22,7 +22,7 @@ public abstract class AbstractBlockingQueueTest {
             int counter = 1;
             while (true) {
                 try {
-                    queue.enqueue(counter);
+                    queue.enqueue("A" + counter);
                     Thread.sleep(random.nextInt(10));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -34,7 +34,7 @@ public abstract class AbstractBlockingQueueTest {
             int counter = 1;
             while (true) {
                 try {
-                    queue.enqueue(counter);
+                    queue.enqueue("B" + counter);
                     Thread.sleep(random.nextInt(10));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -46,9 +46,9 @@ public abstract class AbstractBlockingQueueTest {
         Thread dequeueThread = new Thread(() -> {
             while (true) {
                 try {
-                    Integer number = queue.dequeue();
+                    var number = queue.dequeue();
 
-//                    System.out.print(number + " ");
+                    // System.out.print(number + " ");
 
                     Thread.sleep(random.nextInt(10));
                 } catch (InterruptedException e) {
@@ -60,6 +60,6 @@ public abstract class AbstractBlockingQueueTest {
         enqueueThread1.start();
         enqueueThread2.start();
         dequeueThread.start();
-        Thread.sleep(200);
+        Thread.sleep(100);
     }
 }
