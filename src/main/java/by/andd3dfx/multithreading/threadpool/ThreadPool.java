@@ -1,5 +1,8 @@
 package by.andd3dfx.multithreading.threadpool;
 
+import by.andd3dfx.multithreading.queue.CustomBlockingQueue;
+import by.andd3dfx.multithreading.queue.SynchronizedBlocksBasedBlockingQueue;
+
 import java.util.ArrayList;
 import java.util.List;
 

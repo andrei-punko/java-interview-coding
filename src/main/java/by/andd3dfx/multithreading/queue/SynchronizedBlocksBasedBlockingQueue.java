@@ -1,4 +1,4 @@
-package by.andd3dfx.multithreading.threadpool;
+package by.andd3dfx.multithreading.queue;
 
 import lombok.RequiredArgsConstructor;
 

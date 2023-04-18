@@ -1,5 +1,7 @@
 package by.andd3dfx.multithreading.threadpool;
 
+import by.andd3dfx.multithreading.queue.CustomBlockingQueue;
+
 /*
     1.TaskExecutor class implements Runnable interface.
     2.The method of TaskExecutor class dequeue the task from the queue (BlockingQueue)

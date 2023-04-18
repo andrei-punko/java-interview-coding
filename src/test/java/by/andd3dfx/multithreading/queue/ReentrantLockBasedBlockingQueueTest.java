@@ -1,4 +1,4 @@
-package by.andd3dfx.multithreading.threadpool;
+package by.andd3dfx.multithreading.queue;
 
 public class ReentrantLockBasedBlockingQueueTest extends AbstractBlockingQueueTest {
 
