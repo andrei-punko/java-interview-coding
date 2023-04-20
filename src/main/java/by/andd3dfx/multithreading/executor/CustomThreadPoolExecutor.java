@@ -15,13 +15,13 @@ import lombok.SneakyThrows;
  * Based on http://www.makeinjava.com/custom-thread-pool-example-without-using-executor-framework/
  * </pre>
  */
-public class ThreadPoolExecutor {
+public class CustomThreadPoolExecutor {
 
-    private static final int QUEUE_SIZE = 50;
+    private static final int QUEUE_SIZE = 100;
     private CustomBlockingQueue<Runnable> queue;
     private volatile boolean isStopped = false;
 
-    public ThreadPoolExecutor(int threadsCount) {
+    public CustomThreadPoolExecutor(int threadsCount) {
         queue = new SynchronizedBlocksBasedBlockingQueue<>(QUEUE_SIZE);
 
         for (int i = 0; i < threadsCount; i++) {
