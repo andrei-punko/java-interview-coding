@@ -1,12 +1,12 @@
-package by.andd3dfx.string.parsing;
+package by.andd3dfx.parser.xml;
+
+import org.junit.Test;
+
+import java.util.Collection;
 
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-
-import by.andd3dfx.string.parsing.Folders;
-import java.util.Collection;
-import org.junit.Test;
 
 public class FoldersTest {
 
