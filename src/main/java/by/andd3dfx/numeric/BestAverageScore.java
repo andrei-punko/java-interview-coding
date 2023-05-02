@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
  * <pre>
  * Calculate the best average score from following array of marks:
  * [[Name1, 80], [Name2, 67], [Name1, 60]]
- * In this example the best average has Name1 === 70
+ *
+ * In this example the best average has Name1 and equals to 70.
  * </pre>
  */
 public class BestAverageScore {
@@ -26,7 +27,7 @@ public class BestAverageScore {
         private int mark;
     }
 
-    public static double calculate(Collection<Item> items) {
+    public static double calculateUsingStreams(Collection<Item> items) {
         Map<String, Double> nameToAvgMarkMap = items.stream()
             .collect(Collectors.groupingBy(Item::getName, Collectors.averagingInt(Item::getMark)));
 
@@ -57,7 +58,7 @@ public class BestAverageScore {
         }
     }
 
-    public static double calculate2(Collection<Item> items) {
+    public static double calculateUsualWay(Collection<Item> items) {
         Map<String, Accumulator> map = new HashMap<>();
         for (Item item : items) {
             String key = item.getName();
@@ -70,9 +71,9 @@ public class BestAverageScore {
         double maxAvg = 0;
         for (Entry<String, Accumulator> entry : map.entrySet()) {
             Accumulator value = entry.getValue();
-            value.setValue(value.getValue() / value.getCount());
-            if (value.getValue() > maxAvg) {
-                maxAvg = value.getValue();
+            var avg = value.getValue() / value.getCount();
+            if (avg > maxAvg) {
+                maxAvg = avg;
             }
         }
         return maxAvg;
