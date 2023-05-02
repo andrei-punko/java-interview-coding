@@ -1,31 +1,66 @@
 package by.andd3dfx.core;
 
+import by.andd3dfx.core.GenericClassCreation.CreatorUsingDeclaredConstructor;
+import by.andd3dfx.core.GenericClassCreation.CreatorUsingSupplier;
+import lombok.AllArgsConstructor;
+import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-
-import by.andd3dfx.core.GenericClassCreation.SomeContainer1;
-import by.andd3dfx.core.GenericClassCreation.SomeContainer2;
-import java.lang.reflect.InvocationTargetException;
-import org.junit.Test;
+import static org.junit.Assert.assertThrows;
 
 public class GenericClassCreationTest {
 
     @Test
-    public void createObject1()
-        throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        SomeContainer1<String> someContainer1 = new SomeContainer1<>();
+    public void createStringBy_CreatorUsingDeclaredConstructor() {
+        CreatorUsingDeclaredConstructor<String> container = new CreatorUsingDeclaredConstructor<>();
 
-        String createdObject = someContainer1.createObject(String.class);
-
-        assertThat("Empty string expected", createdObject, is(""));
+        assertThat(container.createObject(String.class), is(""));
     }
 
     @Test
-    public void createObject2() {
-        SomeContainer2<String> someContainer2 = new SomeContainer2<>(String::new);
+    public void createStringBy_CreatorUsingSupplier() {
+        CreatorUsingSupplier<String> container = new CreatorUsingSupplier<>(String::new);
 
-        String createdObject = someContainer2.createObject();
+        assertThat(container.createObject(), is(""));
+    }
 
-        assertThat("Empty string expected", createdObject, is(""));
+    @Test
+    public void createClassWithoutFieldsBy_CreatorUsingDeclaredConstructor() {
+        CreatorUsingDeclaredConstructor<CustomClassWithoutFields> container = new CreatorUsingDeclaredConstructor<>();
+
+        assertThat(container.createObject(CustomClassWithoutFields.class), instanceOf(CustomClassWithoutFields.class));
+    }
+
+    @Test
+    public void createClassWithoutFieldsBy_CreatorUsingSupplier() {
+        CreatorUsingSupplier<CustomClassWithoutFields> container = new CreatorUsingSupplier<>(CustomClassWithoutFields::new);
+
+        assertThat(container.createObject(), instanceOf(CustomClassWithoutFields.class));
+    }
+
+    @Test
+    public void createClassWithFieldBy_CreatorUsingDeclaredConstructor() {
+        CreatorUsingDeclaredConstructor<CustomClassWithField> container = new CreatorUsingDeclaredConstructor<>();
+
+        assertThrows(NoSuchMethodException.class, () -> {
+            container.createObject(CustomClassWithField.class);
+        });
+    }
+
+    @Test
+    public void createClassWithFieldBy_CreatorUsingSupplier() {
+        CreatorUsingSupplier<CustomClassWithField> container = new CreatorUsingSupplier<>(() -> new CustomClassWithField(0));
+
+        assertThat(container.createObject(), instanceOf(CustomClassWithField.class));
+    }
+
+    public static class CustomClassWithoutFields {
+    }
+
+    @AllArgsConstructor
+    public static class CustomClassWithField {
+        private int value;
     }
 }
