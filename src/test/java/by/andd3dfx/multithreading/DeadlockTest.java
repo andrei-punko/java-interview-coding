@@ -1,6 +1,5 @@
 package by.andd3dfx.multithreading;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.concurrent.CompletableFuture;
@@ -10,7 +9,6 @@ import static org.junit.Assert.assertFalse;
 
 public class DeadlockTest {
 
-    @Ignore("Fail of Github CI build")
     @Test
     public void makeDeadlock() throws InterruptedException {
         CompletableFuture<Void> future = CompletableFuture.supplyAsync(() -> {
