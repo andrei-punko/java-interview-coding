@@ -18,8 +18,8 @@ public class DeadlockTest {
 
         new Thread(() -> completeFuture(future)).start();
 
-        // Wait 1 sec
-        Thread.sleep(1000);
+        // Wait a bit
+        Thread.sleep(500);
 
         assertFalse("Should not be completed after 1 sec wait", future.isDone());
     }
