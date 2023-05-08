@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 public class CustomLinkedListTest {
@@ -32,6 +33,48 @@ public class CustomLinkedListTest {
         assertThat(linkedList.get(1), is(7));
         assertThat(linkedList.get(2), is(12));
         assertThat(linkedList.get(3), is(34));
+    }
+
+    @Test
+    public void addByIndex() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        linkedList.add(3);
+        linkedList.add(7);
+        linkedList.add(12);                 // 3 7 12
+        linkedList.add(2, 67);  // 3 7 67 12
+        linkedList.add(1, 34);  // 3 34 7 67 12
+        linkedList.add(5, 102);  // 3 34 7 67 12 102 - addition of new element at the right should pass
+
+        assertThat(linkedList.size(), is(6));
+        assertThat(linkedList.get(0), is(3));
+        assertThat(linkedList.get(1), is(34));
+        assertThat(linkedList.get(2), is(7));
+        assertThat(linkedList.get(3), is(67));
+        assertThat(linkedList.get(4), is(12));
+        assertThat(linkedList.get(5), is(102));
+    }
+
+    @Test
+    public void addByIndexWhenOutOfRange() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        linkedList.add(3);
+        linkedList.add(7);
+        linkedList.add(12);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.add(-1, 34)); ;
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.add(4, 34)); ;
+    }
+
+    @Test
+    public void getByIndexWhenOutOfRange() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        linkedList.add(3);
+        linkedList.add(7);
+        linkedList.add(12);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(-1)); ;
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(3)); ;
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(5)); ;
     }
 
     @Test
@@ -103,6 +146,18 @@ public class CustomLinkedListTest {
         assertThat(linkedList.size(), is(2));
         assertThat(linkedList.get(0), is(11));
         assertThat(linkedList.get(1), is(7));
+    }
+
+    @Test
+    public void removeByIndexWhenOutOfRange() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        linkedList.add(3);
+        linkedList.add(7);
+        linkedList.add(12);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.remove(-1)); ;
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.remove(3)); ;
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.remove(5)); ;
     }
 
     @Test

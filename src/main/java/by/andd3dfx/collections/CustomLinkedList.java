@@ -25,7 +25,11 @@ public class CustomLinkedList<T> {
         add(size, value);
     }
 
-    private void add(int index, T value) {
+    public void add(int index, T value) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+
         if (index == 0) {
             var newNode = new Node(value, head);
             head = newNode;
@@ -43,7 +47,6 @@ public class CustomLinkedList<T> {
         }
         var newNode = new Node(value, curr);
         prev.next = newNode;
-        newNode.next = (curr == null) ? null : curr.next;
         size++;
     }
 
@@ -56,7 +59,7 @@ public class CustomLinkedList<T> {
     }
 
     public T get(int index) {
-        if (index >= size) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(String.format("Wrong index: %d", index));
         }
 
@@ -74,7 +77,7 @@ public class CustomLinkedList<T> {
     }
 
     public T remove(int index) {
-        if (index >= size) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(String.format("Wrong index: %d", index));
         }
 
