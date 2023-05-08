@@ -1,4 +1,4 @@
-package by.andd3dfx.collections;
+package by.andd3dfx.collections.custom;
 
 import lombok.AllArgsConstructor;
 

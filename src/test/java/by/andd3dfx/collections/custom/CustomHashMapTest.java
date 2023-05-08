@@ -13,13 +13,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class CustomMapTest {
+public class CustomHashMapTest {
 
-    private CustomMap map;
+    private CustomHashMap map;
 
     @Before
     public void setUp() throws Exception {
-        map = new CustomMap();
+        map = new CustomHashMap();
     }
 
     @Test
@@ -106,7 +106,7 @@ public class CustomMapTest {
         map.put(7, 45);
         map.put(9, 78);
 
-        Map additionalMap = new CustomMap();
+        Map additionalMap = new CustomHashMap();
         additionalMap.put(2, 555);
         additionalMap.put(71, 22);
         additionalMap.put(23, 24);
@@ -174,13 +174,13 @@ public class CustomMapTest {
     @Test
     public void isEquals() {
         assertTrue(map.isEquals(null, null));
-        assertFalse(map.isEquals(null, new CustomMap<>()));
-        assertFalse(map.isEquals(new CustomMap<>(), null));
+        assertFalse(map.isEquals(null, new CustomHashMap<>()));
+        assertFalse(map.isEquals(new CustomHashMap<>(), null));
 
-        var map1 = new CustomMap<>();
+        var map1 = new CustomHashMap<>();
         assertTrue(map.isEquals(map1, map1));
 
-        var map2 = new CustomMap<>();
+        var map2 = new CustomHashMap<>();
         assertFalse(map.isEquals(map1, map2));
         assertFalse(map.isEquals(map2, map1));
     }

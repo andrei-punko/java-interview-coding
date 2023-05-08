@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * Draft version of Custom map
  */
-public class CustomMap<K, V> implements Map<K, V> {
+public class CustomHashMap<K, V> implements Map<K, V> {
 
     public static final int BUCKETS_COUNT = 17;
     private Bucket<K, V>[] buckets;
@@ -16,7 +16,7 @@ public class CustomMap<K, V> implements Map<K, V> {
     private int size;
     private Set<Entry<K, V>> entrySet;
 
-    public CustomMap() {
+    public CustomHashMap() {
         buckets = new Bucket[BUCKETS_COUNT];
         for (var i = 0; i < BUCKETS_COUNT; i++) {
             buckets[i] = new Bucket<>();
