@@ -106,6 +106,11 @@ public class CustomArrayList<T> {
         return false;
     }
 
+    public void clear() {
+        array = (T[]) new Object[DEFAULT_INITIAL_SIZE];
+        size = 0;
+    }
+
     @Override
     public String toString() {
         return Arrays.toString(Arrays.copyOf(array, size));

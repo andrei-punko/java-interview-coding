@@ -36,6 +36,24 @@ public class CustomLinkedListTest {
     }
 
     @Test
+    public void addNSetNGet() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        assertThat(linkedList.size(), is(0));
+        assertTrue(linkedList.isEmpty());
+        linkedList.add(4);
+        linkedList.add(5);
+        linkedList.set(1, 56);
+        linkedList.add(12);
+        linkedList.set(0, 31);
+
+        assertThat(linkedList.size(), is(3));
+        assertFalse(linkedList.isEmpty());
+        assertThat(linkedList.get(0), is(31));
+        assertThat(linkedList.get(1), is(56));
+        assertThat(linkedList.get(2), is(12));
+    }
+
+    @Test
     public void addByIndex() {
         CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
         linkedList.add(3);
@@ -242,6 +260,22 @@ public class CustomLinkedListTest {
         assertThat(linkedList.pop(), is(36));
         assertThat(linkedList.pop(), is(2));
         assertTrue(linkedList.isEmpty());
+    }
+
+    @Test
+    public void clear() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        linkedList.add(2);
+        linkedList.add(3);
+        linkedList.add(36);
+
+        assertFalse(linkedList.isEmpty());
+        assertThat(linkedList.size(), is(3));
+
+        linkedList.clear();
+
+        assertTrue(linkedList.isEmpty());
+        assertThat(linkedList.size(), is(0));
     }
 
     @Test

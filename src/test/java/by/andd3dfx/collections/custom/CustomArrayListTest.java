@@ -27,6 +27,25 @@ public class CustomArrayListTest {
     }
 
     @Test
+    public void addByIndex() {
+        CustomArrayList<Integer> list = new CustomArrayList<>();
+        list.add(3);
+        list.add(7);
+        list.add(12);                 // 3 7 12
+        list.add(2, 67);  // 3 7 67 12
+        list.add(1, 34);  // 3 34 7 67 12
+        list.add(5, 102);  // 3 34 7 67 12 102 - addition of new element at the right should pass
+
+        assertThat(list.size(), is(6));
+        assertThat(list.get(0), is(3));
+        assertThat(list.get(1), is(34));
+        assertThat(list.get(2), is(7));
+        assertThat(list.get(3), is(67));
+        assertThat(list.get(4), is(12));
+        assertThat(list.get(5), is(102));
+    }
+
+    @Test
     public void addNGetWhenArrayResizeExpected() {
         CustomArrayList<Integer> list = new CustomArrayList<>();
         for (int i = 0; i < 20; i++) {
@@ -197,6 +216,22 @@ public class CustomArrayListTest {
         assertThat(list.get(2), is("Ilya"));
         assertThat(list.get(3), is("Elena"));
         assertThat(list.get(4), is("Yulia"));
+    }
+
+    @Test
+    public void clear() {
+        CustomArrayList<Integer> list = new CustomArrayList<>();
+        list.add(2);
+        list.add(3);
+        list.add(36);
+
+        assertFalse(list.isEmpty());
+        assertThat(list.size(), is(3));
+
+        list.clear();
+
+        assertTrue(list.isEmpty());
+        assertThat(list.size(), is(0));
     }
 
     @Test

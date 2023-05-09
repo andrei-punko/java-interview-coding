@@ -72,6 +72,21 @@ public class CustomLinkedList<T> {
         return curr.value;
     }
 
+    public T set(int index, T value) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException(String.format("Wrong index: %d", index));
+        }
+
+        int i = 0;
+        Node curr = head;
+        while (i < index) {
+            i++;
+            curr = curr.next;
+        }
+        curr.value = value;
+        return curr.value;
+    }
+
     public T remove() {
         return remove(0);
     }
@@ -135,6 +150,11 @@ public class CustomLinkedList<T> {
             curr = next;
         }
         head = prev;
+    }
+
+    public void clear() {
+        head = null;
+        size = 0;
     }
 
     @Override
