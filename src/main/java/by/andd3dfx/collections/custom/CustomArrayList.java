@@ -51,7 +51,7 @@ public class CustomArrayList<T> {
             System.arraycopy(array, 0, newArray, 0, size);
             array = newArray;
 
-            System.out.println("Inner array resized: %s->%s".formatted(oldLength, newLength));
+            System.out.println("Inner array size increased: %s->%s".formatted(oldLength, newLength));
         }
 
         if (index < size) {
@@ -80,14 +80,14 @@ public class CustomArrayList<T> {
         }
         size--;
 
-        if (array.length > DEFAULT_INITIAL_SIZE && size < array.length / 2) {
+        if (size < array.length / 2 && array.length > DEFAULT_INITIAL_SIZE) {
             int oldLength = array.length;
             int newLength = Math.round(INVERSE_RESIZE_FACTOR * oldLength);
             var newArray = (T[]) new Object[newLength];
             System.arraycopy(array, 0, newArray, 0, size);
             array = newArray;
 
-            System.out.println("Inner array resized: %s->%s".formatted(oldLength, newLength));
+            System.out.println("Inner array size decreased: %s->%s".formatted(oldLength, newLength));
         }
 
         return result;
@@ -95,7 +95,7 @@ public class CustomArrayList<T> {
 
     public boolean remove(T value) {
         var i = 0;
-        while (i < array.length) {
+        while (i < size) {
             T currValue = array[i];
             if ((value == null && currValue == null) || value.equals(currValue)) {
                 remove(i);
