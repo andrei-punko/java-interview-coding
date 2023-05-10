@@ -3,6 +3,7 @@ package by.andd3dfx.collections.custom;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
@@ -79,8 +80,19 @@ public class CustomLinkedListTest {
         linkedList.add(7);
         linkedList.add(12);
 
-        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.add(-1, 34)); ;
-        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.add(4, 34)); ;
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.add(-1, 34));
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.add(4, 34));
+    }
+
+    @Test
+    public void setByIndexWhenOutOfRange() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        linkedList.add(3);
+        linkedList.add(7);
+        linkedList.add(12);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.set(-1, 34));
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.set(4, 34));
     }
 
     @Test
@@ -90,9 +102,9 @@ public class CustomLinkedListTest {
         linkedList.add(7);
         linkedList.add(12);
 
-        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(-1)); ;
-        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(3)); ;
-        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(5)); ;
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(3));
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(5));
     }
 
     @Test
@@ -173,9 +185,9 @@ public class CustomLinkedListTest {
         linkedList.add(7);
         linkedList.add(12);
 
-        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.remove(-1)); ;
-        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.remove(3)); ;
-        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.remove(5)); ;
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.remove(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.remove(3));
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.remove(5));
     }
 
     @Test
@@ -185,25 +197,37 @@ public class CustomLinkedListTest {
         linkedList.add("Tikhon");
         linkedList.add("Ilya");
         linkedList.add("Elena");
+        linkedList.add("Ilya");
         linkedList.add("Yulia");
 
         var removeResult = linkedList.remove("Ilya");
 
         assertTrue(removeResult);
-        assertThat(linkedList.size(), is(4));
+        assertThat(linkedList.size(), is(5));
         assertThat(linkedList.get(0), is("Andrei"));
         assertThat(linkedList.get(1), is("Tikhon"));
         assertThat(linkedList.get(2), is("Elena"));
-        assertThat(linkedList.get(3), is("Yulia"));
+        assertThat(linkedList.get(3), is("Ilya"));      // Only first 'Ilya' occurrence should be removed
+        assertThat(linkedList.get(4), is("Yulia"));
+    }
 
-        var removeResult2 = linkedList.remove("John");
+    @Test
+    public void removeByValueWhenNullsPresent() {
+        CustomLinkedList<String> linkedList = new CustomLinkedList<>();
+        linkedList.add("Andrei");
+        linkedList.add(null);
+        linkedList.add("Tikhon");
+        linkedList.add(null);
+        linkedList.add("Elena");
 
-        assertFalse(removeResult2);
+        var removeResult = linkedList.remove(null);
+
+        assertTrue(removeResult);
         assertThat(linkedList.size(), is(4));
         assertThat(linkedList.get(0), is("Andrei"));
         assertThat(linkedList.get(1), is("Tikhon"));
-        assertThat(linkedList.get(2), is("Elena"));
-        assertThat(linkedList.get(3), is("Yulia"));
+        assertThat(linkedList.get(2), is(nullValue()));     // Only first null occurrence should be removed
+        assertThat(linkedList.get(3), is("Elena"));
     }
 
     @Test
@@ -215,9 +239,9 @@ public class CustomLinkedListTest {
         linkedList.add("Elena");
         linkedList.add("Yulia");
 
-        var removed = linkedList.remove("Oksana");
+        var removeResult = linkedList.remove("Oksana");
 
-        assertFalse(removed);
+        assertFalse(removeResult);
         assertThat(linkedList.size(), is(5));
         assertThat(linkedList.get(0), is("Andrei"));
         assertThat(linkedList.get(1), is("Tikhon"));

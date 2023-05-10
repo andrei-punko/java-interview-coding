@@ -1,9 +1,14 @@
 package by.andd3dfx.collections.custom;
 
+import lombok.SneakyThrows;
 import org.junit.Test;
 
+import java.lang.reflect.Field;
+
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
@@ -46,22 +51,25 @@ public class CustomArrayListTest {
     }
 
     @Test
-    public void addNGetWhenArrayResizeExpected() {
+    public void addNGetWhenArrayUpResizeExpected() {
         CustomArrayList<Integer> list = new CustomArrayList<>();
+        assertThat(determineInnerArrayLength(list), is(10));
         for (int i = 0; i < 20; i++) {
             list.add(i * i);
         }
 
         assertThat(list.size(), is(20));
         assertFalse(list.isEmpty());
+        assertThat(determineInnerArrayLength(list), greaterThanOrEqualTo(20));
         for (int i = 0; i < 20; i++) {
             assertThat(list.get(i), is(i * i));
         }
     }
 
     @Test
-    public void addIntoMiddleOfListNGetWhenArrayResizeExpected() {
+    public void addIntoMiddleOfListNGetWhenArrayUpResizeExpected() {
         CustomArrayList<Integer> list = new CustomArrayList<>();
+        assertThat(determineInnerArrayLength(list), is(10));
         for (int i = 0; i < 10; i++) {
             list.add(i * i);
         }
@@ -71,6 +79,7 @@ public class CustomArrayListTest {
 
         assertThat(list.size(), is(20));
         assertFalse(list.isEmpty());
+        assertThat(determineInnerArrayLength(list), greaterThanOrEqualTo(20));
         for (int i = 0; i < 5; i++) {
             assertThat(list.get(i), is(i * i));
         }
@@ -159,6 +168,31 @@ public class CustomArrayListTest {
     }
 
     @Test
+    public void removeByIndexWhenArrayDecResizedExpected() {
+        CustomArrayList<Integer> list = new CustomArrayList<>();
+        assertThat(determineInnerArrayLength(list), is(10));
+        for (int i = 0; i < 20; i++) {
+            list.add(i * i);
+        }
+        assertThat(determineInnerArrayLength(list), greaterThanOrEqualTo(20));
+
+        for (int i = 0; i < 18; i++) {
+            list.remove(1);     // Delete element at the start of inner array multiple times
+        }
+
+        assertThat(list.size(), is(2));
+        assertThat(determineInnerArrayLength(list), is(10));
+    }
+
+    @SneakyThrows
+    private static int determineInnerArrayLength(CustomArrayList<Integer> list) {
+        Field field = list.getClass().getDeclaredField("array");
+        field.setAccessible(true);
+        var length = ((Object[]) field.get(list)).length;
+        return length;
+    }
+
+    @Test
     public void removeByIndexWhenOutOfRange() {
         CustomArrayList<Integer> list = new CustomArrayList<>();
         list.add(3);
@@ -177,25 +211,37 @@ public class CustomArrayListTest {
         list.add("Tikhon");
         list.add("Ilya");
         list.add("Elena");
+        list.add("Ilya");
         list.add("Yulia");
 
         var removeResult = list.remove("Ilya");
 
         assertTrue(removeResult);
-        assertThat(list.size(), is(4));
+        assertThat(list.size(), is(5));
         assertThat(list.get(0), is("Andrei"));
         assertThat(list.get(1), is("Tikhon"));
         assertThat(list.get(2), is("Elena"));
-        assertThat(list.get(3), is("Yulia"));
+        assertThat(list.get(3), is("Ilya"));
+        assertThat(list.get(4), is("Yulia"));
+    }
 
-        var removeResult2 = list.remove("John");
+    @Test
+    public void removeByValueWhenNullsPresent() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add(null);
+        list.add("Tikhon");
+        list.add(null);
+        list.add("Elena");
 
-        assertFalse(removeResult2);
+        var removeResult = list.remove(null);
+
+        assertTrue(removeResult);
         assertThat(list.size(), is(4));
         assertThat(list.get(0), is("Andrei"));
         assertThat(list.get(1), is("Tikhon"));
-        assertThat(list.get(2), is("Elena"));
-        assertThat(list.get(3), is("Yulia"));
+        assertThat(list.get(2), is(nullValue()));
+        assertThat(list.get(3), is("Elena"));
     }
 
     @Test
@@ -207,9 +253,9 @@ public class CustomArrayListTest {
         list.add("Elena");
         list.add("Yulia");
 
-        var removed = list.remove("Oksana");
+        var removeResult = list.remove("Oksana");
 
-        assertFalse(removed);
+        assertFalse(removeResult);
         assertThat(list.size(), is(5));
         assertThat(list.get(0), is("Andrei"));
         assertThat(list.get(1), is("Tikhon"));

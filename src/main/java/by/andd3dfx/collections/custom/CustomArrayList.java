@@ -75,9 +75,7 @@ public class CustomArrayList<T> {
         }
 
         var result = array[index];
-        if (index < size) {
-            System.arraycopy(array, index + 1, array, index, size - index);
-        }
+        System.arraycopy(array, index + 1, array, index, size - index);
         size--;
 
         if (size < array.length / 2 && array.length > DEFAULT_INITIAL_SIZE) {
@@ -97,13 +95,20 @@ public class CustomArrayList<T> {
         var i = 0;
         while (i < size) {
             T currValue = array[i];
-            if ((value == null && currValue == null) || value.equals(currValue)) {
+            if (checkEquality(value, currValue)) {
                 remove(i);
                 return true;
             }
             i++;
         }
         return false;
+    }
+
+    private boolean checkEquality(T value1, T value2) {
+        if (value1 == null) {
+            return value2 == null;
+        }
+        return value1.equals(value2);
     }
 
     public void clear() {

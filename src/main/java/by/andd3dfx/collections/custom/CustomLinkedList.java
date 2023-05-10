@@ -121,7 +121,7 @@ public class CustomLinkedList<T> {
         var i = 0;
         var curr = head;
         while (curr != null) {
-            if ((value == null && curr.value == null) || value.equals(curr.value)) {
+            if (checkEquality(value, curr.value)) {
                 remove(i);
                 return true;
             }
@@ -129,6 +129,13 @@ public class CustomLinkedList<T> {
             curr = curr.next;
         }
         return false;
+    }
+
+    private boolean checkEquality(T value1, T value2) {
+        if (value1 == null) {
+            return value2 == null;
+        }
+        return value1.equals(value2);
     }
 
     public void push(T item) {
