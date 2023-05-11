@@ -122,6 +122,7 @@ public class CustomHashMapTest {
 
         assertThat(map.remove(7), is(45));
 
+        assertThat(map.size(), is(2));
         assertThat(map.get(2), is(5));
         assertThat(map.get(7), nullValue());
         assertThat(map.get(9), is(78));
@@ -129,6 +130,7 @@ public class CustomHashMapTest {
         assertThat(map.remove(9), is(78));
         assertThat(map.remove(9), is(nullValue()));
 
+        assertThat(map.size(), is(1));
         assertThat(map.get(2), is(5));
         assertThat(map.get(7), nullValue());
         assertThat(map.get(9), nullValue());

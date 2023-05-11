@@ -83,6 +83,7 @@ public class CustomHashMap<K, V> {
         if (key == null) {
             var result = valueForNullKey;
             valueForNullKey = null;
+            size--;
             return result;
         }
 
@@ -91,6 +92,7 @@ public class CustomHashMap<K, V> {
             if (checkEquality(key, curr.getKey())) {
                 final V result = curr.getValue();
                 buckets[bucketNumber].remove(curr);
+                size--;
                 return result;
             }
         }

@@ -11,9 +11,4 @@ public class CustomEntry<K, V> {
 
     private final K key;
     private V value;
-
-    public V setValue(V value) {
-        this.value = value;
-        return value;
-    }
 }
