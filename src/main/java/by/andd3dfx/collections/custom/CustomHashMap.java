@@ -1,85 +1,43 @@
 package by.andd3dfx.collections.custom;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+public class CustomHashMap<K, V> {
 
-/**
- * Draft version of Custom map
- */
-public class CustomHashMap<K, V> implements Map<K, V> {
+    private static final int BUCKETS_COUNT = 16;
 
-    public static final int BUCKETS_COUNT = 17;
-    private Bucket<K, V>[] buckets;
+    private CustomLinkedList<CustomEntry<K, V>>[] buckets;
     private V valueForNullKey;
-    private int size;
-    private Set<Entry<K, V>> entrySet;
+    private int size = 0;
 
     public CustomHashMap() {
-        buckets = new Bucket[BUCKETS_COUNT];
-        for (var i = 0; i < BUCKETS_COUNT; i++) {
-            buckets[i] = new Bucket<>();
-        }
+        initialize();
     }
 
-    @Override
     public int size() {
         return size;
     }
 
-    @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
-    @Override
-    public boolean containsKey(Object key) {
-        return get(key) != null;
-    }
-
-    @Override
-    public boolean containsValue(Object value) {
-        for (var bucket : buckets) {
-            var current = bucket.getHead();
-            while (current != null) {
-                if (isEquals(value, current.getValue())) {
-                    return true;
-                }
-                current = current.getNext();
-            }
-        }
-        return false;
-    }
-
-    boolean isEquals(Object o1, Object o2) {
-        if (o1 == null && o2 == null) {
-            return true;
-        }
-        if (o1 == null || o2 == null) {
-            return false;
-        }
-        return o1.equals(o2);
-    }
-
-    @Override
     public V get(Object key) {
         if (key == null) {
             return valueForNullKey;
         }
 
         int bucketNumber = key.hashCode() % BUCKETS_COUNT;
-        CustomEntry<K, V> entry = buckets[bucketNumber].getHead();
-        while (entry != null) {
-            if (isEquals(key, entry.getKey())) {
-                return entry.getValue();
+        if (buckets[bucketNumber].isEmpty()) {
+            return null;
+        }
+
+        for (var curr : buckets[bucketNumber]) {
+            if (checkEquality(key, curr.getKey())) {
+                return curr.getValue();
             }
-            entry = entry.getNext();
         }
         return null;
     }
 
-    @Override
     public V put(K key, V value) {
         if (key == null) {
             valueForNullKey = value;
@@ -87,103 +45,75 @@ public class CustomHashMap<K, V> implements Map<K, V> {
         }
 
         int bucketNumber = key.hashCode() % BUCKETS_COUNT;
-        CustomEntry entry = new CustomEntry(key, value);
 
-        CustomEntry<K, V> head = buckets[bucketNumber].getHead();
-        if (head == null) {
-            buckets[bucketNumber].setHead(entry);
+        if (buckets[bucketNumber].isEmpty()) {
+            buckets[bucketNumber].add(new CustomEntry(key, value));
             size++;
-        } else {
-            CustomEntry<K, V> current = head;
+            return value;
+        }
 
-            while (current.getNext() != null || !key.equals(current.getKey())) {
-                current = current.getNext();
-            }
-
-            if (key.equals(current.getKey())) {
-                current.setValue(value);
-            } else {
-                entry.setPrev(current);
-                current.setNext(entry);
-                size++;
+        for (var curr : buckets[bucketNumber]) {
+            if (checkEquality(key, curr.getKey())) {
+                curr.setValue(value);
+                return value;
             }
         }
+
+        buckets[bucketNumber].add(new CustomEntry(key, value));
+        size++;
         return value;
     }
 
-    @Override
+    public boolean containsKey(Object key) {
+        return get(key) != null;
+    }
+
+    public boolean containsValue(Object value) {
+        for (var bucket : buckets) {
+            for (var curr : bucket) {
+                if (checkEquality(value, curr.getValue())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public V remove(Object key) {
+        if (key == null) {
+            var result = valueForNullKey;
+            valueForNullKey = null;
+            return result;
+        }
+
         int bucketNumber = key.hashCode() % BUCKETS_COUNT;
-        CustomEntry<K, V> entry = buckets[bucketNumber].getHead();
-        while (entry != null) {
-            if (key.equals(entry.getKey())) {
-                V result = entry.getValue();
-                if (entry.getPrev() != null) {
-                    entry.getPrev().setNext(entry.getNext());
-                }
-                if (entry.getNext() != null) {
-                    entry.getNext().setPrev(entry.getPrev());
-                }
+        for (var curr : buckets[bucketNumber]) {
+            if (checkEquality(key, curr.getKey())) {
+                final V result = curr.getValue();
+                buckets[bucketNumber].remove(curr);
                 return result;
             }
-            entry = entry.getNext();
         }
         return null;
     }
 
-    @Override
-    public void putAll(Map<? extends K, ? extends V> m) {
-        m.entrySet().stream().forEach(entry -> {
-            put(entry.getKey(), entry.getValue());
-        });
+    public void clear() {
+        initialize();
     }
 
-    @Override
-    public void clear() {
-        buckets = new Bucket[BUCKETS_COUNT];
+    private boolean checkEquality(Object o1, Object o2) {
+        if (o1 == null) {
+            return o2 == null;
+        }
+        return o1.equals(o2);
+    }
+
+    private void initialize() {
+        buckets = new CustomLinkedList[BUCKETS_COUNT];
         for (var i = 0; i < BUCKETS_COUNT; i++) {
-            buckets[i] = new Bucket<>();
+            buckets[i] = new CustomLinkedList<>();
         }
         valueForNullKey = null;
         size = 0;
-    }
-
-    @Override
-    public Set<K> keySet() {
-        var keys = new HashSet<K>();
-        for (var bucket : buckets) {
-            var current = bucket.getHead();
-            while (current != null) {
-                keys.add(current.getKey());
-                current = current.getNext();
-            }
-        }
-        return keys;
-    }
-
-    @Override
-    public Collection<V> values() {
-        var values = new HashSet<V>();
-        for (var bucket : buckets) {
-            var current = bucket.getHead();
-            while (current != null) {
-                values.add(current.getValue());
-                current = current.getNext();
-            }
-        }
-        return values;
-    }
-
-    @Override
-    public Set<Entry<K, V>> entrySet() {
-        var entries = new HashSet<Entry<K, V>>();
-        for (var bucket : buckets) {
-            var current = bucket.getHead();
-            while (current != null) {
-                entries.add(current);
-                current = current.getNext();
-            }
-        }
-        return entries;
     }
 }
