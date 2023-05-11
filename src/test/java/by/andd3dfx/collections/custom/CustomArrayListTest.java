@@ -4,6 +4,8 @@ import lombok.SneakyThrows;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -32,7 +34,7 @@ public class CustomArrayListTest {
     }
 
     @Test
-    public void addByIndex() {
+    public void addByIndexNGet() {
         CustomArrayList<Integer> list = new CustomArrayList<>();
         list.add(3);
         list.add(7);
@@ -185,7 +187,7 @@ public class CustomArrayListTest {
     }
 
     @SneakyThrows
-    private static int determineInnerArrayLength(CustomArrayList<Integer> list) {
+    private static int determineInnerArrayLength(CustomArrayList list) {
         Field field = list.getClass().getDeclaredField("array");
         field.setAccessible(true);
         var length = ((Object[]) field.get(list)).length;
@@ -223,6 +225,22 @@ public class CustomArrayListTest {
         assertThat(list.get(2), is("Elena"));
         assertThat(list.get(3), is("Ilya"));
         assertThat(list.get(4), is("Yulia"));
+    }
+
+    @Test
+    public void removeByValueWhenArrayDecResizedExpected() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            list.add(String.valueOf(i * i));
+        }
+        assertThat(determineInnerArrayLength(list), greaterThanOrEqualTo(20));
+
+        for (int i = 5; i < 20; i++) {
+            assertTrue(list.remove(String.valueOf(i * i)));
+        }
+
+        assertThat(list.size(), is(5));
+        assertThat(determineInnerArrayLength(list), is(10));
     }
 
     @Test
@@ -278,6 +296,31 @@ public class CustomArrayListTest {
 
         assertTrue(list.isEmpty());
         assertThat(list.size(), is(0));
+    }
+
+    @Test
+    public void testForEach() {
+        CustomArrayList<Integer> list = new CustomArrayList<>();
+        list.add(3);
+        list.add(7);
+        list.add(12);
+
+        var result = new ArrayList<>();
+        for (var item : list) {
+            result.add(item);
+        }
+        assertThat(result, is(List.of(3, 7, 12)));
+    }
+
+    @Test
+    public void testForEachForEmptyList() {
+        CustomArrayList<Integer> list = new CustomArrayList<>();
+
+        var result = new ArrayList<>();
+        for (var item : list) {
+            result.add(item);
+        }
+        assertThat(result, is(List.of()));
     }
 
     @Test

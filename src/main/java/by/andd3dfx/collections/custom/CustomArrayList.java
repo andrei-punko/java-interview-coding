@@ -1,11 +1,14 @@
 package by.andd3dfx.collections.custom;
 
-import java.util.Arrays;
+import lombok.RequiredArgsConstructor;
 
-public class CustomArrayList<T> {
+import java.util.Arrays;
+import java.util.Iterator;
+
+public class CustomArrayList<T> implements Iterable<T> {
 
     private static final int DEFAULT_INITIAL_SIZE = 10;
-    private static final float RESIZE_FACTOR = 1.5f;
+    private static final float RESIZE_FACTOR = 1.75f;
     private static final float INVERSE_RESIZE_FACTOR = 1 / RESIZE_FACTOR;
 
     private T[] array;
@@ -119,5 +122,28 @@ public class CustomArrayList<T> {
     @Override
     public String toString() {
         return Arrays.toString(Arrays.copyOf(array, size));
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new CustomIterator(array, size);
+    }
+
+    @RequiredArgsConstructor
+    public class CustomIterator<E> implements Iterator<E> {
+        private final E[] array;
+        private final int size;
+
+        private int curr = 0;
+
+        @Override
+        public boolean hasNext() {
+            return curr < size;
+        }
+
+        @Override
+        public E next() {
+            return array[curr++];
+        }
     }
 }
