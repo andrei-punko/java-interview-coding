@@ -2,12 +2,14 @@ package by.andd3dfx.collections.custom;
 
 import lombok.AllArgsConstructor;
 
-public class CustomLinkedList<T> {
+import java.util.Iterator;
+
+public class CustomLinkedList<T> implements Iterable<T> {
 
     @AllArgsConstructor
-    public class Node {
+    public class Node<T> {
         private T value;
-        private Node next;
+        private Node<T> next;
 
         @Override
         public String toString() {
@@ -18,7 +20,7 @@ public class CustomLinkedList<T> {
         }
     }
 
-    private Node head;
+    private Node<T> head;
     private int size = 0;
 
     public void add(T value) {
@@ -64,7 +66,7 @@ public class CustomLinkedList<T> {
         }
 
         int i = 0;
-        Node curr = head;
+        var curr = head;
         while (i < index) {
             i++;
             curr = curr.next;
@@ -78,7 +80,7 @@ public class CustomLinkedList<T> {
         }
 
         int i = 0;
-        Node curr = head;
+        var curr = head;
         while (i < index) {
             i++;
             curr = curr.next;
@@ -104,8 +106,8 @@ public class CustomLinkedList<T> {
         }
 
         int i = 1;
-        Node prev = head;
-        Node curr = head.next;
+        var prev = head;
+        var curr = head.next;
         while (i < index) {
             i++;
             prev = curr;
@@ -162,6 +164,28 @@ public class CustomLinkedList<T> {
     public void clear() {
         head = null;
         size = 0;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new CustomIterator(head);
+    }
+
+    @AllArgsConstructor
+    public class CustomIterator<E> implements Iterator<E> {
+        private Node<E> curr;
+
+        @Override
+        public boolean hasNext() {
+            return curr != null;
+        }
+
+        @Override
+        public E next() {
+            var result = curr.value;
+            curr = curr.next;
+            return result;
+        }
     }
 
     @Override

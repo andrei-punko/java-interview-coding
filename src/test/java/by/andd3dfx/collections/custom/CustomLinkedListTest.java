@@ -2,6 +2,9 @@ package by.andd3dfx.collections.custom;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -300,6 +303,31 @@ public class CustomLinkedListTest {
 
         assertTrue(linkedList.isEmpty());
         assertThat(linkedList.size(), is(0));
+    }
+
+    @Test
+    public void testForEach() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        linkedList.add(3);
+        linkedList.add(7);
+        linkedList.add(12);
+
+        var result = new ArrayList<>();
+        for (var item : linkedList) {
+            result.add(item);
+        }
+        assertThat(result, is(List.of(3, 7, 12)));
+    }
+
+    @Test
+    public void testForEachForEmptyList() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+
+        var result = new ArrayList<>();
+        for (var item : linkedList) {
+            result.add(item);
+        }
+        assertThat(result, is(List.of()));
     }
 
     @Test
