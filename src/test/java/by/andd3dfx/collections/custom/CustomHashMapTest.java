@@ -176,4 +176,13 @@ public class CustomHashMapTest {
         assertFalse(map.containsValue(45));
         assertFalse(map.containsValue(90));
     }
+
+    @Test
+    public void testToString() {
+        var map = new CustomHashMap();
+        map.put(2, 5);
+        map.put(7, 45);
+
+        assertThat(map.toString(), is("{2->5, 7->45}"));
+    }
 }

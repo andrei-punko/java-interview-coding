@@ -103,6 +103,17 @@ public class CustomHashMap<K, V> {
         initialize();
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (var bucket : buckets) {
+            for (var item : bucket) {
+                sb.append("%s->%s, ".formatted(item.getKey(), item.getValue()));
+            }
+        }
+        return "{" + sb.substring(0, sb.length() - 2) + "}";
+    }
+
     private boolean checkEquality(Object o1, Object o2) {
         if (o1 == null) {
             return o2 == null;
