@@ -76,7 +76,7 @@ public class CustomHashMapTest {
 
         assertThat(map.get(key1), is(5));
         assertThat(map.get(key2), is(45));
-        assertThat(map.get(156), is(nullValue()));
+        assertThat(map.get(new MyObject(156)), is(nullValue()));
     }
 
     @AllArgsConstructor

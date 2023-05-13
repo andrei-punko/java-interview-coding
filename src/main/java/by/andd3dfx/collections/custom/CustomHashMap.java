@@ -20,7 +20,7 @@ public class CustomHashMap<K, V> {
         return size == 0;
     }
 
-    public V get(Object key) {
+    public V get(K key) {
         if (key == null) {
             return valueForNullKey;
         }
@@ -45,7 +45,6 @@ public class CustomHashMap<K, V> {
         }
 
         int bucketNumber = key.hashCode() % BUCKETS_COUNT;
-
         if (buckets[bucketNumber].isEmpty()) {
             buckets[bucketNumber].add(new CustomEntry(key, value));
             size++;
@@ -64,11 +63,11 @@ public class CustomHashMap<K, V> {
         return value;
     }
 
-    public boolean containsKey(Object key) {
+    public boolean containsKey(K key) {
         return get(key) != null;
     }
 
-    public boolean containsValue(Object value) {
+    public boolean containsValue(V value) {
         for (var bucket : buckets) {
             for (var curr : bucket) {
                 if (checkEquality(value, curr.getValue())) {
@@ -79,7 +78,7 @@ public class CustomHashMap<K, V> {
         return false;
     }
 
-    public V remove(Object key) {
+    public V remove(K key) {
         if (key == null) {
             var result = valueForNullKey;
             valueForNullKey = null;
