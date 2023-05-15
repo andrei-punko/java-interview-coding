@@ -95,6 +95,21 @@ public class CustomHashSetTest {
     }
 
     @Test
+    public void removeAll() {
+        CustomHashSet<String> set = new CustomHashSet<>();
+        set.add("One");
+        set.add("Two");
+        set.add("Three");
+        assertThat(set.size(), is(3));
+
+        assertFalse(set.removeAll(List.of("Four", "Five")));
+        assertThat(set.size(), is(3));
+
+        assertTrue(set.removeAll(List.of("One", "Three")));
+        assertThat(set.size(), is(1));
+    }
+
+    @Test
     public void clear() {
         CustomHashSet<String> set = new CustomHashSet<>();
         assertThat(set.size(), is(0));
