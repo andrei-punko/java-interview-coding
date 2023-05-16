@@ -3,6 +3,8 @@ package by.andd3dfx.collections.custom;
 import lombok.AllArgsConstructor;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -175,6 +177,46 @@ public class CustomHashMapTest {
         assertFalse(map.containsValue(5));
         assertFalse(map.containsValue(45));
         assertFalse(map.containsValue(90));
+    }
+
+    @Test
+    public void keySetForEmptyMap() {
+        var map = new CustomHashMap();
+
+        var result = map.keySet();
+
+        assertThat(result.size(), is(0));
+        assertTrue(result.containsAll(List.of()));
+    }
+
+    @Test
+    public void keySet() {
+        var map = new CustomHashMap();
+        map.put(2, 5);
+        map.put(7, 45);
+        map.put(9, 78);
+
+        var result = map.keySet();
+
+        assertThat(result.size(), is(3));
+        assertTrue(result.containsAll(List.of(2, 7, 9)));
+    }
+
+    @Test
+    public void keyIterator() {
+        var map = new CustomHashMap<Integer, Object>();
+        map.put(2, 5);
+        map.put(7, 45);
+        map.put(9, 78);
+
+        var index = 0;
+        var expectedKeys = List.of(2, 7, 9);
+        var keyIterator = map.keyIterator();
+        while (keyIterator.hasNext()) {
+            var item = keyIterator.next();
+            assertThat(item, is(expectedKeys.get(index)));
+            index++;
+        }
     }
 
     @Test

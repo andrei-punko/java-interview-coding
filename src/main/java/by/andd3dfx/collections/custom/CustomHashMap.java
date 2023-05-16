@@ -1,5 +1,8 @@
 package by.andd3dfx.collections.custom;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 public class CustomHashMap<K, V> {
 
     private static final int BUCKETS_COUNT = 16;
@@ -25,7 +28,7 @@ public class CustomHashMap<K, V> {
             return valueForNullKey;
         }
 
-        int bucketNumber = key.hashCode() % BUCKETS_COUNT;
+        int bucketNumber = determineBucketNumber(key);
         if (buckets[bucketNumber].isEmpty()) {
             return null;
         }
@@ -44,7 +47,7 @@ public class CustomHashMap<K, V> {
             return value;
         }
 
-        int bucketNumber = key.hashCode() % BUCKETS_COUNT;
+        int bucketNumber = determineBucketNumber(key);
         if (buckets[bucketNumber].isEmpty()) {
             buckets[bucketNumber].add(new CustomEntry(key, value));
             size++;
@@ -86,7 +89,7 @@ public class CustomHashMap<K, V> {
             return result;
         }
 
-        int bucketNumber = key.hashCode() % BUCKETS_COUNT;
+        int bucketNumber = determineBucketNumber(key);
         for (var curr : buckets[bucketNumber]) {
             if (checkEquality(key, curr.getKey())) {
                 final V result = curr.getValue();
@@ -100,6 +103,64 @@ public class CustomHashMap<K, V> {
 
     public void clear() {
         initialize();
+    }
+
+    public CustomHashSet<K> keySet() {
+        CustomHashSet<K> result = new CustomHashSet<>();
+        for (var iterator = keyIterator(); iterator.hasNext(); ) {
+            result.add(iterator.next());
+        }
+        return result;
+    }
+
+    Iterator<K> keyIterator() {
+        return new KeyIterator<>(buckets);
+    }
+
+    private int determineBucketNumber(K key) {
+        return Math.abs(key.hashCode() % BUCKETS_COUNT);
+    }
+
+    private class KeyIterator<E> implements Iterator<E> {
+        private final CustomLinkedList<CustomEntry<E, V>>[] buckets;
+        private int currentBucketIndex = 0;
+        private Iterator<CustomEntry<E, V>> currentIterator;
+
+        public KeyIterator(CustomLinkedList<CustomEntry<E, V>>[] buckets) {
+            this.buckets = buckets;
+            currentIterator = buckets[currentBucketIndex].iterator();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return innerHasNext();
+        }
+
+        private boolean innerHasNext() {
+            if (currentIterator.hasNext()) {
+                return true;
+            }
+            if (currentBucketIndex < buckets.length - 1) {
+                currentBucketIndex++;
+                currentIterator = buckets[currentBucketIndex].iterator();
+                return innerHasNext();
+            }
+            return false;
+        }
+
+        @Override
+        public E next() {
+            if (currentIterator.hasNext()) {
+                return currentIterator.next().getKey();
+            }
+            if (currentBucketIndex < buckets.length - 1) {
+                currentBucketIndex++;
+                currentIterator = buckets[currentBucketIndex].iterator();
+                return next();
+            }
+            throw new NoSuchElementException();
+        }
+
     }
 
     @Override

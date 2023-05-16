@@ -3,6 +3,7 @@ package by.andd3dfx.collections.custom;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -123,5 +124,40 @@ public class CustomHashSetTest {
         assertTrue(set.isEmpty());
         assertFalse(set.contains("One"));
         assertFalse(set.contains("Two"));
+    }
+
+    @Test
+    public void forEach() {
+        CustomHashSet<String> set = new CustomHashSet<>();
+        set.add("One");
+        set.add("Two");
+        set.add("Three");
+        assertThat(set.size(), is(3));
+
+        var etalonSet = Set.of("One", "Two", "Three");
+        for (var item : set) {
+            assertTrue(etalonSet.contains(item));
+        }
+    }
+
+    @Test
+    public void forEachForEmpty() {
+        CustomHashSet<String> set = new CustomHashSet<>();
+        assertThat(set.size(), is(0));
+
+        var etalonSet = Set.of();
+        for (var item : set) {
+            assertTrue(etalonSet.contains(item));
+        }
+    }
+
+    @Test
+    public void testToString() {
+        CustomHashSet<String> set = new CustomHashSet<>();
+        set.add("Andrei");
+        set.add("Tikhon");
+        set.add("Yulia");
+
+        assertThat(set.toString(), is("[Yulia, Andrei, Tikhon]"));
     }
 }

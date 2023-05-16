@@ -1,8 +1,9 @@
 package by.andd3dfx.collections.custom;
 
 import java.util.Collection;
+import java.util.Iterator;
 
-public class CustomHashSet<T> {
+public class CustomHashSet<T> implements Iterable<T> {
 
     private CustomHashMap<T, Object> map = new CustomHashMap<>();
     private static final Object DUMMY_VALUE = new Object();
@@ -58,5 +59,19 @@ public class CustomHashSet<T> {
 
     public void clear() {
         map.clear();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return map.keyIterator();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (var item : map.keySet()) {
+            sb.append(item + ", ");
+        }
+        return "[" + sb.substring(0, sb.length() - 2).toString() + "]";
     }
 }
