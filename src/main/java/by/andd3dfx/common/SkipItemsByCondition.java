@@ -19,7 +19,7 @@ public class SkipItemsByCondition {
         boolean check(K key);
     }
 
-    public <K, V> Map<K, V> filter(Map<K, V> map, Condition<K> condition) {
+    public <K, V> Map<K, V> filterUsingIterator(Map<K, V> map, Condition<K> condition) {
         Iterator<K> iterator = map.keySet().iterator();
         while (iterator.hasNext()) {
             K key = iterator.next();
@@ -27,6 +27,11 @@ public class SkipItemsByCondition {
                 iterator.remove();
             }
         }
+        return map;
+    }
+
+    public <K, V> Map<K, V> filterUsingRemoveIf(Map<K, V> map, Condition<K> condition) {
+        map.keySet().removeIf(condition::check);
         return map;
     }
 }

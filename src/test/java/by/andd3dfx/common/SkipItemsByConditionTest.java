@@ -19,20 +19,41 @@ public class SkipItemsByConditionTest {
     }
 
     @Test
-    public void filter1() {
+    public void filterUsingIterator1() {
         Map<Integer, String> map = buildMap();
 
-        Map<Integer, String> result = skipItemsByCondition.filter(map, key -> key % 2 == 1);
+        Map<Integer, String> result = skipItemsByCondition.filterUsingIterator(map, key -> key % 2 == 1);
 
         assertThat(result.size(), is(1));
         assertThat(result.get(2), is("table"));
     }
 
     @Test
-    public void filter2() {
+    public void filterUsingIterator2() {
         Map<Integer, String> map = buildMap();
 
-        Map<Integer, String> result = skipItemsByCondition.filter(map, key -> key % 2 == 0);
+        Map<Integer, String> result = skipItemsByCondition.filterUsingIterator(map, key -> key % 2 == 0);
+
+        assertThat(result.size(), is(2));
+        assertThat(result.get(1), is("penguin"));
+        assertThat(result.get(3), is("bubble"));
+    }
+
+    @Test
+    public void filterUsingRemoveIf1() {
+        Map<Integer, String> map = buildMap();
+
+        Map<Integer, String> result = skipItemsByCondition.filterUsingRemoveIf(map, key -> key % 2 == 1);
+
+        assertThat(result.size(), is(1));
+        assertThat(result.get(2), is("table"));
+    }
+
+    @Test
+    public void filterUsingRemoveIf2() {
+        Map<Integer, String> map = buildMap();
+
+        Map<Integer, String> result = skipItemsByCondition.filterUsingRemoveIf(map, key -> key % 2 == 0);
 
         assertThat(result.size(), is(2));
         assertThat(result.get(1), is("penguin"));
