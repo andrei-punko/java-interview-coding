@@ -58,8 +58,9 @@ public class CustomHashMapTest {
     @Test
     public void getAndPut() {
         var map = new CustomHashMap();
-        assertThat(map.put(2, 5), is(5));
-        assertThat(map.put(7, 45), is(45));
+        assertThat(map.put(2, 5), is(nullValue()));
+        assertThat(map.put(7, 44), is(nullValue()));
+        assertThat(map.put(7, 45), is(44));
 
         assertThat(map.get(2), is(5));
         assertThat(map.get(7), is(45));
@@ -71,10 +72,10 @@ public class CustomHashMapTest {
         CustomHashMap<MyObject, Integer> map = new CustomHashMap<>();
 
         MyObject key1 = new MyObject(12);
-        assertThat(map.put(key1, 5), is(5));
+        assertThat(map.put(key1, 5), is(nullValue()));
 
         MyObject key2 = new MyObject(13);
-        assertThat(map.put(key2, 45), is(45));
+        assertThat(map.put(key2, 45), is(nullValue()));
 
         assertThat(map.get(key1), is(5));
         assertThat(map.get(key2), is(45));
@@ -102,9 +103,10 @@ public class CustomHashMapTest {
     @Test
     public void getAndPutForNull() {
         var map = new CustomHashMap();
-        assertThat(map.put(2, 5), is(5));
-        assertThat(map.put(null, 45), is(45));
-        assertThat(map.put(7, 89), is(89));
+        assertThat(map.put(2, 67), is(nullValue()));
+        assertThat(map.put(2, 5), is(67));
+        assertThat(map.put(null, 45), is(nullValue()));
+        assertThat(map.put(7, 89), is(nullValue()));
 
         assertThat(map.get(2), is(5));
         assertThat(map.get(null), is(45));

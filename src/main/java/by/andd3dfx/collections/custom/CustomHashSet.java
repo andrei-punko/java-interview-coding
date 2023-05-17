@@ -17,7 +17,7 @@ public class CustomHashSet<T> implements Iterable<T> {
     }
 
     public boolean add(T item) {
-        return map.put(item, DUMMY_VALUE) != null;
+        return map.put(item, DUMMY_VALUE) == null;
     }
 
     public boolean addAll(Collection<T> items) {

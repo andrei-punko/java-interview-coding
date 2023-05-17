@@ -49,8 +49,9 @@ public class CustomHashSetTest {
         assertFalse(set.contains("One"));
         assertFalse(set.contains("Two"));
 
-        set.add("One");
-        set.add("Two");
+        assertTrue(set.add("One"));
+        assertTrue(set.add("Two"));
+        assertFalse(set.add("Two"));
 
         assertTrue(set.contains("One"));
         assertTrue(set.contains("Two"));

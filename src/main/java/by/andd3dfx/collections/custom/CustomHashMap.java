@@ -43,27 +43,29 @@ public class CustomHashMap<K, V> {
 
     public V put(K key, V value) {
         if (key == null) {
+            V oldValue = valueForNullKey;
             valueForNullKey = value;
-            return value;
+            return oldValue;
         }
 
         int bucketNumber = determineBucketNumber(key);
         if (buckets[bucketNumber].isEmpty()) {
             buckets[bucketNumber].add(new CustomEntry(key, value));
             size++;
-            return value;
+            return null;
         }
 
         for (var curr : buckets[bucketNumber]) {
             if (checkEquality(key, curr.getKey())) {
+                V oldValue = curr.getValue();
                 curr.setValue(value);
-                return value;
+                return oldValue;
             }
         }
 
         buckets[bucketNumber].add(new CustomEntry(key, value));
         size++;
-        return value;
+        return null;
     }
 
     public boolean containsKey(K key) {
