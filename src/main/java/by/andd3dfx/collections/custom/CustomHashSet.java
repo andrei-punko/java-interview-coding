@@ -72,6 +72,6 @@ public class CustomHashSet<T> implements Iterable<T> {
         for (var item : map.keySet()) {
             sb.append(item + ", ");
         }
-        return "[" + sb.substring(0, sb.length() - 2).toString() + "]";
+        return "[" + sb.substring(0, sb.length() - 2) + "]";
     }
 }

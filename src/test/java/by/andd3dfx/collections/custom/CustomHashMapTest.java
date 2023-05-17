@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 public class CustomHashMapTest {
@@ -213,12 +215,14 @@ public class CustomHashMapTest {
 
         var index = 0;
         var expectedKeys = List.of(2, 7, 9);
+
         var keyIterator = map.keyIterator();
         while (keyIterator.hasNext()) {
             var item = keyIterator.next();
             assertThat(item, is(expectedKeys.get(index)));
             index++;
         }
+        assertThrows(NoSuchElementException.class, () -> keyIterator.next());
     }
 
     @Test

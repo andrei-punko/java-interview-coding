@@ -125,27 +125,24 @@ public class CustomHashMap<K, V> {
 
     private class KeyIterator<E> implements Iterator<E> {
         private final CustomLinkedList<CustomEntry<E, V>>[] buckets;
-        private int currentBucketIndex = 0;
+        private int currentBucketIndex;
         private Iterator<CustomEntry<E, V>> currentIterator;
 
         public KeyIterator(CustomLinkedList<CustomEntry<E, V>>[] buckets) {
             this.buckets = buckets;
+            currentBucketIndex = 0;
             currentIterator = buckets[currentBucketIndex].iterator();
         }
 
         @Override
         public boolean hasNext() {
-            return innerHasNext();
-        }
-
-        private boolean innerHasNext() {
             if (currentIterator.hasNext()) {
                 return true;
             }
             if (currentBucketIndex < buckets.length - 1) {
                 currentBucketIndex++;
                 currentIterator = buckets[currentBucketIndex].iterator();
-                return innerHasNext();
+                return hasNext();
             }
             return false;
         }
@@ -162,7 +159,6 @@ public class CustomHashMap<K, V> {
             }
             throw new NoSuchElementException();
         }
-
     }
 
     @Override
