@@ -10,11 +10,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class CustomHashSetTest {
+public class CustomLinkedHashSetTest {
 
     @Test
     public void size() {
-        CustomHashSet<String> set = new CustomHashSet<>();
+        CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
         assertThat(set.size(), is(0));
 
         set.add("One");
@@ -35,7 +35,7 @@ public class CustomHashSetTest {
 
     @Test
     public void isEmpty() {
-        CustomHashSet<String> set = new CustomHashSet<>();
+        CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
         assertTrue(set.isEmpty());
         set.add("One");
         assertFalse(set.isEmpty());
@@ -45,7 +45,7 @@ public class CustomHashSetTest {
 
     @Test
     public void addNContains() {
-        CustomHashSet<String> set = new CustomHashSet<>();
+        CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
         assertFalse(set.contains("One"));
         assertFalse(set.contains("Two"));
 
@@ -60,7 +60,7 @@ public class CustomHashSetTest {
 
     @Test
     public void addAllNContainsAll() {
-        CustomHashSet<String> set = new CustomHashSet<>();
+        CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
         assertTrue(set.containsAll(List.of()));
 
         set.addAll(List.of("One", "Two"));
@@ -74,7 +74,7 @@ public class CustomHashSetTest {
 
     @Test
     public void remove() {
-        CustomHashSet<String> set = new CustomHashSet<>();
+        CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
         set.add("One");
         set.add("Two");
         set.add("Three");
@@ -98,7 +98,7 @@ public class CustomHashSetTest {
 
     @Test
     public void removeAll() {
-        CustomHashSet<String> set = new CustomHashSet<>();
+        CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
         set.add("One");
         set.add("Two");
         set.add("Three");
@@ -113,7 +113,7 @@ public class CustomHashSetTest {
 
     @Test
     public void clear() {
-        CustomHashSet<String> set = new CustomHashSet<>();
+        CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
         assertThat(set.size(), is(0));
         set.add("One");
         set.add("Two");
@@ -129,7 +129,7 @@ public class CustomHashSetTest {
 
     @Test
     public void forEach() {
-        CustomHashSet<String> set = new CustomHashSet<>();
+        CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
         set.add("One");
         set.add("Two");
         set.add("Three");
@@ -140,14 +140,16 @@ public class CustomHashSetTest {
         var etalonList = List.of("One", "Three", "Four", "Five");
         assertThat(set.size(), is(etalonList.size()));
 
+        var i = 0;
         for (var item : set) {
-            assertTrue(etalonList.contains(item));
+            assertThat(item, is(etalonList.get(i)));
+            i++;
         }
     }
 
     @Test
     public void forEachForEmpty() {
-        CustomHashSet<String> set = new CustomHashSet<>();
+        CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
         assertThat(set.size(), is(0));
 
         var etalonSet = Set.of();
@@ -158,12 +160,12 @@ public class CustomHashSetTest {
 
     @Test
     public void testToString() {
-        CustomHashSet<String> set = new CustomHashSet<>();
+        CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
         set.add("Andrei");
         set.add("Tikhon");
         set.add("Yulia");
         set.add("Elena");
 
-        assertThat(set.toString(), is("[Elena, Yulia, Andrei, Tikhon]"));
+        assertThat(set.toString(), is("[Andrei, Tikhon, Yulia, Elena]"));
     }
 }

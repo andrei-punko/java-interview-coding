@@ -69,7 +69,9 @@ public class CustomHashSet<T> implements Iterable<T> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (var item : map.keySet()) {
+        var iterator = iterator();
+        while (iterator.hasNext()) {
+            final T item = iterator.next();
             sb.append(item + ", ");
         }
         return "[" + sb.substring(0, sb.length() - 2) + "]";
