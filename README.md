@@ -1,9 +1,16 @@
 
-# Playground with task solutions for preparation to Java interview
+# Java interview tasks solutions
 
 [![Java CI with Maven](https://github.com/andrei-punko/java-interview-coding/actions/workflows/maven.yml/badge.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/maven.yml)
 [![Coverage](.github/badges/jacoco.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/maven.yml)
 [![Branches](.github/badges/branches.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/maven.yml)
+
+<a href="https://andrei-punko.github.io/java-interview-faq-n-answers"><img src="images/button_java-interview-faq.png" alt="Java interview FAQ" height="40"/></a>
+<a href="https://boosty.to/andd3dfx/donate"><img src="images/button_donate.png" alt="Donate" height="40"/></a>
+
+## Prerequisites
+- Maven 3
+- JDK 17
 
 ## Packages list
 - [annotations](./src/main/java/by/andd3dfx/annotation)
@@ -29,7 +36,3 @@
 - [common](./src/main/java/by/andd3dfx/common) (some uncategorized stuff)
 
 Additionally, don't miss [tests](./src/test/java/by/andd3dfx), they contain enough code which describe implementation somehow.
-
-## Prerequisites
-- Maven 3
-- JDK 17
