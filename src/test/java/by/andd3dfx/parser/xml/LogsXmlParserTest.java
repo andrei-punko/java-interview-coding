@@ -1,5 +1,6 @@
 package by.andd3dfx.parser.xml;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Collection;
@@ -10,6 +11,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class LogsXmlParserTest {
+
+  private LogsXmlParser parser;
+
+  @Before
+  public void setUp() throws Exception {
+    parser = new LogsXmlParser();
+  }
 
   @Test
   public void getIdsByMessage() throws Exception {
@@ -30,7 +38,7 @@ public class LogsXmlParserTest {
             "    </entry>\n" +
             "</log>";
 
-    Collection<Integer> ids = LogsXmlParser.getIdsByMessage(xml, "Application ended");
+    Collection<Integer> ids = parser.getIdsByMessage(xml, "Application ended");
 
     assertThat(ids.size(), is(2));
     assertThat(ids, hasItems(2, 24));
@@ -49,7 +57,7 @@ public class LogsXmlParserTest {
                     "    </entry>\n" +
                     "</log>";
 
-    Collection<Integer> ids = LogsXmlParser.getIdsByMessage(xml, "Application stopped");
+    Collection<Integer> ids = parser.getIdsByMessage(xml, "Application stopped");
 
     assertTrue(ids.isEmpty());
   }

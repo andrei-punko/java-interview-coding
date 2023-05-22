@@ -9,7 +9,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -35,16 +34,16 @@ public class LogsXmlParser {
     private static final String MESSAGE_TAG = "message";
     private static final String ID_ATTRIBUTE = "id";
 
-    public static Collection<Integer> getIdsByMessage(String xmlString, String message) throws Exception {
+    public List<Integer> getIdsByMessage(String xmlString, String message) throws Exception {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         ByteArrayInputStream inputStream = new ByteArrayInputStream(xmlString.getBytes());
         Document document = documentBuilder.parse(inputStream);
 
         List<Integer> result = new ArrayList<>();
-        NodeList nodeList = document.getElementsByTagName(MESSAGE_TAG);
-        for (int i = 0; i < nodeList.getLength(); i++) {
-            Node item = nodeList.item(i);
+        NodeList elements = document.getElementsByTagName(MESSAGE_TAG);
+        for (int i = 0; i < elements.getLength(); i++) {
+            Node item = elements.item(i);
             if (message.equals(item.getTextContent())) {
                 NamedNodeMap attributes = item.getParentNode().getAttributes();
                 result.add(Integer.valueOf(attributes.getNamedItem(ID_ATTRIBUTE).getTextContent()));
