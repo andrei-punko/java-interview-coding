@@ -1,5 +1,6 @@
 package by.andd3dfx.parser.xml;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -8,9 +9,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ArticlesXmlParserTest {
 
+    private ArticlesXmlParser parser;
+
+    @Before
+    public void setUp() throws Exception {
+        parser = new ArticlesXmlParser();
+    }
+
     @Test
     public void parse() {
-        List<String> articles = ArticlesXmlParser.parse("./src/main/resources/233.xml");
+        List<String> articles = parser.parse("./src/main/resources/233.xml");
 
         assertThat(articles.size()).isEqualTo(1);
         assertThat(articles.get(0)).isEqualTo("\n" +

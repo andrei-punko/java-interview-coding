@@ -16,8 +16,10 @@ public class LogsTxtParser {
             String line;
             while ((line = reader.readLine()) != null) {
                 result.add(line);
+                // Make some action with each line here
             }
         }
+        // Make action with whole lines here
 
         return result;
     }

@@ -7,6 +7,7 @@ import java.util.Collection;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class LogsXmlParserTest {
 
@@ -31,8 +32,8 @@ public class LogsXmlParserTest {
 
     Collection<Integer> ids = LogsXmlParser.getIdsByMessage(xml, "Application ended");
 
-    assertThat("Two items expected", ids.size(), is(2));
-    assertThat("Collection should contain items", ids, hasItems(2, 24));
+    assertThat(ids.size(), is(2));
+    assertThat(ids, hasItems(2, 24));
   }
 
   @Test
@@ -50,6 +51,6 @@ public class LogsXmlParserTest {
 
     Collection<Integer> ids = LogsXmlParser.getIdsByMessage(xml, "Application stopped");
 
-    assertThat("Empty array expected", ids.isEmpty(), is(true));
+    assertTrue(ids.isEmpty());
   }
 }

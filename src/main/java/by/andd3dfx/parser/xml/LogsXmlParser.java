@@ -32,17 +32,16 @@ import java.util.List;
  */
 public class LogsXmlParser {
 
-    public static final String MESSAGE_TAG = "message";
-    public static final String ID_ATTRIBUTE = "id";
+    private static final String MESSAGE_TAG = "message";
+    private static final String ID_ATTRIBUTE = "id";
 
     public static Collection<Integer> getIdsByMessage(String xmlString, String message) throws Exception {
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(xmlString.getBytes());
+        Document document = documentBuilder.parse(inputStream);
+
         List<Integer> result = new ArrayList<>();
-        ByteArrayInputStream is = new ByteArrayInputStream(xmlString.getBytes());
-
-        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder documentBuilder = builderFactory.newDocumentBuilder();
-        Document document = documentBuilder.parse(is);
-
         NodeList nodeList = document.getElementsByTagName(MESSAGE_TAG);
         for (int i = 0; i < nodeList.getLength(); i++) {
             Node item = nodeList.item(i);
