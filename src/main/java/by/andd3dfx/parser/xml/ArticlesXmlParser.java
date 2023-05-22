@@ -10,7 +10,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Parse file ./src/main/resources/233.xml and find all articles inside it
@@ -44,21 +46,10 @@ public class ArticlesXmlParser {
     }
 
     private String prettyFormat(Node item) {
-        String result = "";
-
         String[] lines = item.getTextContent().split("\n");
-        boolean blankLineIsPossible = true;
-
-        for (String line : lines) {
-            if (StringUtils.isNotBlank(line)) {
-                result += line + "\n";
-                blankLineIsPossible = true;
-            } else if (blankLineIsPossible) {
-                result += "\n";
-                blankLineIsPossible = false;
-            }
-        }
-
-        return result;
+        return Arrays.stream(lines)
+                .filter(StringUtils::isNotBlank)
+                .map(String::trim)
+                .collect(Collectors.joining("\n"));
     }
 }
