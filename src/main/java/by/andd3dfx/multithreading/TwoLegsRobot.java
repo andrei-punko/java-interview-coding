@@ -1,12 +1,10 @@
 package by.andd3dfx.multithreading;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.SneakyThrows;
 
 import java.io.StringWriter;
 import java.util.concurrent.Semaphore;
-
-import static java.lang.Thread.sleep;
 
 /**
  * <pre>
@@ -45,13 +43,44 @@ import static java.lang.Thread.sleep;
  */
 public class TwoLegsRobot {
 
-    private static StringWriter writer = new StringWriter();
+    private Foot leftLeg;
+    private Foot rightLeg;
+    private StringWriter logWriter;
 
-    @AllArgsConstructor
+    public TwoLegsRobot() {
+        Semaphore leftSemaphore = new Semaphore(1);
+        Semaphore rightSemaphore = new Semaphore(0);
+        logWriter = new StringWriter();
+
+        leftLeg = Foot.builder()
+                .name("left")
+                .mySemaphore(leftSemaphore)
+                .notMySemaphore(rightSemaphore)
+                .logWriter(logWriter)
+                .build();
+        rightLeg = Foot.builder()
+                .name("right")
+                .mySemaphore(rightSemaphore)
+                .notMySemaphore(leftSemaphore)
+                .logWriter(logWriter)
+                .build();
+    }
+
+    public void start() {
+        new Thread(leftLeg).start();
+        new Thread(rightLeg).start();
+    }
+
+    public String getLogs() {
+        return logWriter.toString();
+    }
+
+    @Builder
     public static class Foot implements Runnable {
         private final String name;
         private final Semaphore mySemaphore;
         private final Semaphore notMySemaphore;
+        private final StringWriter logWriter;
 
         @SneakyThrows
         public void run() {
@@ -62,26 +91,16 @@ public class TwoLegsRobot {
 
         private void step() throws InterruptedException {
             mySemaphore.acquire();
-            log();
+            logWriter.write("%s steps!".formatted(name));
             notMySemaphore.release();
-        }
-
-        private void log() {
-            writer.write(name + " steps!");
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Semaphore leftSemaphore = new Semaphore(1);
-        Semaphore rightSemaphore = new Semaphore(0);
+        var robot = new TwoLegsRobot();
+        robot.start();
 
-        new Thread(new Foot("left", leftSemaphore, rightSemaphore)).start();
-        new Thread(new Foot("right", rightSemaphore, leftSemaphore)).start();
-
-        sleep(100);
-    }
-
-    public static StringWriter getWriter() {
-        return writer;
+        Thread.sleep(100);
+        System.out.println(robot.getLogs());
     }
 }

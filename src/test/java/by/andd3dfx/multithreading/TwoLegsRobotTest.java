@@ -1,34 +1,50 @@
 package by.andd3dfx.multithreading;
 
+import org.awaitility.Durations;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import static org.awaitility.Awaitility.await;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThan;
 
 public class TwoLegsRobotTest {
 
-    private String[] expectedStrings = {"left steps", "right steps"};
+    private Map<Boolean, String> EXPECTED_STRING = Map.of(
+            false, "left steps",
+            true, "right steps"
+    );
+
+    private TwoLegsRobot robot;
+
+    @Before
+    public void setUp() throws Exception {
+        robot = new TwoLegsRobot();
+    }
 
     @Test
-    public void testMain() throws InterruptedException {
-        TwoLegsRobot.main(new String[]{});
+    public void testLogsOrder() {
+        robot.start();
+        await()
+                .atMost(Durations.ONE_SECOND)
+                .pollInterval(50, TimeUnit.MILLISECONDS)
+                .until(() -> robot.getLogs().split("!").length > 10);   // At least 10 steps
 
-        String logs = TwoLegsRobot.getWriter().toString();
-        checkLogs(logs);
+        checkLogs(robot.getLogs());
     }
 
     private void checkLogs(String logs) {
         String[] lines = logs.split("!");
-        var expectedStringIndex = lines[0].equals(expectedStrings[0]) ? 1 : 0;
+        assertThat(lines.length, greaterThan(10));
 
-        for (int i = 1; i < lines.length; i++) {
-            assertThat(lines[i], is(expectedStrings[expectedStringIndex]));
-
-            if (expectedStringIndex == 0) {
-                expectedStringIndex = 1;
-            } else {
-                expectedStringIndex = 0;
-            }
+        var index = false;
+        for (var line : lines) {
+            assertThat(line, is(EXPECTED_STRING.get(index)));
+            index = !index;
         }
     }
 }
