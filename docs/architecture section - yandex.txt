@@ -1,4 +1,6 @@
 
+* Design part of system which serves feedbacks functionality for some market
+
 'feedbacks' table in SQL DB:
 id, product_id, user_id, ts, text, feedback_number
 id=PK

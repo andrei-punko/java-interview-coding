@@ -45,7 +45,7 @@ We have restriction of RAM size: so only one string could be loaded into RAM sim
 - префиксные деревья
 
 
-* Task: search engine with suggestion ability
+* Search engine with suggestion ability
 We have search engine, it provides web-interface with text field where query could be typed.
 We want to add next feature: when user start typing - he will get suggestion with 10 most popular queries started from typed characters.
 File with most popular searches generated 1 time per day, it contains 1 mln lines, sorted by popularity.
