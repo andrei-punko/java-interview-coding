@@ -9,6 +9,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class CustomLinkedHashSetTest {
 
@@ -137,6 +138,7 @@ public class CustomLinkedHashSetTest {
         set.add("Four");
         set.add("Five");
         set.remove("Two");
+
         var etalonList = List.of("One", "Three", "Four", "Five");
         assertThat(set.size(), is(etalonList.size()));
 
@@ -150,11 +152,11 @@ public class CustomLinkedHashSetTest {
     @Test
     public void forEachForEmpty() {
         CustomLinkedHashSet<String> set = new CustomLinkedHashSet<>();
-        assertThat(set.size(), is(0));
+        set.add("One");
+        set.remove("One");
 
-        var etalonSet = Set.of();
         for (var item : set) {
-            assertTrue(etalonSet.contains(item));
+            fail("Iteration should not happen!");
         }
     }
 
