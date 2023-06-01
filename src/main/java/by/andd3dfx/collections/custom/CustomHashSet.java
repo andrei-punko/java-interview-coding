@@ -31,7 +31,7 @@ public class CustomHashSet<T> implements Iterable<T> {
     }
 
     public boolean remove(T item) {
-        return map.remove(item) != null;
+        return map.remove(item) == DUMMY_VALUE;
     }
 
     public boolean removeAll(Collection<T> items) {
@@ -69,9 +69,9 @@ public class CustomHashSet<T> implements Iterable<T> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        var iterator = iterator();
-        while (iterator.hasNext()) {
-            final T item = iterator.next();
+        var it = iterator();
+        while (it.hasNext()) {
+            final T item = it.next();
             sb.append(item + ", ");
         }
         return "[" + sb.substring(0, sb.length() - 2) + "]";

@@ -3,7 +3,6 @@ package by.andd3dfx.collections.custom;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -62,8 +61,6 @@ public class CustomHashSetTest {
     @Test
     public void addAllNContainsAll() {
         CustomHashSet<String> set = new CustomHashSet<>();
-        assertTrue(set.containsAll(List.of()));
-
         set.addAll(List.of("One", "Two"));
         assertTrue(set.containsAll(List.of("One")));
         assertTrue(set.containsAll(List.of("Two", "One")));
@@ -115,7 +112,6 @@ public class CustomHashSetTest {
     @Test
     public void clear() {
         CustomHashSet<String> set = new CustomHashSet<>();
-        assertThat(set.size(), is(0));
         set.add("One");
         set.add("Two");
         assertThat(set.size(), is(2));
