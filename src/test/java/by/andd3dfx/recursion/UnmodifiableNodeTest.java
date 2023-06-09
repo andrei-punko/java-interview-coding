@@ -46,6 +46,19 @@ public class UnmodifiableNodeTest {
     }
 
     @Test
+    public void checkImmutability() {
+        var node = new UnmodifiableNode(
+                List.of(new UnmodifiableNode(2), new UnmodifiableNode(3)),
+                12
+        );
+        var oldValue = node.getChildren().get(0);
+        var newValue = new UnmodifiableNode(333);
+        node.getChildren().set(0, newValue);
+
+        assertThat(node.getChildren().get(0)).isEqualTo(oldValue);
+    }
+
+    @Test
     public void testToString() {
         UnmodifiableNode node = prepareComplexNode();
         assertThat(node.toString()).isEqualTo("{12, [{2}, {3, [{32}, {11}]}]}");
