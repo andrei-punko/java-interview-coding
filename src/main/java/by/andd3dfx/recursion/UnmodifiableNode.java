@@ -10,7 +10,7 @@ import java.util.stream.Stream;
  *
  * <pre>
  * public final class Node {
- *     private final List<Node> children;
+ *     private final List&lt;Node&gt; children;
  *     private final Integer value;
  * }
  * </pre>
@@ -44,7 +44,7 @@ public final class UnmodifiableNode {
     }
 
     public List<UnmodifiableNode> getChildren() {
-        return new ArrayList(children);
+        return new ArrayList<>(children);
     }
 
     public int sumRecursive() {
