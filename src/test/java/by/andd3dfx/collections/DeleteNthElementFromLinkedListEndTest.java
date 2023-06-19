@@ -9,7 +9,7 @@ import static org.junit.Assert.assertThrows;
 public class DeleteNthElementFromLinkedListEndTest {
 
     @Test
-    public void applyFor0() {
+    public void applyForN0() {
         Node head = buildLinkedList();
 
         DeleteNthElementFromLinkedListEnd.apply(head, 0);
@@ -22,7 +22,7 @@ public class DeleteNthElementFromLinkedListEndTest {
     }
 
     @Test
-    public void applyFor2() {
+    public void applyForN2() {
         Node head = buildLinkedList();
 
         DeleteNthElementFromLinkedListEnd.apply(head, 2);
@@ -38,7 +38,7 @@ public class DeleteNthElementFromLinkedListEndTest {
     public void applyWhenNIsNegative() {
         Node head = buildLinkedList();
 
-        assertThrows("n should be greater than 0!", IllegalArgumentException.class,
+        assertThrows("n should be >=0!", IllegalArgumentException.class,
                 () -> DeleteNthElementFromLinkedListEnd.apply(head, -1));
     }
 

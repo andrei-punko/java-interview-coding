@@ -23,7 +23,7 @@ public class DeleteNthElementFromLinkedListEnd {
 
     public static void apply(Node head, int n) {
         if (n < 0) {
-            throw new IllegalArgumentException("n should be greater than 0!");
+            throw new IllegalArgumentException("n should be >=0!");
         }
 
         int counter = n;
