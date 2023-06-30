@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 
 public class BuildingH2OTest {
 
-    private final int MOLECULES_COUNT = 3;
+    private final int MOLECULES_COUNT = 5;
 
     @Test
     public void checkPrintingOrder() throws InterruptedException {
@@ -41,7 +41,7 @@ public class BuildingH2OTest {
             ).start();
         }
 
-        Thread.sleep(100);
+        Thread.sleep(200);
 
         return sb.toString();
     }

@@ -62,7 +62,7 @@ import java.util.concurrent.Semaphore;
 public class BuildingH2O {
 
     private Semaphore hydrogenSemaphore = new Semaphore(2);
-    private Semaphore oxygenSemaphore = new Semaphore(1);
+    private Semaphore oxygenSemaphore = new Semaphore(2);
 
     public void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
         oxygenSemaphore.acquire();

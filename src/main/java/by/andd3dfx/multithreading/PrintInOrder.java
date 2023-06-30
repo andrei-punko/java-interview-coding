@@ -38,7 +38,7 @@ import java.util.concurrent.Semaphore;
  *      nums is a permutation of [1, 2, 3].
  *
  * Initial code:
- * class H2O {
+ * class Foo {
  *     public void first(Runnable printFirst) throws InterruptedException {
  *         // printFirst.run() outputs "first". Do not change or remove this line.
  *         printFirst.run();
