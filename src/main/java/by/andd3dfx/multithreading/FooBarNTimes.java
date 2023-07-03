@@ -1,8 +1,10 @@
 package by.andd3dfx.multithreading;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
+import java.io.StringWriter;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -35,6 +37,8 @@ public class FooBarNTimes {
     @RequiredArgsConstructor
     public static class FooBar {
         private final int n;
+        @Getter
+        private final StringWriter logWriter = new StringWriter();
 
         private Semaphore fooSemaphore = new Semaphore(1);
         private Semaphore barSemaphore = new Semaphore(0);
@@ -43,15 +47,16 @@ public class FooBarNTimes {
         public void foo() {
             for (int i = 0; i < n; i++) {
                 fooSemaphore.acquire();
-                System.out.print("foo");
+                logWriter.write("foo");
                 barSemaphore.release();
             }
         }
+
         @SneakyThrows
         public void bar() {
             for (int i = 0; i < n; i++) {
                 barSemaphore.acquire();
-                System.out.print("bar");
+                logWriter.write("bar");
                 fooSemaphore.release();
             }
         }
