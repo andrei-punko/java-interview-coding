@@ -3,6 +3,8 @@ package by.andd3dfx.multithreading;
 import lombok.SneakyThrows;
 import org.junit.Test;
 
+import java.util.Set;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -10,6 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class BuildingH2OTest {
 
     private final int MOLECULES_COUNT = 5;
+    private final Set<String> POSSIBLE_MOLECULES = Set.of("OHH", "HOH", "HHO");
 
     @Test
     public void checkPrintingOrder() throws InterruptedException {
@@ -18,12 +21,12 @@ public class BuildingH2OTest {
         var result = run(buildingH2O);
 
         assertFalse("String result should not be empty", result.isBlank());
-        assertThat(result.length() % 3).isEqualTo(0);
+        assertThat(result.length()).isEqualTo(3 * MOLECULES_COUNT);
 
         for (int i = 0; i < result.length() / 3; i++) {
-            var molecule = result.substring(3 * i, 3 * i + 3);
-            System.out.println(molecule);
-            assertTrue(molecule.equals("OHH") || molecule.equals("HOH") || molecule.equals("HHO"));
+            var molecule = result.substring(3 * i, 3 * (i + 1));
+            System.out.println("Created molecule: " + molecule);
+            assertTrue(POSSIBLE_MOLECULES.contains(molecule));
         }
     }
 
