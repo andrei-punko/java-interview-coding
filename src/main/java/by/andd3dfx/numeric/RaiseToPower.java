@@ -4,9 +4,13 @@ import java.util.NavigableSet;
 import java.util.TreeMap;
 
 /**
- * Raise number to power
- * <p>
+ * <pre>
+ * https://leetcode.com/problems/powx-n/
+ *
+ * Raise number a to power p
+ *
  * Based on "Stephens - Essential Algorithms"
+ * </pre>
  */
 public class RaiseToPower {
 
