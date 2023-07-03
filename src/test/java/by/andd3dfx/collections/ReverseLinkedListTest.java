@@ -1,8 +1,8 @@
 package by.andd3dfx.collections;
 
-import by.andd3dfx.collections.ReverseLinkedList.Node;
 import org.junit.Test;
 
+import static by.andd3dfx.collections.ReverseLinkedList.Node;
 import static by.andd3dfx.collections.ReverseLinkedList.reverseUsingLoop;
 import static by.andd3dfx.collections.ReverseLinkedList.reverseUsingRecursion;
 import static by.andd3dfx.collections.ReverseLinkedList.reverseUsingStack;

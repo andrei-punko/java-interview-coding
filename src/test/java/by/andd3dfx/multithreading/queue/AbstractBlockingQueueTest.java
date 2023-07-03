@@ -1,6 +1,5 @@
 package by.andd3dfx.multithreading.queue;
 
-import by.andd3dfx.multithreading.queue.CustomBlockingQueue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.SneakyThrows;

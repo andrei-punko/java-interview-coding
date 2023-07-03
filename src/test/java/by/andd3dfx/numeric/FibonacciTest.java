@@ -1,12 +1,12 @@
 package by.andd3dfx.numeric;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
 import java.util.function.Function;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.fail;
 
 public class FibonacciTest {
 

@@ -1,11 +1,12 @@
 package by.andd3dfx.multithreading.stack;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import java.util.NoSuchElementException;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.NoSuchElementException;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CustomStackTest {
 

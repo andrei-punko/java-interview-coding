@@ -1,10 +1,11 @@
 package by.andd3dfx.proxy;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import org.junit.Test;
 
 import java.lang.reflect.Proxy;
-import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Dynamic proxy usage example

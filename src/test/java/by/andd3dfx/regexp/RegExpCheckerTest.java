@@ -1,12 +1,13 @@
 package by.andd3dfx.regexp;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 import by.andd3dfx.common.Paragraph;
+import org.junit.Test;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * For replacement example

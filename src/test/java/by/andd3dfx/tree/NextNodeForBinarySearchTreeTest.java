@@ -1,6 +1,5 @@
 package by.andd3dfx.tree;
 
-import by.andd3dfx.tree.NextNodeForBinarySearchTree;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

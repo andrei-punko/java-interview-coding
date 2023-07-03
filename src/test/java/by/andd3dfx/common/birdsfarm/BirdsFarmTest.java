@@ -51,4 +51,4 @@ public class BirdsFarmTest {
             assertThat("Wrong exception message", ise.getMessage(), is("This egg already hatched!"));
         }
     }
-}
+}
