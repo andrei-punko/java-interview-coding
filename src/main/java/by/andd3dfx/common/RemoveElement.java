@@ -36,7 +36,7 @@ public class RemoveElement {
 
         var left = 0;
         var right = 0;
-        while (left < nums.length && right < nums.length) {
+        while (right < nums.length) {
             while (right < nums.length && nums[right] == val) {
                 right++;
                 count--;
