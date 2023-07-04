@@ -4,10 +4,10 @@ package by.andd3dfx.common;
  * You are holding one link of a chain in your hand. Implement method longerSide() to find which side of the
  * chain, relative to the link you are holding, has more links.
  * <p>
- * If the left side has more links return Side.LEFT, if the right side has more links return Side.RIGHT,
- * and if both sides have an equal number of links or if the chain is a closed loop, return Side.NONE.
+ * If the left side has more links return LEFT, if the right side has more links return RIGHT,
+ * and if both sides have an equal number of links or if the chain is a closed loop, return NONE.
  * <p>
- * For example, for the code below, the output should be Side.RIGHT:
+ * For example, for the code below, the output should be RIGHT:
  * <pre>
  *  ChainLink left = new ChainLink();
  *  ChainLink middle = new ChainLink();

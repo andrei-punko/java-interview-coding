@@ -3,7 +3,7 @@ package by.andd3dfx.common;
 import java.util.List;
 
 /**
- * Solution for matrix rotation task: https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
+ * https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
  * <p>
  * You are given a 2D matrix of dimension m*n and a positive integer r. You have to rotate the matrix times and
  * print the resultant matrix. Rotation should be in anti-clockwise direction.

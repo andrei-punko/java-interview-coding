@@ -93,7 +93,7 @@ Additionally, don't miss [tests](./src/test/java/by/andd3dfx), they contain enou
 - [Ревью кода из интервью](https://www.youtube.com/watch?v=8spUH04041U)
 - [Ханойские башни (Hanoi towers)](https://www.youtube.com/watch?v=8fkHg9JKKmg)
 - [Быстрая сортировка (Quick sort)](https://www.youtube.com/watch?v=lp1UsN1-_p4)
-- [Генерация перестановок](https://www.youtube.com/watch?v=PyRnm2mFZbk)
+- [Генерация перестановок (leetcode)](https://www.youtube.com/watch?v=PyRnm2mFZbk)
 - [Интерполяционный поиск в упорядоченном массиве](https://www.youtube.com/watch?v=kRTntkCB_a4)
 - [Птицеферма (с элементами ООП)](https://www.youtube.com/watch?v=tQAJRQrc2Aw)
 - [Определение более длинного конца цепи](https://www.youtube.com/watch?v=KAqZwNY7yUc)
