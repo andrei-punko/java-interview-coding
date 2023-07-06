@@ -18,8 +18,7 @@ Propose algorithm for sorting a bunch of long strings situated on disk.
 We have restriction of RAM size: so only one string could be loaded into RAM simultaneously.
 
 
-* Добавить решение CS задач:
-сортировки:
+* сортировки:
 - пирамидальная
 - быстрая
     - со стеками
@@ -27,7 +26,7 @@ We have restriction of RAM size: so only one string could be loaded into RAM sim
 - подсчетом
 - блочная
 
-хеш-таблицы:
+* хеш-таблицы:
 - пробирование
     - линейное
     - квадратичное
@@ -36,9 +35,9 @@ We have restriction of RAM size: so only one string could be loaded into RAM sim
     - одинарное
     - двойное
 
-Сочетания, размещения, с повторениями/без
+* Сочетания, размещения, с повторениями/без
 
-деревья:
+* деревья:
 - добавление вершин
 - поиск вершин
 - удаление вершин
@@ -50,3 +49,6 @@ We have search engine, it provides web-interface with text field where query cou
 We want to add next feature: when user start typing - he will get suggestion with 10 most popular queries started from typed characters.
 File with most popular searches generated 1 time per day, it contains 1 mln lines, sorted by popularity.
 Propose design of such system.
+
+* Others
+Реализовать ReadWriteLock на базе обычного Lock
