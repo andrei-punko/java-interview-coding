@@ -3,6 +3,7 @@ package by.andd3dfx.multithreading;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 
+import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -42,10 +43,22 @@ import java.util.concurrent.CompletableFuture;
  */
 public class AddMultithreading {
 
-    @AllArgsConstructor
     public static class Aggregator {
         private SystemA systemA;
         private SystemB systemB;
+
+        private SystemA[] aSystems;
+        private SystemB[] bSystems;
+
+        public Aggregator(SystemA systemA, SystemB systemB) {
+            this.systemA = systemA;
+            this.systemB = systemB;
+        }
+
+        public Aggregator(SystemA[] aSystems, SystemB[] bSystems) {
+            this.aSystems = aSystems;
+            this.bSystems = bSystems;
+        }
 
         public Object doRequestOld() {
             Object responseA = systemA.doRequest();
@@ -58,11 +71,28 @@ public class AddMultithreading {
             var futureA = CompletableFuture.supplyAsync(() -> systemA.doRequest());
             var futureB = CompletableFuture.supplyAsync(() -> systemB.doRequest());
 
-            var future = futureA.thenCombine(
-                    futureB,
-                    (responseA, responseB) -> aggregate(responseA, responseB)
-            );
-            return future.get();
+            return futureA
+                    .thenCombine(futureB, Aggregator::aggregate)
+                    .get();
+        }
+
+        @SneakyThrows
+        public Object doRequest10() {
+            var futures = new ArrayList<CompletableFuture<Object>>();
+            for (var system : aSystems) {
+                futures.add(CompletableFuture.supplyAsync(() -> system.doRequest()));
+            }
+            for (var system : bSystems) {
+                futures.add(CompletableFuture.supplyAsync(() -> system.doRequest()));
+            }
+
+            var resultFuture = CompletableFuture.supplyAsync(() -> "");
+            for (var future : futures) {
+                resultFuture = resultFuture.thenCombine(
+                        future, Aggregator::aggregate
+                );
+            }
+            return resultFuture.get();
         }
 
         private static String aggregate(Object responseA, Object responseB) {
@@ -72,6 +102,7 @@ public class AddMultithreading {
 
     @AllArgsConstructor
     public static class SystemA {
+
         private String data;
 
         @SneakyThrows
