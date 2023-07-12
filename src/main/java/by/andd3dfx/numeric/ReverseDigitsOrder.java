@@ -1,9 +1,13 @@
 package by.andd3dfx.numeric;
 
 /**
+ * <pre>
  * Revert order of digits in Integer number:
+ * 0 -> 0
  * 12389 -> 98321,
+ * 123490 -> 94321,
  * -123 -> -321
+ * </pre>
  */
 public class ReverseDigitsOrder {
 
@@ -13,8 +17,9 @@ public class ReverseDigitsOrder {
             isNegative = true;
             number = -number;
         }
-        String string = String.valueOf(number);
-        String reversedString = new StringBuilder(string).reverse().toString();
+
+        var string = String.valueOf(number);
+        var reversedString = new StringBuilder(string).reverse().toString();
 
         if (isNegative) {
             reversedString = "-" + reversedString;
