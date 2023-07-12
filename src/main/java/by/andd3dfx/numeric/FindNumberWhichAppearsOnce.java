@@ -1,5 +1,7 @@
 package by.andd3dfx.numeric;
 
+import java.util.HashSet;
+
 /**
  * <pre>
  * https://leetcode.com/problems/single-number/
@@ -21,6 +23,17 @@ package by.andd3dfx.numeric;
  * </pre>
  */
 public class FindNumberWhichAppearsOnce {
+
+    public static int findSubOptimal(int[] numbers) {
+        var set = new HashSet<Integer>();
+        for (var number : numbers) {
+            if (!set.add(number)) {
+                set.remove(number);
+            }
+        }
+
+        return set.toArray(new Integer[0])[0];
+    }
 
     public static int find(int[] numbers) {
         int result = numbers[0];
