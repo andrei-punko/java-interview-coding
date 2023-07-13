@@ -37,9 +37,9 @@ public class RemoveDuplicatesFromSortedLinkedList2 {
         @Override
         public String toString() {
             if (next == null) {
-                return "{%d}".formatted(value);
+                return "%d".formatted(value);
             }
-            return "{%d, n=%s}".formatted(value, next);
+            return "%d->%s".formatted(value, next);
         }
     }
 
@@ -51,19 +51,26 @@ public class RemoveDuplicatesFromSortedLinkedList2 {
         Deque<Node> stack = new ArrayDeque<>();
         var curr = head;
         stack.push(curr);
-        while (curr.next != null) {
+        while (curr != null && curr.next != null) {
             curr = curr.next;
 
             if (curr.value == stack.peek().value) {
-                while (curr.value == stack.peek().value) {
+                while (curr != null && curr.value == stack.peek().value) {
                     curr = curr.next;
                 }
                 stack.pop();
 
-                var prev = stack.pop();
-                prev.next = curr;
+                if (stack.isEmpty()) {
+                    head = curr;
+                } else {
+                    var prev = stack.pop();
+                    prev.next = curr;
+                }
             }
-            stack.push(curr);
+
+            if (curr != null) {
+                stack.push(curr);
+            }
         }
 
         return head;

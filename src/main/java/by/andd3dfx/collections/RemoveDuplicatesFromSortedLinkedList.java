@@ -34,9 +34,9 @@ public class RemoveDuplicatesFromSortedLinkedList {
         @Override
         public String toString() {
             if (next == null) {
-                return "{%d}".formatted(value);
+                return "%d".formatted(value);
             }
-            return "{%d, n=%s}".formatted(value, next);
+            return "%d->%s".formatted(value, next);
         }
     }
 
