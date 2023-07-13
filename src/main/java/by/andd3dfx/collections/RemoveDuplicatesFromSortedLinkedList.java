@@ -54,6 +54,7 @@ public class RemoveDuplicatesFromSortedLinkedList {
             } else {
                 last = curr;
             }
+
             curr = curr.next;
         }
         return head;

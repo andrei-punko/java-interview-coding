@@ -50,8 +50,9 @@ public class RemoveDuplicatesFromSortedLinkedList2 {
 
         Deque<Node> stack = new ArrayDeque<>();
         var curr = head;
-        stack.push(curr);
+
         while (curr != null && curr.next != null) {
+            stack.push(curr);
             curr = curr.next;
 
             if (curr.value == stack.peek().value) {
@@ -62,14 +63,11 @@ public class RemoveDuplicatesFromSortedLinkedList2 {
 
                 if (stack.isEmpty()) {
                     head = curr;
-                } else {
-                    var prev = stack.peek();
-                    prev.next = curr;
+                    continue;
                 }
-            }
 
-            if (curr != null) {
-                stack.push(curr);
+                var prev = stack.peek();
+                prev.next = curr;
             }
         }
 
