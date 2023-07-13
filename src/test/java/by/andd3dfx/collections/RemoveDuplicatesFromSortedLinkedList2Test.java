@@ -1,12 +1,12 @@
 package by.andd3dfx.collections;
 
-import by.andd3dfx.collections.RemoveDuplicatesFromSortedLinkedList.Node;
+import by.andd3dfx.collections.RemoveDuplicatesFromSortedLinkedList2.Node;
 import org.junit.Test;
 
-import static by.andd3dfx.collections.RemoveDuplicatesFromSortedLinkedList.remove;
+import static by.andd3dfx.collections.RemoveDuplicatesFromSortedLinkedList2.remove;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RemoveDuplicatesFromSortedLinkedListTest {
+public class RemoveDuplicatesFromSortedLinkedList2Test {
 
     @Test
     public void testRemoveNorNull() {
@@ -41,10 +41,11 @@ public class RemoveDuplicatesFromSortedLinkedListTest {
                 new Node(11, new Node(11,
                         new Node(12,
                                 new Node(14, new Node(14, new Node(14,
-                                        new Node(19))))))));
+                                        new Node(19)
+                                )))))));
 
         var result = remove(head);
 
-        assertThat(result.toString()).isEqualTo("{10, n={11, n={12, n={14, n={19}}}}}");
+        assertThat(result.toString()).isEqualTo("{10, n={12, n={19}}}");
     }
 }
