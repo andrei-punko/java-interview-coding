@@ -23,21 +23,16 @@ public class RemoveDuplicatesFromSortedLinkedList2Test {
 
     @Test
     public void testRemoveWhenNoDuplicates() {
-        Node head = new Node(10,
-                new Node(11,
-                        new Node(12,
-                                new Node(14,
-                                        new Node(19)
-                                ))));
+        var head = buildLinkedList(new int[]{10, 11, 12, 14, 19});
 
         var result = remove(head);
 
-        assertThat(result.toString()).isEqualTo("10->11->12->14->19");
+        checkLinkedListContent(result, new int[]{10, 11, 12, 14, 19});
     }
 
     @Test
     public void testRemoveWhenDuplicatesOnly() {
-        Node head = new Node(10, new Node(10, new Node(10, new Node(10, new Node(10)))));
+        var head = buildLinkedList(new int[]{10, 10, 10, 10, 10});
 
         var result = remove(head);
 
@@ -46,28 +41,38 @@ public class RemoveDuplicatesFromSortedLinkedList2Test {
 
     @Test
     public void testRemove() {
-        Node head = new Node(10,
-                new Node(11, new Node(11,
-                        new Node(12,
-                                new Node(14, new Node(14, new Node(14,
-                                        new Node(19)
-                                )))))));
+        var head = buildLinkedList(new int[]{1, 2, 3, 3, 4, 4, 5});
 
         var result = remove(head);
 
-        assertThat(result.toString()).isEqualTo("10->12->19");
+        checkLinkedListContent(result, new int[]{1, 2, 5});
     }
 
     @Test
     public void testRemoveWhenDuplicatesNearTheHead() {
-        Node head = new Node(11, new Node(11, new Node(11,
-                new Node(12,
-                        new Node(14, new Node(14, new Node(14,
-                                new Node(19)
-                        )))))));
+        var head = buildLinkedList(new int[]{11, 11, 11, 12, 14, 14, 14, 19});
 
         var result = remove(head);
 
-        assertThat(result.toString()).isEqualTo("12->19");
+        checkLinkedListContent(result, new int[]{12, 19});
+    }
+
+    private Node buildLinkedList(int[] values) {
+        Node next = null;
+        for (int i = values.length - 1; i >= 0; i--) {
+            next = new Node(values[i], next);
+        }
+        return next;
+    }
+
+    private void checkLinkedListContent(Node head, int[] expected) {
+        int i = 0;
+        while (head.getNext() != null) {
+            assertThat(head.getValue()).isEqualTo(expected[i]);
+
+            head = head.getNext();
+            i++;
+        }
+        assertThat(i).isEqualTo(expected.length - 1);
     }
 }

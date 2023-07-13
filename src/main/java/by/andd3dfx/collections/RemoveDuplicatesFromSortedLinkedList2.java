@@ -63,7 +63,7 @@ public class RemoveDuplicatesFromSortedLinkedList2 {
                 if (stack.isEmpty()) {
                     head = curr;
                 } else {
-                    var prev = stack.pop();
+                    var prev = stack.peek();
                     prev.next = curr;
                 }
             }
