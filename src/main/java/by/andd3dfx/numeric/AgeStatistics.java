@@ -53,7 +53,7 @@ public class AgeStatistics {
         System.out.println(findMaximum(logs));
     }
 
-    static int findMaximum(int[][] logs) {
+    public static int findMaximum(int[][] logs) {
         int[] years = new int[101];
 
         for (int[] pair : logs) {
