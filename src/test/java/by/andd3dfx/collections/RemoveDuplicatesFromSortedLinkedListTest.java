@@ -57,6 +57,15 @@ public class RemoveDuplicatesFromSortedLinkedListTest {
         checkLinkedListContent(result, new int[]{11, 12, 14, 19});
     }
 
+    @Test
+    public void testRemoveWhenDuplicatesNearTheEnd() {
+        var head = buildLinkedList(new int[]{11, 12, 13, 14, 14, 14});
+
+        var result = remove(head);
+
+        checkLinkedListContent(result, new int[]{11, 12, 13, 14});
+    }
+
     private Node buildLinkedList(int[] values) {
         Node next = null;
         for (int i = values.length - 1; i >= 0; i--) {
