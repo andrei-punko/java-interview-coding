@@ -23,4 +23,12 @@ public class GenerateParenthesesTest {
         assertThat(GenerateParentheses.generate(3))
                 .containsExactlyInAnyOrder("((()))", "(()())", "(())()", "()(())", "()()()");
     }
+
+    @Test
+    public void generate4() {
+        assertThat(GenerateParentheses.generate(4))
+                .containsExactlyInAnyOrder("(((())))", "((()()))", "((())())", "((()))()", "(()(()))",
+                        "(()()())", "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()",
+                        "()()(())", "()()()()");
+    }
 }

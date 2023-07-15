@@ -1,9 +1,7 @@
 package by.andd3dfx.common;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * <pre>
@@ -17,6 +15,11 @@ import java.util.stream.Collectors;
  * Input: n = 1
  * Output: ["()"]
  *
+ * Example 3:
+ * Input: n = 4
+ * ["(((())))","((()()))","((())())","((()))()","(()(()))","(()()())","(()())()","(())(())","(())()()","()((()))",
+ * "()(()())","()(())()","()()(())","()()()()"]
+ *
  * Constraints:
  * 1 <= n <= 8
  *
@@ -26,17 +29,23 @@ import java.util.stream.Collectors;
 public class GenerateParentheses {
 
     public static List<String> generate(int n) {
-        if (n == 1) {
-            return List.of("()");
+        List<String> result = new ArrayList<>();
+        generate(0, 0, "", n, result);
+        return result;
+    }
+
+    private static void generate(int opened, int closed, String current, int n, List<String> list) {
+        if (opened + closed == 2 * n) {
+            list.add(current);
+            return;
         }
 
-        List<String> strings = generate(n - 1);
-        Set<String> set = new HashSet<>();
-        for (String string : strings) {
-            set.add("(" + string + ")");    // Wrap with "()"
-            set.add("()" + string);         // Add "()" at the left
-            set.add(string + "()");         // Add "()" at the right
+        if (opened < n) {
+            generate(opened + 1, closed, current + "(", n, list);
         }
-        return set.stream().collect(Collectors.toList());
+
+        if (opened > closed) {
+            generate(opened, closed + 1, current + ")", n, list);
+        }
     }
 }

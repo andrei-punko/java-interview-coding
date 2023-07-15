@@ -6,25 +6,27 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * <pre>
  * https://leetcode.com/problems/permutations/
- * <p>
+ *
  * Given an array nums of distinct integers, return all the possible permutations.
  * You can return the answer in any order.
- * <p>
+ *
  * Example 1:
- * <p>
+ *
  * Input: nums = [1,2,3]
  * Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
- * <p>
+ *
  * Example 2:
- * <p>
+ *
  * Input: nums = [0,1]
  * Output: [[0,1],[1,0]]
- * <p>
+ *
  * Example 3:
- * <p>
+ *
  * Input: nums = [1]
  * Output: [[1]]
+ * </pre>
  */
 public class Permutations {
 
@@ -48,9 +50,7 @@ public class Permutations {
     }
 
     private static List<Integer> toList(int[] nums) {
-        return Arrays.stream(nums)
-                .mapToObj(value -> value)
-                .collect(Collectors.toList());
+        return Arrays.stream(nums).boxed().toList();
     }
 
     private static void swap(int[] nums, int i, int j) {
