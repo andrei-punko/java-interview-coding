@@ -32,6 +32,6 @@ package by.andd3dfx.numeric;
 public class ValidNumber {
 
     public static boolean isNumber(String s) {
-        return s.matches("(\\+|-)?([0-9]+\\.?([0-9]+)?|\\.[0-9]+)((e|E)(\\+|-)?[0-9]+)?");
+        return s.matches("(\\+|-)?(\\d+\\.?(\\d+)?|\\.\\d+)((e|E)(\\+|-)?\\d+)?");
     }
 }

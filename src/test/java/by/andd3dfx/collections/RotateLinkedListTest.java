@@ -28,10 +28,24 @@ public class RotateLinkedListTest {
     }
 
     @Test
+    public void testRotateRight_whenJustBackwardShiftNeeded() {
+        var result = rotateRight(buildLinkedList(new int[]{1, 2, 3, 4, 5}), -2);
+
+        checkLinkedListContent(result, new int[]{3, 4, 5, 1, 2});
+    }
+
+    @Test
     public void testRotateRight_whenShiftGreaterThanArraySize() {
         var result = rotateRight(buildLinkedList(new int[]{0, 1, 2}), 4);
 
         checkLinkedListContent(result, new int[]{2, 0, 1});
+    }
+
+    @Test
+    public void testRotateRight_whenBackwardShiftGreaterThanArraySize() {
+        var result = rotateRight(buildLinkedList(new int[]{0, 1, 2}), -4);
+
+        checkLinkedListContent(result, new int[]{1, 2, 0});
     }
 
     @Test
