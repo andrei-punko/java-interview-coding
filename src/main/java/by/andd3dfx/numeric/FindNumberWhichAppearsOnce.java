@@ -36,9 +36,9 @@ public class FindNumberWhichAppearsOnce {
     }
 
     public static int find(int[] numbers) {
-        int result = numbers[0];
-        for (int i = 1; i < numbers.length; i++) {
-            result ^= numbers[i];   // use fact that: ((X xor Y) xor Y) == X
+        int result = 0;
+        for (var number : numbers) {
+            result ^= number;   // use fact that: ((X xor Y) xor Y) == X
         }
         return result;
     }

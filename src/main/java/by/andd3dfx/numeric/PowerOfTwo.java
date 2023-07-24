@@ -23,6 +23,7 @@ package by.andd3dfx.numeric;
  *
  * Input: n = 3
  * Output: false
+ * Explanation: There is no x where 2^x = 3.
  * </pre>
  */
 public class PowerOfTwo {
