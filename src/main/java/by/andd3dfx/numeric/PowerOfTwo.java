@@ -5,7 +5,7 @@ package by.andd3dfx.numeric;
  * https://leetcode.com/problems/power-of-two/description/
  *
  * Given an integer n, return true if it is a power of two. Otherwise, return false.
- * An integer n is a power of two, if there exists an integer x such that n == 2x.
+ * An integer n is a power of two, if there exists an integer x such that n == 2^x.
  *
  * Example 1:
  *
@@ -35,6 +35,10 @@ public class PowerOfTwo {
         return n == 1;
     }
 
+    /**
+     * n = 2^x => log_2 (n) = x
+     * log_a (b) = ln(b) /ln(a) = lg(b)/lg(a)
+     */
     public static boolean isPowerOfTwo_usingLog(int n) {
         if (n <= 0) {
             return false;

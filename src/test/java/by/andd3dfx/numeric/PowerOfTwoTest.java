@@ -13,8 +13,8 @@ public class PowerOfTwoTest {
         assertTrue(PowerOfTwo.isPowerOfTwo(1));
         assertFalse(PowerOfTwo.isPowerOfTwo(0));
         assertFalse(PowerOfTwo.isPowerOfTwo(-1));
-        assertTrue(PowerOfTwo.isPowerOfTwo(32));
-        assertFalse(PowerOfTwo.isPowerOfTwo(45));
+        assertTrue(PowerOfTwo.isPowerOfTwo(16));
+        assertFalse(PowerOfTwo.isPowerOfTwo(34));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class PowerOfTwoTest {
         assertTrue(PowerOfTwo.isPowerOfTwo_usingLog(1));
         assertFalse(PowerOfTwo.isPowerOfTwo_usingLog(0));
         assertFalse(PowerOfTwo.isPowerOfTwo_usingLog(-1));
-        assertTrue(PowerOfTwo.isPowerOfTwo_usingLog(32));
-        assertFalse(PowerOfTwo.isPowerOfTwo_usingLog(45));
+        assertTrue(PowerOfTwo.isPowerOfTwo_usingLog(16));
+        assertFalse(PowerOfTwo.isPowerOfTwo_usingLog(34));
     }
 }

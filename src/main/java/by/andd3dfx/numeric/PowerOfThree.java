@@ -6,7 +6,7 @@ package by.andd3dfx.numeric;
  *
  * Given an integer n, return true if it is a power of three. Otherwise, return false.
  *
- * An integer n is a power of three, if there exists an integer x such that n == 3x.
+ * An integer n is a power of three, if there exists an integer x such that n == 3^x.
  *
  * Example 1:
  *
@@ -36,6 +36,10 @@ public class PowerOfThree {
         return n == 1;
     }
 
+    /**
+     * n = 3^x => log_3 (n) = x
+     * log_a (b) = ln(b) /ln(a) = lg(b)/lg(a)
+     */
     public static boolean isPowerOfThree_usingLog(int n) {
         if (n <= 0) {
             return false;
