@@ -16,4 +16,14 @@ public class PowerOfThreeTest {
         assertTrue(PowerOfThree.isPowerOfThree(27));
         assertFalse(PowerOfThree.isPowerOfThree(45));
     }
+
+    @Test
+    public void testIsPowerOfThree_usingLog() {
+        assertTrue(PowerOfThree.isPowerOfThree_usingLog(3));
+        assertTrue(PowerOfThree.isPowerOfThree_usingLog(1));
+        assertFalse(PowerOfThree.isPowerOfThree_usingLog(0));
+        assertFalse(PowerOfThree.isPowerOfThree_usingLog(-1));
+        assertTrue(PowerOfThree.isPowerOfThree_usingLog(27));
+        assertFalse(PowerOfThree.isPowerOfThree_usingLog(45));
+    }
 }

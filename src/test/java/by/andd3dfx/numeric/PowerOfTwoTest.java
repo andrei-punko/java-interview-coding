@@ -15,4 +15,14 @@ public class PowerOfTwoTest {
         assertTrue(PowerOfTwo.isPowerOfTwo(32));
         assertFalse(PowerOfTwo.isPowerOfTwo(45));
     }
+
+    @Test
+    public void testIsPowerOfTwo_usingLog() {
+        assertTrue(PowerOfTwo.isPowerOfTwo_usingLog(2));
+        assertTrue(PowerOfTwo.isPowerOfTwo_usingLog(1));
+        assertFalse(PowerOfTwo.isPowerOfTwo_usingLog(0));
+        assertFalse(PowerOfTwo.isPowerOfTwo_usingLog(-1));
+        assertTrue(PowerOfTwo.isPowerOfTwo_usingLog(32));
+        assertFalse(PowerOfTwo.isPowerOfTwo_usingLog(45));
+    }
 }

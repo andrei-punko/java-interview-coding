@@ -35,4 +35,12 @@ public class PowerOfThree {
         }
         return n == 1;
     }
+
+    public static boolean isPowerOfThree_usingLog(int n) {
+        if (n <= 0) {
+            return false;
+        }
+        var power = Math.round(Math.log(n) / Math.log(3));
+        return Math.pow(3, power) == n;
+    }
 }

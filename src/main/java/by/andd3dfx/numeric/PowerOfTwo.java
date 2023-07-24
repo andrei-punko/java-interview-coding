@@ -33,4 +33,12 @@ public class PowerOfTwo {
         }
         return n == 1;
     }
+
+    public static boolean isPowerOfTwo_usingLog(int n) {
+        if (n <= 0) {
+            return false;
+        }
+        var power = Math.round(Math.log(n) / Math.log(2));
+        return Math.pow(2, power) == n;
+    }
 }
