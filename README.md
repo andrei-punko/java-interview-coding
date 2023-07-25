@@ -38,6 +38,8 @@
 
 Sure, we have [tests](src/test/java/by/andd3dfx), they contain enough code which describe implementation in natural way.
 
+[SQL folder](sql) contains tasks which require writing SQL queries to solve them.
+
 ## Videos on [Youtube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
 - [Определение максимального количества зрителей стрима](https://www.youtube.com/watch?v=uMikT-xpE-w)
 - [Валидация скобочного выражения](https://www.youtube.com/watch?v=cTHWJNfjHzE)
