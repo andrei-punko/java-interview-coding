@@ -2,7 +2,6 @@ package by.andd3dfx.collections;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * <pre>
@@ -25,14 +24,9 @@ public class RotateLinkedList {
 
     @Data
     @AllArgsConstructor
-    @NoArgsConstructor
     public static class ListNode {
         private int val;
         private ListNode next;
-
-        public ListNode(int val) {
-            this.val = val;
-        }
 
         @Override
         public String toString() {
@@ -67,5 +61,9 @@ public class RotateLinkedList {
         var result = curr.next;
         curr.next = null;
         return result;
+    }
+
+    public static ListNode rotateLeft(ListNode head, int k) {
+        return rotateRight(head, -k);
     }
 }
