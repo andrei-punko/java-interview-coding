@@ -1,4 +1,5 @@
 
+-- Студенты:
 create table students (
 	id int primary key,
 	name varchar(255) not null
@@ -9,6 +10,7 @@ insert into students (id, name) values (2, 'Pasha');
 insert into students (id, name) values (3, 'Natasha');
 insert into students (id, name) values (4, 'Dasha');
 
+-- Оценки студентов:
 create table marks (
 	student_id int not null,
 	mark int not null,
@@ -28,6 +30,7 @@ insert into marks (student_id, mark) values (4, 5);
 insert into marks (student_id, mark) values (4, 4);
 insert into marks (student_id, mark) values (4, 4);
 
+-- Города:
 create table city (
 	id int primary key,
 	name varchar(255) not null
@@ -38,6 +41,7 @@ insert into city (id, name) values (2, 'Brest');
 insert into city (id, name) values (3, 'Grodno');
 insert into city (id, name) values (4, 'Gomel');
 
+-- Адреса проживания студентов:
 create table address (
 	student_id int not null,
 	city_id int not null,
@@ -46,7 +50,8 @@ create table address (
 	foreign key (city_id) references city(id)
 );
 
-insert into address (student_id, city_id, text) values (1, 2, 'Esenina street, 99-12'),
+insert into address (student_id, city_id, text) values
+ (1, 2, 'Esenina street, 99-12'),
  (2, 1, 'Goretskogo street, 13-56'),
  (2, 1, 'Goretskogo street, 13-57'),
  (3, 4, 'Rafieva street, 4-192'),

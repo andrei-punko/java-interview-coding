@@ -17,7 +17,7 @@ insert into FS (ID, NAME, PARENT_ID) values (3, 'Andrei', 2);
 insert into FS (ID, NAME, PARENT_ID) values (4, 'Docs', 3);
 insert into FS (ID, NAME, PARENT_ID) values (5, 'Tikhon', 2);
 
--- Все папки
+-- Все папки:
 select * from fs;
 
 -- Папки в корневой директории:
