@@ -10,5 +10,17 @@
 -- MODE (мода)
 -- MEDIAN (медиана)
 
--- Пример:
-select sum(amt) from Orders where odate between '2016-01-01' and '2016-12-31';
+create table Orders (
+  id int primary key,
+  amt int not null,
+  ts timestamp not null
+);
+
+insert into Orders values (1, 3, '2015-07-25 8:53');
+insert into Orders values (2, 4, '2016-07-25 8:54');
+insert into Orders values (3, 5, '2018-07-25 8:58');
+insert into Orders values (4, 6, '2016-09-21 11:00');
+insert into Orders values (5, 7, '2016-01-13 13:01');
+
+-- Show sum & average `amt` for Orders which `ts` belongs to definite range:
+select sum(amt), avg(amt) from Orders where ts between '2016-01-01' and '2016-12-31';

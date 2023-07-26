@@ -27,4 +27,4 @@ select id from fs where parent_id is null;
 select id from fs where parent_id in (select id from fs where parent_id is null);
 
 -- Папки второго уровня вложенности:
-select ID, "NAME" from fs where parent_id in (select id from fs where parent_id in (select id from fs where parent_id is null));
+select ID, NAME from fs where parent_id in (select id from fs where parent_id in (select id from fs where parent_id is null));
