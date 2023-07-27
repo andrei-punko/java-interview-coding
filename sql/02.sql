@@ -1,5 +1,7 @@
 
--- 02. Сколько строк будет получено в результате запроса SELECT * FROM TABLE_A, TABLE_B?
+-- 02. Определить, сколько строк будет получено в результате запроса
+
+-- SELECT * FROM TABLE_A, TABLE_B
 
 create table TABLE_A (
     ID int primary key,

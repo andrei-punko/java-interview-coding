@@ -1,5 +1,5 @@
 
--- 08. Написать сиквел на использование оконной функции
+-- 08. Написать запрос с использованием оконной функции
 
 -- https://en.wikipedia.org/wiki/SQL_window_function
 -- https://mode.com/sql-tutorial/sql-window-functions/

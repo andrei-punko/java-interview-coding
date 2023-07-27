@@ -1,5 +1,6 @@
 
 -- 13. Рассказать о наследовании таблиц в БД
+
 -- https://langtoday.com/?p=319
 -- https://www.postgresql.org/docs/current/ddl-inherit.html
 
