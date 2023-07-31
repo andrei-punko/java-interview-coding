@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
  * 	How are you today?
  * 	Yes, you over there.
  * </pre>
- * The count() function should return 2 {"Hello, there!" and "Yes, you over there."}.
+ * The count() function should return 2: {"Hello, there!" and "Yes, you over there."}.
  */
 public class Needle {
 

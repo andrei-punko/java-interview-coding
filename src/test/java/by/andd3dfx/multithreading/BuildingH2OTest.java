@@ -35,7 +35,7 @@ public class BuildingH2OTest {
 
         await()
                 .atMost(Durations.ONE_MINUTE)
-                .pollInterval(100, TimeUnit.MILLISECONDS)
+                .pollInterval(200, TimeUnit.MILLISECONDS)
                 .until(() -> sb.length() == 3 * MOLECULES_COUNT);
 
         var result = sb.toString();
