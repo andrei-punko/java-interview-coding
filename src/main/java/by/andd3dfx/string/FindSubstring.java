@@ -40,8 +40,8 @@ public class FindSubstring {
 
         public FreqMap(String pattern) {
             length = pattern.length();
-            for (var i = 0; i < length - 1; i++) {
-                put(pattern.charAt(i), length - i - 1);
+            for (var i = 0; i < length; i++) {
+                put(pattern.charAt(length - i - 1), i);
             }
         }
 

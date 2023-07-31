@@ -32,6 +32,8 @@ public class FindSubstringTest {
     public void indexOf_NM_whenPatternHappensOneTime() {
         assertThat(indexOf_NM("abacaba abracadabra baba", "abracadabra"))
                 .isEqualTo(8);
+        assertThat(indexOf_NM("kura bura kura2 kuranda da", "kuranda"))
+                .isEqualTo(16);
     }
 
     @Test
@@ -64,6 +66,8 @@ public class FindSubstringTest {
     public void indexOf_NPlusM_whenPatternHappensOneTime() {
         assertThat(indexOf_NPlusM("abacaba abracadabra baba", "abracadabra"))
                 .isEqualTo(8);
+        assertThat(indexOf_NPlusM("kura bura kura2 kuranda da", "kuranda"))
+                .isEqualTo(16);
     }
 
     @Test
