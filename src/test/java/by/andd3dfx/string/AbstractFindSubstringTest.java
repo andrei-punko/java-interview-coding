@@ -32,15 +32,27 @@ public abstract class AbstractFindSubstringTest {
                 .isEqualTo(-1);
     }
 
+    /**
+     * Example from Rod Stephens book
+     */
     @Test
     public void indexOfWhenPatternHappensOneTime() {
-        assertThat(indexOf("abacaba abracadabra baba", "abracadabra"))
-                .isEqualTo(8);
+        assertThat(indexOf("abba daba abadabracadabra", "cadabra"))
+                .isEqualTo(18);
     }
 
     @Test
     public void indexOfWhenPatternHappensMultipleTimes() {
         assertThat(indexOf("o on one one one on o", "one"))
                 .isEqualTo(5);
+    }
+
+    @Test
+    public void indexOfForLongText() {
+        assertThat(indexOf("Начало помрачения ума, первый признак помрачения, усматриваемый в душе, состоит " +
+                "в лености к службе Божией и молитве. Другого пути к обольщению души нет, если она прежде " +
+                "не оставит этого подвига своего. Когда же она лишится помощи Божией: тогда она удобно впадает " +
+                "в руки супостатов своих", "обольщению"))
+                .isEqualTo(132);
     }
 }

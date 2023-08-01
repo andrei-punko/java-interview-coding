@@ -63,14 +63,18 @@ public class FindSubstring {
             }
 
             // Нашли различие. Фиксируем posInText, уменьшаем posInPattern, ищем такой символ в нем
+            posInPattern--;
             while (posInPattern >= 0 && isNotMatched(text, posInText, pattern, posInPattern, counter)) {
                 posInPattern--;
             }
 
+            var oldShift = shift;
             if (posInPattern < 0) { // Символ в паттерне не нашли, поэтому сдвигаем паттерн так, чтобы он начинался после этого символа
                 shift = posInText + 1;
+                System.out.println("New shift value 1: " + oldShift + "->" + shift);
             } else {                // Нашли символ в паттерне, сдвигаем его так, чтобы выровнять позицию этого символа в паттерне и тексте
-                shift += patternLen - posInPattern - 1;
+                shift = posInText - posInPattern;
+                System.out.println("New shift value 2: " + oldShift + "->" + shift);
             }
         }
 
@@ -78,11 +82,11 @@ public class FindSubstring {
         return -1;
     }
 
-    public static class FreqMap extends HashMap<Character, Integer> {
-        public FreqMap(String pattern) {
+    public static class CharPosMap extends HashMap<Character, Integer> {
+        public CharPosMap(String pattern) {
             var length = pattern.length();
             for (var i = 0; i < length; i++) {
-                put(pattern.charAt(length - i - 1), i);
+                put(pattern.charAt(i), i);
             }
         }
     }
@@ -100,7 +104,7 @@ public class FindSubstring {
             return -1;
         }
 
-        FreqMap map = new FreqMap(pattern);
+        var map = new CharPosMap(pattern);
         int shift = 0;
         while (shift <= textLen - patternLen) {
             var posInPattern = patternLen - 1;
@@ -119,11 +123,16 @@ public class FindSubstring {
             // Нашли различие.
             // Но вместо действия "Фиксируем posInText, уменьшаем posInPattern, ищем такой символ в нем" -
             // просто берем вычисленное ранее нужное значение из FreqMap (если оно есть там)
-            var value = map.get(text.charAt(posInText));
-            if (value == null) {    // Символ в паттерне не нашли, поэтому сдвигаем паттерн так, чтобы он начинался после этого символа
-                shift = posInText + 1;
+            var characterInText = text.charAt(posInText);
+            var posInPatternFromMap = map.get(characterInText);
+
+            var oldShift = shift;
+            if (posInPatternFromMap == null || posInPattern < posInPatternFromMap) {    // Символ в паттерне не нашли. Или символ в паттерне расположен правее интересующей нас позиции
+                shift = posInText + 1;      // поэтому сдвигаем паттерн так, чтобы он начинался после этого символа
+                System.out.println("New shift value 1: " + oldShift + "->" + shift);
             } else {                // Нашли символ в паттерне, сдвигаем его так, чтобы выровнять позицию этого символа в паттерне и тексте
-                shift += value;
+                shift = posInText - posInPatternFromMap;
+                System.out.println("New shift value 2: " + oldShift + "->" + shift);
             }
         }
 
