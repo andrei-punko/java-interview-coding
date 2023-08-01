@@ -1,5 +1,6 @@
 package by.andd3dfx.string;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -54,5 +55,14 @@ public abstract class AbstractFindSubstringTest {
                 "не оставит этого подвига своего. Когда же она лишится помощи Божией: тогда она удобно впадает " +
                 "в руки супостатов своих", "обольщению"))
                 .isEqualTo(132);
+    }
+
+    @Ignore("Fix when you will have enough time")
+    @Test
+    public void leetcodeTestCase() {
+        assertThat(indexOf("ababbbbaaabbbaaa", "bbbb"))
+                .isEqualTo(3);
+        assertThat(indexOf("babbbbbabb", "bbab"))
+                .isEqualTo(5);
     }
 }
