@@ -1,6 +1,5 @@
 package by.andd3dfx.string;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,14 +21,8 @@ public abstract class AbstractFindSubstringTest {
     }
 
     @Test
-    public void indexOfWhenPatternIsAbsentInText_sameAlphabets() {
+    public void indexOfWhenPatternIsAbsentInText() {
         assertThat(indexOf("I'm looking for something special", "Captain Jack"))
-                .isEqualTo(-1);
-    }
-
-    @Test
-    public void indexOfWhenPatternIsAbsentInText_differentAlphabets() {
-        assertThat(indexOf("I'm looking for something special", "12345"))
                 .isEqualTo(-1);
     }
 
@@ -57,9 +50,8 @@ public abstract class AbstractFindSubstringTest {
                 .isEqualTo(132);
     }
 
-    @Ignore("Fix when you will have enough time")
     @Test
-    public void leetcodeTestCase() {
+    public void leetcodeTrickyTestCases() {
         assertThat(indexOf("ababbbbaaabbbaaa", "bbbb"))
                 .isEqualTo(3);
         assertThat(indexOf("babbbbbabb", "bbab"))

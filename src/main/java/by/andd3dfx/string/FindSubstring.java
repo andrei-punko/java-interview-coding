@@ -3,7 +3,10 @@ package by.andd3dfx.string;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
 
 public class FindSubstring {
 
@@ -82,11 +85,14 @@ public class FindSubstring {
         return -1;
     }
 
-    public static class CharPosMap extends HashMap<Character, Integer> {
+    public static class CharPosMap extends HashMap<Character, List<Integer>> {
         public CharPosMap(String pattern) {
-            var length = pattern.length();
-            for (var i = 0; i < length; i++) {
-                put(pattern.charAt(i), i);
+            for (var i = 0; i < pattern.length(); i++) {
+                var key = pattern.charAt(i);
+                if (!containsKey(key)) {
+                    put(key, new ArrayList<>());
+                }
+                get(key).add(i);
             }
         }
     }
@@ -122,16 +128,23 @@ public class FindSubstring {
 
             // Нашли различие.
             // Но вместо действия "Фиксируем posInText, уменьшаем posInPattern, ищем такой символ в нем" -
-            // просто берем вычисленное ранее нужное значение из FreqMap (если оно есть там)
+            // просто берем список вычисленных ранее значений (для данного символа) и берем максимальный из них, меньший posInPattern
             var characterInText = text.charAt(posInText);
-            var posInPatternFromMap = map.get(characterInText);
+
+            Optional<Integer> posInPatternFromMap = Optional.empty();
+            if (map.containsKey(characterInText)) {
+                int finalPosInPattern = posInPattern;
+                posInPatternFromMap = map.get(characterInText).stream()
+                        .filter(integer -> integer < finalPosInPattern)
+                        .max(Integer::compareTo);
+            }
 
             var oldShift = shift;
-            if (posInPatternFromMap == null || posInPattern < posInPatternFromMap) {    // Символ в паттерне не нашли. Или символ в паттерне расположен правее интересующей нас позиции
+            if (posInPatternFromMap.isEmpty()) {    // Символ в паттерне не нашли. Или символ в паттерне расположен правее интересующей нас позиции
                 shift = posInText + 1;      // поэтому сдвигаем паттерн так, чтобы он начинался после этого символа
                 System.out.println("New shift value 1: " + oldShift + "->" + shift);
             } else {                // Нашли символ в паттерне, сдвигаем его так, чтобы выровнять позицию этого символа в паттерне и тексте
-                shift = posInText - posInPatternFromMap;
+                shift = posInText - posInPatternFromMap.get();
                 System.out.println("New shift value 2: " + oldShift + "->" + shift);
             }
         }
