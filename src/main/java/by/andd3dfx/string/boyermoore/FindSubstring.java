@@ -16,11 +16,11 @@ public class FindSubstring implements IFindSubstring {
                 }
             }
 
-            System.out.println("Comparisons: " + counter.getValue());
+            System.out.println("Comparisons: " + counter.get());
             return i;
         }
 
-        System.out.println("Comparisons: " + counter.getValue());
+        System.out.println("Comparisons: " + counter.get());
         return -1;
     }
 }

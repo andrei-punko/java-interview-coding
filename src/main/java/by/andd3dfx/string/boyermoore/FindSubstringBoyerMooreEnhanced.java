@@ -41,19 +41,19 @@ public class FindSubstringBoyerMooreEnhanced extends FindSubstringBoyerMoore {
         // просто берем список вычисленных ранее значений (для данного символа) и берем максимальный из них, меньший posInPattern
         var characterInText = text.charAt(posInText);
 
-        Optional<Integer> posInPatternFromMap = Optional.empty();
+        Optional<Integer> posInPatternOptional = Optional.empty();
         if (map.containsKey(characterInText)) {
             int finalPosInPattern = posInPattern;
-            posInPatternFromMap = map.get(characterInText).stream()
-                    .filter(integer -> integer < finalPosInPattern)
+            posInPatternOptional = map.get(characterInText).stream()
+                    .filter(charPos -> charPos < finalPosInPattern)
                     .max(Integer::compareTo);
         }
 
-        if (posInPatternFromMap.isEmpty()) {    // Символ в паттерне не нашли. Или символ в паттерне расположен правее интересующей нас позиции
+        if (posInPatternOptional.isEmpty()) {    // Символ в паттерне не нашли. Или символ в паттерне расположен правее интересующей нас позиции
             return posInText + 1;      // поэтому сдвигаем паттерн так, чтобы он начинался после этого символа
         }
 
         // Нашли символ в паттерне, сдвигаем его так, чтобы выровнять позицию этого символа в паттерне и тексте
-        return posInText - posInPatternFromMap.get();
+        return posInText - posInPatternOptional.get();
     }
 }

@@ -15,7 +15,7 @@ public class FindSubstringBoyerMoore implements IFindSubstring {
         var counter = new Counter();
 
         if (patternLen > textLen) {
-            System.out.println("Comparisons: " + counter.getValue());
+            System.out.println("Comparisons: " + counter.get());
             return -1;
         }
 
@@ -31,14 +31,14 @@ public class FindSubstringBoyerMoore implements IFindSubstring {
             }
 
             if (posInPattern < 0) {    // Дошли до начала паттерна, полное совпадение. Возвращаем результат
-                System.out.println("Comparisons: " + counter.getValue());
+                System.out.println("Comparisons: " + counter.get());
                 return shift;
             }
 
             shift = determineShift(text, posInText, pattern, posInPattern, counter, context);
         }
 
-        System.out.println("Comparisons: " + counter.getValue());
+        System.out.println("Comparisons: " + counter.get());
         return -1;
     }
 
