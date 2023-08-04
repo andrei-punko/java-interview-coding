@@ -7,7 +7,7 @@
 create table SALARIES (
     ID int primary key,
     NAME varchar(255) not null,
-    SALARY int not null
+    SALARY int
 );
 
 insert into salaries(id, name, salary) values (1, 'Tikhon', 1000);

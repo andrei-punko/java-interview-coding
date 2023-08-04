@@ -21,7 +21,7 @@ create table PHONE (
     ID            int primary key,
     PHONE_NUMBER  varchar(50) not null,
     ID_CUSTOMER   int,
-    foreign key (FK_ID_CUSTOMER) references CUSTOMER(ID)
+    foreign key (ID_CUSTOMER) references CUSTOMER(ID)
 );
 
 insert into CUSTOMER values (1,'Иван','Иванов','Иванович','ivan@mail.com');
@@ -37,7 +37,7 @@ insert into PHONE values (4,'+375294444444',4);
 select c.FIRST_NAME from CUSTOMER c group by c.FIRST_NAME having count(c.FIRST_NAME) > 1;
 
 -- вывести ID пользователей c телефонами
-select c.ID from CUSTOMER c inner join PHONE p on c.ID = p.ID_CUSTOMER;
+select distinct c.ID from CUSTOMER c inner join PHONE p on c.ID = p.ID_CUSTOMER order by c.id;
 
 -- вывести ID пользователей без телефона
-select c.ID from CUSTOMER c where c.ID is not in (select ID_CUSTOMER from PHONE);
+select c.ID from CUSTOMER c where c.ID not in (select ID_CUSTOMER from PHONE);
