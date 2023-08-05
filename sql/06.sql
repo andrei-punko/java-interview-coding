@@ -2,20 +2,21 @@
 -- 06. Поиск авторов, кто написал не более указанного кол-ва книг в заданном году
 
 -- Есть 2 таблицы:
--- Books(id, name, year, auth_id)
 -- Authors(id, name)
+-- Books(id, name, year, auth_id)
 -- Написать запрос, чтобы вывести имена тех авторов, кто написал не более 3 книг в 2016 году, отсортированными по имени
+
+create table Authors (
+  id int primary key,
+  name varchar(255) not null
+);
 
 create table Books (
   id int primary key,
   name varchar(255) not null,
   year int not null,
-  auth_id int not null
-);
-
-create table Authors (
-  id int primary key,
-  name varchar(255) not null
+  auth_id int not null,
+  foreign key (auth_id) references Authors(id)
 );
 
 insert into Authors values (1, 'Pushkin');	-- 3 books in 2016

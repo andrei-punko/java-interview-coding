@@ -160,3 +160,4 @@ Sure, we have [tests](src/test/java/by/andd3dfx), they contain enough code which
 - [Проверка, является ли число степенью заданного числа (2 решения) (leetcode)](https://www.youtube.com/watch?v=E1Gue5EcvK4)
 - [Прокрутка односвязного списка (leetcode)](https://www.youtube.com/watch?v=6tyflwO6PwY)
 - [Поиск подстроки в строке за O(N+M): алгоритм Бойера Мура (2 решения) (leetcode)](https://www.youtube.com/watch?v=77fzfJIs_YY)
+- [Задачи из интервью на написание SQL-запросов](https://www.youtube.com/watch?v=GjDF_LdwYHU)
