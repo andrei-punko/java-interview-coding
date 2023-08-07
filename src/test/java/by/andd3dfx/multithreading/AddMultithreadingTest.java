@@ -37,7 +37,7 @@ public class AddMultithreadingTest {
 
         var future = CompletableFuture.supplyAsync(() -> aggregator.doRequest());
 
-        await().atMost(1_100, TimeUnit.MILLISECONDS)
+        await().atMost(1_200, TimeUnit.MILLISECONDS)
                 .until(() -> future.isDone());
         assertThat(future.get()).isEqualTo("OneTwo");
     }

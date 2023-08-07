@@ -89,4 +89,16 @@ public class WordSearchTest {
 
         assertFalse(wordSearch.exist(board, word));
     }
+
+    @Test
+    public void exist_allCharsUsed() {
+        char[][] board = new char[][]{
+                {'A', 'B', 'C', 'E'},
+                {'S', 'F', 'C', 'S'},
+                {'A', 'D', 'E', 'E'}
+        };
+        var word = "ASABFDECCESE";
+
+        assertTrue(wordSearch.exist(board, word));
+    }
 }

@@ -40,7 +40,7 @@ public class WordSearch {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (word.charAt(0) == board[i][j]) {
+                if (checkIsCharacterSuitable(board, i, j, word, 0)) {
                     boolean[][] visited = new boolean[m][n];
                     visited[i][j] = true;
 
@@ -58,50 +58,38 @@ public class WordSearch {
             return true;
         }
 
+        if (checkNewPos(board, i - 1, j, word, pos, visited)) {
+            return true;
+        }
+        if (checkNewPos(board, i, j - 1, word, pos, visited)) {
+            return true;
+        }
+        if (checkNewPos(board, i + 1, j, word, pos, visited)) {
+            return true;
+        }
+        if (checkNewPos(board, i, j + 1, word, pos, visited)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean checkNewPos(char[][] board, int i, int j, String word, int pos, boolean[][] visited) {
         var m = board.length;
         var n = board[0].length;
 
-        if (i > 0 && !visited[i - 1][j]) {
-            if (checkIsCharacterSuitable(board, i - 1, j, word, pos)) {
-                visited[i - 1][j] = true;
-                if (findNextCharacter(board, i - 1, j, word, pos + 1, visited)) {
-                    return true;
-                }
-
-                visited[i - 1][j] = false;
-            }
-        }
-        if (j > 0 && !visited[i][j - 1]) {
-            if (checkIsCharacterSuitable(board, i, j - 1, word, pos)) {
-                visited[i][j - 1] = true;
-                if (findNextCharacter(board, i, j - 1, word, pos + 1, visited)) {
-                    return true;
-                }
-
-                visited[i][j - 1] = false;
-            }
-        }
-        if (i < m - 1 && !visited[i + 1][j]) {
-            if (checkIsCharacterSuitable(board, i + 1, j, word, pos)) {
-                visited[i + 1][j] = true;
-                if (findNextCharacter(board, i + 1, j, word, pos + 1, visited)) {
-                    return true;
-                }
-
-                visited[i + 1][j] = false;
-            }
-        }
-        if (j < n - 1 && !visited[i][j + 1]) {
-            if (checkIsCharacterSuitable(board, i, j + 1, word, pos)) {
-                visited[i][j + 1] = true;
-                if (findNextCharacter(board, i, j + 1, word, pos + 1, visited)) {
-                    return true;
-                }
-
-                visited[i][j + 1] = false;
-            }
+        if (i < 0 || j < 0 || i >= m || j >= n) {
+            return false;
         }
 
+        if (!visited[i][j] && checkIsCharacterSuitable(board, i, j, word, pos)) {
+            visited[i][j] = true;
+            if (findNextCharacter(board, i, j, word, pos + 1, visited)) {
+                return true;
+            }
+
+            visited[i][j] = false;
+        }
         return false;
     }
 
