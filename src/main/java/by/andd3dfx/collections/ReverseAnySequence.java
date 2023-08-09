@@ -2,6 +2,7 @@ package by.andd3dfx.collections;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 /**
@@ -10,16 +11,9 @@ import java.util.List;
 public class ReverseAnySequence {
 
     public static <T> List<T> reverseUsingStack(List<T> list) {
-        ArrayDeque<T> stack = new ArrayDeque<>();
-        for (T item : list) {
-            stack.push(item);
-        }
-
-        List<T> result = new ArrayList<>();
-        while (!stack.isEmpty()) {
-            result.add(stack.pop());
-        }
-        return result;
+        var stack = new ArrayDeque<T>();
+        list.forEach(stack::push);
+        return stack.stream().toList();
     }
 
     public static <T> List<T> reverseUsingRecursion(List<T> list) {
@@ -27,9 +21,9 @@ public class ReverseAnySequence {
             return list;
         }
 
-        T item = list.get(0);
+        var firstItem = list.get(0);
         List<T> subList = list.subList(1, list.size());
-        return compose(reverseUsingRecursion(subList), item);
+        return compose(reverseUsingRecursion(subList), firstItem);
     }
 
     private static <T> List<T> compose(List<T> list, T item) {

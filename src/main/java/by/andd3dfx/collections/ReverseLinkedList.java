@@ -16,9 +16,7 @@ public class ReverseLinkedList {
 
         @Override
         public String toString() {
-            return "Node{" +
-                    "value=" + value +
-                    '}';
+            return "Node{v=%s}".formatted(value);
         }
     }
 

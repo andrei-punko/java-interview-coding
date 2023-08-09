@@ -17,7 +17,7 @@ public class DeleteNthElementFromLinkedListEnd {
 
         @Override
         public String toString() {
-            return "{" + value + ", next=" + next + '}';
+            return "{%d, next=%s}".formatted(value, next);
         }
     }
 
