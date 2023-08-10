@@ -17,7 +17,7 @@
         <version>0.8.10</version>
         <configuration>
           <excludes>
-            <exclude>**/refactoring/initial/**</exclude>
+            <exclude>**/refactoring*/initial/**</exclude>
           </excludes>
         </configuration>
         <executions>
@@ -59,11 +59,12 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-logging</artifactId>
-      <version>3.1.1</version>
+      <version>3.1.2</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
+      <version>3.13.0</version>
     </dependency>
 
     <dependency>
@@ -120,6 +121,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
+      <version>1.18.28</version>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
@@ -142,23 +144,5 @@
 
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-
-    <lombok.version>1.18.28</lombok.version>
-    <commons-lang3.version>3.12.0</commons-lang3.version>
   </properties>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>${lombok.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>${commons-lang3.version}</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 </project>
