@@ -127,7 +127,6 @@ Sure, we have [tests](src/test/java/by/andd3dfx), they contain enough code which
 - [Упаковка товаров для доставки](https://www.youtube.com/watch?v=ZDntf64fW5Q)
 - [Самодельный Stream (часть 2): of, limit, skip, takeWhile, dropWhile, distinct, sorted, forEach и т.д](https://www.youtube.com/watch?v=iuzWoSzl1to)
 - [Определение оптимального времени покупки и продажи акций (2 решения) (leetcode)](https://www.youtube.com/watch?v=XYPIKrEBbCc)
-- [Планирование ограбления (leetcode)](https://www.youtube.com/watch?v=3WoXqZ3V6wQ)
 - [Разбиение здания на апартаменты (Workfusion)](https://www.youtube.com/watch?v=W3RefFMsnRo)
 - [Самодельный BlockingQueue (2 решения)](https://www.youtube.com/watch?v=eMn_KjkFGds)
 - [Самодельный ThreadPoolExecutor](https://www.youtube.com/watch?v=FmJasJ-W-Rs)
