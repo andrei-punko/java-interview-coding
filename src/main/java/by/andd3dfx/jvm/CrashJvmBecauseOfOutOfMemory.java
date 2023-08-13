@@ -2,7 +2,7 @@ package by.andd3dfx.jvm;
 
 import java.util.ArrayList;
 
-public class OutOfMemoryException {
+public class CrashJvmBecauseOfOutOfMemory {
 
     public static void main(String[] args) {
         var list = new ArrayList<byte[]>();

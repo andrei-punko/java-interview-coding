@@ -60,9 +60,4 @@ public class RaiseToPower {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        System.out.println("Usual: 2^6=" + apply(2, 6));
-        System.out.println("Enhanced: 2^6=" + applyEnhanced(2, 6));
-    }
 }

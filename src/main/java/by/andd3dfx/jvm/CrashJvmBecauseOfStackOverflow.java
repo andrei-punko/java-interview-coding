@@ -1,6 +1,6 @@
 package by.andd3dfx.jvm;
 
-public class StackOverflowException {
+public class CrashJvmBecauseOfStackOverflow {
 
     public static void main(String[] args) {
         fire();
