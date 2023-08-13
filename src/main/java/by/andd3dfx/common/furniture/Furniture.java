@@ -1,4 +1,4 @@
-package by.andd3dfx.furniture;
+package by.andd3dfx.common.furniture;
 
 public enum Furniture {
     CHAIR("Chair", 100.0f),

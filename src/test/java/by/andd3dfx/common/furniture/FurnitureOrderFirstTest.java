@@ -1,4 +1,4 @@
-package by.andd3dfx.furniture;
+package by.andd3dfx.common.furniture;
 
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;

@@ -36,7 +36,8 @@
 - [testing](src/main/java/by/andd3dfx/testing)
 - [tree](src/main/java/by/andd3dfx/tree)
 
-Sure, we have [tests](src/test/java/by/andd3dfx), they contain enough code which describe implementation in natural way.
+Sure, we have [tests](src/test/java/by/andd3dfx);
+they contain enough code which describes implementation in a natural way.
 
 [SQL folder](sql/README.md) contains tasks which require writing SQL queries to solve them.
 

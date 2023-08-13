@@ -1,4 +1,4 @@
-package by.andd3dfx.furniture;
+package by.andd3dfx.common.furniture;
 
 import java.util.HashMap;
 import java.util.Map;
