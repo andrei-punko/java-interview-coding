@@ -5,22 +5,24 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class WordSearch2Test {
+public abstract class AbstractWordSearch2Test {
 
-    private WordSearch2 wordSearch;
+    private IWordSearch2 wordSearch2;
 
     @Before
     public void setUp() throws Exception {
-        wordSearch = new WordSearch2();
+        wordSearch2 = initiate();
     }
+
+    protected abstract IWordSearch2 initiate();
 
     @Test
     public void exist_1x2() {
         var board = new char[][]{
                 {'A', 'B'},
         };
-        var words = new String[]{"BA", "AA", "AB"};
-        var expectedWords = new String[]{"BA", "AB"};
+        var words = new String[]{"AB", "ABC", "BA", "AA", "B"};
+        var expectedWords = new String[]{"AB", "BA", "B"};
 
         findWordAndCheckAsserts(board, words, expectedWords);
     }
@@ -31,8 +33,8 @@ public class WordSearch2Test {
                 {'A', 'B'},
                 {'C', 'D'},
         };
-        var words = new String[]{"ABD", "ADC", "BDC", "DCAB", "DBA", "BCD", "BC", "CA"};
-        var expectedWords = new String[]{"ABD", "BDC", "DCAB", "DBA", "CA"};
+        var words = new String[]{"ABD", "ADC", "BDC", "DCAB", "DBA", "BCD", "D", "BC", "CA"};
+        var expectedWords = new String[]{"ABD", "BDC", "DCAB", "DBA", "D", "CA"};
 
         findWordAndCheckAsserts(board, words, expectedWords);
     }
@@ -44,14 +46,14 @@ public class WordSearch2Test {
                 {'S', 'F', 'C', 'S'},
                 {'A', 'D', 'E', 'E'}
         };
-        var words = new String[]{"ABCCED", "SFCCE", "SCEEE", "SCEDFB", "SECCEE", "FDA", "FDEES", "CSEEE"};
-        var expectedWords = new String[]{"ABCCED", "SFCCE", "SCEDFB", "SECCEE", "FDA", "FDEES"};
+        var words = new String[]{"ABCCED", "SFCCE", "SCEEE", "FC", "SCEDFB", "SECCEE", "FDA", "FDEES", "CSEEE"};
+        var expectedWords = new String[]{"ABCCED", "SFCCE", "FC", "SCEDFB", "SECCEE", "FDA", "FDEES"};
 
         findWordAndCheckAsserts(board, words, expectedWords);
     }
 
     private void findWordAndCheckAsserts(char[][] board, String[] words, String[] expectedWords) {
-        var result = wordSearch.findWords(board, words);
+        var result = wordSearch2.findWords(board, words);
 
         assertThat(result).hasSize(expectedWords.length);
         assertThat(result).containsExactlyInAnyOrder(expectedWords);

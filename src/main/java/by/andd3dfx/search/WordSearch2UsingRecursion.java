@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
  * Output: []
  * </pre>
  */
-public class WordSearch2 {
+public class WordSearch2UsingRecursion implements IWordSearch2 {
 
     private long recursionCallCounter = 0L;
 
@@ -56,6 +56,7 @@ public class WordSearch2 {
         }
     }
 
+    @Override
     public List<String> findWords(char[][] board, String[] words) {
         var wordsToFind = Arrays.stream(words).collect(Collectors.toSet());
         int maxLen = Arrays.stream(words)
