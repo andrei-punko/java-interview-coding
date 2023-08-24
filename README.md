@@ -169,3 +169,4 @@ they contain enough code which describes implementation in a natural way.
 - [Поиск в строке наиболее длинной подстроки без повторений (leetcode)](https://www.youtube.com/watch?v=Jj66XXja4LY)
 - [Сумма двух чисел без использования + и - (2 решения) (leetcode)](https://www.youtube.com/watch?v=W_Vja_AFKFg)
 - [Длина последнего слова в строке (3 решения) (leetcode)](https://www.youtube.com/watch?v=Kev5TpsfKT4)
+- [Парсинг списка строк в структуру данных (Яндекс)](https://www.youtube.com/watch?v=RW1DcmbzbQ8)

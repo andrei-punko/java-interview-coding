@@ -48,13 +48,13 @@ public final class UnmodifiableNode {
     }
 
     public int sumRecursive() {
-        return sum(this);
+        return sumRecursive(this);
     }
 
-    private int sum(UnmodifiableNode node) {
+    private int sumRecursive(UnmodifiableNode node) {
         var result = node.value;
         for (UnmodifiableNode child : node.getChildren()) {
-            result += sum(child);
+            result += sumRecursive(child);
         }
         return result;
     }

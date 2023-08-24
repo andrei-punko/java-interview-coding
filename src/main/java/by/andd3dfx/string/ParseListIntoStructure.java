@@ -1,7 +1,7 @@
 package by.andd3dfx.string;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.HashMap;
@@ -49,49 +49,48 @@ import java.util.Map;
  *    }
  * ]
  * </pre>
-*/
+ */
 public class ParseListIntoStructure {
 
-    @Data
+    @EqualsAndHashCode
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Properties {
         public Integer value;
-        public Map<String, Properties> inner = new HashMap<>();
+        public Map<String, Properties> map = new HashMap<>();
 
         public Properties(Integer value) {
             this.value = value;
         }
 
-        public Properties(Map<String, Properties> inner) {
-            this.inner = inner;
+        public Properties(Map<String, Properties> map) {
+            this.map = map;
         }
     }
 
-    public Properties parse(List<String> strings) {
+    public Properties parse(List<String> lines) {
         Properties result = new Properties();
-        for (String string : strings) {
-            String[] pair = string.split("=");
-            String key = pair[0];
-            int value = Integer.parseInt(pair[1]);
+        for (var line : lines) {
+            var pair = line.split("=");
 
-            String[] items = key.split("\\.");
+            var value = Integer.valueOf(pair[1]);
+            var items = pair[0].split("\\.");
+
             populateContainer(value, items, 0, result);
         }
         return result;
     }
 
-    private void populateContainer(int value, String[] items, int position, Properties container) {
-        if (items.length == position) {
+    private void populateContainer(Integer value, String[] items, int depth, Properties container) {
+        if (items.length == depth) {
             container.value = value;
             return;
         }
 
-        Properties newContainer = container.inner.get(items[position]);
-        if (newContainer == null) {
-            newContainer = new Properties();
-            container.inner.put(items[position], newContainer);
+        var key = items[depth];
+        if (!container.map.containsKey(key)) {
+            container.map.put(key, new Properties());
         }
-        populateContainer(value, items, position + 1, newContainer);
+        populateContainer(value, items, depth + 1, container.map.get(key));
     }
 }

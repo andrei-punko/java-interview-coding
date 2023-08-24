@@ -41,7 +41,7 @@ public class CustomArrayListTest {
         list.add(12);                 // 3 7 12
         list.add(2, 67);  // 3 7 67 12
         list.add(1, 34);  // 3 34 7 67 12
-        list.add(5, 102);  // 3 34 7 67 12 102 - addition of new element at the right should pass
+        list.add(5, 102);  // 3 34 7 67 12 102 - addition of a new element at the right should pass
 
         assertThat(list.size(), is(6));
         assertThat(list.get(0), is(3));
