@@ -1,0 +1,21 @@
+
+Материалы для подготовки:
+- Примеры наших задач:
+    https://m.habrahabr.ru/company/yandex/blog/337690/
+    https://m.habrahabr.ru/company/yandex/blog/340784/
+
+- Оценка сложности:
+https://habr.com/ru/post/188010/
+
+- Подборка по алгоритмам:
+https://github.com/tayllan/awesome-algorithms
+https://m.habr.com/ru/company/yandex/blog/449890/
+https://habr.com/ru/post/78728/
+https://youtu.be/0yxjWwoZtLw
+https://youtu.be/zU-LndSG5RE
+
+Алгоритмы, которые чаще всего бывают в задачках:
+– сортировки (например, bubble sort или quicksort)
+– разворота одно/двусвязного списка
+– разворота строки
+– обхода дерева
