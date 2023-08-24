@@ -9,27 +9,43 @@ import java.util.Map;
  * New string does not contain repeating letters but contains a number after every letter
  * that means how many times the letter was repeated in the original string.
  * a.	“” -> “”
- * b.	“a” -> “a1”
+ * b.	“a” -> “a”
  * c.	“aaa” -> “a3”
- * d.	“aaabbc” -> “a3b2c1”
+ * d.	“aaabbcbbb” -> “a3b2cb3”
  * </pre>
  */
 public class MakeStringCompact {
 
-    public static String transform(String s) {
-        Map<Character, Integer> map = new LinkedHashMap<>();
-        for (var ch: s.toCharArray()) {
-            if (map.containsKey(ch)) {
-                map.put(ch, map.get(ch) + 1);
+    public static String transform(String str) {
+        if (str == null || str.isEmpty()) {
+            return str;
+        }
+
+        var sb = new StringBuilder();
+        var chars = str.toCharArray();
+
+        var last = chars[0];
+        var counter = 1;
+
+        for (int i = 1; i < chars.length; i++) {
+            if (chars[i] != last) {
+                sb.append(last);
+                if (counter > 1) {
+                    sb.append(counter);
+                }
+
+                last = chars[i];
+                counter = 1;
             } else {
-                map.put(ch, 1);
+                counter++;
             }
         }
 
-        var result = "";
-        for (var key : map.keySet()) {
-            result += String.format("%s%d", key, map.get(key));
+        sb.append(last);
+        if (counter > 1) {
+            sb.append(counter);
         }
-        return result;
+
+        return sb.toString();
     }
 }
