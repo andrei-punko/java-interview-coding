@@ -40,6 +40,19 @@ public abstract class AbstractWordSearch2Test {
     }
 
     @Test
+    public void exist_3x3() {
+        var board = new char[][]{
+                {'A', 'B', 'C'},
+                {'C', 'D', 'A'},
+                {'A', '2', 'B'},
+        };
+        var words = new String[]{"2DA", "AB2", "A2DAC", "CAC", "BDB"};
+        var expectedWords = new String[]{"2DA", "AB2", "A2DAC"};
+
+        findWordAndCheckAsserts(board, words, expectedWords);
+    }
+
+    @Test
     public void exist_4x4() {
         var board = new char[][]{
                 {'A', 'B', 'C', 'E'},
