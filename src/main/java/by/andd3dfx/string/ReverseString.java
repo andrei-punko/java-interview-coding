@@ -4,8 +4,13 @@ public class ReverseString {
 
     public static String apply(String string) {
         char[] chars = string.toCharArray();
-        for (int i = 0; i < chars.length / 2; i++) {
-            swap(chars, i, chars.length - 1 - i);
+        var left = 0;
+        var right = chars.length - 1;
+
+        while (left < right) {
+            swap(chars, left, right);
+            left++;
+            right--;
         }
         return new String(chars);
     }
