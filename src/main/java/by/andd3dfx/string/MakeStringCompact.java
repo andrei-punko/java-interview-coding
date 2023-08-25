@@ -1,8 +1,5 @@
 package by.andd3dfx.string;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 /**
  * <pre>
  * Write a function that transforms string into a new string.
@@ -29,10 +26,7 @@ public class MakeStringCompact {
 
         for (int i = 1; i < chars.length; i++) {
             if (chars[i] != last) {
-                sb.append(last);
-                if (counter > 1) {
-                    sb.append(counter);
-                }
+                appendWithCounter(sb, last, counter);
 
                 last = chars[i];
                 counter = 1;
@@ -41,11 +35,15 @@ public class MakeStringCompact {
             }
         }
 
-        sb.append(last);
+        appendWithCounter(sb, last, counter);
+
+        return sb.toString();
+    }
+
+    private static void appendWithCounter(StringBuilder sb, char ch, int counter) {
+        sb.append(ch);
         if (counter > 1) {
             sb.append(counter);
         }
-
-        return sb.toString();
     }
 }
