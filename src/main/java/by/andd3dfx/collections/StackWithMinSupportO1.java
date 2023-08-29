@@ -17,31 +17,26 @@ import java.util.Deque;
 public class StackWithMinSupportO1 {
 
     private Deque<Integer> stack = new ArrayDeque<>();
-    private Deque<Integer> minElementsStack = new ArrayDeque<>();
+    private Deque<Integer> minHistoryStack = new ArrayDeque<>();
 
     public void push(int element) {
         stack.push(element);
 
-        if (minElementsStack.isEmpty()) {
-            minElementsStack.push(element);
-            return;
-        }
-
-        if (element <= minElementsStack.peek()) {
-            minElementsStack.push(element);
+        if (minHistoryStack.isEmpty() || element <= minHistoryStack.peek()) {
+            minHistoryStack.push(element);
         }
     }
 
     public int pop() {
         Integer result = stack.pop();
-        if (minElementsStack.peek() == result) {
-            minElementsStack.pop();
+        if (minHistoryStack.peek() == result) {
+            minHistoryStack.pop();
         }
         return result;
     }
 
     public int getMin() {
-        return minElementsStack.peek();
+        return minHistoryStack.peek();
     }
 
     public boolean isEmpty() {
