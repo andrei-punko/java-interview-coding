@@ -2,11 +2,11 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
-import static by.andd3dfx.common.Username.validate;
+import static by.andd3dfx.common.UsernameValidator.validate;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class UsernameTest {
+public class UsernameValidatorTest {
 
     @Test
     public void testValidate() {

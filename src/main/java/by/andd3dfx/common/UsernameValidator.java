@@ -12,7 +12,7 @@ package by.andd3dfx.common;
  * </pre>
  * For example, Username.validate("Mike Standish") would return false because it contains space.
  */
-public class Username {
+public class UsernameValidator {
 
     private static final String[] patterns = {
             "^[A-Za-z0-9\\-]{6,16}$",               // Allowed only chars and digits, definite size range
