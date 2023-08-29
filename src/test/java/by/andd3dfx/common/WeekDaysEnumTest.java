@@ -11,8 +11,8 @@ public class WeekDaysEnumTest {
 
     @Test
     public void ordinal() {
-        assertThat(SUNDAY.ordinal(), is(0));
-        assertThat(MONDAY.ordinal(), is(1));
+        assertThat(MONDAY.ordinal(), is(0));
+        assertThat(SUNDAY.ordinal(), is(6));
     }
 
     @Test
@@ -24,9 +24,9 @@ public class WeekDaysEnumTest {
     @Test
     public void values() {
         WeekDaysEnum[] values = WeekDaysEnum.values();
-        assertThat(values.length, is(2));
-        assertThat(values[0], is(SUNDAY));
-        assertThat(values[1], is(MONDAY));
+        assertThat(values.length, is(7));
+        assertThat(values[0], is(MONDAY));
+        assertThat(values[6], is(SUNDAY));
     }
 
     @Test

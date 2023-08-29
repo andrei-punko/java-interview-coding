@@ -9,7 +9,7 @@ import java.util.List;
  * print the resultant matrix. Rotation should be in anti-clockwise direction.
  * It is guaranteed that the minimum of m and n will be even.
  * <p>
- * As an example rotate the Start matrix by 2:
+ * As an example, rotate the Start matrix by 2:
  * <pre>
  *     Start         First           Second
  *      1 2 3 4       2  3  4  5      3  4  5  6

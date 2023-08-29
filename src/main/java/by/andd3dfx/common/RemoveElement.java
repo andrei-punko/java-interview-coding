@@ -37,11 +37,14 @@ public class RemoveElement {
         var left = 0;
         var right = 0;
         while (right < nums.length) {
+            // Skip all items that equals to `val`
             while (right < nums.length && nums[right] == val) {
                 right++;
                 count--;
             }
 
+            // Copy from right side to left side all items that not equals to `val`
+            // (until we found item equals to `val` or array finished)
             while (right < nums.length && nums[right] != val) {
                 nums[left] = nums[right];
                 left++;

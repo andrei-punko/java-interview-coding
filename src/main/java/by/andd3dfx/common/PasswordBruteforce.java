@@ -5,9 +5,9 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.function.Function;
 
 /**
- * We have alphabet of characters and hash function.
- * Write decode() function which get hash value and restore password by this hash.
- * Password contains only characters from given alphabet.
+ * We have an alphabet of characters and hash function.
+ * Write decode() function which gets hash value and restore password by this hash.
+ * Password contains only characters from the given alphabet.
  */
 public class PasswordBruteforce {
 

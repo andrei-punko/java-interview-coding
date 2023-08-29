@@ -18,9 +18,13 @@ public final class WeekDaysEnum {
     private final String value;
     private final int ordinal;
 
-    public static final WeekDaysEnum SUNDAY = add("SUNDAY");
     public static final WeekDaysEnum MONDAY = add("MONDAY");
-    //...
+    public static final WeekDaysEnum TUESDAY = add("TUESDAY");
+    public static final WeekDaysEnum WEDNESDAY = add("WEDNESDAY");
+    public static final WeekDaysEnum THURSDAY = add("THURSDAY");
+    public static final WeekDaysEnum FRIDAY = add("FRIDAY");
+    public static final WeekDaysEnum SATURDAY = add("SATURDAY");
+    public static final WeekDaysEnum SUNDAY = add("SUNDAY");
 
     private WeekDaysEnum(String value, int ordinal) {
         this.value = value;

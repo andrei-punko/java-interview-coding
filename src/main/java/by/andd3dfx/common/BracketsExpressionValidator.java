@@ -6,12 +6,14 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * <pre>
  * Есть скобочное выражение с разными видами скобок {}, (), [], <>.
  * Проверить, что оно правильное.
  * Других символов, кроме скобок, быть не может.
- * <p>
+ *
  * ([{}]) -> true
  * ([)] -> false
+ * </pre>
  */
 public class BracketsExpressionValidator {
 
