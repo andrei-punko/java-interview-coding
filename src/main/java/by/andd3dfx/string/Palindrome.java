@@ -1,5 +1,8 @@
 package by.andd3dfx.string;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Palindrome {
 
   /**
@@ -95,4 +98,24 @@ public class Palindrome {
 
       return result;
   }
+
+    /**
+     * Дана строка. Написать метод, проверяющий, можно ли перестановкой букв данной строки сформировать палиндром.
+     */
+    public static boolean canFormPalindrome(String str) {
+        /**
+         * Идея решения в том, что в палиндроме все символы встречаются четное кол-во раз, кроме, максимум одного символа.
+         * Убеждаемся, что таких одиночных символов не более одного.
+         */
+        Set set = new HashSet();
+        for (var ch : str.toCharArray()) {
+            if (!set.contains(ch)) {
+                set.add(ch);
+            } else {
+                set.remove(ch);
+            }
+        }
+
+        return set.size() <= 1;
+    }
 }

@@ -3,6 +3,7 @@ package by.andd3dfx.string;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
+import static by.andd3dfx.string.Palindrome.canFormPalindrome;
 import static by.andd3dfx.string.Palindrome.isPalindrome;
 import static by.andd3dfx.string.Palindrome.isPalindromeIgnoreCase;
 import static by.andd3dfx.string.Palindrome.longestPalindromeSubstring;
@@ -10,6 +11,8 @@ import static by.andd3dfx.string.Palindrome.removeNthPalindrome;
 import static by.andd3dfx.string.Palindrome.removePalindromes;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class PalindromeTest {
 
@@ -54,4 +57,14 @@ public class PalindromeTest {
     Assertions.assertThat(longestPalindromeSubstring("Composition")).isEqualTo("iti");
     Assertions.assertThat(longestPalindromeSubstring("abbaerrtrre1ll1")).isEqualTo("errtrre");
   }
+
+    @Test
+    public void testCanFormPalindrome() {
+      assertTrue(canFormPalindrome("aall"));
+      assertTrue(canFormPalindrome("derpdepr"));
+      assertTrue(canFormPalindrome(" 78 7hjk 8jk h"));
+
+      assertFalse(canFormPalindrome("T-Rex - Ballrooms of Mars"));
+      assertFalse(canFormPalindrome("123456"));
+    }
 }
