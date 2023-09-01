@@ -17,6 +17,18 @@ public abstract class AbstractWordSearch2Test {
     protected abstract IWordSearch2 initiate();
 
     @Test
+    public void exist_forEmptyWordsList() {
+        var board = new char[][]{
+                {'A', 'B'},
+                {'C', 'D'},
+        };
+        var words = new String[]{};
+        var expectedWords = new String[]{};
+
+        findWordAndCheckAsserts(board, words, expectedWords);
+    }
+
+    @Test
     public void exist_1x2() {
         var board = new char[][]{
                 {'A', 'B'},

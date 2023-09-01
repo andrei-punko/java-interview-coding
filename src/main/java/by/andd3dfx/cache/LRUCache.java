@@ -9,6 +9,8 @@ import java.util.Set;
 
 /**
  * <pre>
+ * https://leetcode.com/problems/lru-cache/
+ *
  * Design and implement a data structure for Least Recently Used (LRU) cache.
  *
  * It should support the following operations: get and put:
@@ -19,8 +21,6 @@ import java.util.Set;
  * it should invalidate the least recently used item before inserting a new item.
  *
  * The cache is initialized with a positive capacity.
- *
- * Leetcode task: https://leetcode.com/problems/lru-cache/
  * <pre/>
  */
 @RequiredArgsConstructor

@@ -161,6 +161,6 @@ they contain enough code which describes implementation in a natural way.
 - [Поиск подстроки в строке за O(N+M): алгоритм Бойера Мура (2 решения) (leetcode)](https://www.youtube.com/watch?v=77fzfJIs_YY)
 - [Задачи из интервью на написание SQL-запросов](https://www.youtube.com/watch?v=GjDF_LdwYHU)
 - [Поиск слова в матрице букв (leetcode)](https://www.youtube.com/watch?v=FsKU04anMtE)
-- [Сжатие строки](https://www.youtube.com/watch?v=s3sGF7C6cV8)
+- [Сжатие строки (Яндекс)](https://www.youtube.com/watch?v=s3sGF7C6cV8)
 - [Самодельный Stack](https://www.youtube.com/watch?v=sZ-DrSHhrWc)
-- [Выдача купюр банкоматом](https://www.youtube.com/watch?v=LDKZtDevRRI)
+- [Выдача купюр банкоматом (Яндекс)](https://www.youtube.com/watch?v=LDKZtDevRRI)

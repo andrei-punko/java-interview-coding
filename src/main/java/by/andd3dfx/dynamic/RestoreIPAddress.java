@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * <pre>
+ * https://leetcode.com/problems/restore-ip-addresses/
+ *
  * A valid IP address consists of exactly four integers separated by single dots.
  * Each integer is between 0 and 255 (inclusive) and cannot have leading zeros.
  * For example, "0.1.2.201" and "192.168.1.1" are valid IP addresses, but "0.011.255.245",
@@ -26,8 +28,6 @@ import java.util.List;
  * Input: s = "101023"
  * Output: ["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"]
  * </pre>
- * <p>
- * https://leetcode.com/problems/restore-ip-addresses/
  */
 public class RestoreIPAddress {
 

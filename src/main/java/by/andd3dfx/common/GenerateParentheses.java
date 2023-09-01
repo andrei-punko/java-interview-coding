@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * <pre>
+ * https://leetcode.com/problems/generate-parentheses/
+ *
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
  *
  * Example 1:
@@ -22,8 +24,6 @@ import java.util.List;
  *
  * Constraints:
  * 1 <= n <= 8
- *
- * https://leetcode.com/problems/generate-parentheses/
  * <pre/>
  */
 public class GenerateParentheses {

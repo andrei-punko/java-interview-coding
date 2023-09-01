@@ -8,9 +8,9 @@ import java.io.StringWriter;
 import java.util.concurrent.Semaphore;
 
 /**
- * Task from https://leetcode.com/problems/print-foobar-alternately/
- *
  * <pre>
+ * https://leetcode.com/problems/print-foobar-alternately/
+ *
  * Suppose you are given the following code:
  * class FooBar {
  *   public void foo() {
