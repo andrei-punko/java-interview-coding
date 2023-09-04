@@ -164,3 +164,6 @@ they contain enough code which describes implementation in a natural way.
 - [Сжатие строки (Яндекс)](https://www.youtube.com/watch?v=s3sGF7C6cV8)
 - [Самодельный Stack](https://www.youtube.com/watch?v=sZ-DrSHhrWc)
 - [Выдача купюр банкоматом (Яндекс)](https://www.youtube.com/watch?v=LDKZtDevRRI)
+- [Поиск набора слов в матрице из букв (2 решения) (leetcode)](https://www.youtube.com/watch?v=DTyMyr6bNGw)
+- [Поиск набора слов в матрице из букв (часть 2): префиксное дерево (leetcode)](https://www.youtube.com/watch?v=CLYbm21pvig)
+ 
