@@ -97,6 +97,7 @@ public class WordSearch2UsingRecursion implements IWordSearch2 {
         str += ctx.board[i][j];
         if (ctx.wordsToFind.contains(str)) {
             ctx.wordsFound.add(str);
+            ctx.wordsToFind.remove(str);
         }
 
         examine(i - 1, j, str, visited, ctx);
