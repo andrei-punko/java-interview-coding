@@ -1,4 +1,4 @@
-package by.andd3dfx.search;
+package by.andd3dfx.search.wordsearch;
 
 public class WordSearch2UsingWordSearch1Test extends AbstractWordSearch2Test {
 

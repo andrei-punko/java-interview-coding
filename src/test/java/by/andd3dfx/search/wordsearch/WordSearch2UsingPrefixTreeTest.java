@@ -1,4 +1,4 @@
-package by.andd3dfx.search;
+package by.andd3dfx.search.wordsearch;
 
 public class WordSearch2UsingPrefixTreeTest extends AbstractWordSearch2Test {
 

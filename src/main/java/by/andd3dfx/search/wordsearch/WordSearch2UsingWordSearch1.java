@@ -1,4 +1,4 @@
-package by.andd3dfx.search;
+package by.andd3dfx.search.wordsearch;
 
 import java.util.Arrays;
 import java.util.List;

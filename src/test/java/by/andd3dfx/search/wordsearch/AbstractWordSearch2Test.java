@@ -1,4 +1,4 @@
-package by.andd3dfx.search;
+package by.andd3dfx.search.wordsearch;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -65,7 +65,7 @@ public abstract class AbstractWordSearch2Test {
     }
 
     @Test
-    public void exist_4x4() {
+    public void exist_3x4() {
         var board = new char[][]{
                 {'A', 'B', 'C', 'E'},
                 {'S', 'F', 'C', 'S'},
