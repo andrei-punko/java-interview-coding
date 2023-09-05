@@ -10,8 +10,10 @@ public class LongestWordWithoutRepeatingCharsTest {
     @Test
     public void testDetermine() {
         assertThat(determine("")).isEqualTo(0);
+        assertThat(determine("dvdf")).isEqualTo(3);
+        assertThat(determine("pwwkew")).isEqualTo(3);
         assertThat(determine("abcdef")).isEqualTo(6);
-        assertThat(determine("abcadefaade")).isEqualTo(4);
+        assertThat(determine("abcadefaade")).isEqualTo(6);
         assertThat(determine("aaaaa")).isEqualTo(1);
         assertThat(determine("abaabaaa")).isEqualTo(2);
     }

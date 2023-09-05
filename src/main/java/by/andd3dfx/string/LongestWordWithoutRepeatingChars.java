@@ -38,25 +38,25 @@ public class LongestWordWithoutRepeatingChars {
             return 0;
         }
 
-        var left = 0;
-        var right = 0;
-        var max = 1;
-
         var chars = s.toCharArray();
         Set set = new HashSet();
-        set.add(chars[left]);
-
-        while (right < chars.length - 1) {
-            right++;
+        int left = 0;
+        int max = 0;
+        for (var right = 0; right < chars.length; right++) {
             if (set.contains(chars[right])) {
-                max = Math.max(right - left, max);
+                while (chars[left] != chars[right]) {
+                    set.remove(chars[left]);
+                    left++;
+                }
 
-                left = right;
-                set.clear();
+                set.remove(chars[left]);
+                left++;
+            } else {
+                max = Math.max(max, right - left + 1);
             }
+
             set.add(chars[right]);
         }
-
-        return Math.max(max, set.size());
+        return max;
     }
 }
