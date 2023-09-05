@@ -1,7 +1,5 @@
 package by.andd3dfx.string;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,29 +32,24 @@ import java.util.Set;
 public class LongestWordWithoutRepeatingChars {
 
     public static int determine(String s) {
-        if (StringUtils.isBlank(s)) {
-            return 0;
-        }
+        int left = 0;
+        int right = 0;
+        int max = 0;
 
         var chars = s.toCharArray();
         Set set = new HashSet();
-        int left = 0;
-        int max = 0;
-        for (var right = 0; right < chars.length; right++) {
-            if (set.contains(chars[right])) {
-                while (chars[left] != chars[right]) {
-                    set.remove(chars[left]);
-                    left++;
-                }
 
+        while (right < chars.length) {
+            if (set.contains(chars[right])) {
                 set.remove(chars[left]);
                 left++;
             } else {
-                max = Math.max(max, right - left + 1);
+                set.add(chars[right]);
+                right++;
+                max = Math.max(max, set.size());
             }
-
-            set.add(chars[right]);
         }
+
         return max;
     }
 }
