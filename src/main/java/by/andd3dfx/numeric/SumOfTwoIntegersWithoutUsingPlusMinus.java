@@ -6,7 +6,7 @@ package by.andd3dfx.numeric;
  *
  * Given two integers a and b, return the sum of the two integers without using the operators + and -.
  *
- *  Example 1:
+ * Example 1:
  *
  * Input: a = 1, b = 2
  * Output: 3
@@ -46,28 +46,30 @@ public class SumOfTwoIntegersWithoutUsingPlusMinus {
     }
 
     /**
+     * <pre>
      * 3 + 5    a + b
      * --------------------
      * 0b0011   a
      * 0b0101   b
-     * <p>
+     *
      * 0b0110   a^b
      * 0b0010   (a & b) << 1
      * --------------------
      * 0b0110   a2
      * 0b0010   b2
-     * <p>
+     *
      * 0b0100   a2^b2
      * 0b0100   (a2 & b2) << 1
      * --------------------
      * 0b0100   a3
      * 0b0100   b3
-     * <p>
+     *
      * 0b0000   a3^b3
      * 0b1000   (a3 & b3) << 1
      * --------------------
      * 0b0000   a4 = 0 => b4 - result
      * 0b1000   b4 = 8
+     * </pre>
      */
     public static int getSumOptimized(int a, int b) {
         if (a == 0) return b;

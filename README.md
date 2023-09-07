@@ -166,4 +166,5 @@ they contain enough code which describes implementation in a natural way.
 - [Выдача купюр банкоматом (Яндекс)](https://www.youtube.com/watch?v=LDKZtDevRRI)
 - [Поиск набора слов в матрице из букв (2 решения) (leetcode)](https://www.youtube.com/watch?v=DTyMyr6bNGw)
 - [Поиск набора слов в матрице из букв (часть 2): префиксное дерево (leetcode)](https://www.youtube.com/watch?v=CLYbm21pvig)
- 
+- [Поиск в строке наиболее длинной подстроки без повторений (leetcode)](https://www.youtube.com/watch?v=Jj66XXja4LY)
+- [Сумма двух чисел без использования + и - (2 решения) (leetcode)](https://www.youtube.com/watch?v=W_Vja_AFKFg)
