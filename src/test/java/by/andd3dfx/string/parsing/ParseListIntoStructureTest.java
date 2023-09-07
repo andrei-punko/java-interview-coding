@@ -4,106 +4,80 @@ import by.andd3dfx.string.parsing.ParseListIntoStructure.Properties;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ParseListIntoStructureTest {
-    private ParseListIntoStructure task;
+
+    private ParseListIntoStructure parser;
 
     @Before
     public void setup() {
-        task = new ParseListIntoStructure();
+        parser = new ParseListIntoStructure();
     }
 
     @Test
     public void parseOneRowSimpleStructure() {
-        List<String> values = Arrays.asList(
+        var strings = List.of(
                 "key=14"
         );
+        var expectedResult = new Properties(Map.of(
+                "key", new Properties(14)
+        ));
 
-        Properties result = task.parse(values);
-
-        assertThat("Wrong value", result.value, is(nullValue()));
-
-        Properties keyItem = result.inner.get("key");
-        assertThat("Wrong value for keyItem", keyItem.value, is(14));
-        assertThat("Wrong inner for keyItem", keyItem.inner.isEmpty(), is(true));
+        parseNCheckAssertions(strings, expectedResult);
     }
 
     @Test
     public void parseOneRowComplexStructure() {
-        List<String> values = Arrays.asList(
+        var strings = List.of(
                 "key.subkey=10"
         );
+        var expectedResult = new Properties(Map.of(
+                "key", new Properties(Map.of("subkey", new Properties(10)))
+        ));
 
-        Properties result = task.parse(values);
-
-        assertThat("Wrong value", result.value, is(nullValue()));
-
-        Properties keyItem = result.inner.get("key");
-        assertThat("Wrong value for keyItem", keyItem.value, is(nullValue()));
-
-        Properties subkeyItem = keyItem.inner.get("subkey");
-        assertThat("Wrong value for subkey", subkeyItem.value, is(10));
-        assertThat("Wrong inner for subkey", subkeyItem.inner.isEmpty(), is(true));
+        parseNCheckAssertions(strings, expectedResult);
     }
 
     @Test
-    public void testParseMultipleRowsSimpleStructure() {
-        List<String> values = Arrays.asList(
+    public void parseMultipleRowsSimpleStructure() {
+        var strings = List.of(
                 "key=2",
                 "key2=3"
         );
+        var expectedResult = new Properties(Map.of(
+                "key", new Properties(2),
+                "key2", new Properties(3)
+        ));
 
-        Properties result = task.parse(values);
-
-        assertThat("Wrong value", result.value, is(nullValue()));
-
-        Properties keyItem = result.inner.get("key");
-        assertThat("Wrong value for keyItem", keyItem.value, is(2));
-        assertThat("Wrong inner for keyItem", keyItem.inner.isEmpty(), is(true));
-
-        Properties key2Item = result.inner.get("key2");
-        assertThat("Wrong value for key2Item", key2Item.value, is(3));
-        assertThat("Wrong inner for key2Item", key2Item.inner.isEmpty(), is(true));
+        parseNCheckAssertions(strings, expectedResult);
     }
 
     @Test
-    public void testParseMultipleRowsComplexStructure() {
-        List<String> values = Arrays.asList(
+    public void parseMultipleRowsComplexStructure() {
+        var strings = List.of(
                 "key.subkey.subkey2=1",
                 "key.subkey=2",
                 "key.subkey3=3",
                 "key2.subkey4=5"
         );
+        var expectedResult = new Properties(Map.of(
+                "key", new Properties(Map.of(
+                        "subkey", new Properties(2, Map.of("subkey2", new Properties(1))),
+                        "subkey3", new Properties(3)
+                )),
+                "key2", new Properties(Map.of("subkey4", new Properties(5)))
+        ));
 
-        Properties result = task.parse(values);
+        parseNCheckAssertions(strings, expectedResult);
+    }
 
-        assertThat("Wrong value", result.value, is(nullValue()));
+    private void parseNCheckAssertions(List<String> strings, Properties expectedResult) {
+        Properties result = parser.parse(strings);
 
-        Properties keyItem = result.inner.get("key");
-        assertThat("Wrong value for keyItem", keyItem.value, is(nullValue()));
-
-        Properties subkeyItem = keyItem.inner.get("subkey");
-        assertThat("Wrong value for subkeyItem", subkeyItem.value, is(2));
-
-        Properties subkey2Item = subkeyItem.inner.get("subkey2");
-        assertThat("Wrong value for subkey2Item", subkey2Item.value, is(1));
-        assertThat("Wrong inner for subkey2Item", subkey2Item.inner.isEmpty(), is(true));
-
-        Properties subkey3Item = keyItem.inner.get("subkey3");
-        assertThat("Wrong value for subkey3Item", subkey3Item.value, is(3));
-        assertThat("Wrong inner for subkey3Item", subkey3Item.inner.isEmpty(), is(true));
-
-        Properties key2Item = result.inner.get("key2");
-        assertThat("Wrong value for key2Item", key2Item.value, is(nullValue()));
-
-        Properties subkey4Item = key2Item.inner.get("subkey4");
-        assertThat("Wrong value for subkey4Item", subkey4Item.value, is(5));
-        assertThat("Wrong inner for subkey4Item", subkey4Item.inner.isEmpty(), is(true));
+        assertThat(result).isEqualTo(expectedResult);
     }
 }

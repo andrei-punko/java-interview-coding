@@ -1,52 +1,73 @@
 package by.andd3dfx.string.parsing;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/*
-На вход приходит список строк вида:
-[
-    "key.subkey.subkey2=1",
-    "key.subkey=2",
-    "key.subkey3=3",
-    "key2.subkey4=5"
-]
-
-Преобразовать в структуру вида (все строки заполняют одну структуру):
-    public static class Properties {
-        public Integer value;
-        public Map<String, Properties> inner = new HashMap<>();
-    }
-
-Сигнатура метода:
-     public Properties parse(List<String> strings)
-
-Формат всегда корректный, значение есть всегда.
-Данные складываются вот так:
-[
-   "key": {
-       "subkey": {
-           "value": 2,
-           "subkey2": {
-               "value": 1
-           }
-       },
-       "subkey3": {
-           "value": 3
-       }
-   },
-   "key2": {
-       "subkey4": {
-          "value": 5
-       }
-   }
-]
+/**
+ * <pre>
+ * На вход приходит список строк вида:
+ * [
+ *     "key.subkey.subkey2=1",
+ *     "key.subkey=2",
+ *     "key.subkey3=3",
+ *     "key2.subkey4=5"
+ * ]
+ *
+ * Преобразовать в структуру вида (все строки заполняют одну структуру):
+ *     public static class Properties {
+ *         public Integer value;
+ *         public Map<String, Properties> inner = new HashMap<>();
+ *     }
+ *
+ * Сигнатура метода:
+ *      public Properties parse(List<String> strings)
+ *
+ * Формат всегда корректный, значение есть всегда.
+ *
+ * Данные складываются так:
+ * [
+ *    "key": {
+ *        "subkey": {
+ *            "value": 2,
+ *            "subkey2": {
+ *                "value": 1
+ *            }
+ *        },
+ *        "subkey3": {
+ *            "value": 3
+ *        }
+ *    },
+ *    "key2": {
+ *        "subkey4": {
+ *           "value": 5
+ *        }
+ *    }
+ * ]
+ * </pre>
 */
 public class ParseListIntoStructure {
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class Properties {
         public Integer value;
         public Map<String, Properties> inner = new HashMap<>();
+
+        public Properties(Integer value) {
+            this.value = value;
+        }
+
+        public Properties(Map<String, Properties> inner) {
+            this.inner = inner;
+        }
     }
 
     public Properties parse(List<String> strings) {
