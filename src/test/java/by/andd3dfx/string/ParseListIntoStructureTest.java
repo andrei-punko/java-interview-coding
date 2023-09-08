@@ -1,6 +1,6 @@
-package by.andd3dfx.string.parsing;
+package by.andd3dfx.string;
 
-import by.andd3dfx.string.parsing.ParseListIntoStructure.Properties;
+import by.andd3dfx.string.ParseListIntoStructure.Properties;
 import org.junit.Before;
 import org.junit.Test;
 
