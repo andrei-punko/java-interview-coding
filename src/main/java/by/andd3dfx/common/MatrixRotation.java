@@ -3,14 +3,15 @@ package by.andd3dfx.common;
 import java.util.List;
 
 /**
+ * <pre>
  * https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
- * <p>
+ *
  * You are given a 2D matrix of dimension m*n and a positive integer r. You have to rotate the matrix times and
  * print the resultant matrix. Rotation should be in anti-clockwise direction.
  * It is guaranteed that the minimum of m and n will be even.
- * <p>
+ *
  * As an example, rotate the Start matrix by 2:
- * <pre>
+ *
  *     Start         First           Second
  *      1 2 3 4       2  3  4  5      3  4  5  6
  *     12 1 2 5  ->   1  2  3  6 ->   2  3  4  7
@@ -20,13 +21,15 @@ import java.util.List;
  */
 public class MatrixRotation {
 
-    public static List<List<Integer>> matrixRotation(List<List<Integer>> matrix, int r) {
-        int m = matrix.size();
-        int n = matrix.get(0).size();
+    public static void matrixRotation(List<List<Integer>> matrix, int r) {
         int left = 0;
         int up = 0;
+
+        int m = matrix.size();
+        int n = matrix.get(0).size();
+
         while (m >= 1 && n >= 1) {
-            int count = 2 * m + 2 * n - 4;
+            int count = 2 * (m + n) - 4;
             int[] tmp = new int[count];
             int curr = 0;
             for (int i = 0; i < n; i++) {
@@ -75,12 +78,12 @@ public class MatrixRotation {
                     curr -= count;
                 }
             }
+
             m -= 2;
             n -= 2;
+
             left++;
             up++;
         }
-
-        return matrix;
     }
 }

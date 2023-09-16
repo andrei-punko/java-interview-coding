@@ -9,13 +9,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MatrixRotationTest {
 
-    private final List<List<Integer>> matrix = List.of(
+    private final List<List<Integer>> MATRIX = List.of(
             Arrays.asList(1, 2, 3, 4),
             Arrays.asList(12, 1, 2, 5),
             Arrays.asList(11, 4, 3, 6),
             Arrays.asList(10, 9, 8, 7)
     );
-    private final List<List<Integer>> expectedResult = List.of(
+    private final List<List<Integer>> EXPECTED_RESULT = List.of(
             Arrays.asList(3, 4, 5, 6),
             Arrays.asList(2, 3, 4, 7),
             Arrays.asList(1, 2, 1, 8),
@@ -24,24 +24,30 @@ public class MatrixRotationTest {
 
     @Test
     public void matrixRotation() {
-        var result = MatrixRotation.matrixRotation(matrix, 2);
+        MatrixRotation.matrixRotation(MATRIX, 2);
 
-        assertThat(result).isEqualTo(expectedResult);
+        assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
+    }
+
+    @Test
+    public void matrixRotationForBigR() {
+        MatrixRotation.matrixRotation(MATRIX, 14);
+
+        assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
     }
 
     @Test
     public void matrixRotationWhenNoRotation() {
-        var result = MatrixRotation.matrixRotation(matrix, 0);
+        MatrixRotation.matrixRotation(MATRIX, 0);
 
-        assertThat(result).isEqualTo(matrix);
+        assertThat(MATRIX).isEqualTo(MATRIX);
     }
 
     @Test
-    public void matrixRotationAfterTwoRotations() {
-        var result = MatrixRotation.matrixRotation(
-                MatrixRotation.matrixRotation(matrix, 1), 1
-        );
+    public void matrixRotationAfterTwoConsequentRotations() {
+        MatrixRotation.matrixRotation(MATRIX, 1);
+        MatrixRotation.matrixRotation(MATRIX, 1);
 
-        assertThat(result).isEqualTo(expectedResult);
+        assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
     }
 }
