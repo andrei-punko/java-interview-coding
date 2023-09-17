@@ -1,7 +1,7 @@
 
 * Pet Clinic REST API
 Design REST service related with Pet Clinic, where pets have name and age.
-Add operation with pets batch update (for example add new field - owner)
+Add operation with pets batch update (for example, add new field - owner)
 
 GET     clinic\{id}
 DELETE  clinic\{id}
@@ -45,10 +45,10 @@ We have restriction of RAM size: so only one string could be loaded into RAM sim
 
 
 * Search engine with suggestion ability
-We have search engine, it provides web-interface with text field where query could be typed.
-We want to add next feature: when user start typing - he will get suggestion with 10 most popular queries started from typed characters.
-File with most popular searches generated 1 time per day, it contains 1 mln lines, sorted by popularity.
-Propose design of such system.
+We have search engine, it provides web-interface with text field where a query could be typed.
+We want to add the next feature: when a user starts typing - he will get a suggestion with 10 most popular queries started from typed characters.
+File with the most popular searches generated 1 time per day, it contains 1 mln lines, sorted by popularity.
+Propose the design of such system.
 
 * Others
 Реализовать ReadWriteLock на базе обычного Lock
