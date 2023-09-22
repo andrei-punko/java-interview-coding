@@ -1,0 +1,67 @@
+
+plugins {
+    id 'java-library'
+    id 'jacoco'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    api 'org.springframework.boot:spring-boot-starter-logging:3.1.2'
+    api 'org.apache.commons:commons-lang3:3.13.0'
+    api 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    api 'org.reflections:reflections:0.10.2'
+    api 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor('org.projectlombok:lombok:1.18.28')
+
+    testImplementation 'ch.qos.logback:logback-classic:1.4.9'
+    testImplementation 'com.github.stefanbirkner:system-rules:1.19.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.jmock:jmock-legacy:2.12.0'
+    testImplementation 'org.jmock:jmock-imposters:2.12.0'
+    testImplementation 'net.bytebuddy:byte-buddy:1.14.5'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+    testImplementation 'org.hamcrest:hamcrest-all:1.3'
+    testImplementation 'org.mockito:mockito-core:5.4.0'
+    testImplementation 'org.awaitility:awaitility:4.2.0'
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.28')
+}
+
+group = 'by.andd3dfx'
+version = '1.0-SNAPSHOT'
+description = 'java-interview-coding'
+java.sourceCompatibility = JavaVersion.VERSION_17
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed",
+                // "standardOut",   // Uncomment to get all logs during tests execution
+                "standardError"
+    }
+    finalizedBy jacocoTestReport    // report is always generated after tests run
+}
+
+jacocoTestReport {
+    reports {
+        csv.required = true
+    }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    '**/config/**',
+                    '**/domain/**',
+            ])
+        }))
+    }
+}

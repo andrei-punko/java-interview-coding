@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExternalizeUtilTest {
 
-    private static final String SERIALIZED_FILE_NAME = "./target/save.ser";
+    private static final String SERIALIZED_FILE_NAME = "./build/save.ser";
 
     @Test
     public void testSerializeDeserialize() {
