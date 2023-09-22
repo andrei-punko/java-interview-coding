@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ArrayMixerTest {
 
     private final Integer[] INTEGERS = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    private final String[] STRINGS = {"Andrei", "Nina", "Uladzimir", "Olga", "Yulia"};
+    private final String[] STRINGS = {"Andrei", "Nina", "Uladzimir", "Olga", "Yulia", "Ioanna"};
 
     @Test
     public void applyForInteger() {

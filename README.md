@@ -9,8 +9,12 @@
 <a href="https://boosty.to/andd3dfx"><img src="images/button_donate.png" alt="Donate" height="40"/></a>
 
 ## Prerequisites
-- Maven 3
 - JDK 17
+
+## How to build
+```shell
+./gradlew clean build
+```
 
 ## Packages list
 - [annotation](src/main/java/by/andd3dfx/annotation)
