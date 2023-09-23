@@ -49,6 +49,15 @@ test {
                 // "standardOut",   // Uncomment to get all logs during tests execution
                 "standardError"
     }
+    afterSuite { desc, result ->
+        if (!desc.parent)
+            println("${result.resultType} " +
+                    "(${result.testCount} tests, " +
+                    "${result.successfulTestCount} successes, " +
+                    "${result.failedTestCount} failures, " +
+                    "${result.skippedTestCount} skipped)")
+    }
+
     finalizedBy jacocoTestReport    // report is always generated after tests run
 }
 
