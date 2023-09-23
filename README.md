@@ -175,3 +175,4 @@ they contain enough code which describes implementation in a natural way.
 - [Длина последнего слова в строке (3 решения) (leetcode)](https://www.youtube.com/watch?v=Kev5TpsfKT4)
 - [Парсинг списка строк в структуру данных (Яндекс)](https://www.youtube.com/watch?v=RW1DcmbzbQ8)
 - [Перемещение нулей к концу массива (leetcode)](https://youtu.be/IV5EIDRYZ9U)
+- [Проверка правильности использования заглавных букв (2 решения) (leetcode)](https://youtu.be/v0EkBQbFQpk)
