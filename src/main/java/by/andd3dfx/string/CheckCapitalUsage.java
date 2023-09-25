@@ -1,6 +1,7 @@
 package by.andd3dfx.string;
 
-import java.util.Set;
+import java.util.HashSet;
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -33,7 +34,7 @@ public class CheckCapitalUsage {
         var lowercase = word.toLowerCase();
         var onlyFirstLetterCapitalized = buildWordWithFirstLetterCapitalized(word);
 
-        return Set.of(uppercase, lowercase, onlyFirstLetterCapitalized)
+        return new HashSet<>(List.of(uppercase, lowercase, onlyFirstLetterCapitalized))
                 .contains(word);
     }
 

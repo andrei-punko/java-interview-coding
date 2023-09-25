@@ -17,6 +17,8 @@ public class CheckCapitalUsageTest {
 
     @Test
     public void isCapitalUsedProperly() {
+        assertTrue(checkCapitalUsage.isCapitalUsedProperly("a"));
+        assertTrue(checkCapitalUsage.isCapitalUsedProperly("A"));
         assertTrue(checkCapitalUsage.isCapitalUsedProperly("USA"));
         assertTrue(checkCapitalUsage.isCapitalUsedProperly("Google"));
         assertTrue(checkCapitalUsage.isCapitalUsedProperly("leetcode"));
@@ -26,6 +28,8 @@ public class CheckCapitalUsageTest {
 
     @Test
     public void isCapitalUsedProperly_withRegex() {
+        assertTrue(checkCapitalUsage.isCapitalUsedProperly_withRegex("a"));
+        assertTrue(checkCapitalUsage.isCapitalUsedProperly_withRegex("A"));
         assertTrue(checkCapitalUsage.isCapitalUsedProperly_withRegex("USA"));
         assertTrue(checkCapitalUsage.isCapitalUsedProperly_withRegex("Google"));
         assertTrue(checkCapitalUsage.isCapitalUsedProperly_withRegex("leetcode"));
