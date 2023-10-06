@@ -180,6 +180,7 @@ they contain enough code which describes implementation in a natural way.
 - [Проверка правильности использования заглавных букв (2 решения) (leetcode)](https://youtu.be/v0EkBQbFQpk)
 - [Цифровой корень (итеративная сумма цифр) числа (2 решения) (leetcode)](https://www.youtube.com/watch?v=04ezQ_--SIs)
 - [Удаление дубликатов из сортированного массива, ч.I, II (leetcode)](https://www.youtube.com/watch?v=gbReaBoFHkc)
+- [Определение размера окрестности для элементов массива чисел](https://www.youtube.com/watch?v=GyiMCtUWnUk)
 
 ## Docs & notes
 The [docs folder](./docs) contains some docs & notes
