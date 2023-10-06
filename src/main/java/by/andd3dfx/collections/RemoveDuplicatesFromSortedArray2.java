@@ -40,15 +40,15 @@ public class RemoveDuplicatesFromSortedArray2 {
         var left = 0;
         var right = 1;
         var counter = 1;
+
         while (right < nums.length) {
-            counter = 1;
-            while (right < nums.length && nums[left] == nums[right] && counter < 2) {
-                right++;
-                counter++;
-            }
             while (right < nums.length && nums[left] == nums[right]) {
+                if (counter < 2) {
+                    counter++;
+                }
                 right++;
             }
+
             while (right < nums.length && nums[left] != nums[right]) {
                 if (right - left > 1) {
                     nums[left + counter] = nums[right];
