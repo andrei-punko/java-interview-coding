@@ -10,13 +10,14 @@
 
 ## Prerequisites
 - JDK 17
+- Gradle isn't required because of embedded Gradle used in the project
 
 ## How to build
 ```shell
 ./gradlew clean build
 ```
 
-## Packages list
+## List of Java packages
 - [annotation](src/main/java/by/andd3dfx/annotation)
 - [cache](src/main/java/by/andd3dfx/cache)
 - [collections](src/main/java/by/andd3dfx/collections)
@@ -43,9 +44,10 @@
 Sure, we have [tests](src/test/java/by/andd3dfx);
 they contain enough code which describes implementation in a natural way.
 
+## SQL-related stuff
 [SQL folder](sql/README.md) contains tasks which require writing SQL queries to solve them.
 
-## Videos on [Youtube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
+## Links to videos on [YouTube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
 - [Определение максимального количества зрителей стрима](https://www.youtube.com/watch?v=uMikT-xpE-w)
 - [Валидация скобочного выражения](https://www.youtube.com/watch?v=cTHWJNfjHzE)
 - [Факториал (3 решения)](https://www.youtube.com/watch?v=8D2ImqJUaeA)
@@ -176,3 +178,8 @@ they contain enough code which describes implementation in a natural way.
 - [Парсинг списка строк в структуру данных (Яндекс)](https://www.youtube.com/watch?v=RW1DcmbzbQ8)
 - [Перемещение нулей к концу массива (leetcode)](https://youtu.be/IV5EIDRYZ9U)
 - [Проверка правильности использования заглавных букв (2 решения) (leetcode)](https://youtu.be/v0EkBQbFQpk)
+- [Цифровой корень (итеративная сумма цифр) числа (2 решения) (leetcode)](https://www.youtube.com/watch?v=04ezQ_--SIs)
+- [Удаление дубликатов из сортированного массива, ч.I, II (leetcode)](https://www.youtube.com/watch?v=gbReaBoFHkc)
+
+## Docs & notes
+The [docs folder](./docs) contains some docs & notes
