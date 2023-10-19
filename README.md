@@ -181,6 +181,8 @@ they contain enough code which describes implementation in a natural way.
 - [Цифровой корень (итеративная сумма цифр) числа (2 решения) (leetcode)](https://www.youtube.com/watch?v=04ezQ_--SIs)
 - [Удаление дубликатов из сортированного массива, ч.I, II (leetcode)](https://www.youtube.com/watch?v=gbReaBoFHkc)
 - [Определение размера окрестности для элементов массива чисел](https://www.youtube.com/watch?v=GyiMCtUWnUk)
+- [Сортировка Шелла (Shell sort)](https://www.youtube.com/watch?v=1wyVIGI7EX8)
+- [Размен минимальным количеством монет](https://www.youtube.com/watch?v=K1xPbYPslRU)
 
 ## Docs & notes
 The [docs folder](./docs) contains some docs & notes
