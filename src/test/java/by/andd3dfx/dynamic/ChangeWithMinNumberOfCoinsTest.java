@@ -2,11 +2,11 @@ package by.andd3dfx.dynamic;
 
 import org.junit.Test;
 
-import static by.andd3dfx.dynamic.MinNumberOfCoins.determine_usingMemoization;
-import static by.andd3dfx.dynamic.MinNumberOfCoins.determine_usingRecursion;
+import static by.andd3dfx.dynamic.ChangeWithMinNumberOfCoins.determine_usingMemoization;
+import static by.andd3dfx.dynamic.ChangeWithMinNumberOfCoins.determine_usingRecursion;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MinNumberOfCoinsTest {
+public class ChangeWithMinNumberOfCoinsTest {
 
     @Test
     public void determineUsingRecursion() {

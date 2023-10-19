@@ -1,5 +1,9 @@
 package by.andd3dfx.dynamic;
 
+import java.util.Arrays;
+
+import static java.lang.Integer.MAX_VALUE;
+
 /**
  * <pre>
  * https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/?ref=lbp
@@ -16,31 +20,33 @@ package by.andd3dfx.dynamic;
  *     Output: Minimum 2 coins required. We can use one coin of 6 cents and 1 coin of 5 cents
  * </pre>
  */
-public class MinNumberOfCoins {
+public class ChangeWithMinNumberOfCoins {
 
     public static int determine_usingRecursion(int coins[], int amount) {
-        var result = recursion(coins, amount);
+        var result = innerRecursion(coins, amount);
 
-        if (result == Integer.MAX_VALUE) {
+        if (result == MAX_VALUE) {
             return -1;
         }
         return result;
     }
 
-    private static int recursion(int[] coins, int amount) {
+    private static int innerRecursion(int[] coins, int amount) {
         if (amount == 0) {
             return 0;
         }
 
-        int result = Integer.MAX_VALUE;
+        int result = MAX_VALUE;
 
-        // Go through all coins smaller than `amount`
-        for (int i = 0; i < coins.length; i++) {
-            if (coins[i] <= amount) {
-                int subResult = recursion(coins, amount - coins[i]);
+        Arrays.sort(coins);
+        for (var coin : coins) {
+
+            // Go through all coins smaller or equals to `amount`
+            if (amount >= coin) {
+                int subResult = innerRecursion(coins, amount - coin);
 
                 // Check for INT_MAX to avoid overflow and see if a result can be minimized
-                if (subResult != Integer.MAX_VALUE && subResult + 1 < result) {
+                if (subResult != MAX_VALUE && subResult + 1 < result) {
                     result = subResult + 1;
                 }
             }
@@ -50,34 +56,34 @@ public class MinNumberOfCoins {
     }
 
     public static int determine_usingMemoization(int coins[], int amount) {
-        // The table[i] will be storing the minimum number of coins required for `i` value.
-        // So table[amount] will have a result
-        int table[] = new int[amount + 1];
+        // The minCoins[i] will be storing the minimum number of coins required for `i` value.
+        // So minCoins[amount] will have a result
+        int[] minCoins = new int[amount + 1];
 
-        table[0] = 0;
+        Arrays.fill(minCoins, MAX_VALUE);
+        minCoins[0] = 0;
 
-        for (int i = 1; i <= amount; i++) {
-            table[i] = Integer.MAX_VALUE;
-        }
+        Arrays.sort(coins);
 
         // Compute minimum coins required for all values from 1 to `amount`
         for (int i = 1; i <= amount; i++) {
-            // Go through all coins smaller than `i`
-            for (int j = 0; j < coins.length; j++) {
-                if (coins[j] <= i) {
-                    int subResult = table[i - coins[j]];
 
-                    if (subResult != Integer.MAX_VALUE && subResult + 1 < table[i]) {
-                        table[i] = subResult + 1;
+            for (var coin : coins) {
+                // Go through all coins smaller or equals to `i`
+                if (i - coin >= 0) {
+                    int subResult = minCoins[i - coin];
+
+                    if (subResult != MAX_VALUE && subResult + 1 < minCoins[i]) {
+                        minCoins[i] = subResult + 1;
                     }
                 }
             }
         }
 
-        if (table[amount] == Integer.MAX_VALUE) {
+        if (minCoins[amount] == MAX_VALUE) {
             return -1;
         }
 
-        return table[amount];
+        return minCoins[amount];
     }
 }
