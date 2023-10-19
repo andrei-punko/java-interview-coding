@@ -3,29 +3,29 @@ package by.andd3dfx.sorting;
 public class ShellSort {
 
     public static <T extends Comparable> void apply(T[] array) {
-        int h = 1;
-        while (h <= array.length / 3)
-            h = h * 3 + 1; // (1, 4, 13, 40, 121, ...)
+        int d = 1;
 
-        while (h > 0) // Последовательное уменьшение h до 1
-        {
-            // h-сортировка файла
-            for (int outer = h; outer < array.length; outer++) {
-                var temp = array[outer];
+        while (d <= array.length / 3) {
+            d = d * 3 + 1;      // (1, 4, 13, 40, 121, ...)
+        }
+
+        while (d > 0) {
+            for (int outer = d; outer < array.length; outer++) {
+                var tmp = array[outer];
                 int inner = outer;
 
-                // Первый подмассив (0, 4, 8)
-                while (inner > h - 1 && greaterOrEqualsThan(array[inner - h], temp)) {
-                    array[inner] = array[inner - h];
-                    inner -= h;
+                while (inner - d >= 0 && greaterThan(array[inner - d], tmp)) {
+                    array[inner] = array[inner - d];
+                    inner -= d;
                 }
-                array[inner] = temp;
+                array[inner] = tmp;
             }
-            h = (h - 1) / 3; // Уменьшение h
+
+            d = (d - 1) / 3;
         }
     }
 
-    private static <T extends Comparable> boolean greaterOrEqualsThan(T a, T b) {
-        return a.compareTo(b) >= 0;
+    private static <T extends Comparable> boolean greaterThan(T a, T b) {
+        return a.compareTo(b) > 0;
     }
 }

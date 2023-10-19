@@ -17,11 +17,11 @@ public class ShellSortTest {
 
     @Test
     public void applyForInt() {
-        Integer[] array = {4, 1, 6, 9, -2, 8, 5};
+        Integer[] array = {4, 1, 6, 9, -2, 6, 8, 5};
 
         ShellSort.apply(array);
 
-        assertThat(array).isEqualTo(new Integer[]{-2, 1, 4, 5, 6, 8, 9});
+        assertThat(array).isEqualTo(new Integer[]{-2, 1, 4, 5, 6, 6, 8, 9});
     }
 
     @Test
