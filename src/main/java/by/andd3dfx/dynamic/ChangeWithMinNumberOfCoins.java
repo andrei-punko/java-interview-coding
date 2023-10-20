@@ -23,6 +23,7 @@ import static java.lang.Integer.MAX_VALUE;
 public class ChangeWithMinNumberOfCoins {
 
     public static int determine_usingRecursion(int coins[], int amount) {
+        Arrays.sort(coins);
         var result = innerRecursion(coins, amount);
 
         if (result == MAX_VALUE) {
@@ -37,8 +38,6 @@ public class ChangeWithMinNumberOfCoins {
         }
 
         int result = MAX_VALUE;
-
-        Arrays.sort(coins);
         for (var coin : coins) {
 
             // Go through all coins smaller or equals to `amount`
