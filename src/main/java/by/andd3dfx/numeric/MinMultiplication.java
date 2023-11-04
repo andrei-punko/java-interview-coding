@@ -10,21 +10,21 @@ package by.andd3dfx.numeric;
  */
 public class MinMultiplication {
 
-    public int determine(int[] arr) {
-        int n = arr.length;
+    public int determine(int[] items) {
+        int n = items.length;
         if (n < 2) {
             throw new IllegalArgumentException("Should be at least 2 elements in array!");
         }
 
-        // 1. if all are positive - return multiplication of two left
-        // 2. if all are negative - return multiplication of two right
-        // 3. if both negative and positive present - return multiplication of left and right
+        // 1. if all are positive - return multiplication of two left numbers
+        // 2. if all are negative - return multiplication of two right numbers
+        // 3. if both negative and positive present - return multiplication of left and right numbers
 
-        int[] left = sortPair(arr[0], arr[1]);
-        int[] right = sortPair(arr[0], arr[1]);
+        int[] left = sortPair(items[0], items[1]);
+        int[] right = sortPair(items[0], items[1]);
 
         for (int i = 2; i < n; i++) {
-            int curr = arr[i];
+            int curr = items[i];
             if (curr < left[0]) {
                 left[1] = left[0];
                 left[0] = curr;
@@ -40,17 +40,17 @@ public class MinMultiplication {
             }
         }
 
-        // 1. if all are positive - return multiplication of two left
+        // 1. if all are positive - return multiplication of two left numbers
         if (left[0] > 0) {
             return left[0] * left[1];
         }
 
-        // 2. if all are negative - return multiplication of two right
+        // 2. if all are negative - return multiplication of two right numbers
         if (right[1] < 0) {
             return right[0] * right[1];
         }
 
-        // 3. if both negative and positive present - return multiplication of left and right
+        // 3. if both negative and positive present - return multiplication of (first) left and (second) right numbers
         return left[0] * right[1];
     }
 
