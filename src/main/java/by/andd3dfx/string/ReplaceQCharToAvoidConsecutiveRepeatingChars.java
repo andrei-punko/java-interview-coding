@@ -59,6 +59,6 @@ public class ReplaceQCharToAvoidConsecutiveRepeatingChars {
         if (pos < chars.length - 1) {
             set.remove(chars[pos + 1]);
         }
-        return set.toArray(new Character[0])[0];
+        return set.iterator().next();
     }
 }

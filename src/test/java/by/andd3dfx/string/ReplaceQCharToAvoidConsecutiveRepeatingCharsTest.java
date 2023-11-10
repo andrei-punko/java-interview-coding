@@ -17,17 +17,18 @@ public class ReplaceQCharToAvoidConsecutiveRepeatingCharsTest {
     }
 
     @Test
-    public void testModifyString() {
-        var items = new String[]{"?zs", "ubv?w", "j?qg??b"};
+    public void modifyString() {
+        var items = new String[]{"?zs", "ubv?w", "x?y??z?", "j?qg??b"};
 
         for (var item : items) {
             var result = instance.modifyString(item);
+            System.out.println(item + "->" + result);
             checkAsserts(item, result);
         }
     }
 
     @Test
-    public void testModifyStringForNullOrEmpty() {
+    public void modifyStringForNullOrEmpty() {
         var items = new String[]{null, ""};
 
         for (var item : items) {
@@ -42,7 +43,7 @@ public class ReplaceQCharToAvoidConsecutiveRepeatingCharsTest {
 
         // Check that all non-'?' chars from initial string present in result string
         for (int i = 0; i < in.length(); i++) {
-            char ch = in.charAt(i);
+            var ch = in.charAt(i);
             if (ch != '?') {
                 assertThat(ch).isEqualTo(out.charAt(i));
             }
@@ -55,9 +56,10 @@ public class ReplaceQCharToAvoidConsecutiveRepeatingCharsTest {
         var last = out.charAt(0);
         for (var i = 1; i < out.length(); i++) {
             var curr = out.charAt(i);
-            var errMsg = "Chars on positions %d and %d for conversion %s->%s should differ".formatted(i - 1, i, in, out);
+            var errMsg = "Chars on positions %d and %d for conversion %s->%s should differ"
+                    .formatted(i - 1, i, in, out);
             assertNotEquals(errMsg, curr, last);
             last = curr;
         }
     }
-}
+}
