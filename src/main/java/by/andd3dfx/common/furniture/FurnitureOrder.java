@@ -36,19 +36,16 @@ public class FurnitureOrder implements FurnitureOrderInterface {
 
     @Override
     public float getTotalOrderCost() {
-        var result = 0.0f;
-        for (var value : map.keySet()) {
-            result += getTypeCost(value);
-        }
-        return result;
+        return map.keySet().stream()
+                .map(this::getTypeCost)
+                .reduce((a, b) -> a + b)
+                .get();
     }
 
     @Override
     public int getTotalOrderQuantity() {
-        var result = 0;
-        for (var value : map.keySet()) {
-            result += map.get(value);
-        }
-        return result;
+        return map.values().stream()
+                .reduce((a, b) -> a + b)
+                .get();
     }
 }

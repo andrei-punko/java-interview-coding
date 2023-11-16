@@ -16,6 +16,7 @@ import java.util.Queue;
  *   Entry entry = new Entry();
  *   entry.enter("AB54321");
  *   entry.enter("UK32032");
+ *
  *   System.out.println(entry.Exit());
  *   System.out.println(entry.Exit());
  * </pre>
