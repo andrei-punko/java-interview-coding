@@ -11,6 +11,14 @@ package by.andd3dfx.search;
  */
 public class FindAmountOfElementsLessThan {
 
+    public static int usingPrimitiveIteration(int[] items, int lessThan) {
+        var i = 0;
+        while (i < items.length && items[i] < lessThan) {
+            i++;
+        }
+        return i;
+    }
+
     public static int usingBinarySearch(int[] items, int lessThan) {
         int left = 0;
         int right = items.length - 1;
