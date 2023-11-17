@@ -18,6 +18,7 @@ public class BinarySearch {
         if (array[middle] == target) {
           return middle;
         }
+
         if (array[middle] < target) {
           left = middle;
         } else {
