@@ -49,12 +49,6 @@ public class FindAmountOfElementsLessThan {
 
         while (right - left > 1) {
             int mid = determineMid(items, lessThan, left, right);
-            if (mid < left) {
-                mid = left;
-            }
-            if (mid > right) {
-                mid = right;
-            }
 
             if (items[mid] == lessThan) {
                 return mid;
@@ -73,6 +67,14 @@ public class FindAmountOfElementsLessThan {
         if (items[right] == items[left]) {
             return left;
         }
-        return left + (right - left) * (target - items[left]) / (items[right] - items[left]);
+        var mid = left + (right - left) * (target - items[left]) / (items[right] - items[left]);
+
+        if (mid < left) {
+            mid = left;
+        }
+        if (mid > right) {
+            mid = right;
+        }
+        return mid;
     }
 }

@@ -185,6 +185,7 @@ they contain enough code which describes implementation in a natural way.
 - [Размен минимальным количеством монет (2 решения)](https://www.youtube.com/watch?v=K1xPbYPslRU)
 - [Замена всех '?' в строке, избегая повторяющихся последовательных символов (leetcode)](https://www.youtube.com/watch?v=OgMnvWfhqrk)
 - [Заказ фурнитуры: добавить пропущенный код](https://www.youtube.com/watch?v=TNgR6JaxwFg)
+- [Поиск в сортированном массиве количества элементов меньших заданного (3 решения)](https://www.youtube.com/watch?v=a2dvtrdi1YI)
 
 ## Docs & notes
 The [docs folder](./docs) contains some docs & notes
