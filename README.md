@@ -50,7 +50,6 @@ they contain enough code which describes implementation in a natural way.
 ## Links to videos on [YouTube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
 - [Определение максимального количества зрителей стрима](https://www.youtube.com/watch?v=uMikT-xpE-w)
 - [Валидация скобочного выражения](https://www.youtube.com/watch?v=cTHWJNfjHzE)
-- [Факториал (3 решения)](https://www.youtube.com/watch?v=8D2ImqJUaeA)
 - [Перемешиваем массив (leetcode)](https://www.youtube.com/watch?v=d9a7Mpm222M)
 - [Корзинная сортировка: подсчет количества людей каждого возраста](https://www.youtube.com/watch?v=vFsDPm7ecsM)
 - [Файловая система: структура данных и подсчет размера содержимого](https://www.youtube.com/watch?v=j6wr8qCaVeE)
@@ -186,6 +185,7 @@ they contain enough code which describes implementation in a natural way.
 - [Замена всех '?' в строке, избегая повторяющихся последовательных символов (leetcode)](https://www.youtube.com/watch?v=OgMnvWfhqrk)
 - [Заказ фурнитуры: добавить пропущенный код](https://www.youtube.com/watch?v=TNgR6JaxwFg)
 - [Поиск в сортированном массиве количества элементов меньших заданного (3 решения)](https://www.youtube.com/watch?v=a2dvtrdi1YI)
+- [Факториал (4 решения)](https://www.youtube.com/watch?v=HZrTppQjXVs)
 
 ## Docs & notes
 The [docs folder](./docs) contains some docs & notes
