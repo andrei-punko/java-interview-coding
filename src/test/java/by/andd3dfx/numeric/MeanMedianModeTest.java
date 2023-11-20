@@ -16,7 +16,7 @@ public class MeanMedianModeTest {
     @Test
     public void testMean() {
         assertThat(mean(new int[]{2, 2, 2, 2, 2, 2, 2}), is(2.0));
-        assertThat(mean(new int[]{1, 6, 3, 4, 5, 2, 7}), is(4.0));
+        assertThat(mean(new int[]{1, 2, 3, 4}), is(2.5));
     }
 
     @Test
