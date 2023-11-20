@@ -1,8 +1,7 @@
 package by.andd3dfx.numeric;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MeanMedianMode {
 
@@ -21,22 +20,18 @@ public class MeanMedianMode {
     }
 
     public static double mode(int[] items) {
-        Map<Integer, Integer> freq = new HashMap<>();
-        for (int item : items) {
-            Integer count = freq.get(item);
-            if (count == null) {
-                count = 0;
-            }
-            count++;
-            freq.put(item, count);
-        }
+        var freqMap = Arrays.stream(items)
+                .boxed()
+                .collect(Collectors.groupingBy(
+                        i -> i, Collectors.counting()
+                ));
 
         int mode = items[0];
-        for (var key : freq.keySet()) {
-            if (freq.get(key) == freq.get(mode) && key < mode) {
+        for (var key : freqMap.keySet()) {
+            if (freqMap.get(key) == freqMap.get(mode) && key < mode) {
                 mode = key;
             }
-            if (freq.get(key) > freq.get(mode)) {
+            if (freqMap.get(key) > freqMap.get(mode)) {
                 mode = key;
             }
         }

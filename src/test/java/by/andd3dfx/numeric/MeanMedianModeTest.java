@@ -15,45 +15,39 @@ public class MeanMedianModeTest {
 
     @Test
     public void testMean() {
+        assertThat(mean(new int[]{2, 2, 2, 2, 2, 2, 2}), is(2.0));
         assertThat(mean(new int[]{1, 6, 3, 4, 5, 2, 7}), is(4.0));
     }
 
     @Test
-    public void testMeanForListOfSameNumbers() {
-        assertThat(mean(new int[]{2, 2, 2, 2, 2, 2, 2}), is(2.0));
-    }
-
-    @Test
-    public void testMedianForOddAmountOfNumbers() {
+    public void testMedian() {
         assertThat(median(new int[]{1, 6, 3, 4, 5, 2, 7}), is(4.0));
-    }
-
-    @Test
-    public void testMedianForEvenAmountOfNumbers() {
         assertThat(median(new int[]{1, 2, 3, 4}), is(2.5));
     }
 
     @Test
     public void testMode() {
-        assertThat("Wrong value for 1,2,3,4", mode(new int[]{1, 2, 3, 4}), is(1.0));
-        assertThat("Wrong value for 2,2,5,5", mode(new int[]{2, 2, 5, 5}), is(2.0));
-        assertThat("Wrong value for 5,5,2,2", mode(new int[]{5, 5, 2, 2}), is(2.0));
+        assertThat(mode(new int[]{1, 1, 1, 1}), is(1.0));
+        assertThat(mode(new int[]{1, 2, 3, 4}), is(1.0));
+        assertThat(mode(new int[]{1, 3, 3, 2, 5, 9}), is(3.0));
+        assertThat(mode(new int[]{1, 3, 3, 2, 5, 2, 9}), is(2.0));
     }
 
     @Test
     public void testQuartile1() {
-        assertThat(quartile1(new int[]{3, 7, 8, 5, 12, 14, 21, 13, 18}), is(6.0));
-        assertThat(quartile1(new int[]{2, 2, 2, 2, 1, 1, 1, 1, 1}), is(1.0));
+        assertThat(quartile1(new int[]{1, 1, 1, 1}), is(1.0));
+        assertThat(quartile1(new int[]{5, 6, 7, 8, 1, 2, 3, 4}), is(2.5));
     }
 
     @Test
     public void testQuartile2() {
-        assertThat(quartile2(new int[]{1, 6, 3, 4, 5, 2, 7}), is(4.0));
+        assertThat(quartile2(new int[]{1, 1, 1, 1}), is(1.0));
+        assertThat(quartile2(new int[]{5, 6, 7, 8, 1, 2, 3, 4}), is(4.5));
     }
 
     @Test
     public void testQuartile3() {
-        assertThat(quartile3(new int[]{3, 7, 8, 5, 12, 14, 21, 13, 18}), is(16.0));
-        assertThat(quartile3(new int[]{2, 2, 2, 2, 1, 1, 1, 1, 1}), is(2.0));
+        assertThat(quartile3(new int[]{1, 1, 1, 1}), is(1.0));
+        assertThat(quartile3(new int[]{5, 6, 7, 8, 1, 2, 3, 4}), is(6.5));
     }
 }
