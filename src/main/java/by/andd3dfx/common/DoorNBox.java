@@ -3,8 +3,10 @@ package by.andd3dfx.common;
 import java.util.Arrays;
 
 /**
+ * <pre>
  * Имеется коробка со сторонами: A × B × C.
  * Определить, пройдёт ли она в дверь с размерами M × K.
+ * </pre>
  */
 public class DoorNBox {
 

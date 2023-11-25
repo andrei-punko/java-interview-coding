@@ -1,20 +1,21 @@
 package by.andd3dfx.common;
 
 /**
+ * <pre>
  * You are holding one link of a chain in your hand. Implement method longerSide() to find which side of the
  * chain, relative to the link you are holding, has more links.
- * <p>
+ *
  * If the left side has more links return LEFT, if the right side has more links return RIGHT,
  * and if both sides have an equal number of links or if the chain is a closed loop, return NONE.
- * <p>
+ *
  * For example, for the code below, the output should be RIGHT:
- * <pre>
- *  ChainLink left = new ChainLink();
- *  ChainLink middle = new ChainLink();
- *  ChainLink right = new ChainLink();
- *  left.append(middle);
- *  middle.append(right);
- *  System.out.println(left.longerSide());
+ *
+ *   ChainLink left = new ChainLink();
+ *   ChainLink middle = new ChainLink();
+ *   ChainLink right = new ChainLink();
+ *   left.append(middle);
+ *   middle.append(right);
+ *   System.out.println(left.longerSide());
  * </pre>
  */
 public class ChainLink {
