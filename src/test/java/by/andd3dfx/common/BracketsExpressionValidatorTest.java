@@ -2,22 +2,23 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import static by.andd3dfx.common.BracketsExpressionValidator.validate;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class BracketsExpressionValidatorTest {
 
     @Test
-    public void validate() {
-        assertThat(BracketsExpressionValidator.validate("()")).isEqualTo(true);
-        assertThat(BracketsExpressionValidator.validate("([{}])")).isEqualTo(true);
-        assertThat(BracketsExpressionValidator.validate("()[]{}<>")).isEqualTo(true);
-        assertThat(BracketsExpressionValidator.validate("([()<[]>]<{}(())>)")).isEqualTo(true);
+    public void testValidate() {
+        assertTrue(validate("()"));
+        assertTrue(validate("([{}])"));
+        assertTrue(validate("()[]{}<>"));
+        assertTrue(validate("([()<[]>]<{}(())>)"));
 
-        assertThat(BracketsExpressionValidator.validate("><")).isEqualTo(false);
-        assertThat(BracketsExpressionValidator.validate("(][)")).isEqualTo(false);
-        assertThat(BracketsExpressionValidator.validate(")")).isEqualTo(false);
-        assertThat(BracketsExpressionValidator.validate("([)]")).isEqualTo(false);
-        assertThat(BracketsExpressionValidator.validate("([)()<}{(){>]")).isEqualTo(false);
+        assertFalse(validate("><"));
+        assertFalse(validate("(][)"));
+        assertFalse(validate(")"));
+        assertFalse(validate("([)]"));
+        assertFalse(validate("([)()<}{(){>]"));
     }
 }

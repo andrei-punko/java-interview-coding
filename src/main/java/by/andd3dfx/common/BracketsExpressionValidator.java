@@ -17,6 +17,14 @@ import java.util.Set;
  */
 public class BracketsExpressionValidator {
 
+    private static final Set<Character> closingBrackets = Set.of('}', ')', ']', '>');
+    private static final Map<Character, Character> close2OpenBracketMap = Map.of(
+            ')', '(',
+            '}', '{',
+            ']', '[',
+            '>', '<'
+    );
+
     /**
      * Проходим по массиву символов, складываем их в стек.
      * Когда находим закрывающую скобку - проверяем, есть ли вверху стека парная к ней открывающая.
@@ -25,13 +33,6 @@ public class BracketsExpressionValidator {
      */
     public static boolean validate(String expression) {
         Deque<Character> stack = new ArrayDeque<>();
-        Set<Character> closingBrackets = Set.of('}', ')', ']', '>');
-        Map<Character, Character> close2OpenBracketMap = Map.of(
-                ')', '(',
-                '}', '{',
-                ']', '[',
-                '>', '<'
-        );
 
         for (char ch : expression.toCharArray()) {
             if (closingBrackets.contains(ch)) {
