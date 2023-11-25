@@ -3,7 +3,6 @@ package by.andd3dfx.multithreading.queue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.SneakyThrows;
-import org.awaitility.Durations;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +15,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
 
 import static org.awaitility.Awaitility.await;
+import static org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS;
+import static org.awaitility.Durations.ONE_SECOND;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -53,7 +54,8 @@ public abstract class AbstractBlockingQueueTest {
 
         dequeue();
         await()
-                .atMost(Durations.ONE_SECOND)
+                .atMost(ONE_SECOND)
+                .pollInterval(ONE_HUNDRED_MILLISECONDS)
                 .until(() -> enqueueFuture.isDone());
         assertTrue(enqueueFuture.isDone());
     }
@@ -68,7 +70,8 @@ public abstract class AbstractBlockingQueueTest {
 
         enqueue("DequeueEnqueue", 1);
         await()
-                .atMost(Durations.ONE_SECOND)
+                .atMost(ONE_SECOND)
+                .pollInterval(ONE_HUNDRED_MILLISECONDS)
                 .until(() -> dequeueFuture.isDone());
         assertTrue(dequeueFuture.isDone());
     }
@@ -109,9 +112,8 @@ public abstract class AbstractBlockingQueueTest {
         CompletableFuture.runAsync(enqueue2);
         CompletableFuture<Callable<List<QueueItem>>> dequeueFuture = CompletableFuture.supplyAsync(() -> dequeue);
         await()
-                .atMost(Durations.ONE_SECOND)
-                .with()
-                .pollInterval(Durations.ONE_HUNDRED_MILLISECONDS)
+                .atMost(ONE_SECOND)
+                .pollInterval(ONE_HUNDRED_MILLISECONDS)
                 .until(() -> dequeueFuture.isDone());
 
         // Test items distribution

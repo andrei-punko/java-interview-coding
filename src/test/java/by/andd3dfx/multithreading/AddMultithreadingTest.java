@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
+import static org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS;
 
 public class AddMultithreadingTest {
 
@@ -24,6 +25,7 @@ public class AddMultithreadingTest {
 
         await().atLeast(2, TimeUnit.SECONDS)
                 .atMost(3, TimeUnit.SECONDS)
+                .pollInterval(ONE_HUNDRED_MILLISECONDS)
                 .until(() -> future.isDone());
         assertThat(future.get()).isEqualTo("OneTwo");
     }
@@ -38,6 +40,7 @@ public class AddMultithreadingTest {
         var future = CompletableFuture.supplyAsync(() -> aggregator.doRequest());
 
         await().atMost(1_200, TimeUnit.MILLISECONDS)
+                .pollInterval(ONE_HUNDRED_MILLISECONDS)
                 .until(() -> future.isDone());
         assertThat(future.get()).isEqualTo("OneTwo");
     }
@@ -58,6 +61,7 @@ public class AddMultithreadingTest {
         var future = CompletableFuture.supplyAsync(() -> aggregator.doRequest10());
 
         await().atMost(1_500, TimeUnit.MILLISECONDS)
+                .pollInterval(ONE_HUNDRED_MILLISECONDS)
                 .until(() -> future.isDone());
         assertThat(future.get()).isEqualTo("01234014916");
     }

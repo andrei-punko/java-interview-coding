@@ -1,15 +1,15 @@
 package by.andd3dfx.multithreading.lock;
 
-import org.awaitility.Durations;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
+import static org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS;
+import static org.awaitility.Durations.ONE_SECOND;
 
 public class CustomReentrantLockTest {
 
@@ -54,8 +54,8 @@ public class CustomReentrantLockTest {
                 () -> new ReentrantLockWrapper(lock).outer()
         );
 
-        await().atMost(Durations.ONE_SECOND)
-                .pollInterval(50, TimeUnit.MILLISECONDS)
+        await().atMost(ONE_SECOND)
+                .pollInterval(ONE_HUNDRED_MILLISECONDS)
                 .until(() -> future.isDone());
     }
 }

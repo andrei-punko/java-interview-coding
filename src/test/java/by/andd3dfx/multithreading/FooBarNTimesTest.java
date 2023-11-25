@@ -1,11 +1,10 @@
 package by.andd3dfx.multithreading;
 
-import org.awaitility.Durations;
 import org.junit.Test;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.awaitility.Awaitility.await;
+import static org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS;
+import static org.awaitility.Durations.ONE_SECOND;
 
 public class FooBarNTimesTest {
 
@@ -20,8 +19,8 @@ public class FooBarNTimesTest {
         thread2.start();
 
         await()
-                .atMost(Durations.ONE_SECOND)
-                .pollInterval(50, TimeUnit.MILLISECONDS)
+                .atMost(ONE_SECOND)
+                .pollInterval(ONE_HUNDRED_MILLISECONDS)
                 .until(() -> fooBar.getLogWriter().toString().matches("(foobar){4}"));
     }
 }

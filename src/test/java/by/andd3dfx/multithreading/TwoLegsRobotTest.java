@@ -1,13 +1,13 @@
 package by.andd3dfx.multithreading;
 
-import org.awaitility.Durations;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import static org.awaitility.Awaitility.await;
+import static org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS;
+import static org.awaitility.Durations.ONE_SECOND;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
@@ -30,8 +30,8 @@ public class TwoLegsRobotTest {
     public void testLogsOrder() {
         robot.start();
         await()
-                .atMost(Durations.ONE_SECOND)
-                .pollInterval(50, TimeUnit.MILLISECONDS)
+                .atMost(ONE_SECOND)
+                .pollInterval(ONE_HUNDRED_MILLISECONDS)
                 .until(() -> robot.getLogs().split("!").length > 10);   // At least 10 steps
 
         checkLogs(robot.getLogs());
