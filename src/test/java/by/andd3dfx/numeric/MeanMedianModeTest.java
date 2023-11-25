@@ -9,20 +9,22 @@ import static by.andd3dfx.numeric.MeanMedianMode.quartile1;
 import static by.andd3dfx.numeric.MeanMedianMode.quartile2;
 import static by.andd3dfx.numeric.MeanMedianMode.quartile3;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 
 public class MeanMedianModeTest {
 
     @Test
     public void testMean() {
-        assertThat(mean(new int[]{2, 2, 2, 2, 2, 2, 2}), is(2.0));
+        assertThat(mean(new int[]{2, 2, 2, 2, 2}), is(2.0));
         assertThat(mean(new int[]{1, 2, 3, 4}), is(2.5));
+        assertThat(mean(new int[]{1, 2, 3, 8}), is(3.5));
     }
 
     @Test
     public void testMedian() {
-        assertThat(median(new int[]{1, 6, 3, 4, 5, 2, 7}), is(4.0));
+        assertThat(median(new int[]{2, 2, 2, 2, 2}), is(2.0));
         assertThat(median(new int[]{1, 2, 3, 4}), is(2.5));
+        assertThat(median(new int[]{1, 2, 3, 8}), is(2.5));
     }
 
     @Test

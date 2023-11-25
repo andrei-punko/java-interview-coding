@@ -40,7 +40,7 @@ public class MeanMedianMode {
     }
 
     public static double quartile1(int[] items) {
-        int n = items.length;
+        var n = items.length;
         int[] left = new int[n / 2];
 
         Arrays.sort(items);
@@ -53,7 +53,7 @@ public class MeanMedianMode {
     }
 
     public static double quartile3(int[] items) {
-        int n = items.length;
+        var n = items.length;
         int[] right = new int[n / 2];
 
         Arrays.sort(items);

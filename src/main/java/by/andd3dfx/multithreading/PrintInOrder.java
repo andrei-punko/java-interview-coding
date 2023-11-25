@@ -40,16 +40,13 @@ import java.util.concurrent.Semaphore;
  * Initial code:
  * class Foo {
  *     public void first(Runnable printFirst) throws InterruptedException {
- *         // printFirst.run() outputs "first". Do not change or remove this line.
- *         printFirst.run();
+ *         printFirst.run();    // Outputs "first". Do not change or remove this line.
  *     }
  *     public void second(Runnable printSecond) throws InterruptedException {
- *         // printSecond.run() outputs "second". Do not change or remove this line.
- *         printSecond.run();
+ *         printSecond.run();   // Outputs "second". Do not change or remove this line.
  *     }
  *     public void third(Runnable printThird) throws InterruptedException {
- *         // printThird.run() outputs "third". Do not change or remove this line.
- *         printThird.run();
+ *         printThird.run();    // Outputs "third". Do not change or remove this line.
  *     }
  * }
  * </pre>
@@ -60,21 +57,18 @@ public class PrintInOrder {
     private Semaphore semaphore3 = new Semaphore(0);
 
     public void first(Runnable printFirst) throws InterruptedException {
-        // printFirst.run() outputs "first". Do not change or remove this line.
-        printFirst.run();
+        printFirst.run();   // Outputs "first". Do not change or remove this line.
         semaphore2.release();
     }
 
     public void second(Runnable printSecond) throws InterruptedException {
         semaphore2.acquire();
-        // printSecond.run() outputs "second". Do not change or remove this line.
-        printSecond.run();
+        printSecond.run();  // Outputs "second". Do not change or remove this line.
         semaphore3.release();
     }
 
     public void third(Runnable printThird) throws InterruptedException {
         semaphore3.acquire();
-        // printThird.run() outputs "third". Do not change or remove this line.
-        printThird.run();
+        printThird.run();   // Outputs "third". Do not change or remove this line.
     }
 }
