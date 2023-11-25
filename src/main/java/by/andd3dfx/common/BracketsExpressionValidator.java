@@ -17,8 +17,8 @@ import java.util.Set;
  */
 public class BracketsExpressionValidator {
 
-    private static final Set<Character> closingBrackets = Set.of('}', ')', ']', '>');
-    private static final Map<Character, Character> close2OpenBracketMap = Map.of(
+    private static final Set<Character> CLOSING_BRACKETS = Set.of('}', ')', ']', '>');
+    private static final Map<Character, Character> CLOSE_2_OPEN_BRACKET_MAP = Map.of(
             ')', '(',
             '}', '{',
             ']', '[',
@@ -35,8 +35,8 @@ public class BracketsExpressionValidator {
         Deque<Character> stack = new ArrayDeque<>();
 
         for (char ch : expression.toCharArray()) {
-            if (closingBrackets.contains(ch)) {
-                if (stack.isEmpty() || stack.peek() != close2OpenBracketMap.get(ch)) {
+            if (CLOSING_BRACKETS.contains(ch)) {
+                if (stack.isEmpty() || stack.peek() != CLOSE_2_OPEN_BRACKET_MAP.get(ch)) {
                     return false;
                 }
                 stack.pop();

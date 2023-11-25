@@ -186,6 +186,8 @@ they contain enough code which describes implementation in a natural way.
 - [Заказ фурнитуры: добавить пропущенный код](https://www.youtube.com/watch?v=TNgR6JaxwFg)
 - [Поиск в сортированном массиве количества элементов меньших заданного (3 решения)](https://www.youtube.com/watch?v=a2dvtrdi1YI)
 - [Факториал (4 решения)](https://www.youtube.com/watch?v=HZrTppQjXVs)
+- [Вычисление среднего, медианы, моды, квартилей](https://www.youtube.com/watch?v=nqalmvHE_-A)
+- [Обзор содержимого моих GitHub репозиториев](https://www.youtube.com/watch?v=w2LyIXEvtG0)
 
 ## Docs & notes
 The [docs folder](./docs) contains some docs & notes
