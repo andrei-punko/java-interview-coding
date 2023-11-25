@@ -12,10 +12,7 @@ import java.util.stream.Stream;
  */
 public class ArraysUnion {
 
-    /**
-     * Using Streams
-     */
-    public static Integer[] unite(int[] a, int[] b) {
+    public static Integer[] uniteUsingStreams(int[] a, int[] b) {
         return Stream.concat(Arrays.stream(a).boxed(), Arrays.stream(b).boxed())
                 .collect(Collectors.toSet())
                 .stream().sorted()
@@ -23,10 +20,7 @@ public class ArraysUnion {
                 .toArray(new Integer[0]);
     }
 
-    /**
-     * Using manual iteration through arrays
-     */
-    public static Integer[] unite2(int[] a, int[] b) {
+    public static Integer[] uniteUsingManualIteration(int[] a, int[] b) {
         List<Integer> result = new ArrayList<>();
 
         int aIndex = 0;
@@ -52,17 +46,11 @@ public class ArraysUnion {
             }
         }
 
-        // Add remaining part of one of arrays
-        if (aIndex < a.length) {
-            for (int i = aIndex; i < a.length; i++) {
-                result.add(a[i]);
-            }
-        }
-        if (bIndex < b.length) {
-            for (int i = bIndex; i < b.length; i++) {
-                result.add(b[i]);
-            }
-        }
+        // Add the remaining part of one of the arrays
+        Arrays.stream(Arrays.copyOfRange(a, aIndex, a.length))
+                .forEach(result::add);
+        Arrays.stream(Arrays.copyOfRange(b, bIndex, b.length))
+                .forEach(result::add);
 
         return result.toArray(new Integer[0]);
     }
