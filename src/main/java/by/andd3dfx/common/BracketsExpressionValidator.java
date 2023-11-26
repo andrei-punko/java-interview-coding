@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  * <pre>
- * Есть скобочное выражение с разными видами скобок {}, (), [], <>.
+ * Есть скобочное выражение с разными видами скобок: {}, (), [], <>.
  * Проверить, что оно правильное.
  * Других символов, кроме скобок, быть не может.
  *
@@ -18,7 +18,7 @@ import java.util.Set;
 public class BracketsExpressionValidator {
 
     private static final Set<Character> CLOSING_BRACKETS = Set.of('}', ')', ']', '>');
-    private static final Map<Character, Character> CLOSE_2_OPEN_BRACKET_MAP = Map.of(
+    private static final Map<Character, Character> CLOSING_2_OPENING_BRACKET_MAP = Map.of(
             ')', '(',
             '}', '{',
             ']', '[',
@@ -36,7 +36,12 @@ public class BracketsExpressionValidator {
 
         for (char ch : expression.toCharArray()) {
             if (CLOSING_BRACKETS.contains(ch)) {
-                if (stack.isEmpty() || stack.peek() != CLOSE_2_OPEN_BRACKET_MAP.get(ch)) {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+
+                var expectedOpeningBracket = CLOSING_2_OPENING_BRACKET_MAP.get(ch);
+                if (stack.peek() != expectedOpeningBracket) {
                     return false;
                 }
                 stack.pop();

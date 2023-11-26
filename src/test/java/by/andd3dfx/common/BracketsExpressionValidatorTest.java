@@ -18,6 +18,8 @@ public class BracketsExpressionValidatorTest {
         assertFalse(validate("><"));
         assertFalse(validate("(][)"));
         assertFalse(validate(")"));
+        assertFalse(validate("{})"));
+        assertFalse(validate("([]"));
         assertFalse(validate("([)]"));
         assertFalse(validate("([)()<}{(){>]"));
     }
