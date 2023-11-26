@@ -50,7 +50,6 @@ they contain enough code which describes implementation in a natural way.
 ## Links to videos on [YouTube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
 - [Определение максимального количества зрителей стрима](https://www.youtube.com/watch?v=uMikT-xpE-w)
 - [Валидация скобочного выражения](https://www.youtube.com/watch?v=cTHWJNfjHzE)
-- [Перемешиваем массив (leetcode)](https://www.youtube.com/watch?v=d9a7Mpm222M)
 - [Корзинная сортировка: подсчет количества людей каждого возраста](https://www.youtube.com/watch?v=vFsDPm7ecsM)
 - [Файловая система: структура данных и подсчет размера содержимого](https://www.youtube.com/watch?v=j6wr8qCaVeE)
 - [Подсчет количества кораблей на поле морского боя](https://www.youtube.com/watch?v=9ypQAA7ilYo)
@@ -188,6 +187,7 @@ they contain enough code which describes implementation in a natural way.
 - [Факториал (4 решения)](https://www.youtube.com/watch?v=HZrTppQjXVs)
 - [Вычисление среднего, медианы, моды, квартилей](https://www.youtube.com/watch?v=nqalmvHE_-A)
 - [Обзор содержимого моих GitHub репозиториев](https://www.youtube.com/watch?v=w2LyIXEvtG0)
+- [Перемешивание массива: алгоритм тасования Фишера-Йетса](https://www.youtube.com/watch?v=Ru9UA_74t30)
 
 ## Docs & notes
 The [docs folder](./docs) contains some docs & notes

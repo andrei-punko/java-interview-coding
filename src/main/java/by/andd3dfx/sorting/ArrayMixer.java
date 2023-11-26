@@ -3,16 +3,22 @@ package by.andd3dfx.sorting;
 import java.util.Random;
 
 /**
- * Mix array
+ * Mix an array
  */
 public class ArrayMixer {
 
     private static final Random random = new Random();
 
-    public static <T> void apply(T[] array) {
-        for (int iteration = 0; iteration <= array.length; iteration++) {
-            var i = random.nextInt(array.length);
-            var j = random.nextInt(array.length);
+    /**
+     * <pre>
+     * Use Fisher–Yates algorithm:
+     * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+     * </pre>
+     */
+    public static <T> void shuffle(T[] array) {
+        var n = array.length;
+        for (var i = n - 1; i >= 1; i--) {
+            var j = random.nextInt(i + 1);
             swap(array, i, j);
         }
     }
