@@ -4,6 +4,6 @@ public class FactorialUsingLoopTest extends AbstractFactorialTest {
 
     @Override
     protected IFactorial buildInstance() {
-        return new UsingLoop();
+        return new FactorialUsingLoop();
     }
 }

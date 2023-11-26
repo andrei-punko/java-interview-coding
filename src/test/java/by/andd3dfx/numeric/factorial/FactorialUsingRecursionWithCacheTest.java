@@ -4,6 +4,6 @@ public class FactorialUsingRecursionWithCacheTest extends AbstractFactorialTest 
 
     @Override
     protected IFactorial buildInstance() {
-        return new UsingRecursionWithCache();
+        return new FactorialUsingRecursionWithCache();
     }
 }

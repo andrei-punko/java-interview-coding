@@ -3,7 +3,7 @@ package by.andd3dfx.numeric.factorial;
 /**
  * Top-down approach
  */
-public class UsingRecursion implements IFactorial {
+public class FactorialUsingRecursion implements IFactorial {
 
     @Override
     public long calc(int n) {

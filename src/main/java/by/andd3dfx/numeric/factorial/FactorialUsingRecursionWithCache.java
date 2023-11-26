@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Down-top approach
+ * Top-down approach
  */
-public class UsingLoopWithCache implements IFactorial {
+public class FactorialUsingRecursionWithCache implements IFactorial {
 
     private final static Map<Integer, Long> cache = new HashMap<>() {{
         put(0, 1L);
@@ -22,9 +22,8 @@ public class UsingLoopWithCache implements IFactorial {
             return cache.get(n);
         }
 
-        for (var i = 1; i <= n; i++) {
-            cache.put(i, i * cache.get(i - 1));
-        }
-        return cache.get(n);
+        var result = n * calc(n - 1);
+        cache.put(n, result);
+        return result;
     }
 }

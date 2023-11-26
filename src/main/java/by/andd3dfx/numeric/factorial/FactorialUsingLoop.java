@@ -3,7 +3,7 @@ package by.andd3dfx.numeric.factorial;
 /**
  * Down-top approach
  */
-public class UsingLoop implements IFactorial {
+public class FactorialUsingLoop implements IFactorial {
 
     @Override
     public long calc(int n) {
