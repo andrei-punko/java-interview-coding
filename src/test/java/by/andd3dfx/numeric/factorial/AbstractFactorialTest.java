@@ -9,7 +9,7 @@ import static org.junit.Assert.assertThrows;
 
 public abstract class AbstractFactorialTest {
 
-    private IFactorial instance;
+    protected IFactorial instance;
 
     @Before
     public void setUp() throws Exception {

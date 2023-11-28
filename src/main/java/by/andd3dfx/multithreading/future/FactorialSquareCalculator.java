@@ -1,18 +1,15 @@
 package by.andd3dfx.multithreading.future;
 
+import lombok.AllArgsConstructor;
+
 import java.util.concurrent.RecursiveTask;
 
 /**
  * Based on article: https://www.baeldung.com/java-future#overview-of-forkjointask
  */
+@AllArgsConstructor
 public class FactorialSquareCalculator extends RecursiveTask<Integer> {
-    // Used RecursiveTask (not RecursiveAction) because we need to get result of each part of computation
-
     private Integer n;
-
-    public FactorialSquareCalculator(Integer n) {
-        this.n = n;
-    }
 
     @Override
     protected Integer compute() {
@@ -23,7 +20,7 @@ public class FactorialSquareCalculator extends RecursiveTask<Integer> {
             return 1;
         }
 
-        FactorialSquareCalculator calculator = new FactorialSquareCalculator(n - 1);
+        var calculator = new FactorialSquareCalculator(n - 1);
         calculator.fork();
         return n * n + calculator.join();
     }
