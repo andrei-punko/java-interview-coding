@@ -3,7 +3,7 @@ package by.andd3dfx.java8.stream;
 import java.util.Arrays;
 import java.util.List;
 
-public class PredictStreamOutput {
+public class TrickyStream {
 
     /**
      * Ответ:
@@ -29,6 +29,7 @@ public class PredictStreamOutput {
                 })
                 .anyMatch(item -> item == 3);
     }
+
 
     /**
      * It will be: 123455

@@ -6,9 +6,9 @@ package by.andd3dfx.core;
  * try {
  *     throw new Exception1();
  * } catch (Exception ex) {
- * 	throw new Exception2();
+ *     throw new Exception2();
  * } finally {
- * 	throw new Exception3();
+ *     throw new Exception3();
  * }
  * </pre>
  * <p>
@@ -45,10 +45,10 @@ public class TrickyFinally {
         }
     }
 
-    private class Exception1 extends Exception {
+    public class Exception1 extends Exception {
     }
 
-    private class Exception2 extends Exception {
+    public class Exception2 extends Exception {
     }
 
     public class Exception3 extends Exception {

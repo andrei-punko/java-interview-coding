@@ -1,10 +1,10 @@
 package by.andd3dfx.core;
 
+import lombok.SneakyThrows;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class TrickyFinallyTest {
 
@@ -15,13 +15,14 @@ public class TrickyFinallyTest {
         trickyFinally = new TrickyFinally();
     }
 
+    @SneakyThrows
     @Test(expected = TrickyFinally.Exception3.class)
-    public void case1() throws TrickyFinally.Exception3 {
+    public void case1() {
         trickyFinally.case1();
     }
 
     @Test
     public void case2() {
-        assertThat(trickyFinally.case2(), is(3));
+        assertThat(trickyFinally.case2()).isEqualTo(3);
     }
 }
