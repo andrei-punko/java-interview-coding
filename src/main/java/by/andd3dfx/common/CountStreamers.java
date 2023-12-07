@@ -1,11 +1,14 @@
 package by.andd3dfx.common;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
+
+import static by.andd3dfx.common.CountStreamers.EventType.START;
+import static by.andd3dfx.common.CountStreamers.EventType.STOP;
 
 /**
  * <pre>
@@ -24,17 +27,17 @@ import java.util.List;
 public class CountStreamers {
 
     public static int count(int[][] times) {
-        List<EventItem> events = new ArrayList<>();
-        for (int[] time : times) {
-            events.add(new EventItem(time[0], EventType.START));
-            events.add(new EventItem(time[1], EventType.STOP));
+        var events = new ArrayList<EventItem>();
+        for (var time : times) {
+            events.add(new EventItem(time[0], START));
+            events.add(new EventItem(time[1], STOP));
         }
 
-        Collections.sort(events, Comparator.comparingInt(eventItem -> eventItem.time));
+        Collections.sort(events, Comparator.comparingInt(EventItem::getTime));
 
-        int current = 0;
-        int max = 0;
-        for (EventItem event : events) {
+        var current = 0;
+        var max = 0;
+        for (var event : events) {
             current += (event.eventType == EventType.START) ? +1 : -1;
             if (current > max) {
                 max = current;
@@ -47,9 +50,10 @@ public class CountStreamers {
         START, STOP
     }
 
+    @Data
     @AllArgsConstructor
     public static class EventItem {
-        int time;
-        EventType eventType;
+        private int time;
+        private EventType eventType;
     }
 }
