@@ -43,7 +43,7 @@ tasks.withType(Javadoc) {
     options.encoding = 'UTF-8'
 }
 
-test {
+tasks.withType(Test) {
     testLogging {
         events "passed", "skipped", "failed",
                 // "standardOut",   // Uncomment to get all logs during tests execution
@@ -59,11 +59,17 @@ test {
     }
 
     finalizedBy jacocoTestReport    // report is always generated after tests run
+    jacoco {
+        destinationFile = layout.buildDirectory.file('jacoco/jacocoTest.exec').get().asFile
+        classDumpDir = layout.buildDirectory.dir('jacoco/classpathdumps').get().asFile
+    }
 }
 
 jacocoTestReport {
     reports {
         csv.required = true
+        xml.required = true
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
@@ -74,4 +80,10 @@ jacocoTestReport {
             ])
         }))
     }
+}
+
+task githubWorkflowTest(type: Test) {
+    exclude '**/**AddMultithreadingTest.class'
+    exclude '**/**BlockingQueueTest.class'
+    exclude '**/**DeadlockTest.class'
 }

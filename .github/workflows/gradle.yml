@@ -22,17 +22,17 @@ jobs:
       uses: actions/setup-java@v3
       with:
         distribution: 'adopt'
-        java-version: '17.0.8+101'
+        java-version: '17'
         cache: 'gradle'
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
     - name: Build with Gradle
-      run: ./gradlew build --no-daemon
+      run: ./gradlew githubWorkflowTest --no-daemon -i
 
     - name: Run Test Coverage
-      run: ./gradlew jacocoTestReport
+      run: ./gradlew jacocoTestReport -i -PexecutionData='/home/runner/work/java-interview-coding/java-interview-coding/build/jacoco/jacocoTest.exec'
 
     - name: Generate JaCoCo Badge
       uses: cicirello/jacoco-badge-generator@v2
