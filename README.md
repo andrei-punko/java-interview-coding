@@ -191,6 +191,8 @@ they contain enough code which describes implementation in a natural way.
 - [Объединение упорядоченных массивов в массив без дубликатов](https://www.youtube.com/watch?v=uABGnnTD0Kw)
 - [Каверзный finally / Каверзный stream: предсказать, что произойдет](https://www.youtube.com/watch?v=Man9zRalhPs)
 - [Как успеть посмотреть все обучающие ролики на YouTube (Ускорение выше 2х)](https://www.youtube.com/watch?v=NjCizItxPdM)
+- [Генерация CV в PDF из Markdown и автоматизация взаимодействия с рекрутером](https://www.youtube.com/watch?v=GV5LlPkrNQM)
+- [Перестановка пары цифр числа для получения максимального значения (leetcode)](https://www.youtube.com/watch?v=-my6feBZ6RY)
 
 ## Docs & notes
 The [docs folder](./docs) contains some docs & notes
