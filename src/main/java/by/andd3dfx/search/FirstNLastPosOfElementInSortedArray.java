@@ -25,9 +25,6 @@ public class FirstNLastPosOfElementInSortedArray {
 
     public static int[] searchRange(int[] items, int target) {
         var result = binarySearch(items, target);
-        if (result == -1) {
-            return new int[]{-1, -1};
-        }
 
         var left = result;
         while (left > 0) {

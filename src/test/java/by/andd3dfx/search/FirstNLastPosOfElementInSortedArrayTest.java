@@ -15,13 +15,22 @@ public class FirstNLastPosOfElementInSortedArrayTest {
                 .isEqualTo(new int[]{1, 1});
         assertThat(searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8))
                 .isEqualTo(new int[]{3, 4});
-        assertThat(searchRange(new int[]{5, 7, 7, 8, 8, 10}, 6))
-                .isEqualTo(new int[]{-1, -1});
+
+        assertThat(searchRange(new int[]{5, 5, 7, 7, 8, 8, 10, 10}, 5))
+                .isEqualTo(new int[]{0, 1});
+        assertThat(searchRange(new int[]{5, 5, 7, 7, 8, 8, 10, 10}, 10))
+                .isEqualTo(new int[]{6, 7});
     }
 
     @Test
     public void testSearchRangeForEmptyArray() {
         assertThat(searchRange(new int[]{}, 0))
+                .isEqualTo(new int[]{-1, -1});
+    }
+
+    @Test
+    public void testSearchRangeWhenNothingFound() {
+        assertThat(searchRange(new int[]{5, 7, 7, 8, 8, 10}, 6))
                 .isEqualTo(new int[]{-1, -1});
     }
 }

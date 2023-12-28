@@ -62,7 +62,6 @@ they contain enough code which describes implementation in a natural way.
 - [Нахождение наибольшего общего делителя (2 решения)](https://www.youtube.com/watch?v=OzGTTkysIew)
 - [Поиск максимального произведения трех чисел в массиве](https://www.youtube.com/watch?v=wzO6abwg4y4)
 - [Композитный итератор (Яндекс)](https://www.youtube.com/watch?v=8V_t64QLN7Q)
-- [Бинарный поиск в упорядоченном массиве](https://www.youtube.com/watch?v=YegVbWwIHFA)
 - [Пузырьковая сортировка (2 решения) (Bubble sort)](https://www.youtube.com/watch?v=vK4BTGVELwk)
 - [Бинарное дерево поиска](https://www.youtube.com/watch?v=DGLiObeU04A)
 - [Рекурсивный итератор (Яндекс)](https://www.youtube.com/watch?v=dnR4xhkdx1I)
@@ -193,6 +192,8 @@ they contain enough code which describes implementation in a natural way.
 - [Как успеть посмотреть все обучающие ролики на YouTube (Ускорение выше 2х)](https://www.youtube.com/watch?v=NjCizItxPdM)
 - [Генерация CV в PDF из Markdown и автоматизация взаимодействия с рекрутером](https://www.youtube.com/watch?v=GV5LlPkrNQM)
 - [Перестановка пары цифр числа для получения максимального значения (leetcode)](https://www.youtube.com/watch?v=-my6feBZ6RY)
+- [Бинарный поиск в упорядоченном массиве](https://www.youtube.com/watch?v=RaxWD5yAQ9Q)
+- [Поиск первой и последней позиции элемента в упорядоченном массиве (leetcode)](https://www.youtube.com/watch?v=6s-kAtOFXuY)
 
 ## Docs & notes
 The [docs folder](./docs) contains some docs & notes
