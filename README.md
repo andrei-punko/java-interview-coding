@@ -54,7 +54,6 @@ they contain enough code which describes implementation in a natural way.
 - [Подсчет количества кораблей на поле морского боя](https://www.youtube.com/watch?v=9ypQAA7ilYo)
 - [Сортировка выбором (Selection sort)](https://www.youtube.com/watch?v=sQLeZOOmxlo)
 - [Роняем JVM (2 решения)](https://www.youtube.com/watch?v=FTR-_QqcH-I)
-- [Фильтрация содержимого Map по условию (Яндекс)](https://www.youtube.com/watch?v=YBHM4xStiCM)
 - [Самодельный Enum (Яндекс)](https://www.youtube.com/watch?v=41sJn7MQFc4)
 - [Числа Фибоначчи (2 решения)](https://www.youtube.com/watch?v=S5rfbd8JkWw)
 - [Поиск второго по величине элемента массива (2 решения)](https://www.youtube.com/watch?v=TYU9OsImhP8)
