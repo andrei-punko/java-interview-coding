@@ -1,5 +1,4 @@
-name: Java CI with Gradle. Starts after when pull-request created
-
+name: Pull request workflow
 on:
   pull_request:
     branches: [ master ]

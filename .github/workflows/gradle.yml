@@ -1,5 +1,4 @@
-name: Java CI with Gradle. Starts after push into master branch
-
+name: Java CI with Gradle
 on:
   push:
     branches: [ master ]
