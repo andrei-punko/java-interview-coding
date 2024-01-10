@@ -37,24 +37,6 @@ public class CountNegativesInSortedMatrix {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] < 0) {
-                    result++;
-                }
-            }
-        }
-        return result;
-    }
-
-    public static int count_MNOptimized(int[][] grid) {
-        var m = grid.length;
-        if (m == 0) {
-            return 0;
-        }
-        var n = grid[0].length;
-        var result = 0;
-
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (grid[i][j] < 0) {
                     result += n - j;    // add count of numbers from current to the end of row (because of sorted row)
                     break;
                 }

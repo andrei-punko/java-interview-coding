@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static by.andd3dfx.search.CountNegativesInSortedMatrix.count_MN;
-import static by.andd3dfx.search.CountNegativesInSortedMatrix.count_MNOptimized;
 import static by.andd3dfx.search.CountNegativesInSortedMatrix.count_NPlusM;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -39,13 +38,8 @@ public class CountNegativesInSortedMatrixTest {
     }
 
     @Test
-    public void testCount_NM() {
+    public void testCount_MN() {
         assertThat(count_MN(grid.value)).isEqualTo(expectedResult);
-    }
-
-    @Test
-    public void testCount_NMOptimized() {
-        assertThat(count_MNOptimized(grid.value)).isEqualTo(expectedResult);
     }
 
     @Test
