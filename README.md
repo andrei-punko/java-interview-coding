@@ -193,6 +193,8 @@ they contain enough code which describes implementation in a natural way.
 - [Перестановка пары цифр числа для получения максимального значения (leetcode)](https://www.youtube.com/watch?v=-my6feBZ6RY)
 - [Бинарный поиск в упорядоченном массиве](https://www.youtube.com/watch?v=RaxWD5yAQ9Q)
 - [Поиск первой и последней позиции элемента в упорядоченном массиве (leetcode)](https://www.youtube.com/watch?v=6s-kAtOFXuY)
+- [Подсчет отрицательных чисел в сортированной матрице за O(N+M) (2 решения) (leetcode)](https://www.youtube.com/watch?v=N3RrlPQn9CY)
+- [Избавление от дублирования в тестах посредством перехода к параметризованным тестам](https://www.youtube.com/watch?v=QIwQCzDU3XM)
 
 ## Docs & notes
 The [docs folder](./docs) contains some docs & notes
