@@ -39,7 +39,7 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-test {
+tasks.withType(Test) {
     testLogging {
         events "passed", "skipped", "failed",
                 // "standardOut",   // Uncomment to get all logs during tests execution
@@ -78,7 +78,7 @@ jacocoTestReport {
     }
 }
 
-tasks.register('githubWorkflowTest', Test) {
+task githubWorkflowTest(type: Test) {
     exclude '**/**AddMultithreadingTest.class'
     exclude '**/**BlockingQueueTest.class'
     exclude '**/**DeadlockTest.class'
