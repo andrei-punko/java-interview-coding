@@ -3,13 +3,13 @@
 Design REST service related with Pet Clinic, where pets have name and age.
 Add operation with pets batch update (for example, add new field - owner)
 
-GET     clinic\{id}
-DELETE  clinic\{id}
-POST    clinic
+GET     /api/v1/clinic/{id}
+DELETE  /api/v1/clinic/{id}
+POST    /api/v1/clinic
             params: { name: ..., age : ... }
-PUT     clinic\{id}
+PUT     /api/v1/clinic/{id}
             params: { age: ... }
-PATCH   clinic
+PATCH   /api/v1/clinic
             params: { ids: ..., owner: ... }
 
 
@@ -19,11 +19,9 @@ We have restriction of RAM size: so only one string could be loaded into RAM sim
 
 
 * сортировки:
-- пирамидальная
 - быстрая
     - со стеками
     - на месте
-- подсчетом
 - блочная
 
 * хеш-таблицы:
