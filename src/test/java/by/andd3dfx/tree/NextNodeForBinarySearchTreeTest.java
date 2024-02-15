@@ -2,6 +2,7 @@ package by.andd3dfx.tree;
 
 import org.junit.Test;
 
+import static by.andd3dfx.tree.NextNodeForBinarySearchTree.next;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -17,18 +18,18 @@ public class NextNodeForBinarySearchTreeTest {
      * </pre>
      */
     @Test
-    public void next() {
-        NodeImpl _1 = new NodeImpl(1);
-        NodeImpl _2 = new NodeImpl(2);
-        NodeImpl _3 = new NodeImpl(3);
-        NodeImpl _3_5 = new NodeImpl(3.5);
-        NodeImpl _4 = new NodeImpl(4);
-        NodeImpl _4_5 = new NodeImpl(4.5);
-        NodeImpl _5 = new NodeImpl(5);
-        NodeImpl _6 = new NodeImpl(6);
-        NodeImpl _7 = new NodeImpl(7);
-        NodeImpl _11 = new NodeImpl(11);
-        NodeImpl _20 = new NodeImpl(20);
+    public void testNext() {
+        var _1 = new NodeImpl(1);
+        var _2 = new NodeImpl(2);
+        var _3 = new NodeImpl(3);
+        var _3_5 = new NodeImpl(3.5);
+        var _4 = new NodeImpl(4);
+        var _4_5 = new NodeImpl(4.5);
+        var _5 = new NodeImpl(5);
+        var _6 = new NodeImpl(6);
+        var _7 = new NodeImpl(7);
+        var _11 = new NodeImpl(11);
+        var _20 = new NodeImpl(20);
         _20.setLeft(_5);
         _5.setLeft(_3);
         _5.setRight(_7);
@@ -40,12 +41,12 @@ public class NextNodeForBinarySearchTreeTest {
         _7.setLeft(_6);
         _7.setRight(_11);
 
-        assertThat("Wrong node for 3", NextNodeForBinarySearchTree.next(_3), is(_3_5));
-        assertThat("Wrong node for 4", NextNodeForBinarySearchTree.next(_4), is(_4_5));
-        assertThat("Wrong node for 4.5", NextNodeForBinarySearchTree.next(_4_5), is(_5));
-        assertThat("Wrong node for 7", NextNodeForBinarySearchTree.next(_7), is(_11));
-        assertThat("Wrong node for 11", NextNodeForBinarySearchTree.next(_11), is(_20));
-        assertThat("Wrong node for 20", NextNodeForBinarySearchTree.next(_20), is(_20));
+        assertThat("Wrong node for 3", next(_3), is(_3_5));
+        assertThat("Wrong node for 4", next(_4), is(_4_5));
+        assertThat("Wrong node for 4.5", next(_4_5), is(_5));
+        assertThat("Wrong node for 7", next(_7), is(_11));
+        assertThat("Wrong node for 11", next(_11), is(_20));
+        assertThat("Wrong node for 20", next(_20), is(_20));
     }
 
     class NodeImpl implements NextNodeForBinarySearchTree.Node {
@@ -75,9 +76,7 @@ public class NextNodeForBinarySearchTreeTest {
 
         @Override
         public String toString() {
-            return "{" +
-                    "value=" + value +
-                    '}';
+            return "{value=%s}".formatted(value);
         }
 
         public void setParent(NodeImpl parent) {
