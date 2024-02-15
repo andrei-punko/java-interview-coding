@@ -196,6 +196,7 @@ they contain enough code which describes implementation in a natural way.
 - [Подсчет отрицательных чисел в сортированной матрице за O(N+M) (2 решения) (leetcode)](https://www.youtube.com/watch?v=N3RrlPQn9CY)
 - [Избавление от дублирования в тестах посредством перехода к параметризованным тестам](https://www.youtube.com/watch?v=QIwQCzDU3XM)
 - [Поиск пропущенных чисел в массиве без использования дополнительной памяти](https://www.youtube.com/watch?v=yR6sQBAOSt4)
+- [Поиск следующей ноды для заданной ноды бинарного дерева поиска](https://youtu.be/qg0b9f8wGCg)
 
 ## Docs & notes
 The [docs folder](./docs) contains some docs & notes

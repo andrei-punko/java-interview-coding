@@ -21,19 +21,19 @@ public class HeapSort {
     }
 
     // To heapify a subtree rooted with node i which is an index in arr[].
-    // N is size of heap
-    private static <T extends Comparable> void heapify(T arr[], int N, int i) {
+    // n is size of heap
+    private static <T extends Comparable> void heapify(T arr[], int n, int i) {
         int largest = i;    // Initialize largest element as root
         int l = 2 * i + 1;
-        int r = 2 * i + 2;
+        int r = l + 1;
 
         // If left child is larger than root
-        if (l < N && greaterThan(arr[l], arr[largest])) {
+        if (l < n && greaterThan(arr[l], arr[largest])) {
             largest = l;
         }
 
         // If right child is larger than largest at this moment
-        if (r < N && greaterThan(arr[r], arr[largest])) {
+        if (r < n && greaterThan(arr[r], arr[largest])) {
             largest = r;
         }
 
@@ -42,7 +42,7 @@ public class HeapSort {
             swap(arr, i, largest);
 
             // Recursively heapify the affected subtree
-            heapify(arr, N, largest);
+            heapify(arr, n, largest);
         }
     }
 
