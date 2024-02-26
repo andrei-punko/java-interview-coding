@@ -73,6 +73,7 @@ jacocoTestReport {
                     '**/config/**',
                     '**/domain/**',
                     '**/dto/**',
+                    '**/refactoring*/initial/**',
             ])
         }))
     }
