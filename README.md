@@ -92,7 +92,7 @@ they contain enough code which describes implementation in a natural way.
 - [Составление поезда из вагонов](https://www.youtube.com/watch?v=ToXzQU6vIKw)
 - [Очередь в прачечную](https://www.youtube.com/watch?v=reTyOF3yo5k)
 - [Реализация целочисленного деления (2 решения)](https://www.youtube.com/watch?v=jhKuxPDCa54)
-- [Ревью кода из интервью](https://www.youtube.com/watch?v=8spUH04041U)
+- [Ревью кода из интервью #1](https://www.youtube.com/watch?v=8spUH04041U)
 - [Ханойские башни (Hanoi towers)](https://www.youtube.com/watch?v=8fkHg9JKKmg)
 - [Быстрая сортировка (Quick sort)](https://www.youtube.com/watch?v=lp1UsN1-_p4)
 - [Генерация перестановок (leetcode)](https://www.youtube.com/watch?v=PyRnm2mFZbk)
@@ -197,6 +197,9 @@ they contain enough code which describes implementation in a natural way.
 - [Избавление от дублирования в тестах посредством перехода к параметризованным тестам](https://www.youtube.com/watch?v=QIwQCzDU3XM)
 - [Поиск пропущенных чисел в массиве без использования дополнительной памяти](https://www.youtube.com/watch?v=yR6sQBAOSt4)
 - [Поиск следующей ноды для заданной ноды бинарного дерева поиска](https://youtu.be/qg0b9f8wGCg)
+- [Ревью кода из интервью #2](https://youtu.be/jZg2YVoFUZ0)
+- [Задачи на логику из BA-интервью](https://youtu.be/Gdc_piBHDzU)
+- [Ревью кода из интервью #3](https://youtu.be/0k-OMXVsVmc)
 
 ## Materials & notes
 The [materials folder](./materials) contains some stashed interview materials & notes
