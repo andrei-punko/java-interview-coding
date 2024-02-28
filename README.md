@@ -198,5 +198,5 @@ they contain enough code which describes implementation in a natural way.
 - [Поиск пропущенных чисел в массиве без использования дополнительной памяти](https://www.youtube.com/watch?v=yR6sQBAOSt4)
 - [Поиск следующей ноды для заданной ноды бинарного дерева поиска](https://youtu.be/qg0b9f8wGCg)
 
-## Docs & notes
-The [docs folder](./docs) contains some docs & notes
+## Materials & notes
+The [materials folder](./materials) contains some stashed interview materials & notes
