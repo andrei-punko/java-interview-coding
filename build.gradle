@@ -10,8 +10,9 @@ repositories {
 }
 
 dependencies {
-    api 'org.springframework.boot:spring-boot-starter-logging:3.2.2'
+    api 'org.springframework.boot:spring-boot-starter-logging:3.2.3'
     api 'org.apache.commons:commons-lang3:3.14.0'
+    api 'org.apache.commons:commons-collections4:4.4'
     api 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
     api 'org.reflections:reflections:0.10.2'
     api "org.projectlombok:lombok:$lombokVersion"
@@ -22,8 +23,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.jmock:jmock-legacy:$jmockVersion"
     testImplementation "org.jmock:jmock-imposters:$jmockVersion"
-    testImplementation 'net.bytebuddy:byte-buddy:1.14.11'
-    testImplementation 'org.assertj:assertj-core:3.25.2'
+    testImplementation 'net.bytebuddy:byte-buddy:1.14.12'
+    testImplementation 'org.assertj:assertj-core:3.25.3'
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation 'org.mockito:mockito-core:5.10.0'
     testImplementation 'org.awaitility:awaitility:4.2.0'
