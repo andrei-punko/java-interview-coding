@@ -27,7 +27,7 @@ public class LargeGroupPositionsTest {
     }
 
     @Test
-    public void findWhenAllGroupsShorterThanThree() {
+    public void findWhenAllGroupsLengthShorterThanThree() {
         assertThat(largeGroupPositions.find("abc")).isEqualTo(List.of());
         assertThat(largeGroupPositions.find("aabcc")).isEqualTo(List.of());
     }

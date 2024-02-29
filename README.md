@@ -200,6 +200,7 @@ they contain enough code which describes implementation in a natural way.
 - [Ревью кода из интервью #2](https://youtu.be/jZg2YVoFUZ0)
 - [Задачи на логику из BA-интервью](https://youtu.be/Gdc_piBHDzU)
 - [Ревью кода из интервью #3](https://youtu.be/0k-OMXVsVmc)
+- [Поиск позиций больших групп в строке (leetcode)](https://youtu.be/RFTK3bFpLcs)
 
 ## Materials & notes
 The [materials folder](./materials) contains some stashed interview materials & notes
