@@ -7,6 +7,8 @@ import java.util.Set;
 
 /**
  * <pre>
+ * https://leetcode.com/problems/valid-parentheses/description/
+ *
  * Есть скобочное выражение с разными видами скобок: {}, (), [], <>.
  * Проверить, что оно правильное.
  * Других символов, кроме скобок, быть не может.

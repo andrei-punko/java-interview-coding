@@ -185,7 +185,7 @@ they contain enough code which describes implementation in a natural way.
 - [Вычисление среднего, медианы, моды, квартилей](https://www.youtube.com/watch?v=nqalmvHE_-A)
 - [Обзор содержимого моих GitHub репозиториев](https://www.youtube.com/watch?v=w2LyIXEvtG0)
 - [Перемешивание массива: алгоритм тасования Фишера-Йетса](https://www.youtube.com/watch?v=Ru9UA_74t30)
-- [Валидация скобочного выражения](https://www.youtube.com/watch?v=4kimh-Gsuxs)
+- [Валидация скобочного выражения (leetcode)](https://www.youtube.com/watch?v=4kimh-Gsuxs)
 - [Объединение упорядоченных массивов в массив без дубликатов](https://www.youtube.com/watch?v=uABGnnTD0Kw)
 - [Каверзный finally / Каверзный stream: предсказать, что произойдет](https://www.youtube.com/watch?v=Man9zRalhPs)
 - [Как успеть посмотреть все обучающие ролики на YouTube (Ускорение выше 2х)](https://www.youtube.com/watch?v=NjCizItxPdM)

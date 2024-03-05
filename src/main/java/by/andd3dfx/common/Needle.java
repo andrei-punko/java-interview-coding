@@ -6,16 +6,18 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Implement the function count(), which returns the number of lines from the InputStream that contains text
- * matching the provided string.
- * <p>
- * For example, when the `String needle` is "there" and the `InputStream haystack` contains:
  * <pre>
+ * Implement the function count(), which returns the number of lines from the InputStream
+ * that contains text matching the provided string.
+ *
+ * For example, when the `String needle` is "there" and the `InputStream haystack` contains:
+ *
  * 	Hello, there!
  * 	How are you today?
  * 	Yes, you over there.
- * </pre>
+ *
  * The count() function should return 2: {"Hello, there!" and "Yes, you over there."}.
+ * </pre>
  */
 public class Needle {
 

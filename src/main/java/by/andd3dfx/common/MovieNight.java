@@ -9,11 +9,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * <pre>
  * Implement the canViewAll() method, which given a collection of movies, checks if they all can be
  * viewed completely without overlap.
- * <p>
+ *
  * For example, for the movies below, the method should return true because they don't overlap:
- * <pre>
  * - 1/1/2015 20:00-21:30
  * - 1/1/2015 23:10-23:30
  * - 1/1/2015 21:30-23:00
