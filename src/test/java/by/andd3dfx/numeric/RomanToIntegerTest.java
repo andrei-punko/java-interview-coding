@@ -21,5 +21,6 @@ public class RomanToIntegerTest {
         assertThat(romanToInt("X")).isEqualTo(10);
         assertThat(romanToInt("LVIII")).isEqualTo(58);
         assertThat(romanToInt("MCMXCIV")).isEqualTo(1994);
+        assertThat(romanToInt("MMXI")).isEqualTo(2011);
     }
 }
