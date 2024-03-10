@@ -32,15 +32,12 @@ public class SortAnagrams {
             vocabulary.get(key).add(item);
         }
 
-        for (String key : vocabulary.keySet()) {
-            Collections.sort(vocabulary.get(key));
+        for (var value : vocabulary.values()) {
+            Collections.sort(value);
         }
-
-        List<List<String>> result = new ArrayList<>();
-        result.addAll(vocabulary.values());
-        Collections.sort(result, (List<String> a, List<String> b) -> (b.size() - a.size()));
-
-        return result;
+        return vocabulary.values().stream()
+                .sorted((List<String> a, List<String> b) -> (b.size() - a.size()))
+                .toList();
     }
 
     /**
