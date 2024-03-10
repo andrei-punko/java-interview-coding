@@ -27,7 +27,6 @@
 - [iterators](src/main/java/by/andd3dfx/iterators)
 - [java8](src/main/java/by/andd3dfx/java8)
 - [jvm](src/main/java/by/andd3dfx/jvm)
-- [masking](src/main/java/by/andd3dfx/masking)
 - [multithreading](src/main/java/by/andd3dfx/multithreading)
 - [numeric](src/main/java/by/andd3dfx/numeric)
 - [parser](src/main/java/by/andd3dfx/parser)
