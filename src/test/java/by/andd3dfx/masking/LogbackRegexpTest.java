@@ -9,8 +9,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * This test needed to check regexp which used in %replace of logback config.
- * <p>
- * Check logback config inside SISB's/SVI's configmap for details.
  */
 public class LogbackRegexpTest {
 
