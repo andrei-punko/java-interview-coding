@@ -1,5 +1,6 @@
 package by.andd3dfx.common;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,5 +44,15 @@ public class ValidAnagram {
         }
         return frequencies.values().stream()
                 .filter(value -> value > 0).findAny().isEmpty();
+    }
+
+    public static boolean isAnagram2(String s1, String s2) {
+        char[] chars1 = s1.toCharArray();
+        Arrays.sort(chars1);
+
+        char[] chars2 = s2.toCharArray();
+        Arrays.sort(chars2);
+
+        return Arrays.equals(chars1, chars2);
     }
 }
