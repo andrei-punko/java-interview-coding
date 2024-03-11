@@ -9,7 +9,7 @@
 <a href="https://boosty.to/andd3dfx"><img src="images/button_donate.png" alt="Donate" height="40"/></a>
 
 ## Prerequisites
-- JDK 17
+- JDK 21
 - Gradle isn't required because of embedded Gradle used in the project
 
 ## How to build
