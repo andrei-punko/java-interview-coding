@@ -67,6 +67,10 @@ public class IntegerToRoman {
     }};
 
     public static String intToRoman(int number) {
+        if (number < 1 || number > 3999) {
+            throw new IllegalArgumentException("Parameter `number` should belong interval: [1, 3999]");
+        }
+
         var sb = new StringBuilder();
         for (var entry : vocabulary.entrySet()) {
             var key = entry.getKey();

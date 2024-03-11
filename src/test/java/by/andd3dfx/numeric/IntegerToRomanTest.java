@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static by.andd3dfx.numeric.IntegerToRoman.intToRoman;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertThrows;
 
 public class IntegerToRomanTest {
 
@@ -22,5 +23,18 @@ public class IntegerToRomanTest {
         assertThat(intToRoman(58)).isEqualTo("LVIII");
         assertThat(intToRoman(1994)).isEqualTo("MCMXCIV");
         assertThat(intToRoman(2011)).isEqualTo("MMXI");
+    }
+
+    @Test
+    public void testIntToRoman_whenParamIsOutOfAllowedInterval() {
+        checkThrowingExForIllegalArgument(-5);
+        checkThrowingExForIllegalArgument(0);
+        checkThrowingExForIllegalArgument(4000);
+        checkThrowingExForIllegalArgument(4005);
+    }
+
+    private void checkThrowingExForIllegalArgument(int number) {
+        var ex = assertThrows(IllegalArgumentException.class, () -> intToRoman(number));
+        assertThat(ex.getMessage()).isEqualTo("Parameter `number` should belong interval: [1, 3999]");
     }
 }
