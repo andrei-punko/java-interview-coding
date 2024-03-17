@@ -203,6 +203,7 @@ they contain enough code which describes implementation in a natural way.
 - [Подсчет способов подъема по лестнице (leetcode)](https://youtu.be/bjE3KQM4ko4)
 - [Преобразование римской записи числа в арабскую (leetcode)](https://youtu.be/vlKjGPFyltU)
 - [Преобразование арабской записи числа в римскую (leetcode)](https://youtu.be/83hLrZyfxeU)
+- [Поиск анаграммы (leetcode) (2 решения)](https://www.youtube.com/watch?v=8doD_ZqlHL0)
 
 ## Materials & notes
 The [materials folder](./materials) contains some stashed interview materials & notes
