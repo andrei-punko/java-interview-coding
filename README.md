@@ -6,7 +6,7 @@
 [![Branches](.github/badges/branches.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml)
 
 <a href="https://andrei-punko.github.io/java-interview-faq-n-answers"><img src="images/button_java-interview-faq.png" alt="Java interview FAQ" height="40"/></a>
-<a href="https://boosty.to/andd3dfx"><img src="images/button_donate.png" alt="Donate" height="40"/></a>
+<a href="https://boosty.to/andd3dfx/donate"><img src="images/button_donate.png" alt="Donate" height="40"/></a>
 
 ## Prerequisites
 - JDK 21
