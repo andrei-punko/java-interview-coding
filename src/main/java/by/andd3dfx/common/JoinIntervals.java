@@ -16,15 +16,12 @@ import java.util.stream.Collectors;
  */
 public class JoinIntervals {
 
-    /**
-     * Home version
-     */
     public static String transform(int[] a) {
-        List<String> items = new ArrayList<>();
         if (a.length == 0) {
             return "";
         }
 
+        List<String> items = new ArrayList<>();
         int lastItem = a[0];
         int startIntervalValue = a[0];
         boolean intervalDetected = false;
@@ -55,41 +52,7 @@ public class JoinIntervals {
             items.add(String.valueOf(lastItem));
         }
 
-        return items.stream().collect(Collectors.joining(","));
-    }
-
-    /**
-     * Interview version
-     */
-    public static String transform2(int[] nums) {
-        var result = new ArrayList<String>();
-        var len = nums.length;
-        int leftBorderIndex = 0;
-        boolean intervalDetected = false;
-
-        int i = 0;
-        for (; i < len - 1; i++) {
-            if (nums[i + 1] - nums[i] == 1) {
-                if (!intervalDetected) {
-                    leftBorderIndex = i;
-                    intervalDetected = true;
-                }
-            } else {
-                if (intervalDetected) {
-                    result.add(nums[leftBorderIndex] + "-" + nums[i]);
-                    intervalDetected = false;
-                } else {
-                    result.add(String.valueOf(nums[i]));
-                }
-            }
-        }
-
-        if (intervalDetected) {
-            result.add(nums[leftBorderIndex] + "-" + nums[i]);
-        } else {
-            result.add(String.valueOf(nums[i]));
-        }
-
-        return result.stream().collect(Collectors.joining(","));
+        return items.stream()
+                .collect(Collectors.joining(","));
     }
 }
