@@ -7,13 +7,13 @@ import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RemoveDuplicatesFromSortedArray2Test {
+public class RemoveDuplicatesFromSortedArray_IITest {
 
-    private RemoveDuplicatesFromSortedArray2 removeDuplicatesFromSortedArray;
+    private RemoveDuplicatesFromSortedArray_II removeDuplicatesFromSortedArray;
 
     @Before
     public void setUp() throws Exception {
-        removeDuplicatesFromSortedArray = new RemoveDuplicatesFromSortedArray2();
+        removeDuplicatesFromSortedArray = new RemoveDuplicatesFromSortedArray_II();
     }
 
     @Test

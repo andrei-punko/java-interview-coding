@@ -1,12 +1,12 @@
 package by.andd3dfx.collections;
 
-import by.andd3dfx.collections.RemoveDuplicatesFromSortedLinkedList2.Node;
+import by.andd3dfx.collections.RemoveDuplicatesFromSortedLinkedList_II.Node;
 import org.junit.Test;
 
-import static by.andd3dfx.collections.RemoveDuplicatesFromSortedLinkedList2.remove;
+import static by.andd3dfx.collections.RemoveDuplicatesFromSortedLinkedList_II.remove;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RemoveDuplicatesFromSortedLinkedList2Test {
+public class RemoveDuplicatesFromSortedLinkedList_IITest {
 
     @Test
     public void testRemoveForNull() {

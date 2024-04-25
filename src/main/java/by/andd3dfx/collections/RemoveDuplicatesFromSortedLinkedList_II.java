@@ -22,7 +22,7 @@ import java.util.Deque;
  * The list is guaranteed to be sorted in ascending order.
  * </pre>
  */
-public class RemoveDuplicatesFromSortedLinkedList2 {
+public class RemoveDuplicatesFromSortedLinkedList_II {
 
     @Data
     @AllArgsConstructor

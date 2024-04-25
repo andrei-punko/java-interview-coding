@@ -34,7 +34,7 @@ package by.andd3dfx.collections;
  * It does not matter what you leave beyond the returned k (hence they are underscores).
  * </pre>
  */
-public class RemoveDuplicatesFromSortedArray2 {
+public class RemoveDuplicatesFromSortedArray_II {
 
     public int removeDuplicates(int[] nums) {
         var left = 0;
