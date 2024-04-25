@@ -8,13 +8,13 @@ import java.util.NoSuchElementException;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class CustomStackTest {
+public class CustomConcurrentStackTest {
 
-    private CustomStack<Integer> stack;
+    private CustomConcurrentStack<Integer> stack;
 
     @Before
     public void setUp() {
-        stack = new CustomStack<>();
+        stack = new CustomConcurrentStack<>();
     }
 
     @Test

@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * Implement custom stack with multithreading support without using blocking operations
  */
-public class CustomStack<T> {
+public class CustomConcurrentStack<T> {
 
     private Deque<T> deque = new ArrayDeque<>();
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
