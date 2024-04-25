@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
  * Output: []
  * </pre>
  */
-public class WordSearch2UsingRecursion implements IWordSearch2 {
+public class WordSearch_IIUsingRecursion implements IWordSearch_II {
 
     private long recursionCallCounter = 0L;
 

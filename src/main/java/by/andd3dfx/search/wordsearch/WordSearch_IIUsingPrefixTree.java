@@ -39,7 +39,7 @@ import java.util.StringJoiner;
  * Output: []
  * </pre>
  */
-public class WordSearch2UsingPrefixTree implements IWordSearch2 {
+public class WordSearch_IIUsingPrefixTree implements IWordSearch_II {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 

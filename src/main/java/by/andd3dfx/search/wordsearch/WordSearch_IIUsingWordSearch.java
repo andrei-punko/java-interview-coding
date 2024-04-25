@@ -31,7 +31,7 @@ import java.util.List;
  * Output: []
  * </pre>
  */
-public class WordSearch2UsingWordSearch1 implements IWordSearch2 {
+public class WordSearch_IIUsingWordSearch implements IWordSearch_II {
 
     private final WordSearch wordSearch = new WordSearch();
 

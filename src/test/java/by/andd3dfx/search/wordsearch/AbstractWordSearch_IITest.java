@@ -5,16 +5,16 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public abstract class AbstractWordSearch2Test {
+public abstract class AbstractWordSearch_IITest {
 
-    private IWordSearch2 wordSearch2;
+    private IWordSearch_II wordSearch2;
 
     @Before
     public void setUp() throws Exception {
         wordSearch2 = initiate();
     }
 
-    protected abstract IWordSearch2 initiate();
+    protected abstract IWordSearch_II initiate();
 
     @Test
     public void exist_forEmptyWordsList() {
