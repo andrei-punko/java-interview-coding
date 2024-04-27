@@ -2,10 +2,10 @@ package by.andd3dfx.search;
 
 import org.junit.Test;
 
-import static by.andd3dfx.search.FirstMissingPositive.find;
+import static by.andd3dfx.search.FirstSmallestMissingPositive.find;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FirstMissingPositiveTest {
+public class FirstSmallestMissingPositiveTest {
 
     @Test
     public void findForMixedNegativeNPositiveNumbers() {

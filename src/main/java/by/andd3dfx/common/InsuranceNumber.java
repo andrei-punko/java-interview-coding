@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * For example, changeFormat("Please quote your policy number: 112-39-8552.") should return
  * "Please quote your policy number: 112/8552/39.".
  */
-public class Paragraph {
+public class InsuranceNumber {
 
   private static final Pattern PATTERN_1 = Pattern.compile("\\d{3}\n*-\n*\\d{2}\n*-\n*\\d{4}");
   private static final Pattern PATTERN_2 = Pattern.compile("(\\d{3}\n*)-(\n*\\d{2}\n*)-(\n*\\d{4})");

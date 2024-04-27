@@ -1,6 +1,6 @@
 package by.andd3dfx.regexp;
 
-import by.andd3dfx.common.Paragraph;
+import by.andd3dfx.common.InsuranceNumber;
 import org.junit.Test;
 
 import java.util.regex.Matcher;
@@ -12,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * For replacement example
  *
- * @see Paragraph#changeFormatUsingRegExGroups(java.lang.String)
+ * @see InsuranceNumber#changeFormatUsingRegExGroups(java.lang.String)
  */
 public class RegExpCheckerTest {
 

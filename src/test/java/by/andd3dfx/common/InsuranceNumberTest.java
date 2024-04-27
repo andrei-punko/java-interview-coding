@@ -2,12 +2,12 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
-import static by.andd3dfx.common.Paragraph.changeFormat;
-import static by.andd3dfx.common.Paragraph.changeFormatUsingRegExGroups;
+import static by.andd3dfx.common.InsuranceNumber.changeFormat;
+import static by.andd3dfx.common.InsuranceNumber.changeFormatUsingRegExGroups;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ParagraphTest {
+public class InsuranceNumberTest {
 
   @Test
   public void changeFormatNothingChanged() {

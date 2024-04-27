@@ -7,7 +7,7 @@ package by.andd3dfx.search;
  * <p>
  * You must implement an algorithm that runs in O(n) time and uses constant extra space.
  */
-public class FirstMissingPositive {
+public class FirstSmallestMissingPositive {
 
     /**
      * Good idea was that if we have n-length array,
