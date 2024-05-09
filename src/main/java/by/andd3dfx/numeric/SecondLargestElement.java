@@ -7,6 +7,8 @@ import static java.lang.Math.min;
 
 /**
  * Find the second-largest element in array of numbers
+ *
+ * @see <a href="https://youtu.be/TYU9OsImhP8">Video solution</a>
  */
 public class SecondLargestElement {
 

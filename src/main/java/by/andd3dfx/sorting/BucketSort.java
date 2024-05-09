@@ -3,6 +3,9 @@ package by.andd3dfx.sorting;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @see <a href="https://www.youtube.com/watch?v=vFsDPm7ecsM">Video solution</a>
+ */
 public class BucketSort {
 
     private static final int BUCKETS_COUNT = 10;

@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Imagine situation when Enum isn't present in Java and write its custom implementation.
+ *
+ * @see <a href="https://youtu.be/41sJn7MQFc4">Video solution</a>
+ */
 public class CustomEnum {
 
     private static List<CustomEnum> items = new ArrayList<>();

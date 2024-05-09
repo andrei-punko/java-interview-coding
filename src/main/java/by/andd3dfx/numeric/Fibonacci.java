@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Check this article for comparison of top-down / down-top approaches:
- * https://habr.com/ru/post/423939/
+ * Check <a href="https://habr.com/ru/post/423939/">this article</a>
+ * for comparison of top-down / down-top approaches:
+ *
+ * @see <a href="https://youtu.be/S5rfbd8JkWw">Video solution</a>
  */
 public class Fibonacci {
 

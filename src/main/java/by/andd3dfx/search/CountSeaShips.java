@@ -7,6 +7,8 @@ package by.andd3dfx.search;
  * Размер кораблей - от 1х1 до 1хN
  * Корабли никак не соприкасаются друг с другом.
  * Необходимо подсчитать кол-во кораблей.
+ *
+ * @see <a href="https://youtu.be/9ypQAA7ilYo">Video solution</a>
  */
 public class CountSeaShips {
 

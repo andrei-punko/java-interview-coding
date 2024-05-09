@@ -9,6 +9,8 @@ import java.util.List;
  * Предложить структуру данных, чтобы хранить в ней структуру папок и файлов.
  * <p>
  * Описать алгоритм, который измерит размер содержимого определенной папки.
+ *
+ * @see <a href="https://www.youtube.com/watch?v=j6wr8qCaVeE">Video solution</a>
  */
 public class FileSystemTree {
 

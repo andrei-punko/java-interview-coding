@@ -1,5 +1,8 @@
 package by.andd3dfx.sorting;
 
+/**
+ * @see <a href="https://youtu.be/sQLeZOOmxlo">Video solution</a>
+ */
 public class SelectionSort {
 
     public static <T extends Comparable> void apply(T[] array) {
