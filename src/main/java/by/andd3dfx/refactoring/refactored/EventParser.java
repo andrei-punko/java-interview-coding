@@ -6,14 +6,13 @@ import by.andd3dfx.refactoring.refactored.parser.IEventParser;
 import lombok.SneakyThrows;
 import org.reflections.Reflections;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class EventParser {
 
-    private static final Map<EventType, IEventParser> map = new HashMap<>();
+    private static final EnumMap<EventType, IEventParser> map = new EnumMap<>(EventType.class);
 
     static {
         Reflections reflections = new Reflections(IEventParser.class.getPackageName());
