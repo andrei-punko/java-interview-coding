@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
  * find the longest words that can be obtained by characters.,
  * i.e. if array is {e, o, t, s} and dictionary words are [otse, tse, eo, stoe]
  * then function should return [otse, stoe].
+ *
+ * @see <a href="https://youtu.be/LQeAY_jx3SA">Video solution</a>
  */
 public class LongestDictWordsFromCharacters {
 
@@ -61,7 +63,7 @@ public class LongestDictWordsFromCharacters {
         Map<Character, Integer> map = new HashMap<>();
         for (var ch : chars) {
             if (!map.containsKey(ch)) {
-                map.put(ch, 1);
+                map.put(ch, 0);
             }
             map.put(ch, map.get(ch) + 1);
         }

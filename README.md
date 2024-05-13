@@ -210,6 +210,7 @@ they contain enough code which describes implementation in a natural way.
 | Преобразование римской записи числа в арабскую (leetcode)                                       | [Youtube](https://youtu.be/vlKjGPFyltU) | [Code](src/main/java/by/andd3dfx/numeric/RomanToInteger.java)                                                                                                                       |
 | Преобразование арабской записи числа в римскую (leetcode)                                       | [Youtube](https://youtu.be/83hLrZyfxeU) | [Code](src/main/java/by/andd3dfx/numeric/IntegerToRoman.java)                                                                                                                       |
 | Поиск анаграммы (leetcode) (2 решения)                                                          | [Youtube](https://youtu.be/8doD_ZqlHL0) | [Code](src/main/java/by/andd3dfx/common/ValidAnagram.java)                                                                                                                          |
+| Поиск наиболее длинного слова из словаря, которое можно сложить из заданного набора символов    | [Youtube](https://youtu.be/LQeAY_jx3SA) | [Code](src/main/java/by/andd3dfx/string/LongestDictWordsFromCharacters.java)                                                                                                        |
 
 ## Materials & notes
 
