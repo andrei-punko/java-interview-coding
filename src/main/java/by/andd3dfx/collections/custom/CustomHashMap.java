@@ -3,6 +3,12 @@ package by.andd3dfx.collections.custom;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * @param <K> key
+ * @param <V> value
+ *
+ * @see <a href="https://youtu.be/-GECqwRV8Uw">Video solution</a>
+ */
 public class CustomHashMap<K, V> {
 
     private static final int BUCKETS_COUNT = 16;

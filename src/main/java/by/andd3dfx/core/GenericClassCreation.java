@@ -10,6 +10,8 @@ import java.util.function.Supplier;
  *
  * According to: https://stackoverflow.com/questions/75175/create-instance-of-generic-type-in-java
  * </pre>
+ *
+ * @see <a href="https://youtu.be/vkn_2w-oJIo">Video solution</a>
  */
 public class GenericClassCreation {
 

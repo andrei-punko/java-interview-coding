@@ -2,6 +2,9 @@ package by.andd3dfx.sorting;
 
 import java.util.Arrays;
 
+/**
+ * @see <a href="https://youtu.be/QsXDi0MABA0">Video solution</a>
+ */
 public class MergeSort {
 
     public static <T extends Comparable> void apply(T[] items) {

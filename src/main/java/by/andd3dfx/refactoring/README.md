@@ -52,3 +52,5 @@ public final class ParserUtil {
     }
 }
 ```
+
+Check [video solution](https://youtu.be/jdnNYxVk5BE) on YouTube

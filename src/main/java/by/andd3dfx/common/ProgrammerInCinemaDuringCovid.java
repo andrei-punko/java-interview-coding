@@ -25,6 +25,8 @@ import java.util.List;
  * [1,0,0,0] -> 3
  * [0,0,1,0] -> 2
  * </pre>
+ *
+ * @see <a href="https://youtu.be/ClBUqbfSJ18">Video solution</a>
  */
 public class ProgrammerInCinemaDuringCovid {
 

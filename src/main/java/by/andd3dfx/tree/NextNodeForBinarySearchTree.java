@@ -18,6 +18,8 @@ package by.andd3dfx.tree;
  *     ...
  * }
  * <pre/>
+ *
+ * @see <a href="https://youtu.be/qg0b9f8wGCg">Video solution</a>
  */
 public class NextNodeForBinarySearchTree {
 

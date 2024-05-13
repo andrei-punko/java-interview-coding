@@ -7,6 +7,8 @@ import static java.lang.Math.max;
 
 /**
  * Write method which takes array and returns max product of 3 numbers taken from this array
+ *
+ * @see <a href="https://youtu.be/wzO6abwg4y4">Video solution</a>
  */
 public class MaxMultiplicationOf3InArray {
 

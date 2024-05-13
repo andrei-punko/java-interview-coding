@@ -18,6 +18,8 @@ import java.io.InputStreamReader;
  *
  * The count() function should return 2: {"Hello, there!" and "Yes, you over there."}.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/XDIgxvYAGfY">Video solution</a>
  */
 public class Needle {
 

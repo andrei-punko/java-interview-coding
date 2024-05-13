@@ -8,6 +8,8 @@ import java.util.Arrays;
  * при этом несколько чисел из диапазона [1, N] пропущено, а некоторые присутствуют дважды.
  * Найти все пропущенные числа без использования дополнительной памяти.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/yR6sQBAOSt4">Video solution</a>
  */
 public class FindDisappearedNumbers {
 

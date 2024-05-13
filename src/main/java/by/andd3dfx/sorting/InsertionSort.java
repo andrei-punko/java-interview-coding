@@ -2,6 +2,8 @@ package by.andd3dfx.sorting;
 
 /**
  * По мотивам алгоритма из "Вирт - Алгоритмы и структуры данных"
+ *
+ * @see <a href="https://youtu.be/NIvyCMC7NgU">Video solution</a>
  */
 public class InsertionSort {
 

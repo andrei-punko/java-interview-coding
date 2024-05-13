@@ -8,6 +8,8 @@ import java.util.List;
 /**
  * Даны 2 упорядоченных массива с уникальными элементами,
  * найти и вывести их упорядоченное объединение без дубликатов.
+ *
+ * @see <a href="https://youtu.be/uABGnnTD0Kw">Video solution</a>
  */
 public class ArraysUnion {
 

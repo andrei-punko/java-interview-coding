@@ -21,6 +21,8 @@ package by.andd3dfx.dynamic;
  * Output: 0
  * Explanation: In this case, no transactions are done and the max profit = 0.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/XYPIKrEBbCc">Video solution</a>
  */
 public class BestTimeToBuyNSellStock {
 

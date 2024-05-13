@@ -8,6 +8,8 @@ package by.andd3dfx.numeric;
  * 123490 -> 94321,
  * -123 -> -321
  * </pre>
+ *
+ * @see <a href="https://youtu.be/w3C4L7GxD7M">Video solution</a>
  */
 public class ReverseDigitsOrder {
 

@@ -28,6 +28,8 @@ package by.andd3dfx.common;
  * Note that the five elements can be returned in any order.
  * It does not matter what you leave beyond the returned k (hence they are underscores).
  * </pre>
+ *
+ * @see <a href="https://youtu.be/ECdosiz1ZPM">Video solution</a>
  */
 public class RemoveElement {
 

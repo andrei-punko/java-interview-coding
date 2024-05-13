@@ -11,6 +11,8 @@ import java.util.List;
  * input {-1, 2, 2, 5, 7} {2, 5, 8, 8, 8}
  * output {-1, 7}
  * </pre>
+ *
+ * @see <a href="https://youtu.be/bJIzoT-CmUg">Video solution</a>
  */
 public class FindElementsOfArrayWhichNotPresentInAnotherArray {
 

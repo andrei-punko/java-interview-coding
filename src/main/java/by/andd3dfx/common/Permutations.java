@@ -26,6 +26,8 @@ import java.util.List;
  * Input: nums = [1]
  * Output: [[1]]
  * </pre>
+ *
+ * @see <a href="https://youtu.be/PyRnm2mFZbk">Video solution</a>
  */
 public class Permutations {
 

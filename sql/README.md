@@ -20,3 +20,5 @@
 - [14. Поиск сотрудника с второй по величине зарплатой](14.sql)
 - [15. Задача о пользователях и их телефонах](15.sql)
 - [16. Задача про стадионы и матчи](16.sql)
+
+See [video solutions](https://youtu.be/GjDF_LdwYHU) of these tasks on YouTube

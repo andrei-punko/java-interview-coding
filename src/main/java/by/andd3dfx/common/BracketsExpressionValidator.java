@@ -16,6 +16,8 @@ import java.util.Set;
  * ([{}]) -> true
  * ([)] -> false
  * </pre>
+ *
+ * @see <a href="https://youtu.be/4kimh-Gsuxs">Video solution</a>
  */
 public class BracketsExpressionValidator {
 

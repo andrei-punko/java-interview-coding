@@ -7,6 +7,8 @@ import java.util.Arrays;
  * Имеется коробка со сторонами: A × B × C.
  * Определить, пройдёт ли она в дверь с размерами M × K.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/ix81AbCNiBE">Video solution</a>
  */
 public class DoorNBox {
 

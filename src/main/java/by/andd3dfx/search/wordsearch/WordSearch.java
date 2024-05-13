@@ -33,6 +33,8 @@ package by.andd3dfx.search.wordsearch;
  *  ["A","D","E","E"]], word = "ABCB"
  * Output: false
  * </pre>
+ *
+ * @see <a href="https://youtu.be/FsKU04anMtE">Video solution</a>
  */
 public class WordSearch {
 

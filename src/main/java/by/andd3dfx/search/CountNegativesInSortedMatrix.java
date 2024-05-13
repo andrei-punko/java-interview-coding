@@ -23,6 +23,8 @@ package by.andd3dfx.search;
  *
  * Follow up: Could you find an O(n + m) solution?
  * </pre>
+ *
+ * @see <a href="https://youtu.be/N3RrlPQn9CY">Video solution</a>
  */
 public class CountNegativesInSortedMatrix {
 

@@ -6,10 +6,14 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Дан итератор CustomIterator<Object>, который может возвращать String или CustomIterator.
+ * <pre>
+ * Дан итератор CustomIterator&lt;Object&gt;, который может возвращать String или CustomIterator.
  * Возможная вложенность внутренних итераторов неограниченна.
- * <p>
+ *
  * Написать для него методы next() и hasNext()
+ * </pre>
+ *
+ * @see <a href="https://youtu.be/dnR4xhkdx1I">Video solution</a>
  */
 public class RecursiveIterator<Object> implements Iterator<Object> {
 

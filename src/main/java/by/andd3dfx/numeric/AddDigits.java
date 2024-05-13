@@ -20,6 +20,8 @@ package by.andd3dfx.numeric;
  * Input: num = 0
  * Output: 0
  * </pre>
+ *
+ * @see <a href="https://youtu.be/04ezQ_--SIs">Video solution</a>
  */
 public class AddDigits {
 

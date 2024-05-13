@@ -10,6 +10,9 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @see <a href="https://youtu.be/jdnNYxVk5BE">Video solution</a>
+ */
 public class EventParser {
 
     private static final EnumMap<EventType, IEventParser> map = new EnumMap<>(EventType.class);

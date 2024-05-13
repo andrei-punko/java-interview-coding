@@ -19,6 +19,8 @@ import java.util.stream.Collectors;
  * Пример:
  * [-5,-3,0,1,2,4] -> [0,1,4,9,16,25]
  * </pre>
+ *
+ * @see <a href="https://youtu.be/49DpyzZN4NM">Video solution</a>
  */
 public class SortedSquares {
 

@@ -7,6 +7,8 @@ package by.andd3dfx.numeric;
  * Например, для последовательности чисел {9 4 2 5 3} ответ будет 6.
  * Попробовать сделать это за O(n)
  * </pre>
+ *
+ * @see <a href="https://youtu.be/QilFm81ukEw">Video solution</a>
  */
 public class MinMultiplication {
 

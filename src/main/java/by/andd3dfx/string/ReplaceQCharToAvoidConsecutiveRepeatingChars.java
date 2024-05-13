@@ -32,6 +32,8 @@ import java.util.Set;
  *     1 <= s.length <= 100
  *     s consist of lowercase English letters and '?'.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/OgMnvWfhqrk">Video solution</a>
  */
 public class ReplaceQCharToAvoidConsecutiveRepeatingChars {
 

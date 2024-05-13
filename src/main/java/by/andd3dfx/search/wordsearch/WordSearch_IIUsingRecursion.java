@@ -36,6 +36,8 @@ import java.util.stream.Collectors;
  * ], words = ["abcb"]
  * Output: []
  * </pre>
+ *
+ * @see <a href="https://youtu.be/DTyMyr6bNGw">Video solution</a>
  */
 public class WordSearch_IIUsingRecursion implements IWordSearch_II {
 

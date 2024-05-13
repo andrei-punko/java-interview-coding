@@ -3,6 +3,9 @@ package by.andd3dfx.collections.custom;
 import java.util.Collection;
 import java.util.Iterator;
 
+/**
+ * @see <a href="https://youtu.be/aTbKxApYNYk">Video solution</a>
+ */
 public class CustomHashSet<T> implements Iterable<T> {
 
     private CustomHashMap<T, Object> map = new CustomHashMap<>();

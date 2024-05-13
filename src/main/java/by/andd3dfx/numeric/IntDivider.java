@@ -5,6 +5,8 @@ import java.util.Deque;
 
 /**
  * Реализовать вручную функцию целочисленного деления int divide(int a, int b)
+ *
+ * @see <a href="https://youtu.be/jhKuxPDCa54">Video solution</a>
  */
 public class IntDivider {
 

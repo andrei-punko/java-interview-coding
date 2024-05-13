@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 
 import java.util.Iterator;
 
+/**
+ * @see <a href="https://youtu.be/vHjvNHBQP3o">Video solution</a>
+ */
 public class CustomLinkedList<T> implements Iterable<T> {
 
     @AllArgsConstructor

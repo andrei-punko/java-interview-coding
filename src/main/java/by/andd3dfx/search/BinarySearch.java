@@ -2,6 +2,8 @@ package by.andd3dfx.search;
 
 /**
  * Implement binary search in a sorted array. Return element index or -1 if it doesn't exist
+ *
+ * @see <a href="https://youtu.be/RaxWD5yAQ9Q">Video solution</a>
  */
 public class BinarySearch {
 

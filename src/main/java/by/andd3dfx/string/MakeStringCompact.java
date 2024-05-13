@@ -10,6 +10,8 @@ package by.andd3dfx.string;
  * c.	“aaa” -> “a3”
  * d.	“aaabbcbbb” -> “a3b2cb3”
  * </pre>
+ *
+ * @see <a href="https://youtu.be/s3sGF7C6cV8">Video solution</a>
  */
 public class MakeStringCompact {
 

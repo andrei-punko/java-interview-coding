@@ -22,6 +22,8 @@ import java.util.Map;
  * ...
  * so decided to use this fibonacci value as function result.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/W3RefFMsnRo">Video solution</a>
  */
 public class Stories {
 

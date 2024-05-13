@@ -22,9 +22,9 @@ import static by.andd3dfx.common.CountStreamers.EventType.STOP;
  * Вам дан массив (неупорядоченный) из пар (t_in, t_out) – длина массива от 0 до 10^6.
  * Требуется вывести число – максимальное количество пользователей,
  * которые одновременно смотрели стрим.
+ * </pre>
  *
  * @see <a href="https://youtu.be/uMikT-xpE-w">Video solution</a>
- * </pre>
  */
 public class CountStreamers {
 

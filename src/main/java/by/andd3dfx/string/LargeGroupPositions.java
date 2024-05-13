@@ -33,6 +33,8 @@ import java.util.List;
  *     1 <= s.length <= 1000
  *     s contains lowercase English letters only.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/RFTK3bFpLcs">Video solution</a>
  */
 public class LargeGroupPositions {
 

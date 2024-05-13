@@ -19,6 +19,8 @@ package by.andd3dfx.numeric;
  * Output: 9973
  * Explanation: No swap.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/-my6feBZ6RY">Video solution</a>
  */
 public class MaximumSwap {
 

@@ -30,6 +30,8 @@ import java.util.List;
  * ], words = ["abcb"]
  * Output: []
  * </pre>
+ *
+ * @see <a href="https://youtu.be/DTyMyr6bNGw">Video solution</a>
  */
 public class WordSearch_IIUsingWordSearch implements IWordSearch_II {
 

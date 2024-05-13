@@ -8,6 +8,9 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.RecursiveTask;
 
+/**
+ * @see <a href="https://youtu.be/jPCnLumA4x8">Video solution</a>
+ */
 @Slf4j
 public class HowToStartMultipleTasks {
 

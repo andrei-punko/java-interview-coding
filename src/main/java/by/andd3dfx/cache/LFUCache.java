@@ -28,6 +28,8 @@ import java.util.stream.Collectors;
  * Note that the number of times an item is used is the number of calls to the get and put functions
  * for that item since it was inserted. This number is set to zero when the item is removed.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/4hhu0cSVUCA">Video solution</a>
  */
 @Slf4j
 @RequiredArgsConstructor

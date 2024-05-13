@@ -28,6 +28,8 @@ import java.util.regex.Pattern;
  * Output: 6
  * Explanation: The last word is "joyboy" with length 6.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/Kev5TpsfKT4">Video solution</a>
  */
 public class LengthOfLastWord {
 

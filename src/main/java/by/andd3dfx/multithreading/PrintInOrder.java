@@ -50,6 +50,8 @@ import java.util.concurrent.Semaphore;
  *     }
  * }
  * </pre>
+ *
+ * @see <a href="https://youtu.be/UTmv-H2xc9Y">Video solution</a>
  */
 public class PrintInOrder {
 

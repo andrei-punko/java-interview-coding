@@ -2,6 +2,8 @@ package by.andd3dfx.search;
 
 /**
  * Implement interpolation search in a sorted array. Return element index or -1 if it doesn't exist
+ *
+ * @see <a href="https://youtu.be/kRTntkCB_a4">Video solution</a>
  */
 public class InterpolationSearch {
 

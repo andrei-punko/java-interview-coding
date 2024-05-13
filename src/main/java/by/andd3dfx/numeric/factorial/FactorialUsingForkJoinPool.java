@@ -6,6 +6,9 @@ import lombok.SneakyThrows;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
+/**
+ * @see <a href="https://youtu.be/HZrTppQjXVs">Video solution</a>
+ */
 public class FactorialUsingForkJoinPool implements IFactorial {
 
     private static final ForkJoinPool forkJoinPool = new ForkJoinPool();

@@ -5,6 +5,8 @@ import lombok.Data;
 
 /**
  * Find loop in the linked list
+ *
+ * @see <a href="https://youtu.be/5IcvvtfLGvM">Video solution</a>
  */
 public class LoopInLinkedList {
 

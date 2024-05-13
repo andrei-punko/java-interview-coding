@@ -40,6 +40,8 @@ import java.util.concurrent.Semaphore;
  * Исправить программу, чтобы робот шагал ногами по очереди.
  * Сделать так, чтобы не потреблялись ресурсы CPU, пока ожидаем передвижения очередной ноги.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/MBANIKUlpEs">Video solution</a>
  */
 public class TwoLegsRobot {
 

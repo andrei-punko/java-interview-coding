@@ -3,6 +3,9 @@ package by.andd3dfx.collections;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+/**
+ * @see <a href="https://youtu.be/1cn_3eCvnq0">Video solution</a>
+ */
 public class DeleteNthElementFromLinkedListEnd {
 
     @Data

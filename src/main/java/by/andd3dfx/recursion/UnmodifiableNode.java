@@ -22,6 +22,8 @@ import java.util.stream.Stream;
  *     <li>recursive way
  *     <li>non-recursive way
  * </ul>
+ *
+ * @see <a href="https://youtu.be/UaeleszV00w">Video solution</a>
  */
 public final class UnmodifiableNode {
 

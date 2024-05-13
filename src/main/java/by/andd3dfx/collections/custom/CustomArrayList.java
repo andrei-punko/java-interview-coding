@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 import java.util.Arrays;
 import java.util.Iterator;
 
+/**
+ * @see <a href="https://youtu.be/u7Vyh567ljs">Video solution</a>
+ */
 public class CustomArrayList<T> implements Iterable<T> {
 
     private static final int DEFAULT_INITIAL_SIZE = 10;

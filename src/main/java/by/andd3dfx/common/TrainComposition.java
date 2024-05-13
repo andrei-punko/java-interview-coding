@@ -11,6 +11,8 @@ import java.util.Deque;
  * and the first that can be detached from the left is 13.
  * <p>
  * Implement a TrainComposition that models this problem.
+ *
+ * @see <a href="https://youtu.be/ToXzQU6vIKw">Video solution</a>
  */
 public class TrainComposition {
 

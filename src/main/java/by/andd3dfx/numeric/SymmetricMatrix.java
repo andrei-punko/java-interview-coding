@@ -12,6 +12,8 @@ package by.andd3dfx.numeric;
  * 1 2 3            1 2 5
  * 7 3 4            7 3 4
  * </pre>
+ *
+ * @see <a href="https://youtu.be/DwLLrRRPFkw">Video solution</a>
  */
 public class SymmetricMatrix {
 

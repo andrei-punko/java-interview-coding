@@ -28,6 +28,8 @@ import java.util.List;
  * Implement a function getIdsByMessage(xmlString, message) that returns the ids of the entries that contain a specific message.
  * <p>
  * For example, getIdsByMessage() for the XML log above and for the message "Application ended" should return { 2 }.
+ *
+ * @see <a href="https://youtu.be/4DGhiBXFhUc">Video solution</a>
  */
 public class LogsXmlParser {
 

@@ -8,6 +8,8 @@ import java.util.function.Function;
  * We have an alphabet of characters and hash function.
  * Write decode() function which gets hash value and restore password by this hash.
  * Password contains only characters from the given alphabet.
+ *
+ * @see <a href="https://youtu.be/-TjrkxilGn0">Video solution</a>
  */
 public class PasswordBruteforce {
 

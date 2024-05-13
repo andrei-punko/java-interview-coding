@@ -10,6 +10,8 @@ package by.andd3dfx.common;
  * Пример: [[20, 30], [19, 21], [20, 26], [29, 35]] -> [[19, 21], [29, 35]]
  * Пример: [[20, 30], [19, 21], [20, 26]] -> []
  * </pre>
+ *
+ * @see <a href="https://youtu.be/W7irv3Wy7Kw">Video solution</a>
  */
 public class SegmentIntersection {
 

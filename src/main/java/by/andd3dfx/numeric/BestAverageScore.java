@@ -17,6 +17,8 @@ import java.util.stream.Collectors;
  *
  * In this example the best average has Name1 and equals to 70.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/cdLSKHrfg4A">Video solution</a>
  */
 public class BestAverageScore {
 

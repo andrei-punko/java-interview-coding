@@ -8,6 +8,8 @@ import java.util.Optional;
 
 /**
  * Алгоритм Бойера-Мура с использованием таблицы смещений
+ *
+ * @see <a href="https://youtu.be/77fzfJIs_YY">Video solution</a>
  */
 public class FindSubstringBoyerMooreEnhanced extends FindSubstringBoyerMoore {
 

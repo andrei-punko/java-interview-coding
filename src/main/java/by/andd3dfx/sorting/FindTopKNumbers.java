@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * Find top k numbers in array
+ *
+ * @see <a href="https://youtu.be/iBOodbu0wKQ">Video solution</a>
  */
 public class FindTopKNumbers {
 

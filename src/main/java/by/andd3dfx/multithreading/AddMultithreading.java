@@ -40,6 +40,8 @@ import java.util.concurrent.CompletableFuture;
  *     }
  * }
  * </pre>
+ *
+ * @see <a href="https://youtu.be/3IGsZy0uTSk">Video solution</a>
  */
 public class AddMultithreading {
 

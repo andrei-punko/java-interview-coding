@@ -3,6 +3,9 @@ package by.andd3dfx.java8.stream;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @see <a href="https://youtu.be/Man9zRalhPs">Video solution</a>
+ */
 public class TrickyStream {
 
     /**

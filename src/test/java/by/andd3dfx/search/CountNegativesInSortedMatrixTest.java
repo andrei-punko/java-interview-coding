@@ -14,6 +14,9 @@ import static by.andd3dfx.search.CountNegativesInSortedMatrix.count_NPlusM;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * @see <a href="https://youtu.be/QIwQCzDU3XM">Video solution</a>
+ */
 @AllArgsConstructor
 @RunWith(Parameterized.class)
 public class CountNegativesInSortedMatrixTest {

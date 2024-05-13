@@ -26,6 +26,8 @@ import java.util.regex.Pattern;
  * Input: word = "FlaG"
  * Output: false
  * </pre>
+ *
+ * @see <a href="https://youtu.be/v0EkBQbFQpk">Video solution</a>
  */
 public class CheckCapitalUsage {
 

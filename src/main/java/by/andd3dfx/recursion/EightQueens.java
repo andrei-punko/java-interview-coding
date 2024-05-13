@@ -7,6 +7,8 @@ import lombok.Data;
  * Place N Queens to NxN board
  * <p>
  * Used Rod Stephens - 'Essential Algorithms' book
+ *
+ * @see <a href="https://youtu.be/v9kctJiD4KQ">Video solution</a>
  */
 public class EightQueens {
 

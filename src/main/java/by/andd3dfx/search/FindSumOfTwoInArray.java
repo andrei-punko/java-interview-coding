@@ -9,6 +9,8 @@ import java.util.Map;
  * <p>
  * Есть массив целых чисел и число K.
  * Найти два таких (не обязательно различных) числа в массиве, сумма которых равна K, либо вывести, что такого нет.
+ *
+ * @see <a href="https://youtu.be/CrQdpjsr26w">Video solution</a>
  */
 public class FindSumOfTwoInArray {
 

@@ -28,6 +28,8 @@ package by.andd3dfx.numeric;
  *
  * Given a string s, return true if s is a valid number.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/Xy0iJ7w_UO8">Video solution</a>
  */
 public class ValidNumber {
 

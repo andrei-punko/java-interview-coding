@@ -2,6 +2,8 @@ package by.andd3dfx.numeric.factorial;
 
 /**
  * Top-down approach
+ *
+ * @see <a href="https://youtu.be/HZrTppQjXVs">Video solution</a>
  */
 public class FactorialUsingRecursion implements IFactorial {
 

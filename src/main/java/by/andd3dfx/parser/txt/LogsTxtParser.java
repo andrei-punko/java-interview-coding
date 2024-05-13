@@ -7,6 +7,9 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @see <a href="https://youtu.be/4DGhiBXFhUc">Video solution</a>
+ */
 public class LogsTxtParser {
 
     @SneakyThrows

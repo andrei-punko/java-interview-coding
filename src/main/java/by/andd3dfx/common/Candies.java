@@ -11,6 +11,8 @@ package by.andd3dfx.common;
  * - Eat 2, Get 1, Remaining 1
  * - Eat 1
  * </pre>
+ *
+ * @see <a href="https://youtu.be/UNz2nM2qQ3E">Video solution</a>
  */
 public class Candies {
 

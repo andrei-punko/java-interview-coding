@@ -17,6 +17,8 @@ package by.andd3dfx.common;
  *   middle.append(right);
  *   System.out.println(left.longerSide());
  * </pre>
+ *
+ * @see <a href="https://youtu.be/KAqZwNY7yUc">Video solution</a>
  */
 public class ChainLink {
 

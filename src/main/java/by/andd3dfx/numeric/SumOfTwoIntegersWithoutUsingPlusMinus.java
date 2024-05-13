@@ -16,6 +16,8 @@ package by.andd3dfx.numeric;
  * Input: a = 2, b = 3
  * Output: 5
  * </pre>
+ *
+ * @see <a href="https://youtu.be/W_Vja_AFKFg">Video solution</a>
  */
 public class SumOfTwoIntegersWithoutUsingPlusMinus {
 

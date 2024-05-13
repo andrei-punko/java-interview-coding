@@ -4,6 +4,8 @@ package by.andd3dfx.search;
  * Дано множество из N натуральных чисел.
  * Необходимо выбрать его подмножество с максимальной четной суммой.
  * Вывести эту сумму.
+ *
+ * @see <a href="https://youtu.be/GgZvAwyrAC0">Video solution</a>
  */
 public class FindMaxEvenSum {
 

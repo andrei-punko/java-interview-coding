@@ -6,6 +6,8 @@ package by.andd3dfx.search;
  * Given an unsorted integer array nums, return the smallest missing positive integer.
  * <p>
  * You must implement an algorithm that runs in O(n) time and uses constant extra space.
+ *
+ * @see <a href="https://youtu.be/0i7x_YEXOpA">Video solution</a>
  */
 public class FirstSmallestMissingPositive {
 

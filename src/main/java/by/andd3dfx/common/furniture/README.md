@@ -218,3 +218,5 @@ public class FurnitureOrderSecondTest {
     }
 }
 ```
+
+Check [video solution](https://youtu.be/TNgR6JaxwFg) on YouTube

@@ -24,6 +24,8 @@ import java.util.Map;
  *     1 <= s.length, t.length <= 5 * 104
  *     s and t consist of lowercase English letters.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/8doD_ZqlHL0">Video solution</a>
  */
 public class ValidAnagram {
 

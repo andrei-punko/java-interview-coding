@@ -18,6 +18,8 @@ import java.util.Map;
  * ]
  * Determine complexity of proposed algorithm
  * </pre>
+ *
+ * @see <a href="https://youtu.be/_i77ixQLijs">Video solution</a>
  */
 public class SortAnagrams {
 

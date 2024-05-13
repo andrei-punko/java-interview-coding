@@ -11,6 +11,8 @@ import java.util.Arrays;
  * Считается, что строка в языке mutable; если это не так, то можно считать,
  * что в функцию передается изменяемый массив с символами.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/2jszDhWtLes">Video solution</a>
  */
 public class ReplaceConsequentSpacesWithOne {
 

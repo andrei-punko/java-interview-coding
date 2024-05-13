@@ -13,6 +13,8 @@ import java.util.Deque;
  *
  * push() and getMin() should have O(1) complexity.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/-Y-_0R8tfyk">Video solution</a>
  */
 public class StackWithMinSupportO1 {
 

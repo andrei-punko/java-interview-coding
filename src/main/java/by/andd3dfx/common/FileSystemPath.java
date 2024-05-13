@@ -6,8 +6,8 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * Write a function that provides change directory (cd) function for an abstract file system.
  * <pre>
+ * Write a function that provides change directory (cd) function for an abstract file system.
  * Notes:
  *     Root path is '/'.
  *     Path separator is '/'.
@@ -24,6 +24,8 @@ import java.util.Deque;
  *
  *     should display '/a/b/c/x'.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/HLoLoIaL--I">Video solution</a>
  */
 public class FileSystemPath {
 

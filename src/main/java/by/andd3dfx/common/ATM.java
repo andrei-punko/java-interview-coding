@@ -11,6 +11,8 @@ import java.util.Map;
  * Надо реализовать метод withdraw() для выдачи заданной суммы amount имеющимися в банкомате купюрами.
  * Метод withdraw() - мутирующий, т.е. меняет состояние банкомата после вызова (кол-во купюр может уменьшиться).
  * </pre>
+ *
+ * @see <a href="https://youtu.be/LDKZtDevRRI">Video solution</a>
  */
 public class ATM {
 

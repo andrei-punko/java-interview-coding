@@ -29,6 +29,8 @@ package by.andd3dfx.collections;
  * respectively.
  * It does not matter what you leave beyond the returned k (hence they are underscores).
  * </pre>
+ *
+ * @see <a href="https://youtu.be/gbReaBoFHkc">Video solution</a>
  */
 public class RemoveDuplicatesFromSortedArray {
 

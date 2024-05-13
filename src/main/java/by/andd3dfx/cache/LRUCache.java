@@ -22,6 +22,8 @@ import java.util.Set;
  *
  * The cache is initialized with a positive capacity.
  * <pre/>
+ *
+ * @see <a href="https://youtu.be/ZrF5s4_jNZk">Video solution</a>
  */
 @RequiredArgsConstructor
 public class LRUCache {

@@ -1,5 +1,8 @@
 package by.andd3dfx.sorting;
 
+/**
+ * @see <a href="https://youtu.be/1wyVIGI7EX8">Video solution</a>
+ */
 public class ShellSort {
 
     public static <T extends Comparable> void apply(T[] array) {

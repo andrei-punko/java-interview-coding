@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * @see <a href="https://youtu.be/8fkHg9JKKmg">Video solution</a>
+ */
 @Getter
 public class HanoiTowers {
 

@@ -36,6 +36,8 @@ import java.util.Deque;
  *   }
  * }
  * </pre>
+ *
+ * @see <a href="https://youtu.be/okH8weUwc8k">Video solution</a>
  */
 public class Platformer {
 

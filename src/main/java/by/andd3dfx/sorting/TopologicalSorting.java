@@ -9,6 +9,8 @@ import java.util.List;
  * Решить задачу о нахождении цикла в графе.
  * <p>
  * See "Rod Stephens - Essential Algorithms: A Practical Approach to Computer Algorithms"
+ *
+ * @see <a href="https://youtu.be/FiNIYTJO0qM">Video solution</a>
  */
 public class TopologicalSorting {
 

@@ -19,6 +19,8 @@ import static java.lang.Integer.MAX_VALUE;
  *     Input: coins[] = {9, 6, 5, 1}, V = 11
  *     Output: Minimum 2 coins required. We can use one coin of 6 cents and 1 coin of 5 cents
  * </pre>
+ *
+ * @see <a href="https://youtu.be/K1xPbYPslRU">Video solution</a>
  */
 public class ChangeWithMinNumberOfCoins {
 

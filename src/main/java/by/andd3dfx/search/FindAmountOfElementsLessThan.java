@@ -8,6 +8,8 @@ package by.andd3dfx.search;
  * For example, SortedSearch.countNumbers(new int[] { 1, 3, 5, 7 }, 4) should return 2 because there are two array
  * elements less than 4.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/a2dvtrdi1YI">Video solution</a>
  */
 public class FindAmountOfElementsLessThan {
 

@@ -4,6 +4,8 @@ import java.util.Random;
 
 /**
  * Mix an array
+ *
+ * @see <a href="https://youtu.be/Ru9UA_74t30">Video solution</a>
  */
 public class ArrayMixer {
 

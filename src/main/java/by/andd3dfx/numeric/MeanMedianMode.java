@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/**
+ * @see <a href="https://youtu.be/nqalmvHE_-A">Video solution</a>
+ */
 public class MeanMedianMode {
 
     public static double mean(int[] items) {

@@ -22,6 +22,8 @@ package by.andd3dfx.core;
  *     return 3;
  * }
  * </pre>
+ *
+ * @see <a href="https://youtu.be/Man9zRalhPs">Video solution</a>
  */
 public class TrickyFinally {
 

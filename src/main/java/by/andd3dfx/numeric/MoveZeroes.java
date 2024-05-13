@@ -20,6 +20,8 @@ import java.util.Arrays;
  * Input: nums = [0]
  * Output: [0]
  * </pre>
+ *
+ * @see <a href="https://youtu.be/IV5EIDRYZ9U">Video solution</a>
  */
 public class MoveZeroes {
 

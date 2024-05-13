@@ -2,6 +2,9 @@ package by.andd3dfx.collections.custom;
 
 import java.util.NoSuchElementException;
 
+/**
+ * @see <a href="https://youtu.be/sZ-DrSHhrWc">Video solution</a>
+ */
 public class CustomStack<T> {
 
     private final CustomLinkedList<T> linkedList = new CustomLinkedList<>();

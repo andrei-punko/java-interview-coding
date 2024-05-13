@@ -49,6 +49,8 @@ import java.util.Map;
  *    }
  * ]
  * </pre>
+ *
+ * @see <a href="https://youtu.be/RW1DcmbzbQ8">Video solution</a>
  */
 public class ParseListIntoStructure {
 

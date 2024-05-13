@@ -1,5 +1,8 @@
 package by.andd3dfx.sorting;
 
+/**
+ * @see <a href="https://youtu.be/lp1UsN1-_p4">Video solution</a>
+ */
 public class QuickSort {
 
     public static <T extends Comparable> void apply(T[] items) {

@@ -16,6 +16,8 @@ import java.util.stream.Collectors;
 
 /**
  * Parse file ./src/main/resources/233.xml and find all articles inside it
+ *
+ * @see <a href="https://youtu.be/4DGhiBXFhUc">Video solution</a>
  */
 public class ArticlesXmlParser {
 

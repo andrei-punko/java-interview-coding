@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 
 /**
  * Example from JDK: http://docs.oracle.com/javase/tutorial/essential/concurrency/deadlock.html
+ *
+ * @see <a href="https://youtu.be/xuWU_6JTXi4">Video solution</a>
  */
 public class Deadlock {
 

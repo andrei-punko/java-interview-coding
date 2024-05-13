@@ -6,6 +6,9 @@ import lombok.Data;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * @see <a href="https://youtu.be/iEKdRgKNurg">Video solution</a>
+ */
 public class ReverseLinkedList {
 
     @Data

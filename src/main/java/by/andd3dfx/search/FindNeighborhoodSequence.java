@@ -9,6 +9,8 @@ import java.util.Arrays;
  *
  * Пример: для массива [1, 2, 4, 6, 1, 3, 2] результат будет [1, 3, 3, 3, 2, 2, 1]
  * </pre>
+ *
+ * @see <a href="https://youtu.be/GyiMCtUWnUk">Video solution</a>
  */
 public class FindNeighborhoodSequence {
 

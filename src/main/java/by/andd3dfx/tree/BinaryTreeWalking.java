@@ -9,16 +9,18 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Дан класс Node:
  * <pre>
+ * Дан класс Node:
  *    class Node {
  *        int value;
  *        Node left, right;
  *    }
- * </pre>
- * <p>
+ *
  * Реализовать алгоритм обхода бинарного дерева из нод, чтобы в итоге развернуть его в список.
  * Исходно - дана корневая нода.
+ * </pre>
+ *
+ * @see <a href="https://youtu.be/cEd6CPAp90I">Video solution</a>
  */
 public class BinaryTreeWalking {
 

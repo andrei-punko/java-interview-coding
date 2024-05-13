@@ -19,6 +19,8 @@ import lombok.Data;
  * Input: head = [0,1,2], k = 4
  * Output: [2,0,1]
  * </pre>
+ *
+ * @see <a href="https://youtu.be/6tyflwO6PwY">Video solution</a>
  */
 public class RotateLinkedList {
 

@@ -37,6 +37,8 @@ import java.util.Map;
  *
  * w(322,156) = 306.48749781747574
  * </pre>
+ *
+ * @see <a href="https://youtu.be/dDk8FUEvFZo">Video solution</a>
  */
 public class BrickPyramid {
 

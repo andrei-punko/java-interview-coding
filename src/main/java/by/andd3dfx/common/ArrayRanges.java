@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
  * [1,4,3,2] => "1-4"
  * [1,4] => "1,4"
  * </pre>
+ *
+ * @see <a href="https://youtu.be/ql6TROfbnYk">Video solution</a>
  */
 public class ArrayRanges {
 

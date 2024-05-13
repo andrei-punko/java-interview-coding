@@ -13,6 +13,8 @@ import lombok.RequiredArgsConstructor;
  * For example, if we have 16 items, 2 large and 10 small packages, the function should return 8
  * (2 large packages + 6 small packages).
  * </pre>
+ *
+ * @see <a href="https://youtu.be/ZDntf64fW5Q">Video solution</a>
  */
 @RequiredArgsConstructor
 public class PackagesForShipping {

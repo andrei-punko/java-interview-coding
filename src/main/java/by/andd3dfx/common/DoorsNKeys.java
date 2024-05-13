@@ -13,6 +13,8 @@ package by.andd3dfx.common;
  *
  * Можете ли вы открыть все двери?
  * </pre>
+ *
+ * @see <a href="https://youtu.be/ix81AbCNiBE">Video solution</a>
  */
 public class DoorsNKeys {
 

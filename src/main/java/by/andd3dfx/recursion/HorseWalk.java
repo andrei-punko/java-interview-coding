@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 /**
  * Find solution for Horse Walk task: horse should visit each cell of NxN board one time
+ *
+ * @see <a href="https://youtu.be/keNYNcQi9o8">Video solution</a>
  */
 public class HorseWalk {
 

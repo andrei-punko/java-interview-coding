@@ -10,6 +10,8 @@ import java.util.regex.Pattern;
  * <p>
  * For example, changeFormat("Please quote your policy number: 112-39-8552.") should return
  * "Please quote your policy number: 112/8552/39.".
+ *
+ * @see <a href="https://youtu.be/SdNLzjbXyo8">Video solution</a>
  */
 public class InsuranceNumber {
 

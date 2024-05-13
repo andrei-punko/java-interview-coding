@@ -17,6 +17,8 @@ import java.util.function.Predicate;
  * stream.filter(item -> item.y > 10).map(Item::getX);
  * <p>
  * Add collectToList() method to CustomStream
+ *
+ * @see <a href="https://youtu.be/LvBjS17CatQ">Video solution part1</a>, <a href="https://youtu.be/iuzWoSzl1to">part2</a>
  */
 public class CustomStream<T> {
 

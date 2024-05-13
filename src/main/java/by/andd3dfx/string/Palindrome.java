@@ -3,6 +3,9 @@ package by.andd3dfx.string;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @see <a href="https://youtu.be/XZMOlvKRzd0">Video solution</a>
+ */
 public class Palindrome {
 
   /**

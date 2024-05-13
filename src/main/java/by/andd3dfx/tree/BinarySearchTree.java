@@ -15,6 +15,8 @@ import lombok.RequiredArgsConstructor;
  * n3 (Value: 3, Left: null, Right: null)
  * Call contains(n2, 3) should return true since a tree with root at n2 contains number 3.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/DGLiObeU04A">Video solution</a>
  */
 public class BinarySearchTree {
 

@@ -2,6 +2,8 @@ package by.andd3dfx.core.creationorder;
 
 /**
  * Describe what will be printed into log after BClass creation and call showValue() method on it
+ *
+ * @see <a href="https://youtu.be/rnf7cMbRado">Video solution</a>
  */
 public class ClassB extends ClassA {
 

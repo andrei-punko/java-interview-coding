@@ -24,6 +24,8 @@ import java.util.stream.Collectors;
  * Output:
  * weeks_count
  * </pre>
+ *
+ * @see <a href="https://youtu.be/Ei1uCCD_Iqg">Video solution</a>
  */
 public class InfectionDistribution {
 

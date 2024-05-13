@@ -6,6 +6,8 @@ import java.util.List;
 /**
  * Determine simple dividers.
  * Based on "Stephens - Essential Algorithms"
+ *
+ * @see <a href="https://youtu.be/EEN6tBfXGt8">Video solution</a>
  */
 public class SimpleDividers {
 

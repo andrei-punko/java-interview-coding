@@ -26,6 +26,8 @@ package by.andd3dfx.numeric;
  * Output: false
  * Explanation: There is no x where 3^x = (-1).
  * </pre>
+ *
+ * @see <a href="https://youtu.be/E1Gue5EcvK4">Video solution</a>
  */
 public class PowerOfThree {
 

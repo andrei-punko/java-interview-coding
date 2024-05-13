@@ -7,6 +7,8 @@ package by.andd3dfx.numeric;
  *   GCD(a, b) = GCD(b, a Mod b)
  *   GCD(a, 0) is a.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/OzGTTkysIew">Video solution</a>
  */
 public class GreatestCommonDivisor {
 

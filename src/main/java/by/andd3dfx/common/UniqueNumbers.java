@@ -9,6 +9,8 @@ import java.util.Set;
  * Write a method that finds all numbers that occur exactly once in the input collection
  * <p>
  * For example, findUniqueNumbers(Arrays.asList(1, 2, 1, 3)) should return { 2, 3 }.
+ *
+ * @see <a href="https://youtu.be/YaApEnhQEks">Video solution</a>
  */
 public class UniqueNumbers {
 

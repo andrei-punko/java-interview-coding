@@ -6,8 +6,12 @@ import lombok.Getter;
 import java.util.Arrays;
 
 /**
+ * <pre>
  * Даны массивы a[], b[], c[] и число N.
  * Найти такие индексы i,j,k, что выполняется условие: a[i] + b[j] + c[k] == N
+ * </pre>
+ *
+ * @see <a href="https://youtu.be/P-2jXiQ1OFo">Video solution</a>
  */
 public class SumOfThree {
 

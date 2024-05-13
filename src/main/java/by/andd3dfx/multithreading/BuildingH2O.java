@@ -58,6 +58,8 @@ import java.util.concurrent.Semaphore;
  *     }
  * }
  * </pre>
+ *
+ * @see <a href="https://youtu.be/7S9e_vXuVFE">Video solution</a>
  */
 public class BuildingH2O {
 

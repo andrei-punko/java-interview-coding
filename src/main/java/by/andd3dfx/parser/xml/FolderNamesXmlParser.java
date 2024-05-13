@@ -28,6 +28,8 @@ import java.util.List;
  *
  * the function should return a collection with items "uninstall information" and "users" (in any order).
  * </pre>
+ *
+ * @see <a href="https://youtu.be/4DGhiBXFhUc">Video solution</a>
  */
 public class FolderNamesXmlParser {
 

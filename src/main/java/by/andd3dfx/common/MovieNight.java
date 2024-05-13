@@ -18,6 +18,8 @@ import java.util.List;
  * - 1/1/2015 23:10-23:30
  * - 1/1/2015 21:30-23:00
  * </pre>
+ *
+ * @see <a href="https://youtu.be/2hGoj3v5JVQ">Video solution</a>
  */
 public class MovieNight {
 

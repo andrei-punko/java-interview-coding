@@ -11,6 +11,8 @@ import java.util.TreeMap;
  *
  * Based on "Stephens - Essential Algorithms"
  * </pre>
+ *
+ * @see <a href="https://youtu.be/peiEt6TkpLU">Video solution</a>
  */
 public class RaiseToPower {
 

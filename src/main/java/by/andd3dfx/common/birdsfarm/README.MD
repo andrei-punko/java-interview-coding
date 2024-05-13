@@ -37,3 +37,5 @@ Tests:
 - Chickens make other chickens
 - Other birds don't make chickens
 - Eggs can't hatch twice
+
+Check [video solution](https://youtu.be/tQAJRQrc2Aw) on YouTube

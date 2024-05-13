@@ -25,6 +25,8 @@ import java.util.List;
  * Constraints:
  * 1 <= n <= 8
  * <pre/>
+ *
+ * @see <a href="https://youtu.be/UMBenJ4PZKU">Video solution</a>
  */
 public class GenerateParentheses {
 

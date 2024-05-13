@@ -5,6 +5,8 @@ import java.util.Map;
 
 /**
  * Алгоритм Бойера-Мура
+ *
+ * @see <a href="https://youtu.be/77fzfJIs_YY">Video solution</a>
  */
 public class FindSubstringBoyerMoore implements IFindSubstring {
 

@@ -4,6 +4,8 @@ package by.andd3dfx.multithreading.lock;
  * Custom lock with simple implementation but without reentrancy support
  * <p>
  * See https://jenkov.com/tutorials/java-concurrency/locks.html
+ *
+ * @see <a href="https://youtu.be/QdvsNhf5FI4">Video solution</a>
  */
 public class CustomLock implements Lock {
 

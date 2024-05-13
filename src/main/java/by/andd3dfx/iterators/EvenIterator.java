@@ -10,6 +10,8 @@ import java.util.NoSuchElementException;
 /**
  * Build iterator which returns only even numbers of underlying array:
  * [1, 3, 5, 7, 8, 9] -> [8]
+ *
+ * @see <a href="https://youtu.be/wY5Hg3KrLqw">Video solution</a>
  */
 @RequiredArgsConstructor
 public class EvenIterator implements Iterator<Integer> {

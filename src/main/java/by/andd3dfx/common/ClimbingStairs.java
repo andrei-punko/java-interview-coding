@@ -28,6 +28,8 @@ import java.util.Map;
  * Constraints:
  *   1 <= n <= 45
  * </pre>
+ *
+ * @see <a href="https://youtu.be/bjE3KQM4ko4">Video solution</a>
  */
 public class ClimbingStairs {
 

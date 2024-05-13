@@ -18,6 +18,8 @@ import lombok.Data;
  *
  * The list is guaranteed to be sorted in ascending order.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/ryE_Q_AtAg8">Video solution</a>
  */
 public class RemoveDuplicatesFromSortedLinkedList {
 

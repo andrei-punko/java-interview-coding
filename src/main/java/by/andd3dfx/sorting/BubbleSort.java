@@ -1,5 +1,8 @@
 package by.andd3dfx.sorting;
 
+/**
+ * @see <a href="https://youtu.be/vK4BTGVELwk">Video solution</a>
+ */
 public class BubbleSort {
 
     public static <T extends Comparable> void apply(T[] array) {

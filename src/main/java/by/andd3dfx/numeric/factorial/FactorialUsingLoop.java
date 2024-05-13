@@ -2,6 +2,8 @@ package by.andd3dfx.numeric.factorial;
 
 /**
  * Down-top approach
+ *
+ * @see <a href="https://youtu.be/HZrTppQjXVs">Video solution</a>
  */
 public class FactorialUsingLoop implements IFactorial {
 

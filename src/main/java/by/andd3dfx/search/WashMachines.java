@@ -9,6 +9,8 @@ import java.util.PriorityQueue;
  * Про каждого человека известно, сколько времени он будет стирать свои вещи.
  * Каждый человек использует первую освободившуюся машину.
  * Сколько времени займет стирка всех вещей?
+ *
+ * @see <a href="https://youtu.be/reTyOF3yo5k">Video solution</a>
  */
 public class WashMachines {
 

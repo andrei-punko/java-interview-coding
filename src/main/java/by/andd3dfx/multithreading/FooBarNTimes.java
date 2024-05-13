@@ -31,6 +31,8 @@ import java.util.concurrent.Semaphore;
  *     thread B will call bar().
  * Modify the given program to output "foobar" n times.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/UVrrfYTiRo8">Video solution</a>
  */
 public class FooBarNTimes {
 

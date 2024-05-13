@@ -6,6 +6,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Implement custom stack with multithreading support without using blocking operations
+ *
+ * @see <a href="https://youtu.be/R6yUAA82_3Y">Video solution</a>
  */
 public class CustomConcurrentStack<T> {
 

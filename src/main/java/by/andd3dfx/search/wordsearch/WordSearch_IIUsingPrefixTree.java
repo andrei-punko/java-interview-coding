@@ -38,6 +38,8 @@ import java.util.StringJoiner;
  * ], words = ["abcb"]
  * Output: []
  * </pre>
+ *
+ * @see <a href="https://youtu.be/CLYbm21pvig">Video solution</a>
  */
 public class WordSearch_IIUsingPrefixTree implements IWordSearch_II {
 

@@ -14,6 +14,8 @@ import lombok.SneakyThrows;
  *
  * Based on http://www.makeinjava.com/custom-thread-pool-example-without-using-executor-framework/
  * </pre>
+ *
+ * @see <a href="https://youtu.be/FmJasJ-W-Rs">Video solution</a>
  */
 public class CustomThreadPoolExecutor {
 

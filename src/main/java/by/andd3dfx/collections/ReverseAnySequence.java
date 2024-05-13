@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * Examples how to reverse any list using different methods
+ *
+ * @see <a href="https://youtu.be/Ql6JGqcSiNk">Video solution</a>
  */
 public class ReverseAnySequence {
 

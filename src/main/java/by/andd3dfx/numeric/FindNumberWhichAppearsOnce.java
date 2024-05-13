@@ -21,6 +21,8 @@ import java.util.HashSet;
  * Input: nums = [1]
  * Output: 1
  * </pre>
+ *
+ * @see <a href="https://youtu.be/dNB8tOvx5Gk">Video solution</a>
  */
 public class FindNumberWhichAppearsOnce {
 

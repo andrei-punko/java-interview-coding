@@ -2,6 +2,9 @@ package by.andd3dfx.collections.custom;
 
 import java.util.Iterator;
 
+/**
+ * @see <a href="https://youtu.be/GlV87RWHhOQ">Video solution</a>
+ */
 public class CustomLinkedHashSet<T> extends CustomHashSet<T> {
 
     private CustomLinkedList<T> linkedList = new CustomLinkedList<>();

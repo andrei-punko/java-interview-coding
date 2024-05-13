@@ -20,6 +20,8 @@ package by.andd3dfx.search;
  * Input: nums = [], target = 0
  * Output: [-1,-1]
  * </pre>
+ *
+ * @see <a href="https://youtu.be/6s-kAtOFXuY">Video solution</a>
  */
 public class FirstNLastPosOfElementInSortedArray {
 
