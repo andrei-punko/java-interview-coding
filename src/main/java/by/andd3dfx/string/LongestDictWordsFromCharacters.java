@@ -4,6 +4,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,14 +22,32 @@ public class LongestDictWordsFromCharacters {
         List<String> result = new ArrayList<>();
         Map<Character, Integer> baseFreqMap = buildFreqMap(characters);
 
-        for (var word : words) {
-            Map<Character, Integer> freqMap = buildFreqMap(word.toCharArray());
+        List<String> sortedWords = Arrays.stream(words)
+                .sorted(Comparator.comparingInt(String::length))
+                .toList().reversed();
+        var lastLength = -1;
+        for (var word : sortedWords) {
+            if (word.length() < lastLength) {
+                break;
+            }
 
-            if (baseFreqMap.equals(freqMap)) {
+            Map<Character, Integer> wordFreqMap = buildFreqMap(word.toCharArray());
+            if (couldMakeThisWordUsingBaseChars(baseFreqMap, wordFreqMap)) {
                 result.add(word);
+                lastLength = word.length();
             }
         }
         return result.toArray(new String[0]);
+    }
+
+    private static boolean couldMakeThisWordUsingBaseChars(Map<Character, Integer> baseFreqMap, Map<Character, Integer> wordFreqMap) {
+        for (var entry : wordFreqMap.entrySet()) {
+            var key = entry.getKey();
+            if (!baseFreqMap.containsKey(key) || baseFreqMap.get(key) < entry.getValue()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static Map<Character, Integer> buildFreqMap(char[] chars) {
