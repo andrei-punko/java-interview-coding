@@ -10,17 +10,37 @@ public class LongestDictWordsFromCharactersTest {
     @Test
     public void find() {
         assertThat(
-            LongestDictWordsFromCharacters.find(
-                new char[]{'e', 'o', 't', 's'},
-                new String[]{"otse", "tse", "eo", "stoe"}
-            ), is(new String[]{"otse", "stoe"})
+                LongestDictWordsFromCharacters.find(
+                        new char[]{'e', 'o', 't', 's'},
+                        new String[]{"otse", "tse", "eo", "stoe"}
+                ), is(new String[]{"otse", "stoe"})
         );
 
         assertThat(
-            LongestDictWordsFromCharacters.find(
-                new char[]{'a', 's', 'd', 'd'},
-                new String[]{"asd", "dasd", "sadd", "adsdt", "asdd"}
-            ), is(new String[]{"dasd", "sadd", "asdd"})
+                LongestDictWordsFromCharacters.find(
+                        new char[]{'a', 's', 'd', 'd'},
+                        new String[]{"asd", "dasd", "sadd", "adsdt", "asdd"}
+                ), is(new String[]{"dasd", "sadd", "asdd"})
+        );
+    }
+
+    @Test
+    public void find_forEmptyCharacters() {
+        assertThat(
+                LongestDictWordsFromCharacters.find(
+                        new char[]{},
+                        new String[]{"asd", "dasd", "sadd", "adsdt", "asdd"}
+                ), is(new String[]{})
+        );
+    }
+
+    @Test
+    public void find_forEmptyWords() {
+        assertThat(
+                LongestDictWordsFromCharacters.find(
+                        new char[]{'a', 's', 'd', 'd'},
+                        new String[]{}
+                ), is(new String[]{})
         );
     }
 }
