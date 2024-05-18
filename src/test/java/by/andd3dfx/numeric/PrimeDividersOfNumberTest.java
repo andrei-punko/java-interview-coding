@@ -2,10 +2,10 @@ package by.andd3dfx.numeric;
 
 import org.junit.Test;
 
-import static by.andd3dfx.numeric.SimpleDividers.determine;
+import static by.andd3dfx.numeric.PrimeDividersOfNumber.determine;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SimpleDividersTest {
+public class PrimeDividersOfNumberTest {
 
     @Test
     public void testDetermine() {

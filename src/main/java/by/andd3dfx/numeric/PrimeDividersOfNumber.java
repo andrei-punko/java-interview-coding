@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Determine simple dividers.
+ * Determine prime numbers.
  * Based on "Stephens - Essential Algorithms"
  *
  * @see <a href="https://youtu.be/EEN6tBfXGt8">Video solution</a>
  */
-public class SimpleDividers {
+public class PrimeDividersOfNumber {
 
   public static int[] determine(int number) {
     List<Integer> factors = new ArrayList<>();
@@ -43,6 +43,8 @@ public class SimpleDividers {
       factors.add(number);
     }
 
-    return factors.stream().mapToInt(value -> value).toArray();
+    return factors.stream()
+            .mapToInt(value -> value)
+            .toArray();
   }
 }
