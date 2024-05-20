@@ -7,6 +7,8 @@ import java.util.BitSet;
  * Find amount of prime numbers which less than definite number N.
  * <p>
  * See <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Sieve of Eratosthenes</a>
+ *
+ * @see <a href="https://youtu.be/VWP8mvmDRNc">Video solution</a>
  */
 public class AmountOfPrimeNumbers {
 
