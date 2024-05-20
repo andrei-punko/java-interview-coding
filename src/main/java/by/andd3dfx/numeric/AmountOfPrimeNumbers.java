@@ -12,7 +12,7 @@ public class AmountOfPrimeNumbers {
 
     public static int determine_usingPrimeDividersOfNumberSolution(int n) {
         int result = 0;
-        for (int i = 1; i < n; i++) {
+        for (int i = 2; i < n; i++) {
             if (isPrime(i)) {
                 result++;
             }
@@ -22,6 +22,25 @@ public class AmountOfPrimeNumbers {
 
     private static boolean isPrime(int number) {
         return PrimeDividersOfNumber.determine(number).length == 1;
+    }
+
+    public static int determine_usingCustomIsPrimeWithEarlyReturn(int n) {
+        int result = 0;
+        for (int i = 2; i < n; i++) {
+            if (isPrimeEnhanced(i)) {
+                result++;
+            }
+        }
+        return result;
+    }
+
+    private static boolean isPrimeEnhanced(int number) {
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static int determine_usingEratosthenesSieve(int n) {

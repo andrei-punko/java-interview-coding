@@ -14,6 +14,11 @@ public class AmountOfPrimeNumbersTest {
     }
 
     @Test
+    public void testDetermine_usingCustomIsPrimeWithEarlyReturn() {
+        check(AmountOfPrimeNumbers::determine_usingCustomIsPrimeWithEarlyReturn);
+    }
+
+    @Test
     public void testDetermine_usingEratosthenesSieve() {
         check(AmountOfPrimeNumbers::determine_usingEratosthenesSieve);
     }
