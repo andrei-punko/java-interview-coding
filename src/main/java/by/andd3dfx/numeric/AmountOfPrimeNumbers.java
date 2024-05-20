@@ -57,12 +57,6 @@ public class AmountOfPrimeNumbers {
             }
         }
 
-        int result = 0;
-        for (var i = 0; i < n; i++) {
-            if (isPrime.get(i)) {
-                result++;
-            }
-        }
-        return result;
+        return isPrime.cardinality();
     }
 }
