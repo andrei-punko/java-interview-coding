@@ -22,19 +22,26 @@ import java.util.List;
  */
 public class KNearestNumbers {
 
-    public static List<Integer> determine(int[] nums, int i, int k) {
+    public static List<Integer> find(int[] nums, int i, int k) {
+        if (i < 0 || i >= nums.length) {
+            throw new IllegalArgumentException("Index `i` is out of array's range!");
+        }
+        if (k < 0) {
+            throw new IllegalArgumentException("Requested amount of items `k` is negative!");
+        }
+
         if (k == 0) {
             return List.of();
         }
         var result = new ArrayList<Integer>();
         result.add(nums[i]);
 
-        var curr = i;
         var left = i - 1;
         var right = i + 1;
         while (result.size() < k) {
-            var leftD = (left < 0) ? Integer.MAX_VALUE : Math.abs(nums[left] - nums[curr]);
-            var rightD = (right >= nums.length) ? Integer.MAX_VALUE : Math.abs(nums[right] - nums[curr]);
+            var leftD = determineLeftD(nums, left, i);
+            var rightD = determineRightD(nums, right, i);
+
             if (leftD < rightD) {
                 result.add(nums[left]);
                 left--;
@@ -45,5 +52,19 @@ public class KNearestNumbers {
 
         }
         return result;
+    }
+
+    private static int determineLeftD(int[] nums, int left, int curr) {
+        if (left < 0) {
+            return Integer.MAX_VALUE;
+        }
+        return Math.abs(nums[left] - nums[curr]);
+    }
+
+    private static int determineRightD(int[] nums, int right, int curr) {
+        if (right >= nums.length) {
+            return Integer.MAX_VALUE;
+        }
+        return Math.abs(nums[right] - nums[curr]);
     }
 }
