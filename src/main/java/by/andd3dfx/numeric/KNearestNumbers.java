@@ -1,7 +1,6 @@
 package by.andd3dfx.numeric;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Find K nearest numbers for item placed on i-th position in array of numbers.
@@ -24,7 +23,7 @@ import java.util.List;
  */
 public class KNearestNumbers {
 
-    public static List<Integer> find(int[] nums, int i, int k) {
+    public static int[] find(int[] nums, int i, int k) {
         if (i < 0 || i >= nums.length) {
             throw new IllegalArgumentException("Index `i` is out of array's range!");
         }
@@ -33,7 +32,7 @@ public class KNearestNumbers {
         }
 
         if (k == 0) {
-            return List.of();
+            return new int[]{};
         }
         var result = new ArrayList<Integer>();
         result.add(nums[i]);
@@ -52,7 +51,9 @@ public class KNearestNumbers {
                 right++;
             }
         }
-        return result;
+        return result.stream()
+                .mapToInt(value -> value)
+                .toArray();
     }
 
     private static int determineLeftDistance(int[] nums, int left, int curr) {

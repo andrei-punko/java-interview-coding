@@ -1,9 +1,8 @@
 package by.andd3dfx.numeric;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
 
-import java.util.List;
+import java.util.Arrays;
 
 import static by.andd3dfx.numeric.KNearestNumbers.find;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,8 +20,8 @@ public class KNearestNumbersTest {
 
         var result = find(new int[]{1, 2, 3, 4, 5, 6}, 3, 2);
         assertTrue(
-                CollectionUtils.isEqualCollection(result, List.of(4, 3)) ||
-                        CollectionUtils.isEqualCollection(result, List.of(4, 5))
+                Arrays.equals(result, new int[]{4, 3}) ||
+                        Arrays.equals(result, new int[]{4, 5})
         );
 
         assertThat(find(new int[]{1, 2, 3, 4, 5, 6}, 0, 3))
