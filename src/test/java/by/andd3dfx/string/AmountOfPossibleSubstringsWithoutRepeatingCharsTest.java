@@ -1,8 +1,8 @@
-package by.andd3dfx.numeric;
+package by.andd3dfx.string;
 
 import org.junit.Test;
 
-import static by.andd3dfx.numeric.AmountOfPossibleSubstringsWithoutRepeatingChars.determine;
+import static by.andd3dfx.string.AmountOfPossibleSubstringsWithoutRepeatingChars.determine;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AmountOfPossibleSubstringsWithoutRepeatingCharsTest {

@@ -1,4 +1,4 @@
-package by.andd3dfx.numeric;
+package by.andd3dfx.string;
 
 import java.util.HashMap;
 import java.util.Map;
