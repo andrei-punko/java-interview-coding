@@ -18,6 +18,7 @@ public class PalindromeNumberTest {
     @Test
     public void isPalindrome() {
         assertTrue(palindromeNumber.isPalindrome(121));
+        assertTrue(palindromeNumber.isPalindrome(1568651));
         assertFalse(palindromeNumber.isPalindrome(-121));
         assertFalse(palindromeNumber.isPalindrome(123));
         assertFalse(palindromeNumber.isPalindrome(10));

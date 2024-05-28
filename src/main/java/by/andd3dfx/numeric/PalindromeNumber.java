@@ -11,9 +11,11 @@ public class PalindromeNumber {
         if (x < 0) {
             return false;
         }
-        var s = String.valueOf(x);
-        for (int i = 0; i < s.length() / 2; i++) {
-            if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
+
+        var chars = String.valueOf(x).toCharArray();
+        var len = chars.length;
+        for (var i = 0; i < len / 2; i++) {
+            if (chars[i] != chars[len - i - 1]) {
                 return false;
             }
         }
