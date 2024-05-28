@@ -1,10 +1,14 @@
 package by.andd3dfx.numeric;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
+
+import java.util.List;
 
 import static by.andd3dfx.numeric.KNearestNumbers.find;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 public class KNearestNumbersTest {
 
@@ -14,8 +18,13 @@ public class KNearestNumbersTest {
                 .isEmpty();
         assertThat(find(new int[]{1, 2, 2, 3, 4, 4, 4, 5, 6}, 4, 2))
                 .containsExactlyInAnyOrder(4, 4);
-        assertThat(find(new int[]{1, 2, 3, 4, 5, 6}, 3, 2))
-                .containsExactlyInAnyOrder(4, 5);   // TODO: somehow add assert `expect one result OR another` (check examples in task definition)
+
+        var result = find(new int[]{1, 2, 3, 4, 5, 6}, 3, 2);
+        assertTrue(
+                CollectionUtils.isEqualCollection(result, List.of(4, 3)) ||
+                        CollectionUtils.isEqualCollection(result, List.of(4, 5))
+        );
+
         assertThat(find(new int[]{1, 2, 3, 4, 5, 6}, 0, 3))
                 .containsExactlyInAnyOrder(1, 2, 3);
         assertThat(find(new int[]{1, 2, 2, 3, 3, 56, 78, 79, 79, 100}, 4, 3))

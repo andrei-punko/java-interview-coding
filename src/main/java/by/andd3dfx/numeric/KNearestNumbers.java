@@ -19,6 +19,8 @@ import java.util.List;
  * <p>
  * a = [1 2 2 3 _3_ 56 78 79 79 100]
  * i=4, k=3, result=[3 3 2]
+ *
+ * @see <a href="https://youtu.be/bB0v2pcE1Do">Video solution</a>
  */
 public class KNearestNumbers {
 
@@ -39,8 +41,8 @@ public class KNearestNumbers {
         var left = i - 1;
         var right = i + 1;
         while (result.size() < k) {
-            var leftD = determineLeftD(nums, left, i);
-            var rightD = determineRightD(nums, right, i);
+            var leftD = determineLeftDistance(nums, left, i);
+            var rightD = determineRightDistance(nums, right, i);
 
             if (leftD < rightD) {
                 result.add(nums[left]);
@@ -49,19 +51,18 @@ public class KNearestNumbers {
                 result.add(nums[right]);
                 right++;
             }
-
         }
         return result;
     }
 
-    private static int determineLeftD(int[] nums, int left, int curr) {
+    private static int determineLeftDistance(int[] nums, int left, int curr) {
         if (left < 0) {
             return Integer.MAX_VALUE;
         }
         return Math.abs(nums[left] - nums[curr]);
     }
 
-    private static int determineRightD(int[] nums, int right, int curr) {
+    private static int determineRightDistance(int[] nums, int right, int curr) {
         if (right >= nums.length) {
             return Integer.MAX_VALUE;
         }
