@@ -9,12 +9,14 @@ import java.util.List;
  *
  * For example, the largest sum of the list {5, 9, 7, 11} is the sum of the elements 9 and 11, which is 20.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/r6nFOKq_rdc">Video solution</a>
  */
 public class MaxSum {
 
-    public static int findMaxSum(List<Integer> list) {
+    public static int find(List<Integer> list) {
         if (list == null || list.size() < 2) {
-            throw new IllegalArgumentException("List size should be at least 2!");
+            throw new IllegalArgumentException("List size should be 2 at least!");
         }
 
         var m1 = Math.max(list.get(0), list.get(1));

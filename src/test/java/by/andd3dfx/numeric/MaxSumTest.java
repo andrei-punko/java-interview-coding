@@ -4,28 +4,28 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static by.andd3dfx.numeric.MaxSum.findMaxSum;
+import static by.andd3dfx.numeric.MaxSum.find;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
 
 public class MaxSumTest {
 
     @Test
-    public void testFindMaxSum() {
-        assertThat(findMaxSum(List.of(3, 2))).isEqualTo(5);
-        assertThat(findMaxSum(List.of(5, 9, 7, 11))).isEqualTo(20);
-        assertThat(findMaxSum(List.of(5, 9, 1, 9))).isEqualTo(18);
+    public void testFind() {
+        assertThat(find(List.of(3, 2))).isEqualTo(5);
+        assertThat(find(List.of(5, 9, 7, 11))).isEqualTo(20);
+        assertThat(find(List.of(9, 5, 1, 9))).isEqualTo(18);
     }
 
     @Test
-    public void testFindMaxSumWhenWrongInput() {
+    public void testFindWhenWrongInput() {
         makeCallAndCheckExceptionThrow(null);
         makeCallAndCheckExceptionThrow(List.of());
-        makeCallAndCheckExceptionThrow(List.of(4));
+        makeCallAndCheckExceptionThrow(List.of(7));
     }
 
-    private static void makeCallAndCheckExceptionThrow(List<Integer> list) {
-        var ex = assertThrows(IllegalArgumentException.class, () -> findMaxSum(list));
-        assertThat(ex.getMessage()).isEqualTo("List size should be at least 2!");
+    private void makeCallAndCheckExceptionThrow(List<Integer> list) {
+        var ex = assertThrows(IllegalArgumentException.class, () -> find(list));
+        assertThat(ex.getMessage()).isEqualTo("List size should be 2 at least!");
     }
 }

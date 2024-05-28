@@ -213,6 +213,7 @@ they contain enough code which describes implementation in a natural way.
 | Поиск наиболее длинного слова из словаря, которое можно сложить из заданного набора символов     | [Youtube](https://youtu.be/LQeAY_jx3SA) | [Code](src/main/java/by/andd3dfx/string/LongestDictWordsFromCharacters.java)                                                                                                        |
 | Определение простых делителей, меньших заданного числа. Решето Эратосфена (4 решения)            | [Youtube](https://youtu.be/VWP8mvmDRNc) | [Code](src/main/java/by/andd3dfx/numeric/AmountOfPrimeNumbers.java)                                                                                                                 |
 | Поиск для заданного элемента массива k соседних элементов, ближайших к нему по величине (Яндекс) | [Youtube](https://youtu.be/bB0v2pcE1Do) | [Code](src/main/java/by/andd3dfx/numeric/KNearestNumbers.java)                                                                                                                      |
+| Поиск максимальной суммы двух элементов в неупорядоченном списке за O(n)                         | [Youtube](https://youtu.be/r6nFOKq_rdc) | [Code](src/main/java/by/andd3dfx/numeric/MaxSum.java)                                                                                                                               |
 
 ## Materials & notes
 
