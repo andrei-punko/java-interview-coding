@@ -214,6 +214,7 @@ they contain enough code which describes implementation in a natural way.
 | Определение простых делителей, меньших заданного числа. Решето Эратосфена (4 решения)            | [Youtube](https://youtu.be/VWP8mvmDRNc) | [Code](src/main/java/by/andd3dfx/numeric/AmountOfPrimeNumbers.java)                                                                                                                 |
 | Поиск для заданного элемента массива k соседних элементов, ближайших к нему по величине (Яндекс) | [Youtube](https://youtu.be/bB0v2pcE1Do) | [Code](src/main/java/by/andd3dfx/numeric/KNearestNumbers.java)                                                                                                                      |
 | Поиск максимальной суммы двух элементов в неупорядоченном списке за O(n)                         | [Youtube](https://youtu.be/r6nFOKq_rdc) | [Code](src/main/java/by/andd3dfx/numeric/MaxSum.java)                                                                                                                               |
+| Инкремент большого целого, представленного в виде массива цифр (leetcode)                        | [Youtube](https://youtu.be/qk6lt-lC2Nc) | [Code](src/main/java/by/andd3dfx/numeric/PlusOne.java)                                                                                                                              |
 
 ## Materials & notes
 

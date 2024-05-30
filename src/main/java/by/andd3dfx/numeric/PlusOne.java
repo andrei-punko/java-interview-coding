@@ -34,6 +34,8 @@ package by.andd3dfx.numeric;
  * Incrementing by one gives 9 + 1 = 10.
  * Thus, the result should be [1,0].
  * </pre>
+ *
+ * @see <a href="https://youtu.be/qk6lt-lC2Nc">Video solution</a>
  */
 public class PlusOne {
 
@@ -54,7 +56,6 @@ public class PlusOne {
             if (pos == 0) {
                 var result = new int[digits.length + 1];
                 System.arraycopy(digits, 0, result, 1, digits.length);
-                result[pos]++;
                 result[0] = 1;
                 return result;
             }
