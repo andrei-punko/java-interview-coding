@@ -46,17 +46,19 @@ public class PlusOne {
         digits[pos]++;
 
         while (pos >= 0) {
-            if (digits[pos] == 10) {
-                digits[pos] = 0;
-                if (pos == 0) {
-                    var result = new int[digits.length + 1];
-                    System.arraycopy(digits, 0, result, 1, digits.length);
-                    result[pos]++;
-                    result[0] = 1;
-                    return result;
-                }
-                digits[pos - 1]++;
+            if (digits[pos] < 10) {
+                return digits;
             }
+
+            digits[pos] = 0;
+            if (pos == 0) {
+                var result = new int[digits.length + 1];
+                System.arraycopy(digits, 0, result, 1, digits.length);
+                result[pos]++;
+                result[0] = 1;
+                return result;
+            }
+            digits[pos - 1]++;
             pos--;
         }
         return digits;

@@ -10,6 +10,7 @@ public class PlusOneTest {
 
     @Test
     public void testPlusOne() {
+        assertThat(plusOne(new int[]{0})).isEqualTo(new int[]{1});
         assertThat(plusOne(new int[]{1, 2, 3})).isEqualTo(new int[]{1, 2, 4});
         assertThat(plusOne(new int[]{4, 3, 2, 1})).isEqualTo(new int[]{4, 3, 2, 2});
         assertThat(plusOne(new int[]{9, 9, 9})).isEqualTo(new int[]{1, 0, 0, 0});
