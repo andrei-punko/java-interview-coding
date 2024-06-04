@@ -25,6 +25,8 @@ package by.andd3dfx.numeric;
  * Output: false
  * Explanation: There is no x where 2^x = 3.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/E1Gue5EcvK4">Video solution</a>
  */
 public class PowerOfTwo {
 
@@ -43,6 +45,7 @@ public class PowerOfTwo {
         if (n <= 0) {
             return false;
         }
+
         var power = Math.round(Math.log(n) / Math.log(2));
         return Math.pow(2, power) == n;
     }
