@@ -16,9 +16,16 @@ public class ContainsDuplicatesTest {
     }
 
     @Test
-    public void containsDuplicate() {
-        assertTrue(containsDuplicates.containsDuplicate(new int[]{1, 2, 3, 1}));
-        assertFalse(containsDuplicates.containsDuplicate(new int[]{1, 2, 3, 4}));
-        assertTrue(containsDuplicates.containsDuplicate(new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2}));
+    public void usingSet() {
+        assertTrue(containsDuplicates.usingSet(new int[]{2, 1, 3, 1}));
+        assertFalse(containsDuplicates.usingSet(new int[]{2, 1, 3, 56, 4}));
+        assertTrue(containsDuplicates.usingSet(new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2}));
+    }
+
+    @Test
+    public void usingSortWithEarlyReturn() {
+        assertTrue(containsDuplicates.usingSortWithEarlyReturn(new int[]{2, 1, 3, 1}));
+        assertFalse(containsDuplicates.usingSortWithEarlyReturn(new int[]{2, 1, 3, 56, 4}));
+        assertTrue(containsDuplicates.usingSortWithEarlyReturn(new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2}));
     }
 }

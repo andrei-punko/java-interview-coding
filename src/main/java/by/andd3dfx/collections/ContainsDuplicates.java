@@ -28,7 +28,7 @@ import java.util.Set;
  */
 public class ContainsDuplicates {
 
-    public boolean containsDuplicate(int[] nums) {
+    public boolean usingSet(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {
             if (!set.add(num)) {
@@ -36,5 +36,29 @@ public class ContainsDuplicates {
             }
         }
         return false;
+    }
+
+    public boolean usingSortWithEarlyReturn(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            int min_index = i;
+
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] == nums[min_index]) {
+                    return true;
+                }
+                if (nums[j] < nums[min_index]) {
+                    min_index = j;
+                }
+            }
+
+            swap(nums, i, min_index);
+        }
+        return false;
+    }
+
+    private void swap(int[] array, int i, int j) {
+        var tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
     }
 }
