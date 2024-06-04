@@ -34,7 +34,7 @@ public class SumOfTwoInArray {
     public static int[] find_2N(int[] list, int sum) {
         Map<Integer, List<Integer>> map = new HashMap<>();
 
-        for (int index = 0; index < list.length; index++) {
+        for (var index = 0; index < list.length; index++) {
             int key = list[index];
             List<Integer> indexes = map.get(key);
             if (indexes == null) {
@@ -44,7 +44,7 @@ public class SumOfTwoInArray {
             indexes.add(index);
         }
 
-        for (Integer key : map.keySet()) {
+        for (var key : map.keySet()) {
             int remainderToFind = sum - key;
             if (map.containsKey(remainderToFind)) {
                 if (remainderToFind == key) {
