@@ -9,17 +9,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ReverseStringTest {
 
     @Test
-    public void emptyString() {
+    public void testApply() {
         assertThat(apply(""), is(""));
-    }
-
-    @Test
-    public void oneCharacterString() {
         assertThat(apply("A"), is("A"));
-    }
-
-    @Test
-    public void usualString() {
         assertThat(apply("aBc deF"), is("Fed cBa"));
     }
 }
