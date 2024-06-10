@@ -3,9 +3,6 @@ package by.andd3dfx.sorting;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @see <a href="https://www.youtube.com/watch?v=vFsDPm7ecsM">Video solution</a>
- */
 public class BucketSort {
 
     private static final int BUCKETS_COUNT = 10;
@@ -19,7 +16,8 @@ public class BucketSort {
 
         // Fill in buckets
         for (int i = 0; i < items.length; i++) {
-            buckets.get(determineBucketIndex(items[i], BUCKETS_COUNT)).add(items[i]);
+            var bucketIndex = determineBucketIndex(items[i], BUCKETS_COUNT);
+            buckets.get(bucketIndex).add(items[i]);
         }
 
         int currIndex = 0;
@@ -30,7 +28,7 @@ public class BucketSort {
             Comparable[] array = bucket.toArray(new Comparable[0]);
             InsertionSort.apply(array);
 
-            // Populate result array with values from bucket
+            // Populate the result array with values from bucket
             for (var item : array) {
                 items[currIndex] = (T) item;
                 currIndex++;

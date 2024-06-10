@@ -6,6 +6,8 @@ import java.util.Map;
 /**
  * We have a very long array of people ages.
  * Need to count number of people for each age.
+ *
+ * @see <a href="https://youtu.be/vFsDPm7ecsM">Video solution</a>
  */
 public class ArrayOfAges {
 
