@@ -1,7 +1,5 @@
 package by.andd3dfx.numeric;
 
-import java.util.Scanner;
-
 /**
  * <pre>
  * У нас есть статистика о людях, которые родились начиная с 1980 года с датами их смертей.
@@ -17,43 +15,11 @@ import java.util.Scanner;
  * 2000 2011
  *
  * Ответ: 1990 - это минимальный год, в который жило 2 человека
- *
- * import java.util.Scanner;
- *
- * public class Main {
- *   public static void main(String[] args) {
- *     Scanner scanner = new Scanner(System.in);
- *     int length = scanner.nextInt();
- *     int[][] logs = new int[length][];
- *
- *     for (int i = 0; i < length; i++) {
- *       logs[i] = new int[] { scanner.nextInt(), scanner.nextInt() };
- *     }
- *
- *     System.out.println(findMaximum(logs));
- *   }
- *
- *   private static int findMaximum(int[][] logs) {
- *     return 0;
- *   }
- * }
  * </pre>
  */
 public class AgeStatistics {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int length = scanner.nextInt();
-        int[][] logs = new int[length][];
-
-        for (int i = 0; i < length; i++) {
-            logs[i] = new int[] { scanner.nextInt(), scanner.nextInt() };
-        }
-
-        System.out.println(findMaximum(logs));
-    }
-
-    public static int findMaximum(int[][] logs) {
+    public static int findMaximum_N2(int[][] logs) {
         int[] years = new int[101];
 
         for (int[] pair : logs) {
@@ -64,10 +30,31 @@ public class AgeStatistics {
 
         int maxYear = 0;
         for (int i = 0; i < years.length; i++) {
-            if (years[i] > years[maxYear]){
+            if (years[i] > years[maxYear]) {
                 maxYear = i;
             }
         }
         return maxYear + 1980;
+    }
+
+    public static int findMaximum_N(int[][] logs) {
+        int[] diff = new int[101];
+
+        for (int[] pair : logs) {
+            diff[pair[0] - 1980]++;
+            diff[pair[1] - 1980]--;
+        }
+
+        int maxAlive = 0;
+        int maxAliveYear = 0;
+        int alive = 0;
+        for (var i = 0; i < diff.length; i++) {
+            alive += diff[i];
+            if (alive > maxAlive) {
+                maxAlive = alive;
+                maxAliveYear = i;
+            }
+        }
+        return maxAliveYear + 1980;
     }
 }
