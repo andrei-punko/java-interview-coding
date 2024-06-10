@@ -39,7 +39,6 @@
 - [serialization](src/main/java/by/andd3dfx/serialization)
 - [sorting](src/main/java/by/andd3dfx/sorting)
 - [string](src/main/java/by/andd3dfx/string)
-- [testing](src/main/java/by/andd3dfx/testing)
 - [tree](src/main/java/by/andd3dfx/tree)
 
 Sure, we have [tests](src/test/java/by/andd3dfx);

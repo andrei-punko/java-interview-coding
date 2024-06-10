@@ -21,8 +21,6 @@ dependencies {
     testImplementation 'ch.qos.logback:logback-classic:1.4.14'
     testImplementation 'com.github.stefanbirkner:system-rules:1.19.0'
     testImplementation 'junit:junit:4.13.2'
-    testImplementation "org.jmock:jmock-legacy:$jmockVersion"
-    testImplementation "org.jmock:jmock-imposters:$jmockVersion"
     testImplementation 'net.bytebuddy:byte-buddy:1.14.12'
     testImplementation 'org.assertj:assertj-core:3.25.3'
     testImplementation 'org.hamcrest:hamcrest:2.2'
