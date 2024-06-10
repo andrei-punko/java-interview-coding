@@ -7,17 +7,21 @@ package by.andd3dfx.numeric;
  */
 public class PalindromeNumber {
 
-    public boolean isPalindrome(int x) {
+    public static boolean isPalindrome(int x) {
         if (x < 0) {
             return false;
         }
 
         var chars = String.valueOf(x).toCharArray();
-        var len = chars.length;
-        for (var i = 0; i < len / 2; i++) {
-            if (chars[i] != chars[len - i - 1]) {
+        var left = 0;
+        var right = chars.length - 1;
+
+        while (left < right) {
+            if (chars[left] != chars[right]) {
                 return false;
             }
+            left++;
+            right--;
         }
         return true;
     }
