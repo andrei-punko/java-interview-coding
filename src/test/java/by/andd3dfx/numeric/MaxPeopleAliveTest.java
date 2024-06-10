@@ -2,11 +2,11 @@ package by.andd3dfx.numeric;
 
 import org.junit.Test;
 
-import static by.andd3dfx.numeric.AgeStatistics.findMaximum_N;
-import static by.andd3dfx.numeric.AgeStatistics.findMaximum_N2;
+import static by.andd3dfx.numeric.MaxPeopleAlive.findMaximum_N;
+import static by.andd3dfx.numeric.MaxPeopleAlive.findMaximum_N2;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AgeStatisticsTest {
+public class MaxPeopleAliveTest {
 
     @Test
     public void findMaximum_whenNoIntersection() {

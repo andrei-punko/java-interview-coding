@@ -17,8 +17,11 @@ package by.andd3dfx.numeric;
  * Ответ: 1990 - это минимальный год, в который жило 2 человека
  * </pre>
  */
-public class AgeStatistics {
+public class MaxPeopleAlive {
 
+    /**
+     * O(n^2) complexity
+     */
     public static int findMaximum_N2(int[][] logs) {
         int[] years = new int[101];
 
@@ -37,6 +40,9 @@ public class AgeStatistics {
         return maxYear + 1980;
     }
 
+    /**
+     * O(n) complexity
+     */
     public static int findMaximum_N(int[][] logs) {
         int[] diff = new int[101];
 
