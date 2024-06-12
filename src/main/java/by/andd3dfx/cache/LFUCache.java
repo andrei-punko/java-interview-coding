@@ -62,7 +62,7 @@ public class LFUCache<K, V> {
 
         if (map.containsKey(key)) {
             Item item = map.get(key);
-
+            item.value = value;
             item.hitsCount++;
             log.debug("Increased hits counter for key={}", key);
             return;

@@ -68,4 +68,14 @@ public class LFUCacheTest {
         assertThat(cache.get(4), nullValue());
         assertThat(cache.get(5), is(50));
     }
+
+    @Test
+    public void testCacheLeetCode_updateValue() {
+        var cache = new LFUCache<Integer, Integer>(2);
+        cache.put(3, 1);
+        cache.put(2, 1);
+        cache.put(2, 2);    // overwrites value for key 2
+        cache.put(4, 4);    // evicts key 3
+        assertThat(cache.get(2), is(2));
+    }
 }
