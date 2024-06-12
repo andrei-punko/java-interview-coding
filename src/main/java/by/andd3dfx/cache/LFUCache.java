@@ -45,9 +45,8 @@ public class LFUCache<K, V> {
         }
 
         Item item = map.get(key);
-
         item.hitsCount++;
-        log.debug("Increased hits counter for key={}", key);
+        log.debug("GET: increased hits counter for key={}", key);
 
         keySet.remove(key);
         keySet.add(key);
@@ -64,7 +63,7 @@ public class LFUCache<K, V> {
             Item item = map.get(key);
             item.value = value;
             item.hitsCount++;
-            log.debug("Increased hits counter for key={}", key);
+            log.debug("PUT: increased hits counter for key={}", key);
             return;
         }
 
@@ -76,24 +75,22 @@ public class LFUCache<K, V> {
 
         map.put(key, new Item(value, 0));
         keySet.add(key);
-        log.debug("Added counter for key={}", key);
+        log.debug("PUT: added counter for key={}", key);
     }
 
     private K determineKeyToDelete() {
-        var entries = map.entrySet().stream()
+        List<K> keys = keySet.stream().toList();
+        return map.entrySet().stream()
                 .sorted((o1, o2) -> {
-                    int delta = o1.getValue().getHitsCount() - o2.getValue().getHitsCount();
+                    int delta = o1.getValue().hitsCount - o2.getValue().hitsCount;
                     if (delta != 0) {
                         return delta;
                     }
 
-                    List<K> keys = keySet.stream().collect(Collectors.toList());
                     return keys.indexOf(o1.getKey()) - keys.indexOf(o2.getKey());
-                }).collect(Collectors.toList());
-        return entries.get(0).getKey();
+                }).findFirst().get().getKey();
     }
 
-    @Data
     @AllArgsConstructor
     public class Item {
         private V value;
