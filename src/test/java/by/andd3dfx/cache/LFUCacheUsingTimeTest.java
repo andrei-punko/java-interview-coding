@@ -6,11 +6,11 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class LFUCacheTest {
+public class LFUCacheUsingTimeTest {
 
     @Test
     public void testCacheWithZeroCapacity() {
-        LFUCache<Integer, Integer> cache = new LFUCache<>(0);
+        LFUCacheUsingTime<Integer, Integer> cache = new LFUCacheUsingTime<>(0);
 
         assertThat(cache.get(2), nullValue());
         cache.put(2, 67);
@@ -19,8 +19,7 @@ public class LFUCacheTest {
 
     @Test
     public void testCache() {
-        LFUCache<Integer, Integer> cache = new LFUCache<>(2);
-
+        LFUCacheUsingTime<Integer, Integer> cache = new LFUCacheUsingTime<>(2);
         cache.put(1, 10);
         cache.put(2, 20);
         assertThat(cache.get(1), is(10));
@@ -39,8 +38,7 @@ public class LFUCacheTest {
 
     @Test
     public void testCacheComplex() {
-        LFUCache<Integer, Integer> cache = new LFUCache<>(3);
-
+        LFUCacheUsingTime<Integer, Integer> cache = new LFUCacheUsingTime<>(3);
         cache.put(1, 10);
         cache.put(2, 20);
         cache.put(3, 30);
@@ -71,11 +69,28 @@ public class LFUCacheTest {
 
     @Test
     public void testCacheLeetCode_updateValue() {
-        var cache = new LFUCache<Integer, Integer>(2);
+        var cache = new LFUCacheUsingTime<Integer, Integer>(2);
         cache.put(3, 1);
         cache.put(2, 1);
         cache.put(2, 2);    // overwrites value for key 2
         cache.put(4, 4);    // evicts key 3
         assertThat(cache.get(2), is(2));
+    }
+
+    @Test
+    public void determineKeyToDelete() {
+        var cache = new LFUCacheUsingTime<Integer, Integer>(2);
+        cache.put(2, 100);
+        cache.put(3, 200);
+        assertThat(cache.determineKeyToDelete(), is(2));
+
+        cache.get(2);
+        assertThat(cache.determineKeyToDelete(), is(3));
+        cache.get(3);
+        assertThat(cache.determineKeyToDelete(), is(2));
+        cache.put(4, 500);
+        assertThat(cache.determineKeyToDelete(), is(4));
+        cache.get(4);
+        assertThat(cache.determineKeyToDelete(), is(3));
     }
 }

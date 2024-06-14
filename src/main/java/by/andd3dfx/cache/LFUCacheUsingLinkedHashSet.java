@@ -1,7 +1,6 @@
 package by.andd3dfx.cache;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -9,7 +8,6 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * <pre>
@@ -33,7 +31,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @RequiredArgsConstructor
-public class LFUCache<K, V> {
+public class LFUCacheUsingLinkedHashSet<K, V> {
 
     private final int capacity;
     private Map<K, Item> map = new HashMap<>();
@@ -78,7 +76,7 @@ public class LFUCache<K, V> {
         log.debug("PUT: added counter for key={}", key);
     }
 
-    private K determineKeyToDelete() {
+    K determineKeyToDelete() {
         List<K> keys = keySet.stream().toList();
         return map.entrySet().stream()
                 .sorted((o1, o2) -> {
