@@ -1,4 +1,4 @@
-package by.andd3dfx.java8.functionalinterface;
+package by.andd3dfx.stream;
 
 @FunctionalInterface
 public interface Converter<F, T> {

@@ -1,6 +1,6 @@
-package by.andd3dfx.java8.stream;
+package by.andd3dfx.stream;
 
-import by.andd3dfx.java8.stream.CustomStream.Item;
+import by.andd3dfx.stream.CustomStream.Item;
 import org.junit.Test;
 
 import java.util.ArrayList;

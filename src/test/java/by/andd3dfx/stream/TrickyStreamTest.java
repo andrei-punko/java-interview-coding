@@ -1,4 +1,4 @@
-package by.andd3dfx.java8.stream;
+package by.andd3dfx.stream;
 
 import org.junit.Test;
 

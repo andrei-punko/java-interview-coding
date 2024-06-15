@@ -1,6 +1,5 @@
-package by.andd3dfx.java8.stream;
+package by.andd3dfx.stream;
 
-import by.andd3dfx.java8.functionalinterface.Converter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
