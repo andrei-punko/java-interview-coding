@@ -216,6 +216,7 @@ they contain enough code which describes implementation in a natural way.
 | Инкремент большого целого, представленного в виде массива цифр (leetcode)                        | [Youtube](https://youtu.be/qk6lt-lC2Nc) | [Code](src/main/java/by/andd3dfx/numeric/PlusOne.java)                                                                                                                              |
 | Определение года с максимальным количеством живущих людей (2 решения)                            | [Youtube](https://youtu.be/V1qTYQKxRAA) | [Code](src/main/java/by/andd3dfx/numeric/MaxPeopleAlive.java)                                                                                                                       |
 | Обращение строки символов                                                                        | [Youtube](https://youtu.be/BaFfp9zV6CM) | [Code](src/main/java/by/andd3dfx/string/ReverseString.java)                                                                                                                         |
+| Вывод уникальных значений для коллекции двойной вложенности (2 решения)                          | [Youtube](https://youtu.be/rl186vmuMjk) | [Code](src/main/java/by/andd3dfx/collections/DistinctNames.java)                                                                                                                    |
 
 ## Materials & notes
 
