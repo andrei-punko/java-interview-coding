@@ -4,9 +4,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * @param <K> key
- * @param <V> value
- *
  * @see <a href="https://youtu.be/-GECqwRV8Uw">Video solution</a>
  */
 public class CustomHashMap<K, V> {

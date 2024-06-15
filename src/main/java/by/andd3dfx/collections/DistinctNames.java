@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Есть коллекция persons объектов класса Person, у которого есть поле List<String> names.
- * Предложить способы вывести набор уникальных имен для данной коллекции persons.
+ * Есть коллекция persons объектов класса Person, у которого есть поле List&lt;String&gt; names.
+ * Предложить способы вывести набор уникальных имен для данной коллекции List&lt;Person&gt;.
  */
 public class DistinctNames {
 
