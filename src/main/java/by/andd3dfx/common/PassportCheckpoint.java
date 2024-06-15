@@ -1,6 +1,7 @@
 package by.andd3dfx.common;
 
 import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Queue;
 
 /**
@@ -21,18 +22,29 @@ import java.util.Queue;
  *   System.out.println(entry.Exit());
  * </pre>
  */
-public class Entry {
+public class PassportCheckpoint {
 
-  private Queue<String> queue = new ArrayDeque<>();
+    public static class Solution1 {
+        private Queue<String> queue = new ArrayDeque<>();
 
-  public void enter(String passportNumber) {
-    queue.add(passportNumber);
-  }
+        public void enter(String passportNumber) {
+            queue.add(passportNumber);
+        }
 
-  public String exit() {
-    if (queue.isEmpty()) {
-      return null;
+        public String exit() {
+            return queue.poll();
+        }
     }
-    return queue.remove();
-  }
+
+    public static class Solution2 {
+        private LinkedList<String> queue = new LinkedList<>();
+
+        public void enter(String passportNumber) {
+            queue.add(passportNumber);
+        }
+
+        public String exit() {
+            return queue.poll();
+        }
+    }
 }
