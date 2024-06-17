@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class MatrixRotation {
 
-    public static void matrixRotation(List<List<Integer>> matrix, int r) {
+    public static void rotate(List<List<Integer>> matrix, int r) {
         int left = 0;
         int up = 0;
 
@@ -50,6 +50,10 @@ public class MatrixRotation {
             }
 
             curr = r % count;
+            if (r < 0) {
+                curr += count;
+            }
+
             for (int i = 0; i < n; i++) {
                 matrix.get(up).set(left + i, tmp[curr]);
                 curr++;

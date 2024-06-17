@@ -23,30 +23,37 @@ public class MatrixRotationTest {
     );
 
     @Test
-    public void matrixRotation() {
-        MatrixRotation.matrixRotation(MATRIX, 2);
+    public void testRotate() {
+        MatrixRotation.rotate(MATRIX, 2);
 
         assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
     }
 
     @Test
-    public void matrixRotationForBigR() {
-        MatrixRotation.matrixRotation(MATRIX, 14);
+    public void testRotateWhenNegativeR() {
+        MatrixRotation.rotate(MATRIX, -10);
 
         assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
     }
 
     @Test
-    public void matrixRotationWhenNoRotation() {
-        MatrixRotation.matrixRotation(MATRIX, 0);
+    public void rotateForBigR() {
+        MatrixRotation.rotate(MATRIX, 14);
+
+        assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
+    }
+
+    @Test
+    public void rotateWhenNoRotation() {
+        MatrixRotation.rotate(MATRIX, 0);
 
         assertThat(MATRIX).isEqualTo(MATRIX);
     }
 
     @Test
-    public void matrixRotationAfterTwoConsequentRotations() {
-        MatrixRotation.matrixRotation(MATRIX, 1);
-        MatrixRotation.matrixRotation(MATRIX, 1);
+    public void rotateAfterTwoConsequentRotations() {
+        MatrixRotation.rotate(MATRIX, 1);
+        MatrixRotation.rotate(MATRIX, 1);
 
         assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
     }
