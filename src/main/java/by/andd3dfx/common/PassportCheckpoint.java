@@ -21,6 +21,8 @@ import java.util.Queue;
  *   System.out.println(entry.Exit());
  *   System.out.println(entry.Exit());
  * </pre>
+ *
+ * @see <a href="https://youtu.be/DAjin0U7NHA">Video solution</a>
  */
 public class PassportCheckpoint {
 

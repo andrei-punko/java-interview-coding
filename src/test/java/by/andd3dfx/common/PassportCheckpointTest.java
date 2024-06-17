@@ -2,35 +2,35 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PassportCheckpointTest {
 
     @Test
     public void testSolution1() {
-        var entry = new PassportCheckpoint.Solution1();
-        assertThat("Null expected", entry.exit(), nullValue());
-        entry.enter("AB54321");
-        entry.enter("UK32032");
-
-        assertThat("First element expected", entry.exit(), is("AB54321"));
-        assertThat("Second element expected", entry.exit(), is("UK32032"));
-        assertThat("Null expected", entry.exit(), nullValue());
-        assertThat("Null expected", entry.exit(), nullValue());
+        var solution = new PassportCheckpoint.Solution1();
+        assertThat(solution.exit()).isNull();
+        solution.enter("AB54321");
+        solution.enter("UK32032");
+        assertThat(solution.exit()).isEqualTo("AB54321");
+        solution.enter("UK32033");
+        assertThat(solution.exit()).isEqualTo("UK32032");
+        assertThat(solution.exit()).isEqualTo("UK32033");
+        assertThat(solution.exit()).isNull();
+        assertThat(solution.exit()).isNull();
     }
 
     @Test
     public void testSolution2() {
-        var entry = new PassportCheckpoint.Solution2();
-        assertThat("Null expected", entry.exit(), nullValue());
-        entry.enter("AB54321");
-        entry.enter("UK32032");
-
-        assertThat("First element expected", entry.exit(), is("AB54321"));
-        assertThat("Second element expected", entry.exit(), is("UK32032"));
-        assertThat("Null expected", entry.exit(), nullValue());
-        assertThat("Null expected", entry.exit(), nullValue());
+        var solution = new PassportCheckpoint.Solution2();
+        assertThat(solution.exit()).isNull();
+        solution.enter("AB54321");
+        solution.enter("UK32032");
+        assertThat(solution.exit()).isEqualTo("AB54321");
+        solution.enter("UK32033");
+        assertThat(solution.exit()).isEqualTo("UK32032");
+        assertThat(solution.exit()).isEqualTo("UK32033");
+        assertThat(solution.exit()).isNull();
+        assertThat(solution.exit()).isNull();
     }
 }
