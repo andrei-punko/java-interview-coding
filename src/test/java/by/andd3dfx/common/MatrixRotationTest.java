@@ -9,52 +9,64 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MatrixRotationTest {
 
-    private final List<List<Integer>> MATRIX = List.of(
-            Arrays.asList(1, 2, 3, 4),
-            Arrays.asList(12, 1, 2, 5),
-            Arrays.asList(11, 4, 3, 6),
-            Arrays.asList(10, 9, 8, 7)
-    );
-    private final List<List<Integer>> EXPECTED_RESULT = List.of(
-            Arrays.asList(3, 4, 5, 6),
-            Arrays.asList(2, 3, 4, 7),
-            Arrays.asList(1, 2, 1, 8),
-            Arrays.asList(12, 11, 10, 9)
+    private final List<List<Integer>> EXPECTED_MATRIX = List.of(
+            List.of(3, 4, 5, 6),
+            List.of(2, 3, 4, 7),
+            List.of(1, 2, 1, 8),
+            List.of(12, 11, 10, 9)
     );
 
     @Test
-    public void testRotate() {
-        MatrixRotation.rotate(MATRIX, 2);
+    public void rotate() {
+        var matrix = buildMatrix();
 
-        assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
-    }
+        MatrixRotation.rotate(matrix, 2);
 
-    @Test
-    public void testRotateWhenNegativeR() {
-        MatrixRotation.rotate(MATRIX, -10);
-
-        assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
+        assertThat(matrix).isEqualTo(EXPECTED_MATRIX);
     }
 
     @Test
     public void rotateForBigR() {
-        MatrixRotation.rotate(MATRIX, 14);
+        var matrix = buildMatrix();
 
-        assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
+        MatrixRotation.rotate(matrix, 14);
+
+        assertThat(matrix).isEqualTo(EXPECTED_MATRIX);
     }
 
     @Test
     public void rotateWhenNoRotation() {
-        MatrixRotation.rotate(MATRIX, 0);
+        var matrix = buildMatrix();
 
-        assertThat(MATRIX).isEqualTo(MATRIX);
+        MatrixRotation.rotate(matrix, 0);
+
+        assertThat(matrix).isEqualTo(buildMatrix());
     }
 
     @Test
-    public void rotateAfterTwoConsequentRotations() {
-        MatrixRotation.rotate(MATRIX, 1);
-        MatrixRotation.rotate(MATRIX, 1);
+    public void rotateWhenNoRotation2() {
+        var matrix = buildMatrix();
 
-        assertThat(MATRIX).isEqualTo(EXPECTED_RESULT);
+        MatrixRotation.rotate(matrix, 12);
+
+        assertThat(matrix).isEqualTo(buildMatrix());
+    }
+
+    @Test
+    public void rotateForNegativeR() {
+        var matrix = buildMatrix();
+
+        MatrixRotation.rotate(matrix, -10);
+
+        assertThat(matrix).isEqualTo(EXPECTED_MATRIX);
+    }
+
+    private static List<List<Integer>> buildMatrix() {
+        return List.of(
+                Arrays.asList(1, 2, 3, 4),
+                Arrays.asList(12, 1, 2, 5),
+                Arrays.asList(11, 4, 3, 6),
+                Arrays.asList(10, 9, 8, 7)
+        );
     }
 }

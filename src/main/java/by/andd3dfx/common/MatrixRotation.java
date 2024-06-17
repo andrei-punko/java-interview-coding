@@ -18,6 +18,8 @@ import java.util.List;
  *     11 4 3 6      12  1  4  7      1  2  1  8
  *     10 9 8 7      11 10  9  8     12 11 10  9
  * </pre>
+ *
+ * @see <a href="https://youtu.be/etkqSnthF4c">Video solution</a>
  */
 public class MatrixRotation {
 
@@ -29,9 +31,10 @@ public class MatrixRotation {
         int n = matrix.get(0).size();
 
         while (m >= 1 && n >= 1) {
-            int count = 2 * (m + n) - 4;
+            var count = 2 * (m + n) - 4;
             int[] tmp = new int[count];
             int curr = 0;
+
             for (int i = 0; i < n; i++) {
                 tmp[curr] = matrix.get(up).get(left + i);
                 curr++;
@@ -50,7 +53,7 @@ public class MatrixRotation {
             }
 
             curr = r % count;
-            if (r < 0) {
+            if (curr < 0) {
                 curr += count;
             }
 
