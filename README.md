@@ -218,6 +218,7 @@ they contain enough code which describes implementation in a natural way.
 | Вывод уникальных значений для коллекции двойной вложенности (2 решения)                          | [Youtube](https://youtu.be/rl186vmuMjk) | [Code](src/main/java/by/andd3dfx/collections/DistinctNames.java)                                                                                                                    |
 | Паспортный контроль (2 решения)                                                                  | [Youtube](https://youtu.be/DAjin0U7NHA) | [Code](src/main/java/by/andd3dfx/common/PassportCheckpoint.java)                                                                                                                    |
 | Вращение матрицы (hackerrank)                                                                    | [Youtube](https://youtu.be/etkqSnthF4c) | [Code](src/main/java/by/andd3dfx/common/MatrixRotation.java)                                                                                                                        |
+| Подсчет единиц в бинарной записи числа                                                           | [Youtube](https://youtu.be/F8zwvJYw0R8) | [Code](src/main/java/by/andd3dfx/numeric/CountOnesInBinaryForm.java)                                                                                                                |
 
 ## Materials & notes
 
