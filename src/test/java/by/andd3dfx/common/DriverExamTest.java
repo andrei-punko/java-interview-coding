@@ -84,4 +84,28 @@ public class DriverExamTest {
         assertThat(exercise.markNegativePointsCalled).isTrue();
         assertThat(exercise.endCalled).isTrue();
     }
+
+    @Test
+    public void executeExerciseWhenExecuteNMarkNegativePointsFailed() {
+        var exercise = new CustomExercise() {
+            @Override
+            public void execute() {
+                super.execute();
+                throw new RuntimeException();
+            }
+
+            @Override
+            public void markNegativePoints() {
+                super.markNegativePoints();
+                throw new RuntimeException();
+            }
+        };
+
+        DriverExam.executeExercise(exercise);
+
+        assertThat(exercise.startCalled).isTrue();
+        assertThat(exercise.executeCalled).isTrue();
+        assertThat(exercise.markNegativePointsCalled).isTrue();
+        assertThat(exercise.endCalled).isTrue();
+    }
 }

@@ -36,44 +36,56 @@ package by.andd3dfx.common;
  */
 public class DriverExam {
 
-  public static void executeExercise(IExercise exercise) {
-    try {
-      exercise.start();
-      exercise.execute();
-    } catch (Exception e) {
-      exercise.markNegativePoints();
-    } finally {
-      exercise.end();
+    public static void executeExercise(IExercise exercise) {
+        try {
+            exercise.start();
+            exercise.execute();
+        } catch (Exception e) {
+            markNegativePoints(exercise);
+        } finally {
+            exercise.end();
+        }
     }
-  }
+
+    private static void markNegativePoints(IExercise exercise) {
+        try {
+            exercise.markNegativePoints();
+        } catch (Exception e) {
+            // do nothing
+        }
+    }
 }
 
 interface IExercise {
 
-  void start() throws Exception;
+    void start() throws Exception;
 
-  void execute();
+    void execute();
 
-  void markNegativePoints();
+    void markNegativePoints();
 
-  void end();
+    void end();
 }
 
 class Exercise implements IExercise {
 
-  public void start() {
-    System.out.println("Start");
-  }
+    @Override
+    public void start() {
+        System.out.println("Start");
+    }
 
-  public void execute() {
-    System.out.println("Execute");
-  }
+    @Override
+    public void execute() {
+        System.out.println("Execute");
+    }
 
-  public void markNegativePoints() {
-    System.out.println("MarkNegativePoints");
-  }
+    @Override
+    public void markNegativePoints() {
+        System.out.println("MarkNegativePoints");
+    }
 
-  public void end() {
-    System.out.println("End");
-  }
+    @Override
+    public void end() {
+        System.out.println("End");
+    }
 }
