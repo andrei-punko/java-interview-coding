@@ -2,19 +2,16 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MatrixRotationTest {
 
-    private final List<List<Integer>> EXPECTED_MATRIX = List.of(
-            List.of(3, 4, 5, 6),
-            List.of(2, 3, 4, 7),
-            List.of(1, 2, 1, 8),
-            List.of(12, 11, 10, 9)
-    );
+    private final int[][] EXPECTED_MATRIX = new int[][]{
+            {3, 4, 5, 6},
+            {2, 3, 4, 7},
+            {1, 2, 1, 8},
+            {12, 11, 10, 9}
+    };
 
     @Test
     public void rotate() {
@@ -61,12 +58,13 @@ public class MatrixRotationTest {
         assertThat(matrix).isEqualTo(EXPECTED_MATRIX);
     }
 
-    private static List<List<Integer>> buildMatrix() {
-        return List.of(
-                Arrays.asList(1, 2, 3, 4),
-                Arrays.asList(12, 1, 2, 5),
-                Arrays.asList(11, 4, 3, 6),
-                Arrays.asList(10, 9, 8, 7)
-        );
+    private static int[][] buildMatrix() {
+        return new int[][]{
+                {1, 2, 3, 4},
+                {12, 1, 2, 5},
+                {11, 4, 3, 6},
+                {10, 9, 8, 7}
+
+        };
     }
 }

@@ -1,7 +1,5 @@
 package by.andd3dfx.common;
 
-import java.util.List;
-
 /**
  * <pre>
  * https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
@@ -23,12 +21,12 @@ import java.util.List;
  */
 public class MatrixRotation {
 
-    public static void rotate(List<List<Integer>> matrix, int r) {
+    public static void rotate(int[][] matrix, int r) {
         int left = 0;
         int up = 0;
 
-        int m = matrix.size();
-        int n = matrix.get(0).size();
+        int m = matrix.length;
+        int n = matrix[0].length;
 
         while (m >= 1 && n >= 1) {
             var count = 2 * (m + n) - 4;
@@ -36,19 +34,19 @@ public class MatrixRotation {
             int curr = 0;
 
             for (int i = 0; i < n; i++) {
-                tmp[curr] = matrix.get(up).get(left + i);
+                tmp[curr] = matrix[up][left + i];
                 curr++;
             }
             for (int i = 1; i < m - 1; i++) {
-                tmp[curr] = matrix.get(up + i).get(left + n - 1);
+                tmp[curr] = matrix[up + i][left + n - 1];
                 curr++;
             }
             for (int i = n - 1; i >= 0; i--) {
-                tmp[curr] = matrix.get(up + m - 1).get(left + i);
+                tmp[curr] = matrix[up + m - 1][left + i];
                 curr++;
             }
             for (int i = m - 2; i >= 1; i--) {
-                tmp[curr] = matrix.get(up + i).get(left);
+                tmp[curr] = matrix[up + i][left];
                 curr++;
             }
 
@@ -58,28 +56,28 @@ public class MatrixRotation {
             }
 
             for (int i = 0; i < n; i++) {
-                matrix.get(up).set(left + i, tmp[curr]);
+                matrix[up][left + i] = tmp[curr];
                 curr++;
                 if (curr >= count) {
                     curr -= count;
                 }
             }
             for (int i = 1; i < m - 1; i++) {
-                matrix.get(up + i).set(left + n - 1, tmp[curr]);
+                matrix[up + i][left + n - 1] = tmp[curr];
                 curr++;
                 if (curr >= count) {
                     curr -= count;
                 }
             }
             for (int i = n - 1; i >= 0; i--) {
-                matrix.get(up + m - 1).set(left + i, tmp[curr]);
+                matrix[up + m - 1][left + i] = tmp[curr];
                 curr++;
                 if (curr >= count) {
                     curr -= count;
                 }
             }
             for (int i = m - 2; i >= 1; i--) {
-                matrix.get(up + i).set(left, tmp[curr]);
+                matrix[up + i][left] = tmp[curr];
                 curr++;
                 if (curr >= count) {
                     curr -= count;
