@@ -33,12 +33,21 @@ public class CountOnesInBinaryForm {
     /**
      * 0b100011 -> 0b10001 -> 0b1000 -> 0b100 -> ... -> 0
      */
-    public static int count(int num) {
+    public static int count_usingBitwiseAnd(int num) {
         int result = 0;
         while (num > 0) {
             if ((num & 1) == 1) {
                 result++;
             }
+            num = num >> 1;
+        }
+        return result;
+    }
+
+    public static int count_usingDivisionRemainder(int num) {
+        int result = 0;
+        while (num > 0) {
+            result += num % 2;
             num = num >> 1;
         }
         return result;
