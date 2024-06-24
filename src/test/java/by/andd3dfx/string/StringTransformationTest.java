@@ -37,9 +37,7 @@ public class StringTransformationTest {
     @Test
     public void couldTransform_transformIsNotPossible() {
         assertThat(couldTransform("ab", "ba")).isFalse();       // same lengths
-
-        // FIXME: change implementation and uncomment next cases:
-//        assertThat(couldTransform("abcde", "abdm")).isFalse();  // different lengths
-//        assertThat(couldTransform("abdm", "abcde")).isFalse();  // different lengths
+        assertThat(couldTransform("abcde", "abdm")).isFalse();  // different lengths
+        assertThat(couldTransform("abdm", "abcde")).isFalse();  // different lengths
     }
 }
