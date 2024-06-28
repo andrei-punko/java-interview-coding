@@ -43,20 +43,18 @@ public class StringTransformation {
             return true;
         }
 
-        var i1 = 0;
-        var i2 = 0;
-        while (i1 < len1 && i2 < len2) {    // Lengths differ by 1 - need to remove/add one character
-            if (s1[i1] == s2[i2]) {
-                i1++;
-                i2++;
+        var pos = 0;
+        while (pos < len1 && pos < len2) {    // Lengths differ by 1 - need to remove/add one character
+            if (s1[pos] == s2[pos]) {
+                pos++;
                 continue;
             }
 
-            if (i1 + 1 < len1 && s1[i1 + 1] == s2[i2]) {
-                return remainingPartsShouldBeEqual(first, i1 + 1, second, i2);
+            if (pos + 1 < len1 && s1[pos + 1] == s2[pos]) {
+                return remainingPartsShouldBeEqual(first, pos + 1, second, pos);
             }
-            if (i2 + 1 < len2 && s1[i1] == s2[i2 + 1]) {
-                return remainingPartsShouldBeEqual(first, i1, second, i2 + 1);
+            if (pos + 1 < len2 && s1[pos] == s2[pos + 1]) {
+                return remainingPartsShouldBeEqual(first, pos, second, pos + 1);
             }
         }
         return true;
