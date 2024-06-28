@@ -43,19 +43,17 @@ public class StringTransformation {
             return true;
         }
 
+        // Lengths differ by 1 - need to remove/add one character
         var pos = 0;
-        while (pos < len1 && pos < len2) {    // Lengths differ by 1 - need to remove/add one character
-            if (s1[pos] == s2[pos]) {
-                pos++;
-                continue;
-            }
+        while (pos < len1 && pos < len2 && s1[pos] == s2[pos]) {
+            pos++;
+        }
 
-            if (pos + 1 < len1 && s1[pos + 1] == s2[pos]) {
-                return remainingPartsShouldBeEqual(first, pos + 1, second, pos);
-            }
-            if (pos + 1 < len2 && s1[pos] == s2[pos + 1]) {
-                return remainingPartsShouldBeEqual(first, pos, second, pos + 1);
-            }
+        if (pos + 1 < len1 && s1[pos + 1] == s2[pos]) {
+            return remainingPartsShouldBeEqual(first, pos + 1, second, pos);
+        }
+        if (pos + 1 < len2 && s1[pos] == s2[pos + 1]) {
+            return remainingPartsShouldBeEqual(first, pos, second, pos + 1);
         }
         return true;
     }
