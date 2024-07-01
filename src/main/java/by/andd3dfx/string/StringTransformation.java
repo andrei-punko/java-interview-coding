@@ -2,26 +2,26 @@ package by.andd3dfx.string;
 
 import org.apache.commons.lang3.StringUtils;
 
-import static org.apache.commons.lang3.StringUtils.substring;
-
 /**
+ * <pre>
  * Написать метод (класс и импорты не нужны) на вход которого приходит две строки.
  * На выходе надо проверить можно ли получить одну строку из другой за 1 исправление:
  * - замена одного символа в одной строке
  * - вставка/удаление одного символа из одной строки
- * <p>
+ *
  * Примеры тестовых сценариев:
  * first = "a", second = "b" -> true
  * first = "ab", second = "b" -> true
  * first = "ab", second = "cb" -> true
  * first = "ab", second = "ba" -> false
  * first = "abcd", second = "abd" -> true
+ * </pre>
  */
 public class StringTransformation {
 
     public static boolean couldTransform(String first, String second) {
-        var s1 = first.toCharArray();
-        var s2 = second.toCharArray();
+        char[] s1 = first.toCharArray();
+        char[] s2 = second.toCharArray();
 
         var len1 = s1.length;
         var len2 = s2.length;
@@ -43,25 +43,26 @@ public class StringTransformation {
             return true;
         }
 
-        // Lengths differ by 1 - need to remove/add one character
+        // Lengths differ by 1 - so need to remove/add one character
         var pos = 0;
         while (pos < len1 && pos < len2 && s1[pos] == s2[pos]) {
             pos++;
         }
 
-        if (pos + 1 < len1 && s1[pos + 1] == s2[pos]) {
+        if (pos + 1 < len1 && pos < len2 && s1[pos + 1] == s2[pos]) {
             return remainingPartsShouldBeEqual(first, pos + 1, second, pos);
         }
-        if (pos + 1 < len2 && s1[pos] == s2[pos + 1]) {
+        if (pos < len1 && pos + 1 < len2 && s1[pos] == s2[pos + 1]) {
             return remainingPartsShouldBeEqual(first, pos, second, pos + 1);
         }
+
         return true;
     }
 
     private static boolean remainingPartsShouldBeEqual(String first, int from1, String second, int from2) {
         return StringUtils.equals(
-                substring(first, from1),
-                substring(second, from2)
+                first.substring(from1),
+                second.substring(from2)
         );
     }
 }

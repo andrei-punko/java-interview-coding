@@ -16,21 +16,21 @@ public class StringTransformationTest {
 
     @Test
     public void couldTransform_removeOneChar() {
-        assertThat(couldTransform("abcd", "abc")).isTrue(); // remove one (last) char
         assertThat(couldTransform("abcd", "bcd")).isTrue(); // remove one (first) char
-        assertThat(couldTransform("abcd", "abd")).isTrue(); // remove one (inner) char
+        assertThat(couldTransform("abcd", "acd")).isTrue(); // remove one (inner) char
+        assertThat(couldTransform("abcd", "abc")).isTrue(); // remove one (last) char
     }
 
     @Test
     public void couldTransform_addOneChar() {
-        assertThat(couldTransform("abc", "abcd")).isTrue(); // add one (last) char
         assertThat(couldTransform("bcd", "abcd")).isTrue(); // add one (first) char
         assertThat(couldTransform("abd", "abcd")).isTrue(); // add one (inner) char
+        assertThat(couldTransform("abc", "abcd")).isTrue(); // add one (last) char
     }
 
     @Test
     public void couldTransform_significantlyDifferentLengths() {
-        assertThat(couldTransform("abcd", "bc")).isFalse();
+        assertThat(couldTransform("abcd", "ab")).isFalse();
         assertThat(couldTransform("bc", "abcd")).isFalse();
     }
 

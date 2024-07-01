@@ -221,6 +221,7 @@ they contain enough code which describes implementation in a natural way.
 | Подсчет единиц в бинарной записи числа (leetcode)                                                | [Youtube](https://youtu.be/F8zwvJYw0R8) | [Code](src/main/java/by/andd3dfx/numeric/CountOnesInBinaryForm.java)                                                                                                                |
 | Ревью кода из интервью #4 (LIVE)                                                                 | [Youtube](https://youtu.be/Y84nyje-U1c) | -                                                                                                                                                                                   |
 | Ревью кода из интервью #5 (LIVE)                                                                 | [Youtube](https://youtu.be/WT6wfFsNmxo) | -                                                                                                                                                                                   |
+| Проверка возможности получения одной строки из другой за одно изменение                          | [Youtube](https://youtu.be/GOSWr4jHng8) | [Code](src/main/java/by/andd3dfx/string/StringTransformation.java)                                                                                                                  |
 
 ## Materials & notes
 
