@@ -16,6 +16,8 @@ import org.apache.commons.lang3.StringUtils;
  * first = "ab", second = "ba" -> false
  * first = "abcd", second = "abd" -> true
  * </pre>
+ *
+ * @see <a href="https://youtu.be/GOSWr4jHng8">Video solution</a>
  */
 public class StringTransformation {
 
