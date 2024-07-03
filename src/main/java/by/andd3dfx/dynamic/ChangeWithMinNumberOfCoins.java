@@ -6,7 +6,7 @@ import static java.lang.Integer.MAX_VALUE;
 
 /**
  * <pre>
- * https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/?ref=lbp
+ * <a href="https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/?ref=lbp">Task description</a>
  *
  * Given a value V, if we want to make a change for V cents, and we have an infinite supply of each of
  * C = { C1, C2, .., Cm} valued coins, what is the minimum number of coins to make the change?

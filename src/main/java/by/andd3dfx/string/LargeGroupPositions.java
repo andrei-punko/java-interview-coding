@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * <pre>
- * https://leetcode.com/problems/positions-of-large-groups/description/
+ * <a href="https://leetcode.com/problems/positions-of-large-groups/description/">Task description</a>
  *
  * In a string s of lowercase letters, these letters form consecutive groups of the same character.
  * For example, a string like s = "abbxxxxzyy" has the groups "a", "bb", "xxxx", "z", and "yy".

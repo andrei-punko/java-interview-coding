@@ -2,7 +2,7 @@ package by.andd3dfx.common;
 
 /**
  * <pre>
- * https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
+ * <a href="https://www.hackerrank.com/challenges/matrix-rotation-algo/problem">Task description</a>
  *
  * You are given a 2D matrix of dimension m*n and a positive integer r. You have to rotate the matrix times and
  * print the resultant matrix. Rotation should be in anti-clockwise direction.

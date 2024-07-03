@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 /**
  * <pre>
- * https://leetcode.com/problems/contains-duplicate/
+ * <a href="https://leetcode.com/problems/contains-duplicate/">Task description</a>
  *
  * Given an integer array nums, return true if any value appears at least twice in the array,
  * and return false if every element is distinct.

@@ -5,7 +5,7 @@ import lombok.Data;
 
 /**
  * <pre>
- * https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+ * <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/">Task description</a>
  *
  * Given the head of a sorted linked list, delete all duplicates such that each element appears only once.
  * Return the linked list sorted as well.

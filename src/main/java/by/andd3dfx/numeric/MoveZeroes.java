@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * <pre>
- * https://leetcode.com/problems/move-zeroes/
+ * <a href="https://leetcode.com/problems/move-zeroes/">Task description</a>
  *
  * Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
  *

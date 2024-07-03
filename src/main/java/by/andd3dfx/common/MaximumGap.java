@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * <pre>
- * https://leetcode.com/problems/maximum-gap/description/
+ * <a href="https://leetcode.com/problems/maximum-gap/description/">Task description</a>
  *
  * Given an integer array nums, return the maximum difference between two successive elements in its sorted form.
  * If the array contains less than two elements, return 0.

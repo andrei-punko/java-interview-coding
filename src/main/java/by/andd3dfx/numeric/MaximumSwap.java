@@ -2,7 +2,7 @@ package by.andd3dfx.numeric;
 
 /**
  * <pre>
- * https://leetcode.com/problems/maximum-swap/
+ * <a href="https://leetcode.com/problems/maximum-swap/">Task description</a>
  *
  * You are given an integer num. You can swap two digits at most once to get the maximum valued number.
  * Return the maximum valued number you can get.

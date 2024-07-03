@@ -4,7 +4,7 @@ import java.util.concurrent.Semaphore;
 
 /**
  * <pre>
- * https://leetcode.com/problems/print-in-order/
+ * <a href="https://leetcode.com/problems/print-in-order/">Task description</a>
  *
  * Suppose we have a class:
  *

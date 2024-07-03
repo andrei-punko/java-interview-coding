@@ -9,7 +9,7 @@ import java.util.concurrent.Semaphore;
 
 /**
  * <pre>
- * https://leetcode.com/problems/print-foobar-alternately/
+ * <a href="https://leetcode.com/problems/print-foobar-alternately/">Task description</a>
  *
  * Suppose you are given the following code:
  * class FooBar {

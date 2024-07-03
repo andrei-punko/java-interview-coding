@@ -2,7 +2,7 @@ package by.andd3dfx.common;
 
 /**
  * <pre>
- * https://codeforces.com/problemset/problem/1709/A
+ * <a href="https://codeforces.com/problemset/problem/1709/A">Task description</a>
  *
  * Перед вами три двери, пронумерованные от 1 до 3 слева направо. На каждой двери висит замок,
  * который может быть открытым только ключом, на котором написано то же число, что и на двери.

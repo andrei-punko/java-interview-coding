@@ -2,7 +2,7 @@ package by.andd3dfx.collections;
 
 /**
  * <pre>
- * https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
+ * <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/">Task description</a>
  *
  * Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique
  * element appears at most twice. The relative order of the elements should be kept the same.

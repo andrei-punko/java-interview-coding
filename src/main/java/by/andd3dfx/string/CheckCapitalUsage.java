@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 /**
  * <pre>
- * https://leetcode.com/problems/detect-capital/description/
+ * <a href="https://leetcode.com/problems/detect-capital/description/">Task description</a>
  *
  * We define the usage of capitals in a word to be right when one of the following cases holds:
  *

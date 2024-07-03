@@ -9,7 +9,7 @@ import java.util.Set;
 
 /**
  * <pre>
- * https://leetcode.com/problems/lru-cache/
+ * <a href="https://leetcode.com/problems/lru-cache/">Task description</a>
  *
  * Design and implement a data structure for Least Recently Used (LRU) cache.
  *

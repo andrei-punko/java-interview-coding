@@ -2,7 +2,7 @@ package by.andd3dfx.numeric;
 
 /**
  * <pre>
- * https://leetcode.com/problems/plus-one/
+ * <a href="https://leetcode.com/problems/plus-one/">Task description</a>
  *
  * You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit
  * of the integer. The digits are ordered from most significant to least significant in left-to-right order.

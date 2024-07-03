@@ -2,7 +2,7 @@ package by.andd3dfx.numeric;
 
 /**
  * <pre>
- * https://leetcode.com/problems/sum-of-two-integers/
+ * <a href="https://leetcode.com/problems/sum-of-two-integers/">Task description</a>
  *
  * Given two integers a and b, return the sum of the two integers without using the operators + and -.
  *

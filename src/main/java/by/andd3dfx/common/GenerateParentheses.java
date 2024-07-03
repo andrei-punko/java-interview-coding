@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * <pre>
- * https://leetcode.com/problems/generate-parentheses/
+ * <a href="https://leetcode.com/problems/generate-parentheses/">Task description</a>
  *
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
  *

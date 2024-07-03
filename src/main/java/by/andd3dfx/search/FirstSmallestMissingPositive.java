@@ -1,11 +1,13 @@
 package by.andd3dfx.search;
 
 /**
- * https://leetcode.com/problems/first-missing-positive/
- * <p>
+ * <pre>
+ * <a href="https://leetcode.com/problems/first-missing-positive/">Task description</a>
+ *
  * Given an unsorted integer array nums, return the smallest missing positive integer.
- * <p>
+ *
  * You must implement an algorithm that runs in O(n) time and uses constant extra space.
+ * </pre>
  *
  * @see <a href="https://youtu.be/0i7x_YEXOpA">Video solution</a>
  */

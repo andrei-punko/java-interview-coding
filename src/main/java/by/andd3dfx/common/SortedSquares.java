@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 /**
  * <pre>
- * https://leetcode.com/problems/squares-of-a-sorted-array/
+ * <a href="https://leetcode.com/problems/squares-of-a-sorted-array/">Task description</a>
  *
  * Дан массив целых чисел, отсортированный по возрастанию.
  * Вернуть массив, содержащий эл-ты исходного массива в квадрате, также отсортированный по возрастанию.

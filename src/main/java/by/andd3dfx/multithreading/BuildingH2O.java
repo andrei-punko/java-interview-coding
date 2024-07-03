@@ -4,7 +4,7 @@ import java.util.concurrent.Semaphore;
 
 /**
  * <pre>
- * https://leetcode.com/problems/building-h2o/description/
+ * <a href="https://leetcode.com/problems/building-h2o/description/">Task description</a>
  *
  * There are two kinds of threads: oxygen and hydrogen. Your goal is to group these threads to form water molecules.
  *

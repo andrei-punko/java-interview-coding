@@ -2,7 +2,7 @@ package by.andd3dfx.dynamic;
 
 /**
  * <pre>
- * https://leetcode.com/explore/interview/card/top-interview-questions-easy/97/dynamic-programming/572/
+ * <a href="https://leetcode.com/explore/interview/card/top-interview-questions-easy/97/dynamic-programming/572/">Task description</a>
  *
  * You are given an array prices where prices[i] is the price of a given stock on the ith day.
  *

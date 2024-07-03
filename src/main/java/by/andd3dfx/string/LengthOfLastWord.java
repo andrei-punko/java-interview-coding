@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 /**
  * <pre>
- * https://leetcode.com/problems/length-of-last-word/
+ * <a href="https://leetcode.com/problems/length-of-last-word/">Task description</a>
  *
  * Given a string s consisting of words and spaces, return the length of the last word in the string.
  *

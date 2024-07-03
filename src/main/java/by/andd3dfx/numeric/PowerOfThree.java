@@ -2,7 +2,7 @@ package by.andd3dfx.numeric;
 
 /**
  * <pre>
- * https://leetcode.com/problems/power-of-three/description/
+ * <a href="https://leetcode.com/problems/power-of-three/description/">Task description</a>
  *
  * Given an integer n, return true if it is a power of three. Otherwise, return false.
  *

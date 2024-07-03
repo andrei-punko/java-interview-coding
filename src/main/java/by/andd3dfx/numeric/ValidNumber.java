@@ -2,7 +2,7 @@ package by.andd3dfx.numeric;
 
 /**
  * <pre>
- * https://leetcode.com/problems/valid-number/description/
+ * <a href="https://leetcode.com/problems/valid-number/description/">Task description</a>
  *
  * A valid number can be split up into these components (in order):
  *

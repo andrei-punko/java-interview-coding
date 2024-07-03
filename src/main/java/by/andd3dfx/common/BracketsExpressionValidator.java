@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  * <pre>
- * https://leetcode.com/problems/valid-parentheses/description/
+ * <a href="https://leetcode.com/problems/valid-parentheses/description/">Task description</a>
  *
  * Есть скобочное выражение с разными видами скобок: {}, (), [], <>.
  * Проверить, что оно правильное.

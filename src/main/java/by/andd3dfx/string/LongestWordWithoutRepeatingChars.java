@@ -5,7 +5,7 @@ import java.util.Set;
 
 /**
  * <pre>
- * https://leetcode.com/problems/longest-substring-without-repeating-characters/
+ * <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">Task description</a>
  *
  * Given a string s, find the length of the longest substring without repeating characters.
  *

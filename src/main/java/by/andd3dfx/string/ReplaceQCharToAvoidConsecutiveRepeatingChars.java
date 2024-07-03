@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  * <pre>
- * https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/
+ * <a href="https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/">Task description</a>
  *
  * Given a string s containing only lowercase English letters and the '?' character, convert all the '?' characters
  * into lowercase letters such that the final string does not contain any consecutive repeating characters.

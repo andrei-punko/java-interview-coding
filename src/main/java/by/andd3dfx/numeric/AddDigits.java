@@ -2,7 +2,7 @@ package by.andd3dfx.numeric;
 
 /**
  * <pre>
- * https://leetcode.com/problems/add-digits/description/
+ * <a href="https://leetcode.com/problems/add-digits/description/">Task description</a>
  *
  * Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
  *

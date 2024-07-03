@@ -2,7 +2,7 @@ package by.andd3dfx.search.wordsearch;
 
 /**
  * <pre>
- * https://leetcode.com/problems/word-search/
+ * <a href="https://leetcode.com/problems/word-search/">Task description</a>
  *
  * Given an m x n grid of characters board and a string word, return true if word exists in the grid.
  *

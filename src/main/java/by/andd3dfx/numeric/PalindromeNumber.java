@@ -1,9 +1,11 @@
 package by.andd3dfx.numeric;
 
 /**
- * https://leetcode.com/problems/palindrome-number/
- * <p>
+ * <pre>
+ * <a href="https://leetcode.com/problems/palindrome-number/">Task description</a>
+ *
  * Given an integer x, return true if x is a palindrome, and false otherwise.
+ * </pre>
  */
 public class PalindromeNumber {
 
