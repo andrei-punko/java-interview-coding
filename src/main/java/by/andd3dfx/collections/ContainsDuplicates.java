@@ -1,7 +1,6 @@
 package by.andd3dfx.collections;
 
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * <pre>
@@ -29,7 +28,7 @@ import java.util.Set;
 public class ContainsDuplicates {
 
     public boolean usingSet(int[] nums) {
-        Set<Integer> set = new HashSet<>();
+        var set = new HashSet<Integer>();
         for (int num : nums) {
             if (!set.add(num)) {
                 return true;
@@ -40,18 +39,18 @@ public class ContainsDuplicates {
 
     public boolean usingSortWithEarlyReturn(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            int min_index = i;
+            int minIndex = i;
 
             for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] == nums[min_index]) {
+                if (nums[j] == nums[minIndex]) {
                     return true;
                 }
-                if (nums[j] < nums[min_index]) {
-                    min_index = j;
+                if (nums[j] < nums[minIndex]) {
+                    minIndex = j;
                 }
             }
 
-            swap(nums, i, min_index);
+            swap(nums, i, minIndex);
         }
         return false;
     }

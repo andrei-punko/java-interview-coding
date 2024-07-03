@@ -7,13 +7,13 @@ public class SelectionSort {
 
     public static <T extends Comparable> void apply(T[] array) {
         for (int i = 0; i < array.length; i++) {
-            int min_index = i;
+            int minIndex = i;
 
             for (int j = i + 1; j < array.length; j++) {
-                if (lessThan(array[j], array[min_index])) min_index = j;
+                if (lessThan(array[j], array[minIndex])) minIndex = j;
             }
 
-            swap(array, i, min_index);
+            swap(array, i, minIndex);
         }
     }
 
