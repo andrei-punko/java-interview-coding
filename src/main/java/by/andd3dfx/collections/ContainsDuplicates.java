@@ -24,6 +24,8 @@ import java.util.HashSet;
  * Input: nums = [1,1,1,3,3,4,3,2,4,2]
  * Output: true
  * </pre>
+ *
+ * @see <a href="https://youtu.be/qD1EeU7AdrU">Video solution</a>
  */
 public class ContainsDuplicates {
 

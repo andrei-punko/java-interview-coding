@@ -222,6 +222,7 @@ they contain enough code which describes implementation in a natural way.
 | Ревью кода из интервью #4 (LIVE)                                                                 | [Youtube](https://youtu.be/Y84nyje-U1c) | -                                                                                                                                                                                   |
 | Ревью кода из интервью #5 (LIVE)                                                                 | [Youtube](https://youtu.be/WT6wfFsNmxo) | -                                                                                                                                                                                   |
 | Проверка возможности получения одной строки из другой за одно изменение                          | [Youtube](https://youtu.be/GOSWr4jHng8) | [Code](src/main/java/by/andd3dfx/string/StringTransformation.java)                                                                                                                  |
+| Проверка наличия дубликатов в несортированном массиве (2 решения)                                | [Youtube](https://youtu.be/qD1EeU7AdrU) | [Code](src/main/java/by/andd3dfx/collections/ContainsDuplicates.java)                                                                                                               |
 
 ## Materials & notes
 
