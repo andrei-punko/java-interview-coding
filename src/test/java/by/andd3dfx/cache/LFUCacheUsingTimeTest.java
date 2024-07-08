@@ -68,7 +68,7 @@ public class LFUCacheUsingTimeTest {
     }
 
     @Test
-    public void testCacheLeetCode_updateValue() {
+    public void testCacheLeetcode_updateValue() {
         var cache = new LFUCacheUsingTime<Integer, Integer>(2);
         cache.put(3, 1);
         cache.put(2, 1);

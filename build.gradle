@@ -26,6 +26,7 @@ dependencies {
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation 'org.mockito:mockito-core:5.10.0'
     testImplementation 'org.awaitility:awaitility:4.2.0'
+    testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.16.1'
     testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
 }
 
