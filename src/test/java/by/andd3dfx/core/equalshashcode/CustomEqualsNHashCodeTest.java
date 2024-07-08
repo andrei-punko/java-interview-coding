@@ -6,7 +6,7 @@ import org.junit.Test;
 public class CustomEqualsNHashCodeTest {
 
     @Test
-    public void testEqualsAndHashCode() {
+    public void testEqualsNHashCode() {
         EqualsVerifier.simple().forClass(CustomEqualsNHashCode.class).verify();
     }
 }

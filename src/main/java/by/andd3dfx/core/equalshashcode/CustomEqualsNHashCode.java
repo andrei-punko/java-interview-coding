@@ -1,21 +1,22 @@
 package by.andd3dfx.core.equalshashcode;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 import java.util.Objects;
 
-@Builder
+/**
+ * @see <a href="https://youtu.be/tV621E_36Y4">Video solution</a>
+ */
 @Getter
 @Setter
 public class CustomEqualsNHashCode {
 
     private int primitive;
-    private String object;
+    private String objectField;
     private Field customObject;
-    private List<Integer> collection;
+    private List<Integer> collectionField;
 
     @Override
     public boolean equals(Object o) {
@@ -26,19 +27,19 @@ public class CustomEqualsNHashCode {
             return false;
         }
 
-        var obj = (CustomEqualsNHashCode) o;
-        return primitive == obj.primitive
-                && Objects.equals(object, obj.object)
-                && Objects.equals(customObject, obj.customObject)
-                && Objects.equals(collection, obj.collection);
+        var that = (CustomEqualsNHashCode) o;
+        return primitive == that.primitive
+                && Objects.equals(objectField, that.objectField)
+                && Objects.equals(customObject, that.customObject)
+                && Objects.equals(collectionField, that.collectionField);
     }
 
     @Override
     public int hashCode() {
         int result = primitive;
-        result = 31 * result + (object != null ? object.hashCode() : 0);
-        result = 31 * result + (customObject != null ? customObject.hashCode() : 0);
-        result = 31 * result + (collection != null ? collection.hashCode() : 0);
+        result = 31 * result + Objects.hashCode(objectField);
+        result = 31 * result + Objects.hashCode(customObject);
+        result = 31 * result + Objects.hashCode(collectionField);
         return result;
     }
 }
