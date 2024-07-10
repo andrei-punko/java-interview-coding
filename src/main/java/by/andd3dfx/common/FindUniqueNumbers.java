@@ -12,9 +12,9 @@ import java.util.Set;
  *
  * @see <a href="https://youtu.be/YaApEnhQEks">Video solution</a>
  */
-public class UniqueNumbers {
+public class FindUniqueNumbers {
 
-    public static Collection<Integer> findUniqueNumbers(Collection<Integer> numbers) {
+    public static Collection<Integer> find(Collection<Integer> numbers) {
         Set<Integer> result = new LinkedHashSet<>();
         Set<Integer> existedNumbers = new HashSet<>();
 

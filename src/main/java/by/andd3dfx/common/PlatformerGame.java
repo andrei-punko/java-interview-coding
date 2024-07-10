@@ -39,13 +39,13 @@ import java.util.Deque;
  *
  * @see <a href="https://youtu.be/okH8weUwc8k">Video solution</a>
  */
-public class Platformer {
+public class PlatformerGame {
 
     private Deque<Integer> left = new ArrayDeque<>();
     private Deque<Integer> right = new ArrayDeque<>();
     private Integer position;
 
-    public Platformer(int n, Integer position) {
+    public PlatformerGame(int n, Integer position) {
         for (int i = 0; i < position; i++) {
             left.add(i);
         }

@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
  * @see <a href="https://youtu.be/ZDntf64fW5Q">Video solution</a>
  */
 @RequiredArgsConstructor
-public class PackagesForShipping {
+public class ShippingPackages {
 
   private final int NEGATIVE_RESULT = -1;
   private final int largePackageCapacity;

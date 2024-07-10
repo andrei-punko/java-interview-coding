@@ -5,11 +5,11 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class PlatformerTest {
+public class PlatformerGameTest {
 
     @Test
     public void position() {
-        Platformer platformer = new Platformer(6, 3);
+        PlatformerGame platformer = new PlatformerGame(6, 3);
         assertThat(platformer.position(), is(3));
 
         platformer.jumpLeft();

@@ -6,12 +6,12 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class PackagesForShippingTest {
-  private PackagesForShipping shipping;
+public class ShippingPackagesTest {
+  private ShippingPackages shipping;
 
   @Before
   public void setUp() throws Exception {
-    shipping = new PackagesForShipping(5, 2);
+    shipping = new ShippingPackages(5, 2);
   }
 
   @Test
