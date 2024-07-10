@@ -2,25 +2,25 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
-import static by.andd3dfx.common.ChainLink.Side;
+import static by.andd3dfx.common.LinkOfChain.Side;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ChainLinkTest {
+public class LinkOfChainTest {
 
     @Test
     public void longerSideWhenOneLink() {
-        ChainLink chainLink = new ChainLink();
+        LinkOfChain chainLink = new LinkOfChain();
         assertThat(chainLink.longerSide(), is(Side.NONE));
     }
 
     @Test
     public void longerSide() {
-        ChainLink left = new ChainLink();
-        ChainLink one = new ChainLink();
-        ChainLink two = new ChainLink();
-        ChainLink three = new ChainLink();
-        ChainLink right = new ChainLink();
+        LinkOfChain left = new LinkOfChain();
+        LinkOfChain one = new LinkOfChain();
+        LinkOfChain two = new LinkOfChain();
+        LinkOfChain three = new LinkOfChain();
+        LinkOfChain right = new LinkOfChain();
 
         left.append(one);
         one.append(two);
@@ -36,11 +36,11 @@ public class ChainLinkTest {
 
     @Test
     public void longerSideWhenClosedChain() {
-        ChainLink left = new ChainLink();
-        ChainLink one = new ChainLink();
-        ChainLink two = new ChainLink();
-        ChainLink three = new ChainLink();
-        ChainLink right = new ChainLink();
+        LinkOfChain left = new LinkOfChain();
+        LinkOfChain one = new LinkOfChain();
+        LinkOfChain two = new LinkOfChain();
+        LinkOfChain three = new LinkOfChain();
+        LinkOfChain right = new LinkOfChain();
 
         left.append(one);
         one.append(two);

@@ -10,9 +10,9 @@ package by.andd3dfx.common;
  *
  * For example, for the code below, the output should be RIGHT:
  *
- *   ChainLink left = new ChainLink();
- *   ChainLink middle = new ChainLink();
- *   ChainLink right = new ChainLink();
+ *   LinkOfChain left = new LinkOfChain();
+ *   LinkOfChain middle = new LinkOfChain();
+ *   LinkOfChain right = new LinkOfChain();
  *   left.append(middle);
  *   middle.append(right);
  *   System.out.println(left.longerSide());
@@ -20,16 +20,16 @@ package by.andd3dfx.common;
  *
  * @see <a href="https://youtu.be/KAqZwNY7yUc">Video solution</a>
  */
-public class ChainLink {
+public class LinkOfChain {
 
     public enum Side {
         NONE, LEFT, RIGHT
     }
 
-    private ChainLink left;
-    private ChainLink right;
+    private LinkOfChain left;
+    private LinkOfChain right;
 
-    public void append(ChainLink newRightLink) {
+    public void append(LinkOfChain newRightLink) {
         if (this.right != null) {
             throw new IllegalStateException("Link already connected!");
         }
@@ -38,8 +38,8 @@ public class ChainLink {
     }
 
     public Side longerSide() {
-        ChainLink left = this.left;
-        ChainLink right = this.right;
+        LinkOfChain left = this.left;
+        LinkOfChain right = this.right;
 
         while (true) {
             if (left == right) {

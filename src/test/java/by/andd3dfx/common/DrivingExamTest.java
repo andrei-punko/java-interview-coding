@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DriverExamTest {
+public class DrivingExamTest {
 
     class CustomExercise extends Exercise {
         boolean startCalled = false;
@@ -41,7 +41,7 @@ public class DriverExamTest {
     public void executeExercise() {
         var exercise = new CustomExercise();
 
-        DriverExam.executeExercise(exercise);
+        DrivingExam.executeExercise(exercise);
 
         assertThat(exercise.startCalled).isTrue();
         assertThat(exercise.executeCalled).isTrue();
@@ -59,7 +59,7 @@ public class DriverExamTest {
             }
         };
 
-        DriverExam.executeExercise(exercise);
+        DrivingExam.executeExercise(exercise);
 
         assertThat(exercise.startCalled).isTrue();
         assertThat(exercise.executeCalled).isFalse();
@@ -77,7 +77,7 @@ public class DriverExamTest {
             }
         };
 
-        DriverExam.executeExercise(exercise);
+        DrivingExam.executeExercise(exercise);
 
         assertThat(exercise.startCalled).isTrue();
         assertThat(exercise.executeCalled).isTrue();
@@ -101,7 +101,7 @@ public class DriverExamTest {
             }
         };
 
-        DriverExam.executeExercise(exercise);
+        DrivingExam.executeExercise(exercise);
 
         assertThat(exercise.startCalled).isTrue();
         assertThat(exercise.executeCalled).isTrue();

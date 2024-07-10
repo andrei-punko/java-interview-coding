@@ -9,13 +9,13 @@ package by.andd3dfx.common;
  * then call exercise.markNegativePoints() (the exception should not propagate).
  * - Call exercise.end() at the end in any case.
  *
- * public class DriverExam {
+ * public class DrivingExam {
  *   public static void executeExercise(IExercise exercise) {
  *     throw new UnsupportedOperationException("Waiting to be implemented.");
  *   }
  *
  *   public static void main(String[] args) {
- *     DriverExam.executeExercise(new Exercise());
+ *     DrivingExam.executeExercise(new Exercise());
  *   }
  * }
  *
@@ -34,7 +34,7 @@ package by.andd3dfx.common;
  * }
  * </pre>
  */
-public class DriverExam {
+public class DrivingExam {
 
     public static void executeExercise(IExercise exercise) {
         try {
