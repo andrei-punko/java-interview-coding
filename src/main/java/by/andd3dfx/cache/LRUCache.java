@@ -26,22 +26,22 @@ import java.util.Set;
  * @see <a href="https://youtu.be/ZrF5s4_jNZk">Video solution</a>
  */
 @RequiredArgsConstructor
-public class LRUCache {
+public class LRUCache<K, V> {
 
     private final int capacity;
-    private Map<Integer, Integer> map = new HashMap<>();
-    private Set<Integer> set = new LinkedHashSet<>();
+    private Map<K, V> map = new HashMap<>();
+    private Set<K> set = new LinkedHashSet<>();
 
-    public int get(int key) {
+    public V get(K key) {
         if (!map.containsKey(key)) {
-            return -1;
+            return null;
         }
         set.remove(key);
         set.add(key);
         return map.get(key);
     }
 
-    public void put(int key, int value) {
+    public void put(K key, V value) {
         if (capacity == 0) {
             return;
         }
