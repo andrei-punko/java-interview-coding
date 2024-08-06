@@ -9,7 +9,6 @@ public class MergeSortedArraysTest {
     @Test
     public void mergeForEmpty() {
         assertThat(MergeSortedArrays.merge(new int[][]{
-                {}
         })).isEqualTo(new int[]{});
 
         assertThat(MergeSortedArrays.merge(new int[][]{

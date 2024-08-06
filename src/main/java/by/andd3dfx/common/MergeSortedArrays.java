@@ -15,6 +15,8 @@ import java.util.PriorityQueue;
  *
  * Оценить сложность алгоритма; желательно получить его лучше, чем O(KN*log(KN)).
  * </pre>
+ *
+ * @see <a href="https://youtu.be/HqGYyGYKtBs">Video solution</a>
  */
 public class MergeSortedArrays {
 
@@ -46,7 +48,7 @@ public class MergeSortedArrays {
             result[globalIndex] = item.value;
             globalIndex++;
 
-            var i = item.index;
+            var i = item.index; // array index in `arrays`
             markers[i]++;
             if (markers[i] < N) {
                 var value = arrays[i][markers[i]];

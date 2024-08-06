@@ -225,6 +225,7 @@ they contain enough code which describes implementation in a natural way.
 | Проверка наличия дубликатов в несортированном массиве (2 решения)                                | [Youtube](https://youtu.be/qD1EeU7AdrU) | [Code](src/main/java/by/andd3dfx/collections/ContainsDuplicates.java)                                                                                                               |
 | Самодельные equals() и hashCode()                                                                | [Youtube](https://youtu.be/tV621E_36Y4) | [Code](src/main/java/by/andd3dfx/core/equalshashcode/CustomEqualsNHashCode.java) [Code2](src/main/java/by/andd3dfx/core/equalshashcode/CustomEqualsNHashCode2.java)                 |
 | LFU кэш #2 (Least Frequently Used) (leetcode)                                                    | [Youtube](https://youtu.be/sZrNyIrwjnc) | [Code](src/main/java/by/andd3dfx/cache/LFUCacheUsingTime.java)                                                                                                                      |
+| Слияние K упорядоченных массивов                                                                 | [Youtube](https://youtu.be/HqGYyGYKtBs) | [Code](src/main/java/by/andd3dfx/common/MergeSortedArrays.java)                                                                                                                     |
 
 ## Materials & notes
 
