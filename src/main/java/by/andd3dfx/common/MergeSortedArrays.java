@@ -16,38 +16,41 @@ import java.util.PriorityQueue;
  * Оценить сложность алгоритма; желательно получить его лучше, чем O(KN*log(KN)).
  * </pre>
  */
-public class MergeArrays {
+public class MergeSortedArrays {
 
     /**
      * Судя по всему сложность получается KN*log(K)
      */
     public static int[] merge(int[][] arrays) {
-        var k = arrays.length;
-        if (k == 0) {
+        final int K = arrays.length;
+        if (K == 0) {
             return new int[]{};
         }
-        var n = arrays[0].length;
-        if (n == 0) {
+        final int N = arrays[0].length;
+        if (N == 0) {
             return new int[]{};
         }
 
-        int[] result = new int[k * n];
-        int[] marker = new int[k];
+        var queue = new PriorityQueue<Item>(Comparator.comparingInt(item -> item.value));
+        for (int i = 0; i < K; i++) {
+            var value = arrays[i][0];
+            queue.add(new Item(value, i));
+        }
+
+        int[] result = new int[K * N];
+        int[] markers = new int[K];
         int globalIndex = 0;
 
-        PriorityQueue<Item> queue = new PriorityQueue<>(Comparator.comparingInt(item -> item.value));
-        for (int i = 0; i < k; i++) {
-            queue.add(new Item(arrays[i][0], i));
-        }
-
-        while (globalIndex < k * n) {
+        while (globalIndex < K * N) {
             Item item = queue.poll();
             result[globalIndex] = item.value;
             globalIndex++;
 
-            marker[item.arrayIndex]++;
-            if (marker[item.arrayIndex] < n) {
-                queue.add(new Item(arrays[item.arrayIndex][marker[item.arrayIndex]], item.arrayIndex));
+            var i = item.index;
+            markers[i]++;
+            if (markers[i] < N) {
+                var value = arrays[i][markers[i]];
+                queue.add(new Item(value, i));
             }
         }
         return result;
@@ -56,6 +59,6 @@ public class MergeArrays {
     @AllArgsConstructor
     public static class Item {
         private int value;
-        private int arrayIndex;
+        private int index;
     }
 }
