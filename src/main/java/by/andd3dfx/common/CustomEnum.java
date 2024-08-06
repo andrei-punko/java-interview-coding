@@ -17,8 +17,13 @@ public class CustomEnum {
     private final String value;
     private final int ordinal;
 
-    public static CustomEnum SUNDAY = add("SUNDAY");
-    public static CustomEnum MONDAY = add("MONDAY");
+    public static final CustomEnum MONDAY = add("MONDAY");
+    public static final CustomEnum TUESDAY = add("TUESDAY");
+    public static final CustomEnum WEDNESDAY = add("WEDNESDAY");
+    public static final CustomEnum THURSDAY = add("THURSDAY");
+    public static final CustomEnum FRIDAY = add("FRIDAY");
+    public static final CustomEnum SATURDAY = add("SATURDAY");
+    public static final CustomEnum SUNDAY = add("SUNDAY");
 
     public CustomEnum(String value, int ordinal) {
         this.value = value;

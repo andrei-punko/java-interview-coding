@@ -2,8 +2,10 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
+import static by.andd3dfx.common.CustomEnum.FRIDAY;
 import static by.andd3dfx.common.CustomEnum.MONDAY;
 import static by.andd3dfx.common.CustomEnum.SUNDAY;
+import static by.andd3dfx.common.CustomEnum.WEDNESDAY;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -11,30 +13,29 @@ public class CustomEnumTest {
 
     @Test
     public void values() {
-        CustomEnum[] result = CustomEnum.values();
+        CustomEnum[] values = CustomEnum.values();
 
-        assertThat("Wrong size", result.length, is(2));
+        assertThat(values.length, is(7));
 
-        assertThat("Wrong entity, SUNDAY expected", result[0], is(SUNDAY));
-        assertThat("Wrong entity, MONDAY expected", result[1], is(MONDAY));
+        assertThat(values[0], is(MONDAY));
+        assertThat(values[6], is(SUNDAY));
     }
 
     @Test
     public void valueOf() {
-        CustomEnum result = CustomEnum.valueOf("MONDAY");
-
-        assertThat("Wrong entity, MONDAY expected", result, is(MONDAY));
+        assertThat(CustomEnum.valueOf("FRIDAY"), is(FRIDAY));
+        assertThat(CustomEnum.valueOf("SUNDAY"), is(SUNDAY));
     }
 
     @Test
     public void ordinal() {
-        assertThat("Ordinal value 0 expected", SUNDAY.ordinal(), is(0));
-        assertThat("Ordinal value 1 expected", MONDAY.ordinal(), is(1));
+        assertThat(MONDAY.ordinal(), is(0));
+        assertThat(WEDNESDAY.ordinal(), is(2));
     }
 
     @Test
     public void name() {
-        assertThat("SUNDAY expected", SUNDAY.name(), is("SUNDAY"));
-        assertThat("MONDAY expected", MONDAY.name(), is("MONDAY"));
+        assertThat(SUNDAY.name(), is("SUNDAY"));
+        assertThat(MONDAY.name(), is("MONDAY"));
     }
 }
