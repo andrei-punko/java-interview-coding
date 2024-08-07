@@ -2,37 +2,45 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static by.andd3dfx.common.DrivingExamTest.Action.END;
+import static by.andd3dfx.common.DrivingExamTest.Action.EXECUTE;
+import static by.andd3dfx.common.DrivingExamTest.Action.MARK_NEGATIVE;
+import static by.andd3dfx.common.DrivingExamTest.Action.START;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DrivingExamTest {
 
+    enum Action {
+        START, EXECUTE, MARK_NEGATIVE, END
+    }
+
     class CustomExercise extends Exercise {
-        boolean startCalled = false;
-        boolean executeCalled = false;
-        boolean markNegativePointsCalled = false;
-        boolean endCalled = false;
+        List<Action> actionLog = new ArrayList<>();
 
         @Override
         public void start() {
-            startCalled = true;
+            actionLog.add(START);
             super.start();
         }
 
         @Override
         public void execute() {
-            executeCalled = true;
+            actionLog.add(EXECUTE);
             super.execute();
         }
 
         @Override
         public void markNegativePoints() {
-            markNegativePointsCalled = true;
+            actionLog.add(MARK_NEGATIVE);
             super.markNegativePoints();
         }
 
         @Override
         public void end() {
-            endCalled = true;
+            actionLog.add(END);
             super.end();
         }
     }
@@ -43,10 +51,7 @@ public class DrivingExamTest {
 
         DrivingExam.executeExercise(exercise);
 
-        assertThat(exercise.startCalled).isTrue();
-        assertThat(exercise.executeCalled).isTrue();
-        assertThat(exercise.markNegativePointsCalled).isFalse();
-        assertThat(exercise.endCalled).isTrue();
+        assertThat(exercise.actionLog).isEqualTo(List.of(START, EXECUTE, END));
     }
 
     @Test
@@ -61,10 +66,7 @@ public class DrivingExamTest {
 
         DrivingExam.executeExercise(exercise);
 
-        assertThat(exercise.startCalled).isTrue();
-        assertThat(exercise.executeCalled).isFalse();
-        assertThat(exercise.markNegativePointsCalled).isTrue();
-        assertThat(exercise.endCalled).isTrue();
+        assertThat(exercise.actionLog).isEqualTo(List.of(START, MARK_NEGATIVE, END));
     }
 
     @Test
@@ -79,14 +81,32 @@ public class DrivingExamTest {
 
         DrivingExam.executeExercise(exercise);
 
-        assertThat(exercise.startCalled).isTrue();
-        assertThat(exercise.executeCalled).isTrue();
-        assertThat(exercise.markNegativePointsCalled).isTrue();
-        assertThat(exercise.endCalled).isTrue();
+        assertThat(exercise.actionLog).isEqualTo(List.of(START, EXECUTE, MARK_NEGATIVE, END));
     }
 
     @Test
-    public void executeExerciseWhenExecuteNMarkNegativePointsFailed() {
+    public void executeExerciseWhenStartAndMarkNegativeFailed() {
+        var exercise = new CustomExercise() {
+            @Override
+            public void start() {
+                super.start();
+                throw new RuntimeException();
+            }
+
+            @Override
+            public void markNegativePoints() {
+                super.markNegativePoints();
+                throw new RuntimeException();
+            }
+        };
+
+        DrivingExam.executeExercise(exercise);
+
+        assertThat(exercise.actionLog).isEqualTo(List.of(START, MARK_NEGATIVE, END));
+    }
+
+    @Test
+    public void executeExerciseWhenExecuteAndMarkNegativeFailed() {
         var exercise = new CustomExercise() {
             @Override
             public void execute() {
@@ -103,9 +123,6 @@ public class DrivingExamTest {
 
         DrivingExam.executeExercise(exercise);
 
-        assertThat(exercise.startCalled).isTrue();
-        assertThat(exercise.executeCalled).isTrue();
-        assertThat(exercise.markNegativePointsCalled).isTrue();
-        assertThat(exercise.endCalled).isTrue();
+        assertThat(exercise.actionLog).isEqualTo(List.of(START, EXECUTE, MARK_NEGATIVE, END));
     }
 }

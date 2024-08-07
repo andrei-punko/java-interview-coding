@@ -1,5 +1,7 @@
 package by.andd3dfx.common;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * <pre>
  * Implement the executeExercise() method by doing the following:
@@ -33,6 +35,8 @@ package by.andd3dfx.common;
  *   public void end() { System.out.println("End"); }
  * }
  * </pre>
+ *
+ * @see <a href="https://youtu.be/HmQ4u9UFOVQ">Video solution</a>
  */
 public class DrivingExam {
 
@@ -67,25 +71,26 @@ interface IExercise {
     void end();
 }
 
+@Slf4j
 class Exercise implements IExercise {
 
     @Override
     public void start() {
-        System.out.println("Start");
+        log.info("Start");
     }
 
     @Override
     public void execute() {
-        System.out.println("Execute");
+        log.info("Execute");
     }
 
     @Override
     public void markNegativePoints() {
-        System.out.println("MarkNegativePoints");
+        log.info("MarkNegativePoints");
     }
 
     @Override
     public void end() {
-        System.out.println("End");
+        log.info("End");
     }
 }
