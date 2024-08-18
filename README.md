@@ -227,6 +227,7 @@ they contain enough code which describes implementation in a natural way.
 | LFU кэш #2 (Least Frequently Used) (leetcode)                                                    | [Youtube](https://youtu.be/sZrNyIrwjnc) | [Code](src/main/java/by/andd3dfx/cache/LFUCacheUsingTime.java)                                                                                                                      |
 | Слияние K упорядоченных массивов                                                                 | [Youtube](https://youtu.be/HqGYyGYKtBs) | [Code](src/main/java/by/andd3dfx/common/MergeSortedArrays.java)                                                                                                                     |
 | Водительский экзамен                                                                             | [Youtube](https://youtu.be/HmQ4u9UFOVQ) | [Code](src/main/java/by/andd3dfx/common/DrivingExam.java)                                                                                                                           |
+| Рефакторинг Spring Boot сервиса из тестового задания                                             | [Youtube](https://youtu.be/esueccOEQZE) | [Code](https://github.com/andrei-punko/voting-service)                                                                                                                              |
 
 ## Materials & notes
 
