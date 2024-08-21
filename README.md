@@ -229,6 +229,7 @@ they contain enough code which describes implementation in a natural way.
 | Водительский экзамен                                                                             | [Youtube](https://youtu.be/HmQ4u9UFOVQ) | [Code](src/main/java/by/andd3dfx/common/DrivingExam.java)                                                                                                                           |
 | Рефакторинг Spring Boot сервиса из тестового задания                                             | [Youtube](https://youtu.be/esueccOEQZE) | [Code](https://github.com/andrei-punko/voting-service)                                                                                                                              |
 | Ревью кода из интервью #6 (LIVE)                                                                 | [Youtube](https://youtu.be/-OOgpwq9bMI) | -                                                                                                                                                                                   |
+| Поиск маршрута спуска золотоискателя с горы                                                      | [Youtube](https://youtu.be/UVwWmVbSq9g) | [Code](src/main/java/by/andd3dfx/dynamic/GoldDigger.java)                                                                                                                           |
 
 ## Materials & notes
 
