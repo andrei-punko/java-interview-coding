@@ -27,40 +27,42 @@ import java.util.Set;
  *   Input: n = 2
  *   Output: false
  * </pre>
+ *
+ * @see <a href="https://youtu.be/9viwbL63DnU">Video solution</a>
  */
 public class HappyNumber {
 
     public static boolean isHappyUsingMemory(int n) {
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> numbers = new HashSet<>();
 
-        var tmp = getSumOfSquares(n);
-        while (tmp != 1 && set.add(tmp)) {
-            tmp = getSumOfSquares(tmp);
+        var tmp = sumOfDigitSquares(n);
+        while (tmp != 1 && numbers.add(tmp)) {
+            tmp = sumOfDigitSquares(tmp);
         }
         return tmp == 1;
     }
 
     public static boolean isHappyUsing2Pointers(int n) {
-        var p1 = getSumOfSquares(n);
-        var p2 = getSumOfSquares(p1);
+        var p1 = sumOfDigitSquares(n);
+        var p2 = sumOfDigitSquares(p1);
 
         do {
             // p1: 1 step
-            p1 = getSumOfSquares(p1);
+            p1 = sumOfDigitSquares(p1);
 
             // p2: 2 steps
-            p2 = getSumOfSquares(p2);
+            p2 = sumOfDigitSquares(p2);
             if (p1 == p2) {
                 return p1 == 1;
             }
-            p2 = getSumOfSquares(p2);
+            p2 = sumOfDigitSquares(p2);
             if (p1 == p2) {
                 return p1 == 1;
             }
         } while (true);
     }
 
-    private static int getSumOfSquares(int n) {
+    private static int sumOfDigitSquares(int n) {
         var result = 0;
         while (n > 0) {
             var remainder = n % 10;
