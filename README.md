@@ -232,6 +232,7 @@ they contain enough code which describes implementation in a natural way.
 | Поиск маршрута спуска золотоискателя с горы                                                      | [Youtube](https://youtu.be/UVwWmVbSq9g) | [Code](src/main/java/by/andd3dfx/dynamic/GoldDigger.java)                                                                                                                           |
 | Счастливое число (2 решения) (leetcode)                                                          | [Youtube](https://youtu.be/9viwbL63DnU) | [Code](src/main/java/by/andd3dfx/numeric/HappyNumber.java)                                                                                                                          |
 | Spring Boot приложение с использованием PostgreSQL JSONB                                         | [Youtube](https://youtu.be/AzvJe9ij53o) | [Repo](https://github.com/andrei-punko/spring-boot-jsonb)                                                                                                                           |
+| Настройка Win OS для разработки на Java                                                          | [Youtube](https://youtu.be/3K86F1C7hNI) | [Repo](https://github.com/andrei-punko/swing-app-google-search)                                                                                                                     |
 
 ## Materials & notes
 
