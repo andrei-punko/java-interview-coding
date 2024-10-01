@@ -10,7 +10,8 @@
 ## Prerequisites
 
 - JDK 21
-- Gradle isn't required because of embedded Gradle presence in the project
+
+Gradle isn't required because of embedded Gradle presence in the project
 
 ## How to build
 
@@ -234,6 +235,7 @@ they contain enough code which describes implementation in a natural way.
 | Spring Boot приложение с использованием PostgreSQL JSONB                                         | [Youtube](https://youtu.be/AzvJe9ij53o) | [Repo](https://github.com/andrei-punko/spring-boot-jsonb)                                                                                                                           |
 | Настройка Win OS для разработки на Java                                                          | [Youtube](https://youtu.be/3K86F1C7hNI) | [Repo](https://github.com/andrei-punko/swing-app-google-search)                                                                                                                     |
 | Realtime анализатор спектра звука на Java                                                        | [Youtube](https://youtu.be/OfHj-EmXh2k) | [Repo](https://github.com/andrei-punko/java-sandbox)                                                                                                                                |
+| Как найти утерянный коммит: Git reflog                                                           | [Youtube](https://youtu.be/LJZ1Hce_6xc) | -                                                                                                                                                                                   |
 
 ## Materials & notes
 
