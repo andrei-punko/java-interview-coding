@@ -17,6 +17,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class RegExpCheckerTest {
 
     @Test
+    public void ipAddressRegExp() {
+        assertThat(extractStringByRegExp("((\\d{1,2}|1\\d{2}|2[0-5]{2})\\.){3}((\\d{1,2}|1\\d{2}|2[0-5]{2}))",
+                        "Bla, some ip-address 192.168.1.1 here."), is("192.168.1.1"));
+    }
+
+    @Test
     public void repeatableExpressions() {
         assertThat("Color should be found",
             extractStringByRegExp("#[0-9A-Fa-f]{6}", "RGB color: #FF3E20"),
@@ -54,6 +60,13 @@ public class RegExpCheckerTest {
         assertThat("First price without '$' sign should be found",
             extractStringByRegExp("\\d+(?=\\$)", "We bought 2 shirts for 30$ and socks for 9$."),
             is("30"));
+    }
+
+    @Test
+    public void reuseAlreadyDeclaredExpressionWithLinkAndLookForwardAndBackward() {
+        assertThat("Inner content of tag <h1> should be found",
+                extractStringByRegExp("(?<=<([hH][1-6])>).*(?=</\\1>)", "Bla, some <h1>test string</h1> here."),
+                is("test string"));
     }
 
     @Test
