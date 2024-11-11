@@ -248,7 +248,7 @@ they contain enough code which describes implementation in a natural way.
 | Java интервью 10                                                                                 | [Youtube](https://youtu.be/pcohe8zh314) | -                                                                                                                                                                                   |
 | Java интервью 11                                                                                 | [Youtube](https://youtu.be/zufbVgdBCAI) | -                                                                                                                                                                                   |
 | Java интервью 12                                                                                 | [Youtube](https://youtu.be/PD41epg_pT4) | -                                                                                                                                                                                   |
-| Функциональные тесты Spring Boot сервиса с помощью Spock                                         | [Youtube](https://youtu.be/GK5y3oA3qfM) | -                                                                                                                                                                                   |
+| Функциональные тесты REST API с помощью Spock                                                    | [Youtube](https://youtu.be/GK5y3oA3qfM) | -                                                                                                                                                                                   |
 
 ## Materials & notes
 
