@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 
 /**
  * Determine height/depth of binary tree
+ *
+ * @see <a href="https://youtu.be/xTftgqH0WVI">Video solution</a>
  */
 public class TreeHeight {
 

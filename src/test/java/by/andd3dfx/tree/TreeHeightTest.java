@@ -12,7 +12,7 @@ public class TreeHeightTest {
     public void testCalcHeight() {
         var two = new Node(2);
         var three = new Node(3, new Node(4), null);
-        Node root = new Node(1, two, three);
+        var root = new Node(1, two, three);
 
         assertThat(calcHeight(root)).isEqualTo(3);
         assertThat(calcHeight(two)).isEqualTo(1);
