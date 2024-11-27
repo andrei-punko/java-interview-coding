@@ -1,4 +1,3 @@
-
 We have initial code (see below). Implement required TODOs
 
 ```java
@@ -84,10 +83,12 @@ public class FurnitureOrder implements FurnitureOrderInterface {
 ```
 
 Use next tests to check validity:
+
 - [FurnitureOrderFirstTest](../../../../../../test/java/by/andd3dfx/common/furniture/FurnitureOrderFirstTest.java)
 - [FurnitureOrderSecondTest](../../../../../../test/java/by/andd3dfx/common/furniture/FurnitureOrderSecondTest.java)
 
 ```java
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FurnitureOrderFirstTest {
 

@@ -1,6 +1,7 @@
 # Birds farm
 
 Add the missing code to Chicken and Egg so the following actions are completed:
+
 - Chicken implements the IBird base class.
 - A Chicken lays an egg that will hatch into a new Chicken.
 - Eggs from other types of birds should hatch into a new bird of their parent type.
@@ -33,6 +34,7 @@ class Egg {
 ```
 
 Tests:
+
 - Chicken is an IBird
 - Chickens make other chickens
 - Other birds don't make chickens

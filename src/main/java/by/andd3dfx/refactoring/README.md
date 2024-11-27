@@ -1,5 +1,5 @@
-
 Провести рефакторинг 3-х классов:
+
 ```java
 public class Event {
     private final String type;
