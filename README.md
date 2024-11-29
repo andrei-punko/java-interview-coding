@@ -5,7 +5,7 @@
 [![Branches](.github/badges/branches.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml)
 
 <a href="https://andrei-punko.github.io/java-interview-faq-n-answers"><img src="images/button_java-interview-faq.png" alt="Java interview FAQ" height="40"/></a>
-<a href="https://boosty.to/andd3dfx/donate"><img src="images/button_donate.png" alt="Donate" height="40"/></a>
+<a href="https://www.donationalerts.com/r/andd3dfx"><img src="images/button_donate.png" alt="Donate" height="40"/></a>
 
 ## Prerequisites
 
@@ -251,6 +251,8 @@ they contain enough code which describes implementation in a natural way.
 | Функциональные тесты REST API с помощью Spock                                                    | [Youtube](https://youtu.be/GK5y3oA3qfM) | -                                                                                                                                                                                   |
 | Вавилонский метод вычисления квадратного корня (leetcode)                                        | [Youtube](https://youtu.be/41zAzebmOuc) | [Code](src/main/java/by/andd3dfx/numeric/SquareRootBabylon.java)                                                                                                                    |
 | Определение высоты бинарного дерева                                                              | [Youtube](https://youtu.be/xTftgqH0WVI) | [Code](src/main/java/by/andd3dfx/tree/TreeHeight.java)                                                                                                                              |
+| Dummy, Fake, Stub, Spy, Mock                                                                     | [Youtube](https://youtu.be/KkXqW8vMD-4) | -                                                                                                                                                                                   |
+| Нагрузочное тестирование Spring Boot сервиса с помощью Gatling                                   | [Youtube](https://youtu.be/uO9luM8wowo) | [Repo](https://github.com/andrei-punko/articles-backend-app)                                                                                                                        |
 
 ## Materials & notes
 
