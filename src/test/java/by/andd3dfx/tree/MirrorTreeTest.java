@@ -3,7 +3,6 @@ package by.andd3dfx.tree;
 import by.andd3dfx.tree.MirrorTree.Node;
 import org.junit.Test;
 
-import static by.andd3dfx.tree.MirrorTree.mirror;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MirrorTreeTest {
@@ -31,7 +30,7 @@ public class MirrorTreeTest {
         var _5 = new Node(5, _6, _7);
         var _4 = new Node(4, _3, _5);
 
-        var result = mirror(_4);
+        var result = MirrorTree.mirror(_4);
 
         assertThat(result).isEqualTo(_4);
         check(_4, _5, _3);
@@ -41,6 +40,8 @@ public class MirrorTreeTest {
         check(_6, _0, _9);
         check(_2, _8, null);
         check(_1, null, null);
+        check(_0, null, null);
+        check(_9, null, null);
         check(_8, null, _m2);
     }
 

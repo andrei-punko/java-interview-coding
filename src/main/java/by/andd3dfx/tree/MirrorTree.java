@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 
 /**
  * Mirror binary tree: for each node left & right sub nodes should be swapped
+ *
+ * @see <a href="https://youtu.be/H2BBCUcVXDM">Video solution</a>
  */
 public class MirrorTree {
 
@@ -12,9 +14,9 @@ public class MirrorTree {
             return null;
         }
 
-        var oldLeft = mirror(node.left);
+        var oldLeft = node.left;
         node.left = mirror(node.right);
-        node.right = oldLeft;
+        node.right = mirror(oldLeft);
         return node;
     }
 
