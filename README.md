@@ -254,6 +254,7 @@ they contain enough code which describes implementation in a natural way.
 | Dummy, Fake, Stub, Spy, Mock                                                                     | [Youtube](https://youtu.be/KkXqW8vMD-4) | -                                                                                                                                                                                   |
 | Нагрузочное тестирование Spring Boot сервиса с помощью Gatling                                   | [Youtube](https://youtu.be/uO9luM8wowo) | [Repo](https://github.com/andrei-punko/articles-backend-app)                                                                                                                        |
 | Отражение бинарного дерева                                                                       | [Youtube](https://youtu.be/H2BBCUcVXDM) | [Code](src/main/java/by/andd3dfx/tree/MirrorTree.java)                                                                                                                              |
+| Web crawler (парсер сайта) на Java                                                               | [Youtube](https://youtu.be/4qxvkALcWjQ) | [Repo](https://github.com/andrei-punko/java-crawlers)                                                                                                                               |
 
 ## Materials & notes
 
