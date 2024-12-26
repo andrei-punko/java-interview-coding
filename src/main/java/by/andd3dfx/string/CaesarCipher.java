@@ -36,6 +36,8 @@ import java.util.stream.Collectors;
  * Выходные данные:
  * это яблоко красное
  * </pre>
+ *
+ * @see <a href="https://youtu.be/pjQ9sYo5bVE">Video solution</a>
  */
 public class CaesarCipher {
 
@@ -43,35 +45,29 @@ public class CaesarCipher {
     private static final String ALPHABET = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
     public String encode(String text, int shift) {
+        return encodeWordWithSpacesSupport(text, shift);
+    }
+
+    public String decode(String text, int shift) {
+        return encodeWordWithSpacesSupport(text, -shift);
+    }
+
+    private String encodeWordWithSpacesSupport(String text, int shift) {
         var words = text.split(" ");
         return Arrays.stream(words)
                 .map(word -> encodeWord(word, shift))
                 .collect(Collectors.joining(" "));
     }
 
-    private String encodeWord(String text, int shift) {
-        var chars = text.toCharArray();
+    private String encodeWord(String word, int shift) {
+        var chars = word.toCharArray();
         for (var i = 0; i < chars.length; i++) {
-            var targetIndex = ALPHABET.indexOf(chars[i]) + shift;
-            targetIndex %= ALPHABET.length();
-            chars[i] = ALPHABET.charAt(targetIndex);
-        }
-        return new String(chars);
-    }
-
-    public String decode(String encryptedText, int shift) {
-        var words = encryptedText.split(" ");
-        return Arrays.stream(words)
-                .map(word -> decodeWord(word, shift))
-                .collect(Collectors.joining(" "));
-    }
-
-    private String decodeWord(String encryptedText, int shift) {
-        var chars = encryptedText.toCharArray();
-        for (var i = 0; i < chars.length; i++) {
-            var targetIndex = ALPHABET.indexOf(chars[i]) - shift + ALPHABET.length();
-            targetIndex %= ALPHABET.length();
-            chars[i] = ALPHABET.charAt(targetIndex);
+            var index = ALPHABET.indexOf(chars[i]) + shift;
+            while (index < 0) {
+                index += ALPHABET.length();
+            }
+            index %= ALPHABET.length();
+            chars[i] = ALPHABET.charAt(index);
         }
         return new String(chars);
     }

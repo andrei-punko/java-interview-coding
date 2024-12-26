@@ -259,6 +259,7 @@ they contain enough code which describes implementation in a natural way.
 | Как скачать видео с Boosty                                                                       | [Youtube](https://youtu.be/b3ox1_xEx4U) | [Boosty](https://boosty.to/andd3dfx)                                                                                                                                                |
 | Прохождение теста подтверждения практического навыка "средний" по Java на hh.ru                  | [Youtube](https://youtu.be/ja4nLzZSj3s) | -                                                                                                                                                                                   |
 | Прохождение теста подтверждения практического навыка "продвинутый" по Java на hh.ru              | [Youtube](https://youtu.be/ce3g0nIJl24) | -                                                                                                                                                                                   |
+| Декодирование шифра Цезаря                                                                       | [Youtube](https://youtu.be/pjQ9sYo5bVE) | [Code](src/main/java/by/andd3dfx/string/CaesarCipher.java)                                                                                                                          |
 
 ## Materials & notes
 
