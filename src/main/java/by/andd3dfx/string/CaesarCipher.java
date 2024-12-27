@@ -45,23 +45,20 @@ public class CaesarCipher {
     private static final String ALPHABET = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
     public String encode(String text, int shift) {
-        return encodeWordWithSpacesSupport(text, shift);
+        return encodeInner(text, shift);
     }
 
     public String decode(String text, int shift) {
-        return encodeWordWithSpacesSupport(text, -shift);
+        return encodeInner(text, -shift);
     }
 
-    private String encodeWordWithSpacesSupport(String text, int shift) {
-        var words = text.split(" ");
-        return Arrays.stream(words)
-                .map(word -> encodeWord(word, shift))
-                .collect(Collectors.joining(" "));
-    }
-
-    private String encodeWord(String word, int shift) {
+    private String encodeInner(String word, int shift) {
         var chars = word.toCharArray();
         for (var i = 0; i < chars.length; i++) {
+            if (chars[i] == ' ') {
+                continue;
+            }
+
             var index = ALPHABET.indexOf(chars[i]) + shift;
             while (index < 0) {
                 index += ALPHABET.length();
