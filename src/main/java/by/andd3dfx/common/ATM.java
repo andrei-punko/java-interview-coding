@@ -25,10 +25,31 @@ public class ATM {
                 .sorted(Comparator.reverseOrder()).toList();
     }
 
+    /**
+     * Withdraw asked amount using banknotes of ATM
+     *
+     * @param amount sum asked to withdraw
+     * @return map with solution - pairs {banknote nominal->quantity}
+     */
     public Map<Integer, Integer> withdraw(int amount) {
+        // Try to make withdraw using banknote of highest nominal,
+        // in case of fail - try to start from next nominal
+        for (int startingBanknoteIndex = 0; startingBanknoteIndex < nominals.size(); startingBanknoteIndex++) {
+            var result = withdraw(amount, startingBanknoteIndex);
+
+            if (result != null) {
+                return result;
+            }
+        }
+
+        throw new IllegalStateException("Could not perform withdraw!");
+    }
+
+    private Map<Integer, Integer> withdraw(int amount, int startingBanknoteIndex) {
         var result = new HashMap<Integer, Integer>();
 
-        for (var nominal : nominals) {
+        for (var index = startingBanknoteIndex; index < nominals.size(); index++) {
+            var nominal = nominals.get(index);
             if (nominal > amount || state.get(nominal) == 0) {
                 continue;
             }
@@ -45,7 +66,7 @@ public class ATM {
         }
 
         if (amount > 0) {
-            throw new IllegalStateException("Could not perform withdraw!");
+            return null;
         }
 
         for (var nominal : result.keySet()) {

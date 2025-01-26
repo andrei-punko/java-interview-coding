@@ -16,8 +16,8 @@ public class ATMTest {
     public void setUp() throws Exception {
         atm = new ATM(Map.of(
                 500, 1,
-                100, 2,
-                50, 10
+                200, 3,
+                50, 5
         ));
     }
 
@@ -26,8 +26,23 @@ public class ATMTest {
         var result = atm.withdraw(450);
 
         assertThat(result).isEqualTo(Map.of(
-                100, 2,
-                50, 5
+                200, 2,
+                50, 1
+        ));
+    }
+
+    @Test
+    public void withdrawWhenHighGradeBanknotePresentButShouldNotBeUsed() {
+        // Spend all 50 banknotes
+        for (int i = 0; i < 5; i++) {
+            atm.withdraw(50);
+        }
+
+        // Ask 600, ATM has only 500 & 200 banknotes at this moment
+        var result = atm.withdraw(600);
+
+        assertThat(result).isEqualTo(Map.of(
+                200, 3
         ));
     }
 
@@ -42,14 +57,13 @@ public class ATMTest {
         var result = atm.withdraw(650);
         assertThat(result).isEqualTo(Map.of(
                 500, 1,
-                100, 1,
-                50, 1
+                50, 3
         ));
 
-        var result2 = atm.withdraw(250);
+        var result2 = atm.withdraw(650);
         assertThat(result2).isEqualTo(Map.of(
-                100, 1,
-                50, 3
+                200, 3,
+                50, 1
         ));
     }
 }
