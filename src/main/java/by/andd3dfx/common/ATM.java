@@ -45,10 +45,10 @@ public class ATM {
         throw new IllegalStateException("Could not perform withdraw!");
     }
 
-    private Map<Integer, Integer> withdraw(int amount, int startingBanknoteIndex) {
+    private Map<Integer, Integer> withdraw(int amount, int nominalIndex) {
         var result = new HashMap<Integer, Integer>();
 
-        for (var index = startingBanknoteIndex; index < nominals.size(); index++) {
+        for (var index = nominalIndex; index < nominals.size(); index++) {
             var nominal = nominals.get(index);
             if (nominal > amount || state.get(nominal) == 0) {
                 continue;
@@ -57,7 +57,6 @@ public class ATM {
             int count = amount / nominal;
             count = Math.min(count, state.get(nominal));
             result.put(nominal, count);
-
             amount -= nominal * count;
 
             if (amount == 0) {

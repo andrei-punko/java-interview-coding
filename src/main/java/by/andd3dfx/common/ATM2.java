@@ -46,6 +46,9 @@ public class ATM2 {
     }
 
     private Map<Integer, Integer> withdraw(int amount, int nominalIndex) {
+        if (amount == 0) {
+            return Map.of();
+        }
         if (nominalIndex >= nominals.size()) {
             throw new IllegalStateException("Could not perform withdraw!");
         }

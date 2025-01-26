@@ -22,6 +22,14 @@ public class ATMTest {
     }
 
     @Test
+    public void withdrawFor0() {
+        var result = atm.withdraw(0);
+
+        assertThat(result).isEqualTo(Map.of(
+        ));
+    }
+
+    @Test
     public void withdraw() {
         var result = atm.withdraw(450);
 
