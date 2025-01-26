@@ -34,11 +34,11 @@ public class ATM {
     public Map<Integer, Integer> withdraw(int amount) {
         // Try to make withdraw using banknote of highest nominal,
         // in case of fail - try to start from next nominal
-        for (int startingBanknoteIndex = 0; startingBanknoteIndex < nominals.size(); startingBanknoteIndex++) {
-            var result = withdraw(amount, startingBanknoteIndex);
-
-            if (result != null) {
-                return result;
+        for (int i = 0; i < nominals.size(); i++) {
+            try {
+                return withdraw(amount, i);
+            } catch (IllegalStateException ex) {
+                // do nothing
             }
         }
 
@@ -66,13 +66,16 @@ public class ATM {
         }
 
         if (amount > 0) {
-            return null;
+            throw new IllegalStateException("Could not perform withdraw!");
         }
 
+        mutateAtm(result);
+        return result;
+    }
+
+    private void mutateAtm(Map<Integer, Integer> result) {
         for (var nominal : result.keySet()) {
             state.put(nominal, state.get(nominal) - result.get(nominal));
         }
-
-        return result;
     }
 }
