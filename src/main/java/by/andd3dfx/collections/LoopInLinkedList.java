@@ -27,20 +27,20 @@ public class LoopInLinkedList {
 
         while (true) {
             fast = fast.next;
-            if (fast == slow) {
-                return true;
-            }
             if (fast == null) {
                 return false;
+            }
+            if (fast == slow) {
+                return true;
             }
 
             slow = slow.next;
             fast = fast.next;
-            if (fast == slow) {
-                return true;
-            }
             if (fast == null) {
                 return false;
+            }
+            if (fast == slow) {
+                return true;
             }
         }
     }
