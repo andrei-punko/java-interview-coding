@@ -1,8 +1,6 @@
-package by.andd3dfx.common;
+package by.andd3dfx.common.atm;
 
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,38 +12,14 @@ import java.util.Map;
  *
  * @see <a href="https://youtu.be/LDKZtDevRRI">Video solution</a>
  */
-public class ATM {
+public class AtmUsingLoop extends AbstractAtm {
 
-    private Map<Integer, Integer> state;
-    private List<Integer> nominals;
-
-    public ATM(Map<Integer, Integer> state) {
-        this.state = new HashMap<>(state);
-        this.nominals = state.keySet().stream()
-                .sorted(Comparator.reverseOrder()).toList();
+    public AtmUsingLoop(Map<Integer, Integer> state) {
+        super(state);
     }
 
-    /**
-     * Withdraw asked amount using banknotes of ATM
-     *
-     * @param amount sum asked to withdraw
-     * @return map with solution - pairs {banknote nominal->quantity}
-     */
-    public Map<Integer, Integer> withdraw(int amount) {
-        // Try to make withdraw using banknote of highest nominal,
-        // in case of fail - try to start from next nominal
-        for (int i = 0; i < nominals.size(); i++) {
-            try {
-                return withdraw(amount, i);
-            } catch (IllegalStateException ex) {
-                // do nothing
-            }
-        }
-
-        throw new IllegalStateException("Could not perform withdraw!");
-    }
-
-    private Map<Integer, Integer> withdraw(int amount, int nominalIndex) {
+    @Override
+    protected Map<Integer, Integer> withdraw(int amount, int nominalIndex) {
         var result = new HashMap<Integer, Integer>();
 
         for (var index = nominalIndex; index < nominals.size(); index++) {
@@ -70,11 +44,5 @@ public class ATM {
 
         mutateAtm(result);
         return result;
-    }
-
-    private void mutateAtm(Map<Integer, Integer> result) {
-        for (var nominal : result.keySet()) {
-            state.put(nominal, state.get(nominal) - result.get(nominal));
-        }
     }
 }

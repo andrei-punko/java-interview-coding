@@ -1,4 +1,4 @@
-package by.andd3dfx.common;
+package by.andd3dfx.common.atm;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,18 +8,20 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
 
-public class ATM2Test {
+public abstract class AbstractAtmTest {
 
-    private ATM2 atm;
+    private IAtm atm;
 
     @Before
     public void setUp() throws Exception {
-        atm = new ATM2(Map.of(
+        atm = buildAtm(Map.of(
                 500, 1,
                 200, 3,
                 50, 5
         ));
     }
+
+    protected abstract IAtm buildAtm(Map<Integer, Integer> state);
 
     @Test
     public void withdrawFor0() {
@@ -68,6 +70,7 @@ public class ATM2Test {
                 50, 3
         ));
 
+        // No 500 banknotes already, need to use 200
         var result2 = atm.withdraw(650);
         assertThat(result2).isEqualTo(Map.of(
                 200, 3,
