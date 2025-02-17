@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 import static by.andd3dfx.common.CountStreamers.EventType.START;
@@ -35,7 +34,7 @@ public class CountStreamers {
             events.add(new EventItem(time[1], STOP));
         }
 
-        Collections.sort(events, Comparator.comparingInt(EventItem::getTime));
+        events.sort(Comparator.comparingInt(EventItem::getTime));
 
         var current = 0;
         var max = 0;

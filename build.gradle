@@ -36,11 +36,11 @@ description = 'java-interview-coding'
 java.sourceCompatibility = JavaVersion.VERSION_21
 java.targetCompatibility = JavaVersion.VERSION_21
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
-tasks.withType(Test) {
+tasks.withType(Test).configureEach {
     testLogging {
         events "passed", "skipped", "failed",
                 // "standardOut",   // Uncomment to get all logs during tests execution
@@ -81,7 +81,7 @@ jacocoTestReport {
     }
 }
 
-task githubWorkflowTest(type: Test) {
+tasks.register('githubWorkflowTest', Test) {
     exclude '**/**AddMultithreadingTest.class'
     exclude '**/**BlockingQueueTest.class'
     exclude '**/**DeadlockTest.class'

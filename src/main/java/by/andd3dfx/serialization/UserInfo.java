@@ -9,10 +9,11 @@ import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.io.Serial;
 import java.util.Base64;
 
 /**
- * Check link for details: https://javarush.ru/groups/posts/2023-znakomstvo-s-interfeysom-externalizable
+ * Check for details this <a href="https://javarush.ru/groups/posts/2023-znakomstvo-s-interfeysom-externalizable">article</a>
  */
 @Data
 @Builder
@@ -20,6 +21,7 @@ import java.util.Base64;
 @AllArgsConstructor
 public class UserInfo implements Externalizable {
 
+    @Serial
     private static final long serialVersionUID = 2019L;
 
     private String firstName;

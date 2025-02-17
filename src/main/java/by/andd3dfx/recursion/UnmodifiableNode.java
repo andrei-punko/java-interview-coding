@@ -1,5 +1,7 @@
 package by.andd3dfx.recursion;
 
+import lombok.Getter;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ import java.util.stream.Stream;
 public final class UnmodifiableNode {
 
     private final List<UnmodifiableNode> children = new ArrayList<>();
+    @Getter
     private final Integer value;
 
     public UnmodifiableNode(Integer value) {
@@ -39,10 +42,6 @@ public final class UnmodifiableNode {
             this.children.addAll(children);
         }
         this.value = value;
-    }
-
-    public Integer getValue() {
-        return value;
     }
 
     public List<UnmodifiableNode> getChildren() {

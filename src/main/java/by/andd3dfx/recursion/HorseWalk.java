@@ -5,7 +5,6 @@ import lombok.Data;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.stream.Collectors;
 
 /**
  * Find solution for Horse Walk task: horse should visit each cell of NxN board one time
@@ -41,7 +40,7 @@ public class HorseWalk {
 
             int[][] board = new int[size][size];
             int positionNumber = 0;
-            for (Cell cell : log.stream().collect(Collectors.toList())) {
+            for (Cell cell : log.stream().toList()) {
                 positionNumber++;
                 board[cell.x][cell.y] = positionNumber;
             }

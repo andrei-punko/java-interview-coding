@@ -8,7 +8,7 @@ import java.util.function.Supplier;
  * <pre>
  * Examples of object creation when it defined as generic type.
  *
- * According to: https://stackoverflow.com/questions/75175/create-instance-of-generic-type-in-java
+ * According to <a href="https://stackoverflow.com/questions/75175/create-instance-of-generic-type-in-java">article</a>
  * </pre>
  *
  * @see <a href="https://youtu.be/vkn_2w-oJIo">Video solution</a>

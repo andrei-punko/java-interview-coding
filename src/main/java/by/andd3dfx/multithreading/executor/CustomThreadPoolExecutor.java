@@ -12,7 +12,7 @@ import lombok.SneakyThrows;
  * TaskExecutor will be responsible for executing tasks.
  * TaskExecutor exposes method submit() which will be called by task generating program, to submit a task.
  *
- * Based on http://www.makeinjava.com/custom-thread-pool-example-without-using-executor-framework/
+ * Based on <a href="http://www.makeinjava.com/custom-thread-pool-example-without-using-executor-framework/">article</a>
  * </pre>
  *
  * @see <a href="https://youtu.be/FmJasJ-W-Rs">Video solution</a>

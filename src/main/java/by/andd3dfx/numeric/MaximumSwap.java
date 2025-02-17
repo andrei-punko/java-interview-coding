@@ -56,8 +56,8 @@ public class MaximumSwap {
 
     private static int digitsToNum(int[] digits) {
         int result = 0;
-        for (var pos = 0; pos < digits.length; pos++) {
-            result = 10 * result + digits[pos];
+        for (int digit : digits) {
+            result = 10 * result + digit;
         }
         return result;
     }

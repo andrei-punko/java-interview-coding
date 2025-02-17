@@ -15,9 +15,9 @@ public class BucketSort {
         }
 
         // Fill in buckets
-        for (int i = 0; i < items.length; i++) {
-            var bucketIndex = determineBucketIndex(items[i], BUCKETS_COUNT);
-            buckets.get(bucketIndex).add(items[i]);
+        for (T t : items) {
+            var bucketIndex = determineBucketIndex(t, BUCKETS_COUNT);
+            buckets.get(bucketIndex).add(t);
         }
 
         int currIndex = 0;

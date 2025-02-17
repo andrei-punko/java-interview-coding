@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import java.util.concurrent.RecursiveTask;
 
 /**
- * Based on article: https://www.baeldung.com/java-future#overview-of-forkjointask
+ * Based on <a href="https://www.baeldung.com/java-future#overview-of-forkjointask">article</a>
  */
 @AllArgsConstructor
 public class FactorialSquareCalculator extends RecursiveTask<Integer> {

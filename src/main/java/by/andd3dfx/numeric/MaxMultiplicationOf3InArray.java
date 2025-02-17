@@ -17,7 +17,7 @@ public class MaxMultiplicationOf3InArray {
             throw new IllegalArgumentException("Input array should contain at least 3 elements!");
         }
 
-        var list = Arrays.stream(arr).boxed().sorted().collect(Collectors.toList());
+        var list = Arrays.stream(arr).boxed().sorted().toList();
         int size = list.size();
         var max1 = list.get(size - 3) * list.get(size - 2) * list.get(size - 1);
         var max2 = list.get(0) * list.get(size - 2) * list.get(size - 1);

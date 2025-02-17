@@ -16,7 +16,7 @@ import java.util.Deque;
  */
 public class TrainComposition {
 
-    private Deque<Integer> deque = new ArrayDeque<>();
+    private final Deque<Integer> deque = new ArrayDeque<>();
 
     public void attachWagonFromLeft(int wagonId) {
         deque.addFirst(wagonId);

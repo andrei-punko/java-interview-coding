@@ -22,7 +22,7 @@ import java.util.function.Predicate;
 public class CustomStream<T> {
 
     private List<T> list;
-    private List<Action> actions = new ArrayList<>();
+    private final List<Action> actions = new ArrayList<>();
 
     public CustomStream(List<T> list) {
         this.list = list;
@@ -49,7 +49,7 @@ public class CustomStream<T> {
 
     public CustomStream<T> filter(Predicate<T> predicate) {
         actions.add(stream -> {
-            List result = new ArrayList<>();
+            var result = new ArrayList<T>();
             for (var item : list) {
                 if (predicate.test(item)) {
                     result.add(item);
@@ -138,7 +138,7 @@ public class CustomStream<T> {
 
     public CustomStream<T> sorted(Comparator<? super T> comparator) {
         actions.add(stream -> {
-            Collections.sort(list, comparator);
+            list.sort(comparator);
         });
         return this;
     }
@@ -191,7 +191,7 @@ public class CustomStream<T> {
         List<Item> list = Arrays.asList(new Item(1, 3), new Item(2, 18), new Item(5, 11));
 
         var stream = new CustomStream<>(list);
-        List result = stream
+        var result = stream
                 .filter(item -> item.getY() > 10)
                 .map(Item::getX)
                 .collectToList();

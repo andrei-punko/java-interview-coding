@@ -36,9 +36,9 @@ public class CountNegativesInSortedMatrix {
         var n = grid[0].length;
         var result = 0;
 
-        for (int i = 0; i < m; i++) {
+        for (int[] gridItem : grid) {
             for (int j = 0; j < n; j++) {
-                if (grid[i][j] < 0) {
+                if (gridItem[j] < 0) {
                     result += n - j;    // add count of numbers from current to the end of row (because of sorted row)
                     break;
                 }

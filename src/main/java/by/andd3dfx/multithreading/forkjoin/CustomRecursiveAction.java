@@ -7,7 +7,7 @@ import java.util.concurrent.RecursiveAction;
 import java.util.logging.Logger;
 
 /**
- * Based on article https://www.baeldung.com/java-fork-join
+ * Based on <a href="https://www.baeldung.com/java-fork-join">article</a>
  */
 public class CustomRecursiveAction extends RecursiveAction {
 

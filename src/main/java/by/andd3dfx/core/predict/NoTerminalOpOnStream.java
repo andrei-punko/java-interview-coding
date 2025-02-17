@@ -30,7 +30,7 @@ public class NoTerminalOpOnStream {
         Stream<String> stream = Stream.of("foo", "bar", "foo", "bar");
         Stream<String> result = bar(stream);
 
-        /**
+        /*
          * Кажется, что будет выведено 'foofoo', но на стриме не вызвана терминальная операция,
          * поэтому будет выведена только надпись `start bar`.
          */

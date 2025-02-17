@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
  */
 public class RecursiveIterator<Object> implements Iterator<Object> {
 
-    private Deque<Iterator<Object>> stack = new ArrayDeque<>();
+    private final Deque<Iterator<Object>> stack = new ArrayDeque<>();
 
     public RecursiveIterator(Iterator<Object> iterator) {
         stack.push(iterator);

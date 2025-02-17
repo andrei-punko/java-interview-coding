@@ -7,7 +7,6 @@ import java.util.Comparator;
 import java.util.Deque;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.stream.Collectors;
 
 /**
  * <pre>
@@ -28,7 +27,7 @@ public class SortedSquares {
         return Arrays.stream(items)
                 .map(integer -> integer * integer)
                 .sorted()
-                .collect(Collectors.toList())
+                .toList()
                 .toArray(new Integer[0]);
     }
 

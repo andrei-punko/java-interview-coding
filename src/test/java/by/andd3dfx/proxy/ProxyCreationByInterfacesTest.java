@@ -9,7 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Dynamic proxy usage example
- * Based on http://www.baeldung.com/java-dynamic-proxies
+ * Based on <a href="http://www.baeldung.com/java-dynamic-proxies">article</a>
  */
 public class ProxyCreationByInterfacesTest {
 

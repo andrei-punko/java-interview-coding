@@ -27,7 +27,7 @@ import java.util.Map;
  */
 public class Stories {
 
-    private static Map<Integer, Integer> cache = new HashMap<>();
+    private static final Map<Integer, Integer> cache = new HashMap<>();
 
     public static int combinations(int numberOfStories) {
         return fibonacci(numberOfStories + 1);

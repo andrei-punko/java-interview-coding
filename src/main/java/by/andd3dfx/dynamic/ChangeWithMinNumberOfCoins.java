@@ -24,7 +24,7 @@ import static java.lang.Integer.MAX_VALUE;
  */
 public class ChangeWithMinNumberOfCoins {
 
-    public static int determine_usingRecursion(int coins[], int amount) {
+    public static int determine_usingRecursion(int[] coins, int amount) {
         Arrays.sort(coins);
         var result = innerRecursion(coins, amount);
 
@@ -56,7 +56,7 @@ public class ChangeWithMinNumberOfCoins {
         return result;
     }
 
-    public static int determine_usingMemoization(int coins[], int amount) {
+    public static int determine_usingMemoization(int[] coins, int amount) {
         // The minCoins[i] will be storing the minimum number of coins required for `i` value.
         // So minCoins[amount] will have a result
         int[] minCoins = new int[amount + 1];

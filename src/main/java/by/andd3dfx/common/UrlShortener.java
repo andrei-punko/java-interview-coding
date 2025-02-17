@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * <pre>
- * According to https://stackoverflow.com/questions/742013/how-do-i-create-a-url-shortener/742047
+ * According to <a href="https://stackoverflow.com/questions/742013/how-do-i-create-a-url-shortener/742047">article</a>
  *
  * - Реализовать сократитель ссылок
  * 1. берем строку из символов англ. алфавита и цифр: abc..zABC..Z01..9 (62 символа)
@@ -66,15 +66,15 @@ public class UrlShortener {
     String encodePrimaryKeyToShortString(Long dbPrimaryKey) {
         StringBuilder sb = new StringBuilder();
         while (dbPrimaryKey > 0) {
-            Long remainder = dbPrimaryKey % BASE;
-            sb.append(ALPHABET.charAt(remainder.intValue()));
+            long remainder = dbPrimaryKey % BASE;
+            sb.append(ALPHABET.charAt((int) remainder));
             dbPrimaryKey = dbPrimaryKey / BASE;
         }
         return sb.reverse().toString();
     }
 
     Long decodeShortStringToPrimaryKey(String shortString) {
-        Long result = 0L;
+        long result = 0L;
         for (char character : shortString.toCharArray()) {
             int charIndex = ALPHABET.indexOf(character);
             result = result * BASE + charIndex;

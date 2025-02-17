@@ -13,7 +13,7 @@ import java.util.Deque;
 public class HanoiTowers {
 
     @RequiredArgsConstructor
-    public class Column {
+    public static class Column {
         private final String name;
         @Getter
         private Deque<Integer> stack = new ArrayDeque<>();

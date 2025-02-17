@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Examples from this article: https://www.baeldung.com/java-completablefuture
+ * Examples from this <a href="https://www.baeldung.com/java-completablefuture">article</a>
  */
 public class FutureMain {
 

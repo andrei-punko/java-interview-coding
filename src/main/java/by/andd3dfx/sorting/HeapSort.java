@@ -22,7 +22,7 @@ public class HeapSort {
 
     // Heapify a subtree rooted with node items[root].
     // n is size of heap
-    private static <T extends Comparable> void heapify(T items[], int n, int root) {
+    private static <T extends Comparable> void heapify(T[] items, int n, int root) {
         var largest = root;
         var l = 2 * root + 1;
         var r = l + 1;

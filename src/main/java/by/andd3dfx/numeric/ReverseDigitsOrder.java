@@ -27,7 +27,7 @@ public class ReverseDigitsOrder {
             reversedString = "-" + reversedString;
         }
 
-        return Integer.valueOf(reversedString);
+        return Integer.parseInt(reversedString);
     }
 
     public static int usingNumber(int number) {

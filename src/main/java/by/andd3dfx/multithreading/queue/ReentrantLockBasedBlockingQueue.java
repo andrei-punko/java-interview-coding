@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * <pre>
  * Implementation of blocking queue based on locks.
  *
- * With help of https://www.baeldung.com/java-concurrent-locks
+ * With help of <a href="https://www.baeldung.com/java-concurrent-locks">article</a>
  * </pre>
  */
 @RequiredArgsConstructor

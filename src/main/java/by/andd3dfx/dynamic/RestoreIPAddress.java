@@ -53,7 +53,7 @@ public class RestoreIPAddress {
             if (substring.matches("^0+\\d+")) {
                 continue;
             }
-            var number = Integer.valueOf(substring);
+            var number = Integer.parseInt(substring);
             if (number <= 255) {
                 solve(s.substring(i), result, tmp + "." + number, numbersAmount + 1);
             }

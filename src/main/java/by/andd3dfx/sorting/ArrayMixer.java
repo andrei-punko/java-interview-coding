@@ -13,8 +13,7 @@ public class ArrayMixer {
 
     /**
      * <pre>
-     * Use Fisher–Yates algorithm:
-     * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+     * Use Fisher–Yates algorithm from <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">article</a>
      * </pre>
      */
     public static <T> void shuffle(T[] array) {

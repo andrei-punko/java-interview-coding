@@ -3,7 +3,6 @@ package by.andd3dfx.common;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Write a function that accept one argument of object type and print all values of own properties (that are not
@@ -32,7 +31,7 @@ public class PropertiesExtractor {
                 result.add(extract(value));
             }
         }
-        return result.stream().collect(Collectors.joining(" "));
+        return String.join(" ", result);
     }
 
     private static Object extractValue(Field field, Object obj) throws IllegalAccessException {

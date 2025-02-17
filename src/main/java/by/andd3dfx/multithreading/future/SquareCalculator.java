@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * Based on article: https://www.baeldung.com/java-future
+ * Based on <a href="https://www.baeldung.com/java-future">article</a>
  */
 public class SquareCalculator {
 

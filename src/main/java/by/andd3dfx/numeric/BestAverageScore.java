@@ -36,8 +36,8 @@ public class BestAverageScore {
         return nameToAvgMarkMap.entrySet().stream()
             .sorted(Collections.reverseOrder(Entry.comparingByValue()))
             .limit(1)
-            .collect(Collectors.toList())
-            .get(0).getValue();
+            .toList()
+            .getFirst().getValue();
     }
 
     @Getter

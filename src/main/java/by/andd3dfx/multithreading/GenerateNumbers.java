@@ -18,7 +18,7 @@ public class GenerateNumbers {
         pool = Executors.newFixedThreadPool(4);
     }
 
-    public class RandomGeneratorTask implements Runnable {
+    public static class RandomGeneratorTask implements Runnable {
         @Override
         public void run() {
             for (int i = 0; i < 5; i++) {     //Should be 250_000 here

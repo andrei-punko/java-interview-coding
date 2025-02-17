@@ -40,7 +40,7 @@ public class AddDigits {
     }
 
     /**
-     * https://en.wikipedia.org/wiki/Digital_root
+     * See <a href="https://en.wikipedia.org/wiki/Digital_root">article</a>
      */
     public static int addDigits_usingDigitalRoot(int num) {
         if (num == 0) {

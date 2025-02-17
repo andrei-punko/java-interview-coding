@@ -9,8 +9,8 @@ public class LargestPit {
      * Given an Array A of integers, here is one way to look for the depth bestDepth of the deepest pit (P,Q,R) using a
      * variable status to know in every iteration where we are in the pit: going up or down. status will contain one the
      * values ‘P’ then ‘Q’ then ‘R’.
-     *
-     * According to: https://www.quora.com/What-is-the-algorithm-for-finding-the-deepest-pit-in-an-array
+     * <p>
+     * According to <a href="https://www.quora.com/What-is-the-algorithm-for-finding-the-deepest-pit-in-an-array">article</a>
      */
     public static int find(int[] heights) {
         if (heights.length < 3) {

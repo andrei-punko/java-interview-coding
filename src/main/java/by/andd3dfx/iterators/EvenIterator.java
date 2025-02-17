@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
 public class EvenIterator implements Iterator<Integer> {
 
     private final Iterator<Integer> it;
-    private Deque<Integer> stack = new ArrayDeque<>();
+    private final Deque<Integer> stack = new ArrayDeque<>();
 
     @Override
     public Integer next() {

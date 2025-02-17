@@ -10,9 +10,9 @@ import java.util.Iterator;
 public class CustomLinkedList<T> implements Iterable<T> {
 
     @AllArgsConstructor
-    public class Node<T> {
-        private T value;
-        private Node<T> next;
+    public static class Node<M> {
+        private M value;
+        private Node<M> next;
 
         @Override
         public String toString() {
@@ -36,22 +36,20 @@ public class CustomLinkedList<T> implements Iterable<T> {
         }
 
         if (index == 0) {
-            var newNode = new Node(value, head);
-            head = newNode;
+            head = new Node<>(value, head);
             size++;
             return;
         }
 
         int i = 1;
-        Node prev = head;
-        Node curr = head.next;
+        Node<T> prev = head;
+        Node<T> curr = head.next;
         while (i < index) {
             i++;
             prev = curr;
             curr = curr.next;
         }
-        var newNode = new Node(value, curr);
-        prev.next = newNode;
+        prev.next = new Node<>(value, curr);
         size++;
     }
 
@@ -152,11 +150,11 @@ public class CustomLinkedList<T> implements Iterable<T> {
     }
 
     public void reverse() {
-        Node prev = null;
-        Node curr = head;
+        Node<T> prev = null;
+        Node<T> curr = head;
 
         while (curr != null) {
-            Node next = curr.next;
+            Node<T> next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
@@ -171,11 +169,11 @@ public class CustomLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new CustomIterator(head);
+        return new CustomIterator<>(head);
     }
 
     @AllArgsConstructor
-    public class CustomIterator<E> implements Iterator<E> {
+    public static class CustomIterator<E> implements Iterator<E> {
         private Node<E> curr;
 
         @Override

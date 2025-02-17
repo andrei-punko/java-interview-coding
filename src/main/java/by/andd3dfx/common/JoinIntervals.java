@@ -2,7 +2,6 @@ package by.andd3dfx.common;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * <pre>
@@ -52,7 +51,6 @@ public class JoinIntervals {
             items.add(String.valueOf(lastItem));
         }
 
-        return items.stream()
-                .collect(Collectors.joining(","));
+        return String.join(",", items);
     }
 }

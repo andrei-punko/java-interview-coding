@@ -23,7 +23,7 @@ public class DangerousCasting {
         var bonus = ((Manager)list.get(0)).getBonus();
         System.out.println(bonus);
 
-        /**
+        /*
          * Во время выполнения в 4й строке вывалится ClassCastException.
          * Но такой каст бы прошел: ((Manager)list.get(0)).getBonus()
          */

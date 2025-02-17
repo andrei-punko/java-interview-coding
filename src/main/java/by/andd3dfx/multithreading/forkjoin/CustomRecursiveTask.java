@@ -7,11 +7,11 @@ import java.util.concurrent.RecursiveTask;
 import java.util.logging.Logger;
 
 /**
- * Based on article https://www.baeldung.com/java-fork-join
+ * Based on <a href="https://www.baeldung.com/java-fork-join">article</a>
  */
 public class CustomRecursiveTask extends RecursiveTask<Integer> {
 
-    private static Logger logger = Logger.getLogger(CustomRecursiveTask.class.getName());
+    private static final Logger logger = Logger.getLogger(CustomRecursiveTask.class.getName());
 
     private static final int LENGTH_THRESHOLD = 4;
     private int[] arr;

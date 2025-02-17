@@ -16,7 +16,7 @@ public class ImmutableString {
         string.concat(" World");
         System.out.println(string);
 
-        /**
+        /*
          * Будет выведено только 'Hello', т.к. String - immutable,
          * и результат вызова concat() попадет в другую строку,
          * которую никакой переменной не присвоили
