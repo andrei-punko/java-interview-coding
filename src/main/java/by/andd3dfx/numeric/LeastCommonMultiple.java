@@ -40,4 +40,17 @@ public class LeastCommonMultiple {
             }
         }
     }
+
+    public static int find_usingGCD(int[] numbers) {
+        var result = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            result = findForPair(result, numbers[i]);
+        }
+
+        return result;
+    }
+
+    private static int findForPair(int a, int b) {
+        return (a * b) / GreatestCommonDivisor.determineUsingLoop(a, b);
+    }
 }
