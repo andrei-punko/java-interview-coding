@@ -3,9 +3,13 @@ package by.andd3dfx.numeric;
 import by.andd3dfx.dynamic.ChangeWithMinNumberOfCoins;
 
 /**
- * See <a href="https://en.wikipedia.org/wiki/Coin_problem">article</a> in wiki
- * <p>
+ * <pre>
  * Find the largest monetary amount that cannot be obtained using only coins of specified denominations.
+ *
+ * See <a href="https://en.wikipedia.org/wiki/Coin_problem">article</a> in wiki
+ * </pre>
+ *
+ * @see <a href="https://youtu.be/itBWtCwWUG4">Video solution</a>
  */
 public class FrobeniusCoinProblem {
 
