@@ -2,36 +2,46 @@ package by.andd3dfx.numeric;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static by.andd3dfx.numeric.LeastCommonMultiple.find;
+import static by.andd3dfx.numeric.LeastCommonMultiple.find_usingGCD;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertThrows;
 
 public class LeastCommonMultipleTest {
 
     @Test
     public void testFind() {
-        assertThat(LeastCommonMultiple.find(new int[]{10}), is(10));
-        assertThat(LeastCommonMultiple.find(new int[]{11}), is(11));
+        assertThrows("Numbers array should be populated!",
+                IllegalArgumentException.class, () -> find(new int[]{}));
 
-        assertThat(LeastCommonMultiple.find(new int[]{2, 3}), is(6));
-        assertThat(LeastCommonMultiple.find(new int[]{4, 6}), is(12));
-        // 6240 = 10*4*2*2*39
-        // 6800 = 10*4*2*5*17
-        assertThat(LeastCommonMultiple.find(new int[]{6240, 6800}), is(10 * 4 * 2 * 2 * 39 * 5 * 17));
+        assertThat(find(new int[]{10})).isEqualTo(10);
+        assertThat(find(new int[]{11})).isEqualTo(11);
 
-        assertThat(LeastCommonMultiple.find(new int[]{6, 9, 20}), is(180));
+        assertThat(find(new int[]{2, 3})).isEqualTo(6);
+        assertThat(find(new int[]{4, 6})).isEqualTo(12);
+        // 6240 = 2^5 * 3 * 5 * 13
+        // 6800 = 2^4 * 5^2 * 17
+        // НОК(6240, 6800) = 2^5 * 3 * 5^2 * 13 * 17
+        assertThat(find(new int[]{6240, 6800})).isEqualTo(530_400);
+
+        assertThat(find(new int[]{6, 9, 20})).isEqualTo(180);
     }
 
     @Test
     public void testFind_usingGCD() {
-        assertThat(LeastCommonMultiple.find_usingGCD(new int[]{10}), is(10));
-        assertThat(LeastCommonMultiple.find_usingGCD(new int[]{11}), is(11));
+        assertThrows("Numbers array should be populated!",
+                IllegalArgumentException.class, () -> find_usingGCD(new int[]{}));
 
-        assertThat(LeastCommonMultiple.find_usingGCD(new int[]{2, 3}), is(6));
-        assertThat(LeastCommonMultiple.find_usingGCD(new int[]{4, 6}), is(12));
-        // 6240 = 10*4*2*2*39
-        // 6800 = 10*4*2*5*17
-        assertThat(LeastCommonMultiple.find_usingGCD(new int[]{6240, 6800}), is(10 * 4 * 2 * 2 * 39 * 5 * 17));
+        assertThat(find_usingGCD(new int[]{10})).isEqualTo(10);
+        assertThat(find_usingGCD(new int[]{11})).isEqualTo(11);
 
-        assertThat(LeastCommonMultiple.find_usingGCD(new int[]{6, 9, 20}), is(180));
+        assertThat(find_usingGCD(new int[]{2, 3})).isEqualTo(6);
+        assertThat(find_usingGCD(new int[]{4, 6})).isEqualTo(12);
+        // 6240 = 2^5 * 3 * 5 * 13
+        // 6800 = 2^4 * 5^2 * 17
+        // НОК(6240, 6800) = 2^5 * 3 * 5^2 * 13 * 17
+        assertThat(find_usingGCD(new int[]{6240, 6800})).isEqualTo(530_400);
+
+        assertThat(find_usingGCD(new int[]{6, 9, 20})).isEqualTo(180);
     }
 }

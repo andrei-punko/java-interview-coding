@@ -247,6 +247,7 @@ they contain enough code which describes implementation in a natural way.
 | Прохождение теста подтверждения практического навыка "средний" по Java на hh.ru                  | [Youtube](https://youtu.be/ja4nLzZSj3s) | -                                                                                                                                                                                   |
 | Декодирование шифра Цезаря                                                                       | [Youtube](https://youtu.be/pjQ9sYo5bVE) | [Code](src/main/java/by/andd3dfx/string/CaesarCipher.java)                                                                                                                          |
 | Прохождение теста подтверждения практического навыка "продвинутый" по Java на hh.ru              | [Youtube](https://youtu.be/ce3g0nIJl24) | -                                                                                                                                                                                   |
+| Поиск НОК для набора чисел                                                                       | [Youtube](https://youtu.be/jR0Ei_3O7EM) | [Code](src/main/java/by/andd3dfx/numeric/LeastCommonMultiple.java)                                                                                                                  |
 
 ## Materials & notes
 
