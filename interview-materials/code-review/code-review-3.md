@@ -1,9 +1,10 @@
-
+```java
 // Сделать ревью кода сервиса DataService и метода создания/получения новой сущности Data.
 // Метод создания может вызваться из разных потоков и должен быть безопасен для такого режима использования.
 // AccessService и DataRepository безопасны для использования из разных потоков.
 // Предложить как можно сделать лучше и починить проблемы, если они есть.
-@ReqArgsContructor
+
+@ReqArgsConstructor
 public class DataService {
 
     private AccessService access;   // final, change name to `accessService`
@@ -46,11 +47,14 @@ public class DataService {
     // @Repository to wrap exceptions
     public interface DataRepository {   // extract to separate class
         void save(Data data);
+
         Data get(String uid);   // change name to findByUid
     }
 
     public interface AccessService { // extract to separate class
         void checkRead();
+
         void checkWrite();
     }
 }
+```

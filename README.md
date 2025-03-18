@@ -13,7 +13,7 @@
 
 Gradle isn't required because of embedded Gradle presence in the project
 
-## How to build
+## How to build project
 
 ```shell
 ./gradlew clean build
@@ -47,6 +47,12 @@ they contain enough code which describes implementation in a natural way.
 ## SQL-related stuff
 
 [SQL folder](sql/README.md) contains tasks which require writing SQL queries to solve them.
+Check appropriate [video](https://youtu.be/GjDF_LdwYHU) on Youtube
+
+## Interview materials
+
+The [interview-materials](interview-materials) folder contains some 
+notes about interview preparation and useful links.
 
 ## Videos on [YouTube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
 
@@ -249,7 +255,3 @@ they contain enough code which describes implementation in a natural way.
 | Прохождение теста подтверждения практического навыка "продвинутый" по Java на hh.ru              | [Youtube](https://youtu.be/ce3g0nIJl24) | -                                                                                                                                                                                   |
 | Поиск НОК для набора чисел                                                                       | [Youtube](https://youtu.be/jR0Ei_3O7EM) | [Code](src/main/java/by/andd3dfx/numeric/LeastCommonMultiple.java)                                                                                                                  |
 | Число Фробениуса и задача Чикена МакНаггетса                                                     | [Youtube](https://youtu.be/itBWtCwWUG4) | [Code](src/main/java/by/andd3dfx/numeric/FrobeniusCoinProblem.java)                                                                                                                 |
-
-## Materials & notes
-
-The [materials folder](./materials) contains some stashed interview materials & notes
