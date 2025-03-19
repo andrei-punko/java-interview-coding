@@ -1,3 +1,5 @@
+# Perform refactoring of this code
+
 ## Before refactoring:
 
 ```java

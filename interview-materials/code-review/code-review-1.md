@@ -1,4 +1,4 @@
-# Propose solution by looking on logs
+# Propose solution by looking on app logs
 
 ## Task definition
 

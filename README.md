@@ -38,6 +38,7 @@ Gradle isn't required because of embedded Gradle presence in the project
 - [search](src/main/java/by/andd3dfx/search)
 - [serialization](src/main/java/by/andd3dfx/serialization)
 - [sorting](src/main/java/by/andd3dfx/sorting)
+- [stream](src/main/java/by/andd3dfx/stream)
 - [string](src/main/java/by/andd3dfx/string)
 - [tree](src/main/java/by/andd3dfx/tree)
 

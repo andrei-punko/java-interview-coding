@@ -21,4 +21,4 @@
 - [16. Задача про стадионы и матчи](16.sql)
 - [17. Поиск сотрудников, менеджеры которых покинули компанию](17.sql)
 
-See [video solutions](https://youtu.be/GjDF_LdwYHU) of these tasks on YouTube
+See [video](https://youtu.be/GjDF_LdwYHU) on YouTube with solution of these tasks

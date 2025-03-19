@@ -65,12 +65,12 @@ https://yandex.ru/jobs/faq
 
 ## Not Yandex
 
-First, it is highly recommended to start reading the following book (engineering sections):
+Highly recommended the following book (engineering sections):
 http://www.crackingthecodinginterview.com/contents.html
 
 What to revise:
-• complexity of sorting algorithms
-• after solving every issue algorithm’s time complexity is usually discussed
-• DFS/BFS are frequently asked during coding interviews
-• solving some Dynamic programming problems would be useful because they are less intuitive than for example Greedy
-• Questions similar to climbing stairs: https://leetcode.com/problems/climbing-stairs/description
+- complexity of sorting algorithms
+- after solving every issue algorithm’s time complexity is usually discussed
+- DFS/BFS are frequently asked during coding interviews
+- solving some Dynamic programming problems would be useful because they are less intuitive than for example Greedy
+- Questions similar to climbing stairs: https://leetcode.com/problems/climbing-stairs/description
