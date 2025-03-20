@@ -1,4 +1,4 @@
-package by.andd3dfx.tree.test;
+package by.andd3dfx.tree.equivalent;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +32,7 @@ public class EquivalentTreesTest {
      */
     @Test
     public void findEquivalentSubtreesForRootNodeOnly() {
-        EquivalentTrees.Node node = new EquivalentTrees.Node('A');
+        Node node = new Node('A');
         assertThat(equivalentTrees.findEquivalentSubtrees(node), is(nullValue()));
     }
 
@@ -45,8 +45,8 @@ public class EquivalentTreesTest {
      */
     @Test
     public void findEquivalentSubtreesWhenNoCandidates() {
-        EquivalentTrees.Node node = new EquivalentTrees.Node('A');
-        node.left = new EquivalentTrees.Node('B');
+        Node node = new Node('A');
+        node.left = new Node('B');
         assertThat(equivalentTrees.findEquivalentSubtrees(node), is(nullValue()));
     }
 
@@ -59,11 +59,11 @@ public class EquivalentTreesTest {
      */
     @Test
     public void findEquivalentSubtreesWhenOneCandidate() {
-        EquivalentTrees.Node node = new EquivalentTrees.Node('A');
-        node.left = new EquivalentTrees.Node('B');
-        node.right = new EquivalentTrees.Node('C');
+        Node node = new Node('A');
+        node.left = new Node('B');
+        node.right = new Node('C');
 
-        List<EquivalentTrees.Node> result = equivalentTrees.findEquivalentSubtrees(node);
+        List<Node> result = equivalentTrees.findEquivalentSubtrees(node);
 
         assertThat(result.size(), is(2));
         assertThat(result, hasItems(node.left, node.right));
@@ -80,13 +80,13 @@ public class EquivalentTreesTest {
      */
     @Test
     public void findEquivalentSubtreesWhenTwoCandidate() {
-        EquivalentTrees.Node node = new EquivalentTrees.Node('A');
-        node.left = new EquivalentTrees.Node('B');
-        node.left.left = new EquivalentTrees.Node('X');
-        node.right = new EquivalentTrees.Node('B');
-        node.right.right = new EquivalentTrees.Node('X');
+        Node node = new Node('A');
+        node.left = new Node('B');
+        node.left.left = new Node('X');
+        node.right = new Node('B');
+        node.right.right = new Node('X');
 
-        List<EquivalentTrees.Node> result = equivalentTrees.findEquivalentSubtrees(node);
+        List<Node> result = equivalentTrees.findEquivalentSubtrees(node);
 
         assertThat(result.size(), is(2));
         assertThat(result, hasItems(node.left, node.right));
@@ -105,19 +105,19 @@ public class EquivalentTreesTest {
      */
     @Test
     public void findEquivalentSubtreesComplexCase() {
-        EquivalentTrees.Node root = new EquivalentTrees.Node('A');
-        root.left = new EquivalentTrees.Node('B');
-        root.right = new EquivalentTrees.Node('C');
+        Node root = new Node('A');
+        root.left = new Node('B');
+        root.right = new Node('C');
 
-        root.left.left = new EquivalentTrees.Node('E');
-        root.left.left.left = new EquivalentTrees.Node('D');
+        root.left.left = new Node('E');
+        root.left.left.left = new Node('D');
 
-        root.right.left = new EquivalentTrees.Node('B');
-        root.right.right = new EquivalentTrees.Node('E');
-        root.right.right.left = new EquivalentTrees.Node('E');
-        root.right.right.right = new EquivalentTrees.Node('D');
+        root.right.left = new Node('B');
+        root.right.right = new Node('E');
+        root.right.right.left = new Node('E');
+        root.right.right.right = new Node('D');
 
-        List<EquivalentTrees.Node> result = equivalentTrees.findEquivalentSubtrees(root);
+        List<Node> result = equivalentTrees.findEquivalentSubtrees(root);
 
         assertThat("Two nodes expected", result.size(), is(2));
         assertThat("Left node is absent", result, hasItem(root.left));
