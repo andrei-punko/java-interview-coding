@@ -9,10 +9,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Дано бинарное дерево с выделенным корнем, в каждой вершине которого записано по одной букве A-Z.
- * Две вершины считаются эквивалентными, если поддеревья этих вершин содержат одинаковое множество (т.е. без учета частот) букв.
- * Нужно найти две эквивалентные вершины с максимальным суммарным размером поддеревьев.
  * <pre>
+ * Дано бинарное дерево с выделенным корнем, в каждой вершине которого записано по одной букве A-Z.
+ * Две вершины считаются эквивалентными, если поддеревья этих вершин содержат одинаковое множество
+ * (т.е. без учета частот) букв.
+ * Нужно найти две эквивалентные вершины с максимальным суммарным размером поддеревьев.
+ *
  * public class Node {
  *     char value;  // [A-Z]
  *     Node left;
@@ -38,10 +40,9 @@ public class EquivalentTrees {
         // Build Set<Character> -> List<Node> map
         Map<Set<Character>, List<Node>> voc2Nodes = new HashMap<>();
         node2Voc = node2Voc.entrySet().stream()
-//                .filter(nodeSetEntry -> !nodeSetEntry.getValue().isEmpty())
                 .collect(Collectors.toMap(
-                        entry -> entry.getKey(),
-                        entry -> entry.getValue()
+                        Map.Entry::getKey,
+                        Map.Entry::getValue
                 ));
 
         for (Node node : node2Voc.keySet()) {
@@ -57,7 +58,7 @@ public class EquivalentTrees {
         voc2Nodes = voc2Nodes.entrySet().stream()
                 .filter(entry -> entry.getValue().size() >= 2)
                 .collect(Collectors.toMap(
-                        entry -> entry.getKey(),
+                        Map.Entry::getKey,
                         entry -> entry.getValue().stream()
                                 .sorted((o1, o2) -> node2Size.get(o2) - node2Size.get(o1))
                                 .limit(2)
@@ -73,16 +74,16 @@ public class EquivalentTrees {
                 .sorted((o1, o2) -> o2.getValue().stream().mapToInt(node2Size::get).sum() - o1.getValue().stream().mapToInt(node2Size::get).sum())
                 .limit(1)
                 .collect(Collectors.toMap(
-                        entry -> entry.getKey(),
-                        entry -> entry.getValue()
+                        Map.Entry::getKey,
+                        Map.Entry::getValue
                 ));
 
-        return (List<Node>) map.values().toArray()[0];
+        return map.values().iterator().next();
     }
 
     private Set<Character> buildNodeVocabulary(Node node, Map<Node, Set<Character>> node2Voc) {
         if (!node2Voc.containsKey(node)) {
-            node2Voc.put(node, new HashSet());
+            node2Voc.put(node, new HashSet<>());
         }
         if (node.left != null) {
             node2Voc.get(node).add(node.left.value);
