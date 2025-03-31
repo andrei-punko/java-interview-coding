@@ -10,7 +10,7 @@ import java.util.Map;
  * Метод withdraw() - мутирующий, т.е. меняет состояние банкомата после вызова (кол-во купюр может уменьшиться).
  * </pre>
  *
- * @see <a href="https://youtu.be/LDKZtDevRRI">Video solution</a>
+ * @see <a href="https://youtu.be/0-BL-NO9-B8">Video solution</a>
  */
 public class AtmUsingLoop extends AbstractAtm {
 
