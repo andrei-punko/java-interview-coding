@@ -52,7 +52,7 @@ Check appropriate [video](https://youtu.be/GjDF_LdwYHU) on Youtube
 
 ## Interview materials
 
-The [interview-materials](interview-materials) folder contains some 
+The [interview-materials](interview-materials) folder contains some
 notes about interview preparation and useful links.
 
 ## Videos on [YouTube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
@@ -175,7 +175,7 @@ notes about interview preparation and useful links.
 | Поиск слова в матрице букв (leetcode)                                                            | [Youtube](https://youtu.be/FsKU04anMtE) | [Code](src/main/java/by/andd3dfx/search/wordsearch/WordSearch.java)                                                                                                                 |
 | Сжатие строки (Яндекс)                                                                           | [Youtube](https://youtu.be/s3sGF7C6cV8) | [Code](src/main/java/by/andd3dfx/string/MakeStringCompact.java)                                                                                                                     |
 | Самодельный Stack                                                                                | [Youtube](https://youtu.be/sZ-DrSHhrWc) | [Code](src/main/java/by/andd3dfx/collections/custom/CustomStack.java)                                                                                                               |
-| Выдача купюр банкоматом (Яндекс)                                                                 | [Youtube](https://youtu.be/LDKZtDevRRI) | [Code](src/main/java/by/andd3dfx/common/atm/AtmUsingLoop.java) [Code2](src/main/java/by/andd3dfx/common/atm/AtmUsingRecursion.java)                                                 |
+| Выдача купюр банкоматом (Яндекс)                                                                 | [Youtube](https://youtu.be/LDKZtDevRRI) | -                                                                                                                                                                                   |
 | Поиск набора слов в матрице букв (2 решения) (leetcode)                                          | [Youtube](https://youtu.be/DTyMyr6bNGw) | [Code](src/main/java/by/andd3dfx/search/wordsearch/WordSearch_IIUsingWordSearch.java) [Code2](src/main/java/by/andd3dfx/search/wordsearch/WordSearch_IIUsingRecursion.java)         |
 | Поиск набора слов в матрице букв 2: префиксное дерево (leetcode)                                 | [Youtube](https://youtu.be/CLYbm21pvig) | [Code](src/main/java/by/andd3dfx/search/wordsearch/WordSearch_IIUsingPrefixTree.java)                                                                                               |
 | Поиск в строке наиболее длинной подстроки без повторений (leetcode)                              | [Youtube](https://youtu.be/Jj66XXja4LY) | [Code](src/main/java/by/andd3dfx/string/LongestWordWithoutRepeatingChars.java)                                                                                                      |
@@ -256,3 +256,5 @@ notes about interview preparation and useful links.
 | Прохождение теста подтверждения практического навыка "продвинутый" по Java на hh.ru              | [Youtube](https://youtu.be/ce3g0nIJl24) | -                                                                                                                                                                                   |
 | Поиск НОК для набора чисел                                                                       | [Youtube](https://youtu.be/jR0Ei_3O7EM) | [Code](src/main/java/by/andd3dfx/numeric/LeastCommonMultiple.java)                                                                                                                  |
 | Число Фробениуса и задача Чикена МакНаггетса                                                     | [Youtube](https://youtu.be/itBWtCwWUG4) | [Code](src/main/java/by/andd3dfx/numeric/FrobeniusCoinProblem.java)                                                                                                                 |
+| Java interview Q & A collection                                                                  | [Youtube](https://youtu.be/H5i9LJsm28s) | [Repo](https://github.com/andrei-punko/java-interview-faq-n-answers)                                                                                                                |
+| Выдача купюр банкоматом (Яндекс)                                                                 | [Youtube](https://youtu.be/0-BL-NO9-B8) | [Code](src/main/java/by/andd3dfx/common/atm/AtmUsingLoop.java) [Code2](src/main/java/by/andd3dfx/common/atm/AtmUsingRecursion.java)                                                 |
