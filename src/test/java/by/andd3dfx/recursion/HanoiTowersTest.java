@@ -36,7 +36,7 @@ public class HanoiTowersTest {
         assertTrue("Left column should be empty", ht.getLeft().getStack().isEmpty());
         assertTrue("Middle column should be empty", ht.getMiddle().getStack().isEmpty());
 
-        List<Integer> disks = ht.getRight().getStack().stream().collect(Collectors.toList());
+        List<Integer> disks = ht.getRight().getStack().stream().toList();
         for (int i = 1; i < disks.size(); i++) {
             assertThat("Disk " + (i - 1) + " should be less than disk " + i,
                     disks.get(i - 1),

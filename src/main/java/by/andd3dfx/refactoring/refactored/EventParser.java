@@ -43,6 +43,6 @@ public class EventParser {
     public List<String> parse(List<Event> events) {
         return events.stream()
                 .map(this::parse)
-                .collect(Collectors.toList());
+                .toList();
     }
 }

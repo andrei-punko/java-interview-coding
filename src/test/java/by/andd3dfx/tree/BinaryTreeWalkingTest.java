@@ -55,7 +55,7 @@ public class BinaryTreeWalkingTest {
     }
 
     private void checkResultList(List<BinaryTreeWalking.Node<Integer>> result, int[] expectation) {
-        List<Integer> values = result.stream().map(node -> node.getValue()).collect(Collectors.toList());
+        List<Integer> values = result.stream().map(BinaryTreeWalking.Node::getValue).toList();
         assertThat(values.size(), is(expectation.length));
         assertThat(values.toArray(), is(expectation));
     }

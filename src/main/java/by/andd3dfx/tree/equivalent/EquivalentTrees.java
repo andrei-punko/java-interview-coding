@@ -62,7 +62,7 @@ public class EquivalentTrees {
                         entry -> entry.getValue().stream()
                                 .sorted((o1, o2) -> node2Size.get(o2) - node2Size.get(o1))
                                 .limit(2)
-                                .collect(Collectors.toList())
+                                .toList()
                 ));
         // Only absent sets with at least 2 related nodes remain
 
