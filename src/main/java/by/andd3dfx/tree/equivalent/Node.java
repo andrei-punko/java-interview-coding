@@ -1,7 +1,5 @@
 package by.andd3dfx.tree.equivalent;
 
-import lombok.Getter;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +8,6 @@ public class Node {
     Node left;
     Node right;
 
-    @Getter
     Set<Character> vocabulary = new HashSet<>();
 
     public Node(char value) {

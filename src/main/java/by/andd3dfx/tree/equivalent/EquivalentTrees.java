@@ -31,7 +31,7 @@ public class EquivalentTrees {
         }
 
         // Fill `vocabulary` field of nodes
-        buildNodeVocabulary(root);
+        fillNodeVocabulary(root);
 
         // Build Set<Character> -> List<Node> map
         Map<Set<Character>, List<Node>> voc2Nodes = new HashMap<>();
@@ -54,15 +54,8 @@ public class EquivalentTrees {
             voc2Nodes.get(vocabulary).add(current);
         }
 
-        // Found equivalent nodes
         return voc2Nodes.values().stream()
-                .filter(entry -> entry.size() >= 2)
-                .map(
-                        entry -> entry.stream()
-                                .sorted((o1, o2) -> o2.vocabulary.size() - o1.vocabulary.size())
-                                .limit(2)
-                                .toList()
-                )
+                .filter(nodesList -> nodesList.size() >= 2)
                 .sorted((o1, o2) -> o2.stream().mapToInt(nodeToIntFunction()).sum() - o1.stream().mapToInt(nodeToIntFunction()).sum())
                 .limit(1)
                 .findFirst().orElse(null);
@@ -72,14 +65,14 @@ public class EquivalentTrees {
         return node -> node.vocabulary.size();
     }
 
-    private Set<Character> buildNodeVocabulary(Node node) {
+    private Set<Character> fillNodeVocabulary(Node node) {
         if (node.left != null) {
             node.vocabulary.add(node.left.value);
-            node.vocabulary.addAll(buildNodeVocabulary(node.left));
+            node.vocabulary.addAll(fillNodeVocabulary(node.left));
         }
         if (node.right != null) {
             node.vocabulary.add(node.right.value);
-            node.vocabulary.addAll(buildNodeVocabulary(node.right));
+            node.vocabulary.addAll(fillNodeVocabulary(node.right));
         }
         return node.vocabulary;
     }
