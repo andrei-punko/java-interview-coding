@@ -1,12 +1,13 @@
 package by.andd3dfx.tree.equivalent;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.function.ToIntFunction;
 
 /**
  * <pre>
@@ -29,85 +30,57 @@ public class EquivalentTrees {
             return null;
         }
 
-        // Build map { Node -> (Vocabulary of sub nodes)}
-        Map<Node, Set<Character>> node2Voc = new HashMap<>();
-        buildNodeVocabulary(root, node2Voc);
-
-        // Build Node->nodeSize map
-        Map<Node, Integer> node2Size = new HashMap<>();
-        buildNode2Size(root, node2Size);
+        // Fill `vocabulary` field of nodes
+        buildNodeVocabulary(root);
 
         // Build Set<Character> -> List<Node> map
         Map<Set<Character>, List<Node>> voc2Nodes = new HashMap<>();
-        node2Voc = node2Voc.entrySet().stream()
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        Map.Entry::getValue
-                ));
 
-        for (Node node : node2Voc.keySet()) {
-            Set<Character> value = node2Voc.get(node);
-
-            if (!voc2Nodes.containsKey(value)) {
-                voc2Nodes.put(value, new ArrayList<>());
+        Deque<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            var current = queue.poll();
+            if (current.left != null) {
+                queue.add(current.left);
             }
-            voc2Nodes.get(value).add(node);
+            if (current.right != null) {
+                queue.add(current.right);
+            }
+            Set<Character> vocabulary = current.vocabulary;
+
+            if (!voc2Nodes.containsKey(vocabulary)) {
+                voc2Nodes.put(vocabulary, new ArrayList<>());
+            }
+            voc2Nodes.get(vocabulary).add(current);
         }
 
         // Found equivalent nodes
-        voc2Nodes = voc2Nodes.entrySet().stream()
-                .filter(entry -> entry.getValue().size() >= 2)
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        entry -> entry.getValue().stream()
-                                .sorted((o1, o2) -> node2Size.get(o2) - node2Size.get(o1))
+        return voc2Nodes.values().stream()
+                .filter(entry -> entry.size() >= 2)
+                .map(
+                        entry -> entry.stream()
+                                .sorted((o1, o2) -> o2.vocabulary.size() - o1.vocabulary.size())
                                 .limit(2)
                                 .toList()
-                ));
-        // Only absent sets with at least 2 related nodes remain
-
-        if (voc2Nodes.isEmpty()) {
-            return null;
-        }
-
-        Map<Set<Character>, List<Node>> map = voc2Nodes.entrySet().stream()
-                .sorted((o1, o2) -> o2.getValue().stream().mapToInt(node2Size::get).sum() - o1.getValue().stream().mapToInt(node2Size::get).sum())
+                )
+                .sorted((o1, o2) -> o2.stream().mapToInt(nodeToIntFunction()).sum() - o1.stream().mapToInt(nodeToIntFunction()).sum())
                 .limit(1)
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        Map.Entry::getValue
-                ));
-
-        return map.values().iterator().next();
+                .findFirst().orElse(null);
     }
 
-    private Set<Character> buildNodeVocabulary(Node node, Map<Node, Set<Character>> node2Voc) {
-        if (!node2Voc.containsKey(node)) {
-            node2Voc.put(node, new HashSet<>());
-        }
-        if (node.left != null) {
-            node2Voc.get(node).add(node.left.value);
-            node2Voc.get(node).addAll(buildNodeVocabulary(node.left, node2Voc));
-        }
-        if (node.right != null) {
-            node2Voc.get(node).add(node.right.value);
-            node2Voc.get(node).addAll(buildNodeVocabulary(node.right, node2Voc));
-        }
-        return node2Voc.get(node);
+    private static ToIntFunction<Node> nodeToIntFunction() {
+        return node -> node.vocabulary.size();
     }
 
-    private int buildNode2Size(Node node, Map<Node, Integer> node2Size) {
-        if (!node2Size.containsKey(node)) {
-            node2Size.put(node, 0);
-        }
+    private Set<Character> buildNodeVocabulary(Node node) {
         if (node.left != null) {
-            node2Size.put(node, node2Size.get(node) + 1);
-            node2Size.put(node, node2Size.get(node) + buildNode2Size(node.left, node2Size));
+            node.vocabulary.add(node.left.value);
+            node.vocabulary.addAll(buildNodeVocabulary(node.left));
         }
         if (node.right != null) {
-            node2Size.put(node, node2Size.get(node) + 1);
-            node2Size.put(node, node2Size.get(node) + buildNode2Size(node.right, node2Size));
+            node.vocabulary.add(node.right.value);
+            node.vocabulary.addAll(buildNodeVocabulary(node.right));
         }
-        return node2Size.get(node);
+        return node.vocabulary;
     }
 }
