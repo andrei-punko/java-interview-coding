@@ -32,9 +32,11 @@ public class EquivalentTrees {
 
         // Fill `vocabulary` field of nodes
         fillNodeVocabulary(root);
+        // Fill `subtreeSize` field of nodes
+        fillSubTreeSize(root);
 
         // Build Set<Character> -> List<Node> map
-        Map<Set<Character>, List<Node>> voc2Nodes = new HashMap<>();
+        Map<Set<Character>, List<Node>> voc2NodesMap = new HashMap<>();
 
         Deque<Node> queue = new ArrayDeque<>();
         queue.add(root);
@@ -46,23 +48,23 @@ public class EquivalentTrees {
             if (current.right != null) {
                 queue.add(current.right);
             }
-            Set<Character> vocabulary = current.vocabulary;
 
-            if (!voc2Nodes.containsKey(vocabulary)) {
-                voc2Nodes.put(vocabulary, new ArrayList<>());
+            Set<Character> vocabulary = current.vocabulary;
+            if (!voc2NodesMap.containsKey(vocabulary)) {
+                voc2NodesMap.put(vocabulary, new ArrayList<>());
             }
-            voc2Nodes.get(vocabulary).add(current);
+            voc2NodesMap.get(vocabulary).add(current);
         }
 
-        return voc2Nodes.values().stream()
-                .filter(nodesList -> nodesList.size() >= 2)
-                .sorted((o1, o2) -> o2.stream().mapToInt(nodeToIntFunction()).sum() - o1.stream().mapToInt(nodeToIntFunction()).sum())
-                .limit(1)
-                .findFirst().orElse(null);
+        return voc2NodesMap.values().stream()
+                .filter(nodes -> nodes.size() >= 2)
+                .min((o1, o2) -> o2.stream().mapToInt(nodeToIntFunction()).sum() - o1.stream().mapToInt(nodeToIntFunction()).sum())
+                .map(nodes -> nodes.subList(0, 2))
+                .orElse(null);
     }
 
     private static ToIntFunction<Node> nodeToIntFunction() {
-        return node -> node.vocabulary.size();
+        return node -> node.subtreeSize;
     }
 
     private Set<Character> fillNodeVocabulary(Node node) {
@@ -75,5 +77,15 @@ public class EquivalentTrees {
             node.vocabulary.addAll(fillNodeVocabulary(node.right));
         }
         return node.vocabulary;
+    }
+
+    private int fillSubTreeSize(Node node) {
+        if (node.left != null) {
+            node.subtreeSize += 1 + fillSubTreeSize(node.left);
+        }
+        if (node.right != null) {
+            node.subtreeSize += 1 + fillSubTreeSize(node.right);
+        }
+        return node.subtreeSize;
     }
 }

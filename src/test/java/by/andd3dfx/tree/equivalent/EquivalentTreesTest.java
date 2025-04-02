@@ -79,12 +79,64 @@ public class EquivalentTreesTest {
      * </pre>
      */
     @Test
-    public void findEquivalentSubtreesWhenTwoCandidate() {
+    public void findEquivalentSubtreesSymmetricCase() {
         Node node = new Node('A');
         node.left = new Node('B');
         node.left.left = new Node('X');
         node.right = new Node('B');
         node.right.right = new Node('X');
+
+        List<Node> result = equivalentTrees.findEquivalentSubtrees(node);
+
+        assertThat(result.size(), is(2));
+        assertThat(result, hasItems(node.left, node.right));
+    }
+
+    /**
+     * <pre>
+     *      A
+     *     / \
+     *    B   B
+     *   /     \
+     *  X       C
+     *           \
+     *            X
+     * </pre>
+     */
+    @Test
+    public void findEquivalentSubtreesAsymmetricCase() {
+        Node node = new Node('A');
+        node.left = new Node('B');
+        node.left.left = new Node('X');
+        node.right = new Node('B');
+        node.right.right = new Node('C');
+        node.right.right.right = new Node('X');
+
+        List<Node> result = equivalentTrees.findEquivalentSubtrees(node);
+
+        assertThat(result.size(), is(2));
+        assertThat(result, hasItems(node.left, node.right.right));
+    }
+
+    /**
+     * <pre>
+     *      A
+     *     / \
+     *    B   B
+     *   /     \
+     *  X       X
+     *           \
+     *            X
+     * </pre>
+     */
+    @Test
+    public void findEquivalentSubtreesAsymmetricCaseShouldChooseNodesWithMaxSubtreeSize() {
+        Node node = new Node('A');
+        node.left = new Node('B');
+        node.left.left = new Node('X');
+        node.right = new Node('B');
+        node.right.right = new Node('X');
+        node.right.right.right = new Node('X');
 
         List<Node> result = equivalentTrees.findEquivalentSubtrees(node);
 
@@ -101,6 +153,8 @@ public class EquivalentTreesTest {
      *    E   B   E
      *   /       / \
      *  D       E   D
+     *             / \
+     *            D   E
      * </pre>
      */
     @Test
@@ -116,6 +170,8 @@ public class EquivalentTreesTest {
         root.right.right = new Node('E');
         root.right.right.left = new Node('E');
         root.right.right.right = new Node('D');
+        root.right.right.right.left = new Node('D');
+        root.right.right.right.right = new Node('E');
 
         List<Node> result = equivalentTrees.findEquivalentSubtrees(root);
 

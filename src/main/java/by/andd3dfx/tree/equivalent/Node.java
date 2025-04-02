@@ -9,6 +9,7 @@ public class Node {
     Node right;
 
     Set<Character> vocabulary = new HashSet<>();
+    int subtreeSize;
 
     public Node(char value) {
         this.value = value;
