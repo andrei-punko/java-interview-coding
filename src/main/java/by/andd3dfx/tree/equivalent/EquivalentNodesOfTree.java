@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.ToIntFunction;
 
 /**
  * <pre>
@@ -60,13 +59,17 @@ public class EquivalentNodesOfTree {
 
         return voc2NodesMap.values().stream()
                 .filter(nodes -> nodes.size() >= 2)
-                .min((o1, o2) -> o2.stream().mapToInt(nodeToIntFunction()).sum() - o1.stream().mapToInt(nodeToIntFunction()).sum())
-                .map(nodes -> nodes.subList(0, 2))
+                .map(nodes -> nodes.stream().sorted(this::compare).limit(2).toList())
+                .min(this::compare)
                 .orElse(null);
     }
 
-    private static ToIntFunction<Node> nodeToIntFunction() {
-        return node -> node.subtreeSize;
+    private int compare(Node n1, Node n2) {
+        return n2.subtreeSize - n1.subtreeSize;
+    }
+
+    private int compare(List<Node> list1, List<Node> list2) {
+        return list2.stream().mapToInt(node -> node.subtreeSize).sum() - list1.stream().mapToInt(node -> node.subtreeSize).sum();
     }
 
     private Set<Character> fillNodeVocabulary(Node node) {

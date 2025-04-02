@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -155,6 +154,8 @@ public class EquivalentNodesOfTreeTest {
      *  D       E   D
      *             / \
      *            D   E
+     *           /
+     *          D
      * </pre>
      */
     @Test
@@ -172,11 +173,11 @@ public class EquivalentNodesOfTreeTest {
         root.right.right.right = new Node('D');
         root.right.right.right.left = new Node('D');
         root.right.right.right.right = new Node('E');
+        root.right.right.right.left.left = new Node('D');
 
         List<Node> result = equivalentNodesOfTree.findEquivalentNodes(root);
 
         assertThat("Two nodes expected", result.size(), is(2));
-        assertThat("Left node is absent", result, hasItem(root.left));
-        assertThat("Right node is absent", result, hasItem(root.right.right));
+        assertThat(result, hasItems(root.right.right, root.right.right.right));
     }
 }
