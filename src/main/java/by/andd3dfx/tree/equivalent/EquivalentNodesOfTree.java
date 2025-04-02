@@ -22,6 +22,8 @@ import java.util.function.ToIntFunction;
  *     Node right;
  * }
  * </pre>
+ *
+ * @see <a href="https://youtu.be/Ued_W2Xs7ng">Video solution</a>
  */
 public class EquivalentNodesOfTree {
 
@@ -30,9 +32,9 @@ public class EquivalentNodesOfTree {
             return null;
         }
 
-        // Fill `vocabulary` field of nodes
+        // Fill `vocabulary` field of tree nodes
         fillNodeVocabulary(root);
-        // Fill `subtreeSize` field of nodes
+        // Fill `subtreeSize` field of tree nodes
         fillSubTreeSize(root);
 
         // Build Set<Character> -> List<Node> map
