@@ -23,9 +23,9 @@ import java.util.function.ToIntFunction;
  * }
  * </pre>
  */
-public class EquivalentTrees {
+public class EquivalentNodesOfTree {
 
-    public List<Node> findEquivalentSubtrees(Node root) {
+    public List<Node> findEquivalentNodes(Node root) {
         if (root == null) {
             return null;
         }

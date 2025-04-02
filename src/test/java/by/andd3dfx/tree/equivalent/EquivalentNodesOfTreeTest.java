@@ -11,18 +11,18 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class EquivalentTreesTest {
+public class EquivalentNodesOfTreeTest {
 
-    private EquivalentTrees equivalentTrees;
+    private EquivalentNodesOfTree equivalentNodesOfTree;
 
     @Before
     public void setUp() {
-        equivalentTrees = new EquivalentTrees();
+        equivalentNodesOfTree = new EquivalentNodesOfTree();
     }
 
     @Test
-    public void findEquivalentSubtreesForNull() {
-        assertThat(equivalentTrees.findEquivalentSubtrees(null), is(nullValue()));
+    public void findEquivalentNodesForNull() {
+        assertThat(equivalentNodesOfTree.findEquivalentNodes(null), is(nullValue()));
     }
 
     /**
@@ -31,9 +31,9 @@ public class EquivalentTreesTest {
      * </pre>
      */
     @Test
-    public void findEquivalentSubtreesForRootNodeOnly() {
+    public void findEquivalentNodesForRootNodeOnly() {
         Node node = new Node('A');
-        assertThat(equivalentTrees.findEquivalentSubtrees(node), is(nullValue()));
+        assertThat(equivalentNodesOfTree.findEquivalentNodes(node), is(nullValue()));
     }
 
     /**
@@ -44,10 +44,10 @@ public class EquivalentTreesTest {
      * </pre>
      */
     @Test
-    public void findEquivalentSubtreesWhenNoCandidates() {
+    public void findEquivalentNodesWhenNoCandidates() {
         Node node = new Node('A');
         node.left = new Node('B');
-        assertThat(equivalentTrees.findEquivalentSubtrees(node), is(nullValue()));
+        assertThat(equivalentNodesOfTree.findEquivalentNodes(node), is(nullValue()));
     }
 
     /**
@@ -58,12 +58,12 @@ public class EquivalentTreesTest {
      * </pre>
      */
     @Test
-    public void findEquivalentSubtreesWhenOneCandidate() {
+    public void findEquivalentNodesWhenOneCandidate() {
         Node node = new Node('A');
         node.left = new Node('B');
         node.right = new Node('C');
 
-        List<Node> result = equivalentTrees.findEquivalentSubtrees(node);
+        List<Node> result = equivalentNodesOfTree.findEquivalentNodes(node);
 
         assertThat(result.size(), is(2));
         assertThat(result, hasItems(node.left, node.right));
@@ -79,14 +79,14 @@ public class EquivalentTreesTest {
      * </pre>
      */
     @Test
-    public void findEquivalentSubtreesSymmetricCase() {
+    public void findEquivalentNodesSymmetricCase() {
         Node node = new Node('A');
         node.left = new Node('B');
         node.left.left = new Node('X');
         node.right = new Node('B');
         node.right.right = new Node('X');
 
-        List<Node> result = equivalentTrees.findEquivalentSubtrees(node);
+        List<Node> result = equivalentNodesOfTree.findEquivalentNodes(node);
 
         assertThat(result.size(), is(2));
         assertThat(result, hasItems(node.left, node.right));
@@ -104,7 +104,7 @@ public class EquivalentTreesTest {
      * </pre>
      */
     @Test
-    public void findEquivalentSubtreesAsymmetricCase() {
+    public void findEquivalentNodesAsymmetricCase() {
         Node node = new Node('A');
         node.left = new Node('B');
         node.left.left = new Node('X');
@@ -112,7 +112,7 @@ public class EquivalentTreesTest {
         node.right.right = new Node('C');
         node.right.right.right = new Node('X');
 
-        List<Node> result = equivalentTrees.findEquivalentSubtrees(node);
+        List<Node> result = equivalentNodesOfTree.findEquivalentNodes(node);
 
         assertThat(result.size(), is(2));
         assertThat(result, hasItems(node.left, node.right.right));
@@ -130,7 +130,7 @@ public class EquivalentTreesTest {
      * </pre>
      */
     @Test
-    public void findEquivalentSubtreesAsymmetricCaseShouldChooseNodesWithMaxSubtreeSize() {
+    public void findEquivalentNodesAsymmetricCaseShouldChooseNodesWithMaxSubtreeSize() {
         Node node = new Node('A');
         node.left = new Node('B');
         node.left.left = new Node('X');
@@ -138,7 +138,7 @@ public class EquivalentTreesTest {
         node.right.right = new Node('X');
         node.right.right.right = new Node('X');
 
-        List<Node> result = equivalentTrees.findEquivalentSubtrees(node);
+        List<Node> result = equivalentNodesOfTree.findEquivalentNodes(node);
 
         assertThat(result.size(), is(2));
         assertThat(result, hasItems(node.left, node.right));
@@ -158,7 +158,7 @@ public class EquivalentTreesTest {
      * </pre>
      */
     @Test
-    public void findEquivalentSubtreesComplexCase() {
+    public void findEquivalentNodesComplexCase() {
         Node root = new Node('A');
         root.left = new Node('B');
         root.right = new Node('C');
@@ -173,7 +173,7 @@ public class EquivalentTreesTest {
         root.right.right.right.left = new Node('D');
         root.right.right.right.right = new Node('E');
 
-        List<Node> result = equivalentTrees.findEquivalentSubtrees(root);
+        List<Node> result = equivalentNodesOfTree.findEquivalentNodes(root);
 
         assertThat("Two nodes expected", result.size(), is(2));
         assertThat("Left node is absent", result, hasItem(root.left));
