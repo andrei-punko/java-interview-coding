@@ -10,8 +10,7 @@
 ## Prerequisites
 
 - JDK 21
-
-Gradle isn't required because of embedded Gradle presence in the project
+- Gradle (embedded in the project)
 
 ## How to build project
 
@@ -42,8 +41,7 @@ Gradle isn't required because of embedded Gradle presence in the project
 - [string](src/main/java/by/andd3dfx/string)
 - [tree](src/main/java/by/andd3dfx/tree)
 
-Sure, we have [tests](src/test/java/by/andd3dfx);
-they contain enough code which describes implementation in a natural way.
+Sure, we have [tests](src/test/java/by/andd3dfx); they contain enough code which describes implementation in a natural way.
 
 ## SQL-related stuff
 
@@ -257,5 +255,6 @@ notes about interview preparation and useful links.
 | Поиск НОК для набора чисел                                                                       | [Youtube](https://youtu.be/jR0Ei_3O7EM) | [Code](src/main/java/by/andd3dfx/numeric/LeastCommonMultiple.java)                                                                                                                  |
 | Число Фробениуса и задача Чикена МакНаггетса                                                     | [Youtube](https://youtu.be/itBWtCwWUG4) | [Code](src/main/java/by/andd3dfx/numeric/FrobeniusCoinProblem.java)                                                                                                                 |
 | Java interview Q & A collection                                                                  | [Youtube](https://youtu.be/H5i9LJsm28s) | [Repo](https://github.com/andrei-punko/java-interview-faq-n-answers)                                                                                                                |
-| Выдача купюр банкоматом #2 (Яндекс)                                                              | [Youtube](https://youtu.be/0-BL-NO9-B8) | [Code](src/main/java/by/andd3dfx/common/atm/AtmUsingLoop.java) [Code2](src/main/java/by/andd3dfx/common/atm/AtmUsingRecursion.java)                                                 |
+| Выдача купюр банкоматом 2 (Яндекс)                                                               | [Youtube](https://youtu.be/0-BL-NO9-B8) | [Code](src/main/java/by/andd3dfx/common/atm/AtmUsingLoop.java) [Code2](src/main/java/by/andd3dfx/common/atm/AtmUsingRecursion.java)                                                 |
 | Поиск эквивалентных вершин бинарного дерева с макс. размером поддеревьев                         | [Youtube](https://youtu.be/Ued_W2Xs7ng) | [Code](src/main/java/by/andd3dfx/tree/equivalent/EquivalentNodesOfTree.java)                                                                                                        |
+| Как выпустить релиз на GitHub                                                                    | [Youtube](https://youtu.be/mtQ2UzPilsQ) | [Repo](https://github.com/andrei-punko/pde-solvers)                                                                                                                                 |

@@ -19,22 +19,38 @@ Add operation with pets batch update (for example, add new field - owner).
 Propose algorithm for sorting a bunch of long strings situated on disk.
 We have restriction of RAM size: so only one string could be loaded into RAM simultaneously.
 
+## Make one string from another
+
+Написать метод, на вход которого приходит две строки.
+На выходе надо проверить, можно ли получить одну строку из другой за одно исправление:
+
+- замена одного символа в одной строке
+- вставка/удаление одного символа из одной строки
+
+Примеры тестовых сценариев:
+
+- first = "a", second = "b" -> true
+- first = "ab", second = "b" -> true
+- first = "ab", second = "cb" -> true
+- first = "ab", second = "ba" -> false
+- first = "abcd", second = "abd" -> true
+
 ## Сортировки:
 
 - быстрая
-    - со стеками
-    - на месте
+  - со стеками
+  - на месте
 - блочная
 
 ## Хеш-таблицы:
 
 - пробирование
-    - линейное
-    - квадратичное
-    - псевдослучайное
+  - линейное
+  - квадратичное
+  - псевдослучайное
 - хеширование
-    - одинарное
-    - двойное
+  - одинарное
+  - двойное
 
 ## Сочетания, размещения
 
