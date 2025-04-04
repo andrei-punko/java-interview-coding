@@ -20,6 +20,7 @@ import static org.apache.commons.lang3.math.NumberUtils.min;
  * </pre>
  *
  * @see <a href="https://youtu.be/GOSWr4jHng8">Video solution</a>
+ * @see <a href="https://youtu.be/0543ZryeIx4">Video solution 2</a>
  */
 public class StringTransformation {
 

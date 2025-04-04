@@ -41,7 +41,8 @@
 - [string](src/main/java/by/andd3dfx/string)
 - [tree](src/main/java/by/andd3dfx/tree)
 
-Sure, we have [tests](src/test/java/by/andd3dfx); they contain enough code which describes implementation in a natural way.
+Sure, we have [tests](src/test/java/by/andd3dfx); they contain enough code which describes implementation in a natural
+way.
 
 ## SQL-related stuff
 
@@ -227,7 +228,7 @@ notes about interview preparation and useful links.
 | Подсчет единиц в бинарной записи числа (leetcode)                                                | [Youtube](https://youtu.be/F8zwvJYw0R8) | [Code](src/main/java/by/andd3dfx/numeric/CountOnesInBinaryForm.java)                                                                                                                |
 | Ревью кода из интервью 4 (LIVE)                                                                  | [Youtube](https://youtu.be/Y84nyje-U1c) | -                                                                                                                                                                                   |
 | Ревью кода из интервью 5 (LIVE)                                                                  | [Youtube](https://youtu.be/WT6wfFsNmxo) | -                                                                                                                                                                                   |
-| Проверка возможности получения одной строки из другой за одно изменение                          | [Youtube](https://youtu.be/GOSWr4jHng8) | [Code](src/main/java/by/andd3dfx/string/StringTransformation.java)                                                                                                                  |
+| Получение одной строки из другой за одно изменение                                               | [Youtube](https://youtu.be/GOSWr4jHng8) | [Code](src/main/java/by/andd3dfx/string/StringTransformation.java)                                                                                                                  |
 | Проверка наличия дубликатов в несортированном массиве (2 решения)                                | [Youtube](https://youtu.be/qD1EeU7AdrU) | [Code](src/main/java/by/andd3dfx/collections/ContainsDuplicates.java)                                                                                                               |
 | Самодельные equals() и hashCode()                                                                | [Youtube](https://youtu.be/tV621E_36Y4) | [Code](src/main/java/by/andd3dfx/core/equalshashcode/CustomEqualsNHashCode.java) [Code2](src/main/java/by/andd3dfx/core/equalshashcode/CustomEqualsNHashCode2.java)                 |
 | LFU кэш 2 (Least Frequently Used) (leetcode)                                                     | [Youtube](https://youtu.be/sZrNyIrwjnc) | [Code](src/main/java/by/andd3dfx/cache/LFUCacheUsingTime.java)                                                                                                                      |
@@ -258,3 +259,4 @@ notes about interview preparation and useful links.
 | Выдача купюр банкоматом 2 (Яндекс)                                                               | [Youtube](https://youtu.be/0-BL-NO9-B8) | [Code](src/main/java/by/andd3dfx/common/atm/AtmUsingLoop.java) [Code2](src/main/java/by/andd3dfx/common/atm/AtmUsingRecursion.java)                                                 |
 | Поиск эквивалентных вершин бинарного дерева с макс. размером поддеревьев                         | [Youtube](https://youtu.be/Ued_W2Xs7ng) | [Code](src/main/java/by/andd3dfx/tree/equivalent/EquivalentNodesOfTree.java)                                                                                                        |
 | Как выпустить релиз на GitHub                                                                    | [Youtube](https://youtu.be/mtQ2UzPilsQ) | [Repo](https://github.com/andrei-punko/pde-solvers)                                                                                                                                 |
+| Расстояние Левенштейна. Получение одной строки из другой за одно изменение 2                     | [Youtube](https://youtu.be/0543ZryeIx4) | [Code](src/main/java/by/andd3dfx/string/StringTransformation.java)                                                                                                                  |
