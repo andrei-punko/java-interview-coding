@@ -6,8 +6,7 @@ import org.junit.Test;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomRecursiveTaskTest {
 
@@ -27,7 +26,7 @@ public class CustomRecursiveTaskTest {
 
         forkJoinPool.submit(customRecursiveTask);
 
-        assertThat(customRecursiveTask.get(), is(EXPECTED_SUM));
+        assertThat(customRecursiveTask.get()).isEqualTo(EXPECTED_SUM);
     }
 
     @Test
@@ -36,7 +35,7 @@ public class CustomRecursiveTaskTest {
 
         forkJoinPool.execute(customRecursiveTask);
 
-        assertThat(customRecursiveTask.get(), is(EXPECTED_SUM));
+        assertThat(customRecursiveTask.get()).isEqualTo(EXPECTED_SUM);
     }
 
     @Test
@@ -45,7 +44,7 @@ public class CustomRecursiveTaskTest {
 
         forkJoinPool.invoke(customRecursiveTask);
 
-        assertThat(customRecursiveTask.get(), is(EXPECTED_SUM));
+        assertThat(customRecursiveTask.get()).isEqualTo(EXPECTED_SUM);
     }
 
     @Test
@@ -55,6 +54,6 @@ public class CustomRecursiveTaskTest {
         customRecursiveTask.fork();
         customRecursiveTask.join();
 
-        assertThat(customRecursiveTask.get(), is(EXPECTED_SUM));
+        assertThat(customRecursiveTask.get()).isEqualTo(EXPECTED_SUM);
     }
 }

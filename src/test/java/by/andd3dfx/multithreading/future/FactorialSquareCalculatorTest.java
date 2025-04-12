@@ -5,8 +5,7 @@ import org.junit.Test;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FactorialSquareCalculatorTest {
 
@@ -16,6 +15,6 @@ public class FactorialSquareCalculatorTest {
         FactorialSquareCalculator calculator = new FactorialSquareCalculator(10);
         forkJoinPool.execute(calculator);
 
-        assertThat(calculator.get(), is(385));
+        assertThat(calculator.get()).isEqualTo(385);
     }
 }

@@ -4,60 +4,61 @@ import org.junit.Test;
 
 import java.util.function.Function;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static by.andd3dfx.numeric.Fibonacci.calculateDownTop;
+import static by.andd3dfx.numeric.Fibonacci.calculateTopDown;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
 
 public class FibonacciTest {
 
-  @Test
-  public void calculate() {
-    assertThat("Expected F(2) = 1", Fibonacci.calculate(2), is(1));
-    assertThat("Expected F(4) = 3", Fibonacci.calculate(4), is(3));
-    assertThat("Expected F(1) = 1", Fibonacci.calculate(1), is(1));
-    assertThat("Expected F(0) = 0", Fibonacci.calculate(0), is(0));
-    assertThat("Expected F(8) = 21", Fibonacci.calculate(8), is(21));
-    assertThat("Expected F(9) = 34", Fibonacci.calculate(9), is(34));
-    assertThat("Expected F(3) = 2", Fibonacci.calculate(3), is(2));
-    assertThat("Expected F(7) = 13", Fibonacci.calculate(7), is(13));
-    assertThat("Expected F(10) = 55", Fibonacci.calculate(10), is(55));
-    assertThat("Expected F(6) = 8", Fibonacci.calculate(6), is(8));
-    assertThat("Expected F(5) = 5", Fibonacci.calculate(5), is(5));
-  }
-
-  @Test
-  public void calculate2() {
-    assertThat("Expected F(2) = 1", Fibonacci.calculate2(2), is(1));
-    assertThat("Expected F(4) = 3", Fibonacci.calculate2(4), is(3));
-    assertThat("Expected F(1) = 1", Fibonacci.calculate2(1), is(1));
-    assertThat("Expected F(0) = 0", Fibonacci.calculate2(0), is(0));
-    assertThat("Expected F(8) = 21", Fibonacci.calculate2(8), is(21));
-    assertThat("Expected F(9) = 34", Fibonacci.calculate2(9), is(34));
-    assertThat("Expected F(3) = 2", Fibonacci.calculate2(3), is(2));
-    assertThat("Expected F(7) = 13", Fibonacci.calculate2(7), is(13));
-    assertThat("Expected F(10) = 55", Fibonacci.calculate2(10), is(55));
-    assertThat("Expected F(6) = 8", Fibonacci.calculate2(6), is(8));
-    assertThat("Expected F(5) = 5", Fibonacci.calculate2(5), is(5));
-  }
-
-  @Test
-  public void calculateForWrongParam() {
-    checkIsExceptionThrown(Fibonacci::calculate, -1);
-    checkIsExceptionThrown(Fibonacci::calculate, -10);
-  }
-
-  @Test
-  public void calculate2ForWrongParam() {
-    checkIsExceptionThrown(Fibonacci::calculate2, -1);
-    checkIsExceptionThrown(Fibonacci::calculate2, -10);
-  }
-
-  private void checkIsExceptionThrown(Function<Integer, Integer> function, int n) {
-    try {
-      function.apply(n);
-      fail("Exception should be thrown");
-    } catch (IllegalArgumentException iae) {
-      assertThat("Wrong message", iae.getMessage(), is("Number should be not less than 0!"));
+    @Test
+    public void testCalculateTopDown() {
+        assertThat(calculateTopDown(2)).isEqualTo(1);
+        assertThat(calculateTopDown(4)).isEqualTo(3);
+        assertThat(calculateTopDown(1)).isEqualTo(1);
+        assertThat(calculateTopDown(0)).isEqualTo(0);
+        assertThat(calculateTopDown(8)).isEqualTo(21);
+        assertThat(calculateTopDown(9)).isEqualTo(34);
+        assertThat(calculateTopDown(3)).isEqualTo(2);
+        assertThat(calculateTopDown(7)).isEqualTo(13);
+        assertThat(calculateTopDown(10)).isEqualTo(55);
+        assertThat(calculateTopDown(6)).isEqualTo(8);
+        assertThat(calculateTopDown(5)).isEqualTo(5);
     }
-  }
+
+    @Test
+    public void testCalculateDownTop() {
+        assertThat(calculateDownTop(2)).isEqualTo(1);
+        assertThat(calculateDownTop(4)).isEqualTo(3);
+        assertThat(calculateDownTop(1)).isEqualTo(1);
+        assertThat(calculateDownTop(0)).isEqualTo(0);
+        assertThat(calculateDownTop(8)).isEqualTo(21);
+        assertThat(calculateDownTop(9)).isEqualTo(34);
+        assertThat(calculateDownTop(3)).isEqualTo(2);
+        assertThat(calculateDownTop(7)).isEqualTo(13);
+        assertThat(calculateDownTop(10)).isEqualTo(55);
+        assertThat(calculateDownTop(6)).isEqualTo(8);
+        assertThat(calculateDownTop(5)).isEqualTo(5);
+    }
+
+    @Test
+    public void calculateTopDownForWrongParam() {
+        checkIsExceptionThrown(Fibonacci::calculateTopDown, -1);
+        checkIsExceptionThrown(Fibonacci::calculateTopDown, -10);
+    }
+
+    @Test
+    public void calculateDownTopForWrongParam() {
+        checkIsExceptionThrown(Fibonacci::calculateDownTop, -1);
+        checkIsExceptionThrown(Fibonacci::calculateDownTop, -10);
+    }
+
+    private void checkIsExceptionThrown(Function<Integer, Integer> function, int n) {
+        try {
+            function.apply(n);
+            fail("Exception should be thrown");
+        } catch (IllegalArgumentException iae) {
+            assertThat(iae.getMessage()).isEqualTo("Number should be not less than 0!");
+        }
+    }
 }

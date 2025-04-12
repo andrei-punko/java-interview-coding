@@ -6,8 +6,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SkipItemsByConditionTest {
 
@@ -24,8 +23,8 @@ public class SkipItemsByConditionTest {
 
         Map<Integer, String> result = skipItemsByCondition.filterUsingIterator(map, key -> key % 2 == 1);
 
-        assertThat(result.size(), is(1));
-        assertThat(result.get(2), is("table"));
+        assertThat(result.size()).isEqualTo(1);
+        assertThat(result.get(2)).isEqualTo("table");
     }
 
     @Test
@@ -34,9 +33,9 @@ public class SkipItemsByConditionTest {
 
         Map<Integer, String> result = skipItemsByCondition.filterUsingIterator(map, key -> key % 2 == 0);
 
-        assertThat(result.size(), is(2));
-        assertThat(result.get(1), is("penguin"));
-        assertThat(result.get(3), is("bubble"));
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result.get(1)).isEqualTo("penguin");
+        assertThat(result.get(3)).isEqualTo("bubble");
     }
 
     @Test
@@ -45,8 +44,8 @@ public class SkipItemsByConditionTest {
 
         Map<Integer, String> result = skipItemsByCondition.filterUsingRemoveIf(map, key -> key % 2 == 1);
 
-        assertThat(result.size(), is(1));
-        assertThat(result.get(2), is("table"));
+        assertThat(result.size()).isEqualTo(1);
+        assertThat(result.get(2)).isEqualTo("table");
     }
 
     @Test
@@ -55,9 +54,9 @@ public class SkipItemsByConditionTest {
 
         Map<Integer, String> result = skipItemsByCondition.filterUsingRemoveIf(map, key -> key % 2 == 0);
 
-        assertThat(result.size(), is(2));
-        assertThat(result.get(1), is("penguin"));
-        assertThat(result.get(3), is("bubble"));
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result.get(1)).isEqualTo("penguin");
+        assertThat(result.get(3)).isEqualTo("bubble");
     }
 
     private static HashMap<Integer, String> buildMap() {

@@ -5,8 +5,7 @@ import org.junit.Test;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SquareCalculatorTest {
 
@@ -32,8 +31,8 @@ public class SquareCalculatorTest {
         Integer result2 = future2.get();
         System.out.println(result1 + " and " + result2);
 
-        assertThat(result1, is(100));
-        assertThat(result2, is(10000));
+        assertThat(result1).isEqualTo(100);
+        assertThat(result2).isEqualTo(10000);
 
         squareCalculator.shutdown();
     }

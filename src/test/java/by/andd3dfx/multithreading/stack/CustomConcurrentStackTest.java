@@ -5,8 +5,7 @@ import org.junit.Test;
 
 import java.util.NoSuchElementException;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomConcurrentStackTest {
 
@@ -22,21 +21,21 @@ public class CustomConcurrentStackTest {
         stack.push(2);
         stack.push(3);
         stack.push(4);
-        assertThat(stack.pop(), is(4));
+        assertThat(stack.pop()).isEqualTo(4);
         stack.push(5);
         stack.push(6);
-        assertThat(stack.peek(), is(6));
-        assertThat(stack.peek(), is(6));
-        assertThat(stack.pop(), is(6));
+        assertThat(stack.peek()).isEqualTo(6);
+        assertThat(stack.peek()).isEqualTo(6);
+        assertThat(stack.pop()).isEqualTo(6);
         stack.push(7);
         stack.push(8);
-        assertThat(stack.pop(), is(8));
-        assertThat(stack.pop(), is(7));
-        assertThat(stack.pop(), is(5));
-        assertThat(stack.pop(), is(3));
-        assertThat(stack.isEmpty(), is(false));
-        assertThat(stack.pop(), is(2));
-        assertThat(stack.isEmpty(), is(true));
+        assertThat(stack.pop()).isEqualTo(8);
+        assertThat(stack.pop()).isEqualTo(7);
+        assertThat(stack.pop()).isEqualTo(5);
+        assertThat(stack.pop()).isEqualTo(3);
+        assertThat(stack.isEmpty()).isEqualTo(false);
+        assertThat(stack.pop()).isEqualTo(2);
+        assertThat(stack.isEmpty()).isEqualTo(true);
     }
 
     @Test(expected = NoSuchElementException.class)

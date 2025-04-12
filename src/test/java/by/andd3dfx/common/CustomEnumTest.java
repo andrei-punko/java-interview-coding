@@ -6,8 +6,7 @@ import static by.andd3dfx.common.CustomEnum.FRIDAY;
 import static by.andd3dfx.common.CustomEnum.MONDAY;
 import static by.andd3dfx.common.CustomEnum.SUNDAY;
 import static by.andd3dfx.common.CustomEnum.WEDNESDAY;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomEnumTest {
 
@@ -15,27 +14,27 @@ public class CustomEnumTest {
     public void values() {
         CustomEnum[] values = CustomEnum.values();
 
-        assertThat(values.length, is(7));
+        assertThat(values.length).isEqualTo(7);
 
-        assertThat(values[0], is(MONDAY));
-        assertThat(values[6], is(SUNDAY));
+        assertThat(values[0]).isEqualTo(MONDAY);
+        assertThat(values[6]).isEqualTo(SUNDAY);
     }
 
     @Test
     public void valueOf() {
-        assertThat(CustomEnum.valueOf("FRIDAY"), is(FRIDAY));
-        assertThat(CustomEnum.valueOf("SUNDAY"), is(SUNDAY));
+        assertThat(CustomEnum.valueOf("FRIDAY")).isEqualTo(FRIDAY);
+        assertThat(CustomEnum.valueOf("SUNDAY")).isEqualTo(SUNDAY);
     }
 
     @Test
     public void ordinal() {
-        assertThat(MONDAY.ordinal(), is(0));
-        assertThat(WEDNESDAY.ordinal(), is(2));
+        assertThat(MONDAY.ordinal()).isEqualTo(0);
+        assertThat(WEDNESDAY.ordinal()).isEqualTo(2);
     }
 
     @Test
     public void name() {
-        assertThat(SUNDAY.name(), is("SUNDAY"));
-        assertThat(MONDAY.name(), is("MONDAY"));
+        assertThat(SUNDAY.name()).isEqualTo("SUNDAY");
+        assertThat(MONDAY.name()).isEqualTo("MONDAY");
     }
 }

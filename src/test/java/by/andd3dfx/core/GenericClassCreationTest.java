@@ -5,9 +5,7 @@ import by.andd3dfx.core.GenericClassCreation.CreatorUsingSupplier;
 import lombok.AllArgsConstructor;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
 
 public class GenericClassCreationTest {
@@ -16,28 +14,28 @@ public class GenericClassCreationTest {
     public void createStringBy_CreatorUsingDeclaredConstructor() {
         CreatorUsingDeclaredConstructor<String> container = new CreatorUsingDeclaredConstructor<>();
 
-        assertThat(container.createObject(String.class), is(""));
+        assertThat(container.createObject(String.class)).isEqualTo("");
     }
 
     @Test
     public void createStringBy_CreatorUsingSupplier() {
         CreatorUsingSupplier<String> container = new CreatorUsingSupplier<>(String::new);
 
-        assertThat(container.createObject(), is(""));
+        assertThat(container.createObject()).isEqualTo("");
     }
 
     @Test
     public void createClassWithoutFieldsBy_CreatorUsingDeclaredConstructor() {
         CreatorUsingDeclaredConstructor<CustomClassWithoutFields> container = new CreatorUsingDeclaredConstructor<>();
 
-        assertThat(container.createObject(CustomClassWithoutFields.class), instanceOf(CustomClassWithoutFields.class));
+        assertThat(container.createObject(CustomClassWithoutFields.class)).isInstanceOf(CustomClassWithoutFields.class);
     }
 
     @Test
     public void createClassWithoutFieldsBy_CreatorUsingSupplier() {
         CreatorUsingSupplier<CustomClassWithoutFields> container = new CreatorUsingSupplier<>(CustomClassWithoutFields::new);
 
-        assertThat(container.createObject(), instanceOf(CustomClassWithoutFields.class));
+        assertThat(container.createObject()).isInstanceOf(CustomClassWithoutFields.class);
     }
 
     @Test
@@ -53,7 +51,7 @@ public class GenericClassCreationTest {
     public void createClassWithFieldBy_CreatorUsingSupplier() {
         CreatorUsingSupplier<CustomClassWithField> container = new CreatorUsingSupplier<>(() -> new CustomClassWithField(0));
 
-        assertThat(container.createObject(), instanceOf(CustomClassWithField.class));
+        assertThat(container.createObject()).isInstanceOf(CustomClassWithField.class);
     }
 
     public static class CustomClassWithoutFields {

@@ -3,8 +3,7 @@ package by.andd3dfx.numeric.factorial;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
 
 public abstract class AbstractFactorialTest {
@@ -20,18 +19,18 @@ public abstract class AbstractFactorialTest {
 
     @Test
     public void calc() {
-        assertThat("0!=1", instance.calc(0), is(1L));
-        assertThat("1!=1", instance.calc(1), is(1L));
-        assertThat("2!=2", instance.calc(2), is(2L));
-        assertThat("3!=6", instance.calc(3), is(6L));
-        assertThat("4!=24", instance.calc(4), is(24L));
-        assertThat("8!=40320", instance.calc(8), is(40320L));
+        assertThat(instance.calc(0)).as("0!=1").isEqualTo(1L);
+        assertThat(instance.calc(1)).as("1!=1").isEqualTo(1L);
+        assertThat(instance.calc(2)).as("2!=2").isEqualTo(2L);
+        assertThat(instance.calc(3)).as("3!=6").isEqualTo(6L);
+        assertThat(instance.calc(4)).as("4!=24").isEqualTo(24L);
+        assertThat(instance.calc(8)).as("8!=40320").isEqualTo(40320L);
     }
 
     @Test
     public void calcForNegative() {
         var ex = assertThrows(IllegalArgumentException.class, () -> instance.calc(-1));
 
-        assertThat(ex.getMessage(), is("n should be greater than 0"));
+        assertThat(ex.getMessage()).isEqualTo("n should be greater than 0");
     }
 }

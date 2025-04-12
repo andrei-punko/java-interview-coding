@@ -2,20 +2,20 @@ package by.andd3dfx.numeric;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static by.andd3dfx.numeric.LargestPit.find;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LargestPitTest {
 
     @Test
-    public void find() {
-        assertThat(LargestPit.find(new int[]{}), is(0));
-        assertThat(LargestPit.find(new int[]{1}), is(0));
-        assertThat(LargestPit.find(new int[]{1, 2}), is(0));
-        assertThat(LargestPit.find(new int[]{4, 4, 3, 2, 1, 0}), is(-1));
-        assertThat(LargestPit.find(new int[]{0, 0, 1, 2, 3, 4}), is(-1));
-        assertThat(LargestPit.find(new int[]{2, 1, 2, -1, 3}), is(3));
-        assertThat(LargestPit.find(new int[]{1, 0, 1, -2, 0}), is(2));
-        assertThat(LargestPit.find(new int[]{0, -1, 1, -2, 0, -3, 1, -4, 0, -5}), is(4));
+    public void testFind() {
+        assertThat(find(new int[]{})).isEqualTo(0);
+        assertThat(find(new int[]{1})).isEqualTo(0);
+        assertThat(find(new int[]{1, 2})).isEqualTo(0);
+        assertThat(find(new int[]{4, 4, 3, 2, 1, 0})).isEqualTo(-1);
+        assertThat(find(new int[]{0, 0, 1, 2, 3, 4})).isEqualTo(-1);
+        assertThat(find(new int[]{2, 1, 2, -1, 3})).isEqualTo(3);
+        assertThat(find(new int[]{1, 0, 1, -2, 0})).isEqualTo(2);
+        assertThat(find(new int[]{0, -1, 1, -2, 0, -3, 1, -4, 0, -5})).isEqualTo(4);
     }
 }

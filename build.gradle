@@ -23,7 +23,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'net.bytebuddy:byte-buddy:1.14.12'
     testImplementation 'org.assertj:assertj-core:3.27.3'
-    testImplementation 'org.hamcrest:hamcrest:3.0'
     testImplementation 'org.mockito:mockito-core:5.17.0'
     testImplementation 'org.awaitility:awaitility:4.3.0'
     testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.19.3'

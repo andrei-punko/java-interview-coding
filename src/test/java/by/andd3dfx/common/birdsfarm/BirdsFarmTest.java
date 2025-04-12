@@ -2,8 +2,7 @@ package by.andd3dfx.common.birdsfarm;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -48,7 +47,7 @@ public class BirdsFarmTest {
             egg.hatch();
             fail("Exception after second hatch should be thrown!");
         } catch (IllegalStateException ise) {
-            assertThat("Wrong exception message", ise.getMessage(), is("This egg already hatched!"));
+            assertThat(ise.getMessage()).isEqualTo("This egg already hatched!");
         }
     }
 }

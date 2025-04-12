@@ -3,10 +3,8 @@ package by.andd3dfx.recursion;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.lessThan;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class HanoiTowersTest {
@@ -38,10 +36,9 @@ public class HanoiTowersTest {
 
         List<Integer> disks = ht.getRight().getStack().stream().toList();
         for (int i = 1; i < disks.size(); i++) {
-            assertThat("Disk " + (i - 1) + " should be less than disk " + i,
-                    disks.get(i - 1),
-                    lessThan(disks.get(i))
-            );
+            assertThat(disks.get(i - 1))
+                    .as("Disk " + (i - 1) + " should be less than disk " + i)
+                    .isLessThan(disks.get(i));
         }
     }
 }

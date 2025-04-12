@@ -3,8 +3,7 @@ package by.andd3dfx.tree;
 import org.junit.Test;
 
 import static by.andd3dfx.tree.NextNodeForBinarySearchTree.next;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NextNodeForBinarySearchTreeTest {
 
@@ -41,12 +40,12 @@ public class NextNodeForBinarySearchTreeTest {
         _7.setLeft(_6);
         _7.setRight(_11);
 
-        assertThat("Wrong node for 3", next(_3), is(_3_5));
-        assertThat("Wrong node for 4", next(_4), is(_4_5));
-        assertThat("Wrong node for 4.5", next(_4_5), is(_5));
-        assertThat("Wrong node for 7", next(_7), is(_11));
-        assertThat("Wrong node for 11", next(_11), is(_20));
-        assertThat("Wrong node for 20", next(_20), is(_20));
+        assertThat(next(_3)).as("Wrong node for 3").isEqualTo(_3_5);
+        assertThat(next(_4)).as("Wrong node for 4").isEqualTo(_4_5);
+        assertThat(next(_4_5)).as("Wrong node for 4.5").isEqualTo(_5);
+        assertThat(next(_7)).as("Wrong node for 7").isEqualTo(_11);
+        assertThat(next(_11)).as("Wrong node for 11").isEqualTo(_20);
+        assertThat(next(_20)).as("Wrong node for 20").isEqualTo(_20);
     }
 
     class NodeImpl implements NextNodeForBinarySearchTree.Node {

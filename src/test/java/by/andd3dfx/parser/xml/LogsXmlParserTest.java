@@ -5,9 +5,7 @@ import org.junit.Test;
 
 import java.util.Collection;
 
-import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class LogsXmlParserTest {
@@ -40,8 +38,8 @@ public class LogsXmlParserTest {
 
     Collection<Integer> ids = parser.getIdsByMessage(xml, "Application ended");
 
-    assertThat(ids.size(), is(2));
-    assertThat(ids, hasItems(2, 24));
+    assertThat(ids.size()).isEqualTo(2);
+    assertThat(ids).containsExactlyInAnyOrder(2, 24);
   }
 
   @Test

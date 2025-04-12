@@ -6,8 +6,7 @@ import org.junit.Test;
 import java.util.Random;
 import java.util.function.Function;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNull;
 
 public class PasswordBruteforceTest {
@@ -38,10 +37,10 @@ public class PasswordBruteforceTest {
 
     @Test
     public void encode() {                                                 // ☺Punko -> 012345
-        assertThat(passwordBruteforce.encode(1), is("P"));      // 1 = 1*6^0 = 1 = P
-        assertThat(passwordBruteforce.encode(2), is("u"));      // 2 = 2*6^0 = 2 = u
-        assertThat(passwordBruteforce.encode(31), is("oP"));    // 31 = 5*6^1 + 1*6^0 = 30 + 1 = oP
-        assertThat(passwordBruteforce.encode(59), is("Pno"));   // 59 = 1*6^2 + 3*6^1 + 5*6^0 = 36 + 18 + 5 = Pno
+        assertThat(passwordBruteforce.encode(1)).isEqualTo("P");      // 1 = 1*6^0 = 1 = P
+        assertThat(passwordBruteforce.encode(2)).isEqualTo("u");      // 2 = 2*6^0 = 2 = u
+        assertThat(passwordBruteforce.encode(31)).isEqualTo("oP");    // 31 = 5*6^1 + 1*6^0 = 30 + 1 = oP
+        assertThat(passwordBruteforce.encode(59)).isEqualTo("Pno");   // 59 = 1*6^2 + 3*6^1 + 5*6^0 = 36 + 18 + 5 = Pno
     }
 
     @Test
@@ -80,6 +79,6 @@ public class PasswordBruteforceTest {
     private void decodeUsingDefinitePassword(String password) {
         String hash = hashFunction.apply(password);
         System.out.println("password=" + password + ", hash=" + hash);
-        assertThat(passwordBruteforce.decode(hash, password.length()), is(password));
+        assertThat(passwordBruteforce.decode(hash, password.length())).isEqualTo(password);
     }
 }

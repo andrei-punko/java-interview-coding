@@ -3,8 +3,7 @@ package by.andd3dfx.recursion;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -23,9 +22,9 @@ public class EightQueensTest {
 
         assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 1);
-        assertThat(solution.prettyPrint(), is(new int[][]{
+        assertThat(solution.prettyPrint()).isEqualTo(new int[][]{
                 {1}
-        }));
+        });
     }
 
     @Test
@@ -48,12 +47,12 @@ public class EightQueensTest {
 
         assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 4);
-        assertThat(solution.prettyPrint(), is(new int[][]{
+        assertThat(solution.prettyPrint()).isEqualTo(new int[][]{
                 {0, 1, 0, 0},
                 {0, 0, 0, 1},
                 {1, 0, 0, 0},
                 {0, 0, 1, 0}
-        }));
+        });
     }
 
     @Test
@@ -62,13 +61,13 @@ public class EightQueensTest {
 
         assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 5);
-        assertThat(solution.prettyPrint(), is(new int[][]{
+        assertThat(solution.prettyPrint()).isEqualTo(new int[][]{
                 {1, 0, 0, 0, 0},
                 {0, 0, 1, 0, 0},
                 {0, 0, 0, 0, 1},
                 {0, 1, 0, 0, 0},
                 {0, 0, 0, 1, 0}
-        }));
+        });
     }
 
     @Test
@@ -77,7 +76,7 @@ public class EightQueensTest {
 
         assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 8);
-        assertThat(solution.prettyPrint(), is(new int[][]{
+        assertThat(solution.prettyPrint()).isEqualTo(new int[][]{
                 {1, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 1, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 1},
@@ -86,7 +85,7 @@ public class EightQueensTest {
                 {0, 0, 0, 0, 0, 0, 1, 0},
                 {0, 1, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 1, 0, 0, 0, 0}
-        }));
+        });
     }
 
     @Test
@@ -96,10 +95,10 @@ public class EightQueensTest {
                 {false, true}
         });
 
-        assertThat(solution.prettyPrint(), is(new int[][]{
+        assertThat(solution.prettyPrint()).isEqualTo(new int[][]{
                 {1, 0},
                 {0, 1}
-        }));
+        });
     }
 
     @Test
@@ -151,6 +150,6 @@ public class EightQueensTest {
                 }
             }
         }
-        assertThat(queensAmount, is(size));
+        assertThat(queensAmount).isEqualTo(size);
     }
 }

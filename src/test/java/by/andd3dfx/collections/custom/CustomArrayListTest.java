@@ -7,10 +7,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
@@ -20,17 +17,17 @@ public class CustomArrayListTest {
     @Test
     public void addNGet() {
         CustomArrayList<Integer> list = new CustomArrayList<>();
-        assertThat(list.size(), is(0));
+        assertThat(list.size()).isEqualTo(0);
         assertTrue(list.isEmpty());
         list.add(4);
         list.add(5);
         list.add(12);
 
-        assertThat(list.size(), is(3));
+        assertThat(list.size()).isEqualTo(3);
         assertFalse(list.isEmpty());
-        assertThat(list.get(0), is(4));
-        assertThat(list.get(1), is(5));
-        assertThat(list.get(2), is(12));
+        assertThat(list.get(0)).isEqualTo(4);
+        assertThat(list.get(1)).isEqualTo(5);
+        assertThat(list.get(2)).isEqualTo(12);
     }
 
     @Test
@@ -43,35 +40,35 @@ public class CustomArrayListTest {
         list.add(1, 34);  // 3 34 7 67 12
         list.add(5, 102);  // 3 34 7 67 12 102 - addition of a new element at the right should pass
 
-        assertThat(list.size(), is(6));
-        assertThat(list.get(0), is(3));
-        assertThat(list.get(1), is(34));
-        assertThat(list.get(2), is(7));
-        assertThat(list.get(3), is(67));
-        assertThat(list.get(4), is(12));
-        assertThat(list.get(5), is(102));
+        assertThat(list.size()).isEqualTo(6);
+        assertThat(list.get(0)).isEqualTo(3);
+        assertThat(list.get(1)).isEqualTo(34);
+        assertThat(list.get(2)).isEqualTo(7);
+        assertThat(list.get(3)).isEqualTo(67);
+        assertThat(list.get(4)).isEqualTo(12);
+        assertThat(list.get(5)).isEqualTo(102);
     }
 
     @Test
     public void addNGetWhenArrayUpResizeExpected() {
         CustomArrayList<Integer> list = new CustomArrayList<>();
-        assertThat(determineInnerArrayLength(list), is(10));
+        assertThat(determineInnerArrayLength(list)).isEqualTo(10);
         for (int i = 0; i < 20; i++) {
             list.add(i * i);
         }
 
-        assertThat(list.size(), is(20));
+        assertThat(list.size()).isEqualTo(20);
         assertFalse(list.isEmpty());
-        assertThat(determineInnerArrayLength(list), greaterThanOrEqualTo(20));
+        assertThat(determineInnerArrayLength(list)).isGreaterThanOrEqualTo(20);
         for (int i = 0; i < 20; i++) {
-            assertThat(list.get(i), is(i * i));
+            assertThat(list.get(i)).isEqualTo(i * i);
         }
     }
 
     @Test
     public void addIntoMiddleOfListNGetWhenArrayUpResizeExpected() {
         CustomArrayList<Integer> list = new CustomArrayList<>();
-        assertThat(determineInnerArrayLength(list), is(10));
+        assertThat(determineInnerArrayLength(list)).isEqualTo(10);
         for (int i = 0; i < 10; i++) {
             list.add(i * i);
         }
@@ -79,24 +76,24 @@ public class CustomArrayListTest {
             list.add(i + 5, i * i);
         }
 
-        assertThat(list.size(), is(20));
+        assertThat(list.size()).isEqualTo(20);
         assertFalse(list.isEmpty());
-        assertThat(determineInnerArrayLength(list), greaterThanOrEqualTo(20));
+        assertThat(determineInnerArrayLength(list)).isGreaterThanOrEqualTo(20);
         for (int i = 0; i < 5; i++) {
-            assertThat(list.get(i), is(i * i));
+            assertThat(list.get(i)).isEqualTo(i * i);
         }
         for (int i = 0; i < 10; i++) {
-            assertThat(list.get(i + 5), is(i * i));
+            assertThat(list.get(i + 5)).isEqualTo(i * i);
         }
         for (int i = 5; i < 10; i++) {
-            assertThat(list.get(i + 10), is(i * i));
+            assertThat(list.get(i + 10)).isEqualTo(i * i);
         }
     }
 
     @Test
     public void addNSetNGet() {
         CustomArrayList<Integer> list = new CustomArrayList<>();
-        assertThat(list.size(), is(0));
+        assertThat(list.size()).isEqualTo(0);
         assertTrue(list.isEmpty());
         list.add(4);
         list.add(5);
@@ -104,11 +101,11 @@ public class CustomArrayListTest {
         list.add(12);
         list.set(0, 31);
 
-        assertThat(list.size(), is(3));
+        assertThat(list.size()).isEqualTo(3);
         assertFalse(list.isEmpty());
-        assertThat(list.get(0), is(31));
-        assertThat(list.get(1), is(56));
-        assertThat(list.get(2), is(12));
+        assertThat(list.get(0)).isEqualTo(31);
+        assertThat(list.get(1)).isEqualTo(56);
+        assertThat(list.get(2)).isEqualTo(12);
     }
 
     @Test
@@ -155,35 +152,35 @@ public class CustomArrayListTest {
 
         var removed = list.remove(2);
 
-        assertThat(removed, is(12));
-        assertThat(list.size(), is(3));
-        assertThat(list.get(0), is(11));
-        assertThat(list.get(1), is(7));
-        assertThat(list.get(2), is(34));
+        assertThat(removed).isEqualTo(12);
+        assertThat(list.size()).isEqualTo(3);
+        assertThat(list.get(0)).isEqualTo(11);
+        assertThat(list.get(1)).isEqualTo(7);
+        assertThat(list.get(2)).isEqualTo(34);
 
         var removed2 = list.remove(2);
 
-        assertThat(removed2, is(34));
-        assertThat(list.size(), is(2));
-        assertThat(list.get(0), is(11));
-        assertThat(list.get(1), is(7));
+        assertThat(removed2).isEqualTo(34);
+        assertThat(list.size()).isEqualTo(2);
+        assertThat(list.get(0)).isEqualTo(11);
+        assertThat(list.get(1)).isEqualTo(7);
     }
 
     @Test
     public void removeByIndexWhenArrayDecResizedExpected() {
         CustomArrayList<Integer> list = new CustomArrayList<>();
-        assertThat(determineInnerArrayLength(list), is(10));
+        assertThat(determineInnerArrayLength(list)).isEqualTo(10);
         for (int i = 0; i < 20; i++) {
             list.add(i * i);
         }
-        assertThat(determineInnerArrayLength(list), greaterThanOrEqualTo(20));
+        assertThat(determineInnerArrayLength(list)).isGreaterThanOrEqualTo(20);
 
         for (int i = 0; i < 18; i++) {
             list.remove(1);     // Delete element at the start of inner array multiple times
         }
 
-        assertThat(list.size(), is(2));
-        assertThat(determineInnerArrayLength(list), is(10));
+        assertThat(list.size()).isEqualTo(2);
+        assertThat(determineInnerArrayLength(list)).isEqualTo(10);
     }
 
     @SneakyThrows
@@ -219,12 +216,12 @@ public class CustomArrayListTest {
         var removeResult = list.remove("Ilya");
 
         assertTrue(removeResult);
-        assertThat(list.size(), is(5));
-        assertThat(list.get(0), is("Andrei"));
-        assertThat(list.get(1), is("Tikhon"));
-        assertThat(list.get(2), is("Elena"));
-        assertThat(list.get(3), is("Ilya"));
-        assertThat(list.get(4), is("Yulia"));
+        assertThat(list.size()).isEqualTo(5);
+        assertThat(list.get(0)).isEqualTo("Andrei");
+        assertThat(list.get(1)).isEqualTo("Tikhon");
+        assertThat(list.get(2)).isEqualTo("Elena");
+        assertThat(list.get(3)).isEqualTo("Ilya");
+        assertThat(list.get(4)).isEqualTo("Yulia");
     }
 
     @Test
@@ -233,14 +230,14 @@ public class CustomArrayListTest {
         for (int i = 0; i < 20; i++) {
             list.add(String.valueOf(i * i));
         }
-        assertThat(determineInnerArrayLength(list), greaterThanOrEqualTo(20));
+        assertThat(determineInnerArrayLength(list)).isGreaterThanOrEqualTo(20);
 
         for (int i = 5; i < 20; i++) {
             assertTrue(list.remove(String.valueOf(i * i)));
         }
 
-        assertThat(list.size(), is(5));
-        assertThat(determineInnerArrayLength(list), is(10));
+        assertThat(list.size()).isEqualTo(5);
+        assertThat(determineInnerArrayLength(list)).isEqualTo(10);
     }
 
     @Test
@@ -255,11 +252,11 @@ public class CustomArrayListTest {
         var removeResult = list.remove(null);
 
         assertTrue(removeResult);
-        assertThat(list.size(), is(4));
-        assertThat(list.get(0), is("Andrei"));
-        assertThat(list.get(1), is("Tikhon"));
-        assertThat(list.get(2), is(nullValue()));
-        assertThat(list.get(3), is("Elena"));
+        assertThat(list.size()).isEqualTo(4);
+        assertThat(list.get(0)).isEqualTo("Andrei");
+        assertThat(list.get(1)).isEqualTo("Tikhon");
+        assertThat(list.get(2)).isNull();
+        assertThat(list.get(3)).isEqualTo("Elena");
     }
 
     @Test
@@ -274,12 +271,12 @@ public class CustomArrayListTest {
         var removeResult = list.remove("Oksana");
 
         assertFalse(removeResult);
-        assertThat(list.size(), is(5));
-        assertThat(list.get(0), is("Andrei"));
-        assertThat(list.get(1), is("Tikhon"));
-        assertThat(list.get(2), is("Ilya"));
-        assertThat(list.get(3), is("Elena"));
-        assertThat(list.get(4), is("Yulia"));
+        assertThat(list.size()).isEqualTo(5);
+        assertThat(list.get(0)).isEqualTo("Andrei");
+        assertThat(list.get(1)).isEqualTo("Tikhon");
+        assertThat(list.get(2)).isEqualTo("Ilya");
+        assertThat(list.get(3)).isEqualTo("Elena");
+        assertThat(list.get(4)).isEqualTo("Yulia");
     }
 
     @Test
@@ -290,12 +287,12 @@ public class CustomArrayListTest {
         list.add(36);
 
         assertFalse(list.isEmpty());
-        assertThat(list.size(), is(3));
+        assertThat(list.size()).isEqualTo(3);
 
         list.clear();
 
         assertTrue(list.isEmpty());
-        assertThat(list.size(), is(0));
+        assertThat(list.size()).isEqualTo(0);
     }
 
     @Test
@@ -309,7 +306,7 @@ public class CustomArrayListTest {
         for (var item : list) {
             result.add(item);
         }
-        assertThat(result, is(List.of(3, 7, 12)));
+        assertThat(result).isEqualTo(List.of(3, 7, 12));
     }
 
     @Test
@@ -320,7 +317,7 @@ public class CustomArrayListTest {
         for (var item : list) {
             result.add(item);
         }
-        assertThat(result, is(List.of()));
+        assertThat(result).isEqualTo(List.of());
     }
 
     @Test
@@ -330,6 +327,6 @@ public class CustomArrayListTest {
         list.add("Tikhon");
         list.add("Ilya");
 
-        assertThat(list.toString(), is("[Andrei, Tikhon, Ilya]"));
+        assertThat(list.toString()).isEqualTo("[Andrei, Tikhon, Ilya]");
     }
 }

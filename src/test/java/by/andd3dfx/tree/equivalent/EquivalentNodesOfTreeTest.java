@@ -5,10 +5,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class EquivalentNodesOfTreeTest {
 
@@ -21,7 +18,7 @@ public class EquivalentNodesOfTreeTest {
 
     @Test
     public void findEquivalentNodesForNull() {
-        assertThat(equivalentNodesOfTree.findEquivalentNodes(null), is(nullValue()));
+        assertThat(equivalentNodesOfTree.findEquivalentNodes(null)).isNull();
     }
 
     /**
@@ -32,7 +29,7 @@ public class EquivalentNodesOfTreeTest {
     @Test
     public void findEquivalentNodesForRootNodeOnly() {
         Node node = new Node('A');
-        assertThat(equivalentNodesOfTree.findEquivalentNodes(node), is(nullValue()));
+        assertThat(equivalentNodesOfTree.findEquivalentNodes(node)).isNull();
     }
 
     /**
@@ -46,7 +43,7 @@ public class EquivalentNodesOfTreeTest {
     public void findEquivalentNodesWhenNoCandidates() {
         Node node = new Node('A');
         node.left = new Node('B');
-        assertThat(equivalentNodesOfTree.findEquivalentNodes(node), is(nullValue()));
+        assertThat(equivalentNodesOfTree.findEquivalentNodes(node)).isNull();
     }
 
     /**
@@ -64,8 +61,8 @@ public class EquivalentNodesOfTreeTest {
 
         List<Node> result = equivalentNodesOfTree.findEquivalentNodes(node);
 
-        assertThat(result.size(), is(2));
-        assertThat(result, hasItems(node.left, node.right));
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result).containsExactlyInAnyOrder(node.left, node.right);
     }
 
     /**
@@ -87,8 +84,8 @@ public class EquivalentNodesOfTreeTest {
 
         List<Node> result = equivalentNodesOfTree.findEquivalentNodes(node);
 
-        assertThat(result.size(), is(2));
-        assertThat(result, hasItems(node.left, node.right));
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result).containsExactlyInAnyOrder(node.left, node.right);
     }
 
     /**
@@ -113,8 +110,8 @@ public class EquivalentNodesOfTreeTest {
 
         List<Node> result = equivalentNodesOfTree.findEquivalentNodes(node);
 
-        assertThat(result.size(), is(2));
-        assertThat(result, hasItems(node.left, node.right.right));
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result).containsExactlyInAnyOrder(node.left, node.right.right);
     }
 
     /**
@@ -139,8 +136,8 @@ public class EquivalentNodesOfTreeTest {
 
         List<Node> result = equivalentNodesOfTree.findEquivalentNodes(node);
 
-        assertThat(result.size(), is(2));
-        assertThat(result, hasItems(node.left, node.right));
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result).containsExactlyInAnyOrder(node.left, node.right);
     }
 
     /**
@@ -177,7 +174,7 @@ public class EquivalentNodesOfTreeTest {
 
         List<Node> result = equivalentNodesOfTree.findEquivalentNodes(root);
 
-        assertThat("Two nodes expected", result.size(), is(2));
-        assertThat(result, hasItems(root.right.right, root.right.right.right));
+        assertThat(result.size()).as("Two nodes expected").isEqualTo(2);
+        assertThat(result).containsExactlyInAnyOrder(root.right.right, root.right.right.right);
     }
 }

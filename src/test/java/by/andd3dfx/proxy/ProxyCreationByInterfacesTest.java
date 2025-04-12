@@ -4,8 +4,7 @@ import org.junit.Test;
 
 import java.lang.reflect.Proxy;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Dynamic proxy usage example
@@ -21,7 +20,11 @@ public class ProxyCreationByInterfacesTest {
         new DynamicInvocationHandler()
     );
 
-    assertThat("x2 value expected", ((SomeInterface1) proxyInstance).performActionOne(10), is(20));
-    assertThat("x4 value expected", ((SomeInterface2) proxyInstance).performActionTwo(10), is(100));
+    assertThat(((SomeInterface1) proxyInstance).performActionOne(10))
+            .as("x2 value expected")
+            .isEqualTo(20);
+    assertThat(((SomeInterface2) proxyInstance).performActionTwo(10))
+            .as("x4 value expected")
+            .isEqualTo(100);
   }
 }

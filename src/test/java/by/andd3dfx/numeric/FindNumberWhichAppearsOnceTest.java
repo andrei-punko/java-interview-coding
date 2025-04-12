@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static by.andd3dfx.numeric.FindNumberWhichAppearsOnce.find;
 import static by.andd3dfx.numeric.FindNumberWhichAppearsOnce.findSubOptimal;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FindNumberWhichAppearsOnceTest {
 

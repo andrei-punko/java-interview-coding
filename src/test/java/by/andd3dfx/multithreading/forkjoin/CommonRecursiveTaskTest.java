@@ -10,8 +10,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CommonRecursiveTaskTest {
 
@@ -31,7 +30,7 @@ public class CommonRecursiveTaskTest {
 
         forkJoinPool.submit(commonRecursiveTask);
 
-        assertThat(commonRecursiveTask.get(), is(5L));
+        assertThat(commonRecursiveTask.get()).isEqualTo(5L);
     }
 
     @Test
@@ -40,7 +39,7 @@ public class CommonRecursiveTaskTest {
 
         forkJoinPool.submit(commonRecursiveTask);
 
-        assertThat(commonRecursiveTask.get(), is(12L));
+        assertThat(commonRecursiveTask.get()).isEqualTo(12L);
     }
 
     @Test
@@ -49,7 +48,7 @@ public class CommonRecursiveTaskTest {
 
         forkJoinPool.submit(commonRecursiveTask);
 
-        assertThat(commonRecursiveTask.get(), is(EXPECTED_SUM));
+        assertThat(commonRecursiveTask.get()).isEqualTo(EXPECTED_SUM);
     }
 
     @Test
@@ -58,7 +57,7 @@ public class CommonRecursiveTaskTest {
 
         forkJoinPool.execute(commonRecursiveTask);
 
-        assertThat(commonRecursiveTask.get(), is(EXPECTED_SUM));
+        assertThat(commonRecursiveTask.get()).isEqualTo(EXPECTED_SUM);
     }
 
     @Test
@@ -67,7 +66,7 @@ public class CommonRecursiveTaskTest {
 
         forkJoinPool.invoke(commonRecursiveTask);
 
-        assertThat(commonRecursiveTask.get(), is(EXPECTED_SUM));
+        assertThat(commonRecursiveTask.get()).isEqualTo(EXPECTED_SUM);
     }
 
     @Test
@@ -77,7 +76,7 @@ public class CommonRecursiveTaskTest {
         commonRecursiveTask.fork();
         commonRecursiveTask.join();
 
-        assertThat(commonRecursiveTask.get(), is(EXPECTED_SUM));
+        assertThat(commonRecursiveTask.get()).isEqualTo(EXPECTED_SUM);
     }
 
     private class MyWorkContainer implements CommonRecursiveTask.IWorkContainer {
@@ -137,7 +136,7 @@ public class CommonRecursiveTaskTest {
             String threadName = Thread.currentThread().getName();
             logger.info(String.format("This result of work %s is equals to %d - was processed by thread %s",
                     work, result, threadName));
-            return Long.valueOf(result);
+            return (long) result;
         }
     }
 }

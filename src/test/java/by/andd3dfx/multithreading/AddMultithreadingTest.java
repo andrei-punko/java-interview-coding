@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 import static org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS;
+import static org.awaitility.Durations.TWO_SECONDS;
 
 public class AddMultithreadingTest {
 
@@ -23,7 +24,7 @@ public class AddMultithreadingTest {
 
         var future = CompletableFuture.supplyAsync(() -> aggregator.doRequestOld());
 
-        await().atLeast(2, TimeUnit.SECONDS)
+        await().atLeast(TWO_SECONDS)
                 .atMost(3, TimeUnit.SECONDS)
                 .pollInterval(ONE_HUNDRED_MILLISECONDS)
                 .until(() -> future.isDone());
