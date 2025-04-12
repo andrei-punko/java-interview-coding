@@ -5,12 +5,10 @@ import org.junit.Test;
 
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 import static org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS;
 import static org.awaitility.Durations.ONE_SECOND;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThan;
 
 public class TwoLegsRobotTest {
 
@@ -39,11 +37,11 @@ public class TwoLegsRobotTest {
 
     private void checkLogs(String logs) {
         String[] lines = logs.split("!");
-        assertThat(lines.length, greaterThan(10));
+        assertThat(lines.length).isGreaterThan(10);
 
         var index = false;
         for (var line : lines) {
-            assertThat(line, is(EXPECTED_STRING.get(index)));
+            assertThat(line).isEqualTo(EXPECTED_STRING.get(index));
             index = !index;
         }
     }

@@ -3,15 +3,14 @@ package by.andd3dfx.string;
 import org.junit.Test;
 
 import static by.andd3dfx.string.ReverseString.apply;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ReverseStringTest {
 
     @Test
     public void testApply() {
-        assertThat(apply(""), is(""));
-        assertThat(apply("A"), is("A"));
-        assertThat(apply("aBc deF"), is("Fed cBa"));
+        assertThat(apply("")).isEqualTo("");
+        assertThat(apply("A")).isEqualTo("A");
+        assertThat(apply("aBc deF")).isEqualTo("Fed cBa");
     }
 }

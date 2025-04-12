@@ -4,8 +4,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -15,22 +14,22 @@ public class CustomHashSetTest {
     @Test
     public void size() {
         CustomHashSet<String> set = new CustomHashSet<>();
-        assertThat(set.size(), is(0));
+        assertThat(set.size()).isEqualTo(0);
 
         set.add("One");
-        assertThat(set.size(), is(1));
+        assertThat(set.size()).isEqualTo(1);
 
         set.add("Two");
-        assertThat(set.size(), is(2));
+        assertThat(set.size()).isEqualTo(2);
 
         set.add("Two");
-        assertThat(set.size(), is(2));
+        assertThat(set.size()).isEqualTo(2);
 
         set.add("Three");
-        assertThat(set.size(), is(3));
+        assertThat(set.size()).isEqualTo(3);
 
         set.add("One");
-        assertThat(set.size(), is(3));
+        assertThat(set.size()).isEqualTo(3);
     }
 
     @Test
@@ -76,22 +75,22 @@ public class CustomHashSetTest {
         set.add("One");
         set.add("Two");
         set.add("Three");
-        assertThat(set.size(), is(3));
+        assertThat(set.size()).isEqualTo(3);
 
         assertTrue(set.remove("Two"));
         assertFalse(set.remove("Two"));
-        assertThat(set.size(), is(2));
+        assertThat(set.size()).isEqualTo(2);
 
         assertFalse(set.remove("Four"));
-        assertThat(set.size(), is(2));
+        assertThat(set.size()).isEqualTo(2);
 
         set.add("Two");
         assertTrue(set.remove("Two"));
         assertFalse(set.remove("Two"));
-        assertThat(set.size(), is(2));
+        assertThat(set.size()).isEqualTo(2);
 
         assertTrue(set.remove("One"));
-        assertThat(set.size(), is(1));
+        assertThat(set.size()).isEqualTo(1);
     }
 
     @Test
@@ -100,13 +99,13 @@ public class CustomHashSetTest {
         set.add("One");
         set.add("Two");
         set.add("Three");
-        assertThat(set.size(), is(3));
+        assertThat(set.size()).isEqualTo(3);
 
         assertFalse(set.removeAll(List.of("Four", "Five")));
-        assertThat(set.size(), is(3));
+        assertThat(set.size()).isEqualTo(3);
 
         assertTrue(set.removeAll(List.of("One", "Three")));
-        assertThat(set.size(), is(1));
+        assertThat(set.size()).isEqualTo(1);
     }
 
     @Test
@@ -114,11 +113,11 @@ public class CustomHashSetTest {
         CustomHashSet<String> set = new CustomHashSet<>();
         set.add("One");
         set.add("Two");
-        assertThat(set.size(), is(2));
+        assertThat(set.size()).isEqualTo(2);
 
         set.clear();
 
-        assertThat(set.size(), is(0));
+        assertThat(set.size()).isEqualTo(0);
         assertTrue(set.isEmpty());
         assertFalse(set.contains("One"));
         assertFalse(set.contains("Two"));
@@ -136,7 +135,7 @@ public class CustomHashSetTest {
         set.remove("Two");
 
         var etalonList = List.of("One", "Three", "Four", "Five");
-        assertThat(set.size(), is(etalonList.size()));
+        assertThat(set.size()).isEqualTo(etalonList.size());
 
         for (var item : set) {
             assertTrue(etalonList.contains(item));
@@ -162,6 +161,6 @@ public class CustomHashSetTest {
         set.add("Yulia");
         set.add("Elena");
 
-        assertThat(set.toString(), is("[Elena, Yulia, Andrei, Tikhon]"));
+        assertThat(set.toString()).isEqualTo("[Elena, Yulia, Andrei, Tikhon]");
     }
 }

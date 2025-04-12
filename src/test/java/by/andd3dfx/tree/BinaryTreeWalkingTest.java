@@ -1,13 +1,12 @@
 package by.andd3dfx.tree;
 
+import by.andd3dfx.tree.BinaryTreeWalking.Node;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BinaryTreeWalkingTest {
 
@@ -20,44 +19,43 @@ public class BinaryTreeWalkingTest {
 
     @Test
     public void breadthWalk() {
-        BinaryTreeWalking.Node<Integer> root = buildTree();
+        Node<Integer> root = buildTree();
 
-        List<BinaryTreeWalking.Node<Integer>> result = binaryTreeWalking.breadthWalk(root);
+        List<Node<Integer>> result = binaryTreeWalking.breadthWalk(root);
 
-        checkResultList(result, new int[]{5, 4, 12, 11, 9, 34, 7});
+        checkResultList(result, List.of(5, 4, 12, 11, 9, 34, 7));
     }
 
     @Test
     public void forwardVerticalWalk() {
-        BinaryTreeWalking.Node<Integer> root = buildTree();
+        Node<Integer> root = buildTree();
 
-        List<BinaryTreeWalking.Node<Integer>> result = binaryTreeWalking.forwardVerticalWalk(root);
+        List<Node<Integer>> result = binaryTreeWalking.forwardVerticalWalk(root);
 
-        checkResultList(result, new int[]{5, 4, 11, 12, 9, 7, 34});
+        checkResultList(result, List.of(5, 4, 11, 12, 9, 7, 34));
     }
 
     @Test
     public void symmetricVerticalWalk() {
-        BinaryTreeWalking.Node<Integer> root = buildTree();
+        Node<Integer> root = buildTree();
 
-        List<BinaryTreeWalking.Node<Integer>> result = binaryTreeWalking.symmetricVerticalWalk(root);
+        List<Node<Integer>> result = binaryTreeWalking.symmetricVerticalWalk(root);
 
-        checkResultList(result, new int[]{4, 11, 5, 7, 9, 12, 34});
+        checkResultList(result, List.of(4, 11, 5, 7, 9, 12, 34));
     }
 
     @Test
     public void backwardVerticalWalk() {
-        BinaryTreeWalking.Node<Integer> root = buildTree();
+        Node<Integer> root = buildTree();
 
-        List<BinaryTreeWalking.Node<Integer>> result = binaryTreeWalking.backwardVerticalWalk(root);
+        List<Node<Integer>> result = binaryTreeWalking.backwardVerticalWalk(root);
 
-        checkResultList(result, new int[]{11, 4, 7, 9, 34, 12, 5});
+        checkResultList(result, List.of(11, 4, 7, 9, 34, 12, 5));
     }
 
-    private void checkResultList(List<BinaryTreeWalking.Node<Integer>> result, int[] expectation) {
-        List<Integer> values = result.stream().map(BinaryTreeWalking.Node::getValue).toList();
-        assertThat(values.size(), is(expectation.length));
-        assertThat(values.toArray(), is(expectation));
+    private void checkResultList(List<Node<Integer>> result, List<Integer> expectation) {
+        var values = result.stream().map(Node::getValue).toList();
+        assertThat(values).isEqualTo(expectation);
     }
 
     /**
@@ -68,15 +66,15 @@ public class BinaryTreeWalkingTest {
      *       7
      * </pre>
      */
-    private BinaryTreeWalking.Node<Integer> buildTree() {
-        BinaryTreeWalking.Node eleven = new BinaryTreeWalking.Node(11, null, null);
-        BinaryTreeWalking.Node four = new BinaryTreeWalking.Node(4, null, eleven);
+    private Node<Integer> buildTree() {
+        var eleven = new Node<>(11, null, null);
+        var four = new Node<>(4, null, eleven);
 
-        BinaryTreeWalking.Node seven = new BinaryTreeWalking.Node(7, null, null);
-        BinaryTreeWalking.Node nine = new BinaryTreeWalking.Node(9, seven, null);
-        BinaryTreeWalking.Node thirtyFour = new BinaryTreeWalking.Node(34, null, null);
-        BinaryTreeWalking.Node twelve = new BinaryTreeWalking.Node(12, nine, thirtyFour);
+        var seven = new Node<>(7, null, null);
+        var nine = new Node<>(9, seven, null);
+        var thirtyFour = new Node<>(34, null, null);
+        var twelve = new Node<>(12, nine, thirtyFour);
 
-        return new BinaryTreeWalking.Node(5, four, twelve);
+        return new Node<>(5, four, twelve);
     }
 }

@@ -3,8 +3,7 @@ package by.andd3dfx.common;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class TrainCompositionTest {
 
@@ -23,9 +22,9 @@ public class TrainCompositionTest {
         trainComposition.attachWagonFromLeft(34);
         // Now order is next: 34 13 7 45
 
-        assertThat(trainComposition.detachWagonFromRight(), is(45));
-        assertThat(trainComposition.detachWagonFromRight(), is(7));
-        assertThat(trainComposition.detachWagonFromLeft(), is(34));
-        assertThat(trainComposition.detachWagonFromLeft(), is(13));
+        assertThat(trainComposition.detachWagonFromRight()).isEqualTo(45);
+        assertThat(trainComposition.detachWagonFromRight()).isEqualTo(7);
+        assertThat(trainComposition.detachWagonFromLeft()).isEqualTo(34);
+        assertThat(trainComposition.detachWagonFromLeft()).isEqualTo(13);
     }
 }

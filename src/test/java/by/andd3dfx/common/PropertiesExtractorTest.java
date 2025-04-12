@@ -2,22 +2,25 @@ package by.andd3dfx.common;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PropertiesExtractorTest {
 
     @Test
     public void extractForPlanObject() throws IllegalAccessException {
         Person person = new Person("Andrei");
-        assertThat(PropertiesExtractor.extract(person), is("Andrei"));
+        var result = PropertiesExtractor.extract(person);
+
+        assertThat(result).isEqualTo("Andrei");
     }
 
     @Test
     public void extractForComplexObject() throws IllegalAccessException {
         Person person = new Person("Andrei");
         person.setCard(new Card("VISA", "123546"));
-        assertThat(PropertiesExtractor.extract(person), is("Andrei VISA 123546"));
+        var result = PropertiesExtractor.extract(person);
+
+        assertThat(result).isEqualTo("Andrei VISA 123546");
     }
 
     public static class Person {

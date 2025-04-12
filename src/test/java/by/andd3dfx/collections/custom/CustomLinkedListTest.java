@@ -5,9 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
@@ -17,32 +15,32 @@ public class CustomLinkedListTest {
     @Test
     public void addNGet() {
         CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
-        assertThat(linkedList.size(), is(0));
+        assertThat(linkedList.size()).isEqualTo(0);
         assertTrue(linkedList.isEmpty());
 
         linkedList.add(3);
         linkedList.add(7);
 
-        assertThat(linkedList.size(), is(2));
-        assertFalse(linkedList.isEmpty());
-        assertThat(linkedList.get(0), is(3));
-        assertThat(linkedList.get(1), is(7));
+        assertThat(linkedList.size()).isEqualTo(2);
+       assertFalse(linkedList.isEmpty());
+       assertThat(linkedList.get(0)).isEqualTo(3);
+        assertThat(linkedList.get(1)).isEqualTo(7);
 
         linkedList.add(12);
         linkedList.add(34);
 
-        assertThat(linkedList.size(), is(4));
+        assertThat(linkedList.size()).isEqualTo(4);
         assertFalse(linkedList.isEmpty());
-        assertThat(linkedList.get(0), is(3));
-        assertThat(linkedList.get(1), is(7));
-        assertThat(linkedList.get(2), is(12));
-        assertThat(linkedList.get(3), is(34));
+        assertThat(linkedList.get(0)).isEqualTo(3);
+        assertThat(linkedList.get(1)).isEqualTo(7);
+        assertThat(linkedList.get(2)).isEqualTo(12);
+        assertThat(linkedList.get(3)).isEqualTo(34);
     }
 
     @Test
     public void addNSetNGet() {
         CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
-        assertThat(linkedList.size(), is(0));
+        assertThat(linkedList.size()).isEqualTo(0);
         assertTrue(linkedList.isEmpty());
         linkedList.add(4);
         linkedList.add(5);
@@ -50,11 +48,11 @@ public class CustomLinkedListTest {
         linkedList.add(12);
         linkedList.set(0, 31);
 
-        assertThat(linkedList.size(), is(3));
+        assertThat(linkedList.size()).isEqualTo(3);
         assertFalse(linkedList.isEmpty());
-        assertThat(linkedList.get(0), is(31));
-        assertThat(linkedList.get(1), is(56));
-        assertThat(linkedList.get(2), is(12));
+        assertThat(linkedList.get(0)).isEqualTo(31);
+        assertThat(linkedList.get(1)).isEqualTo(56);
+        assertThat(linkedList.get(2)).isEqualTo(12);
     }
 
     @Test
@@ -67,13 +65,13 @@ public class CustomLinkedListTest {
         linkedList.add(1, 34);  // 3 34 7 67 12
         linkedList.add(5, 102);  // 3 34 7 67 12 102 - addition of new element at the right should pass
 
-        assertThat(linkedList.size(), is(6));
-        assertThat(linkedList.get(0), is(3));
-        assertThat(linkedList.get(1), is(34));
-        assertThat(linkedList.get(2), is(7));
-        assertThat(linkedList.get(3), is(67));
-        assertThat(linkedList.get(4), is(12));
-        assertThat(linkedList.get(5), is(102));
+        assertThat(linkedList.size()).isEqualTo(6);
+        assertThat(linkedList.get(0)).isEqualTo(3);
+        assertThat(linkedList.get(1)).isEqualTo(34);
+        assertThat(linkedList.get(2)).isEqualTo(7);
+        assertThat(linkedList.get(3)).isEqualTo(67);
+        assertThat(linkedList.get(4)).isEqualTo(12);
+        assertThat(linkedList.get(5)).isEqualTo(102);
     }
 
     @Test
@@ -118,19 +116,19 @@ public class CustomLinkedListTest {
         linkedList.add(12);
         linkedList.add(34);
 
-        assertThat(linkedList.size(), is(4));
-        assertThat(linkedList.get(0), is(3));
-        assertThat(linkedList.get(1), is(7));
-        assertThat(linkedList.get(2), is(12));
-        assertThat(linkedList.get(3), is(34));
+        assertThat(linkedList.size()).isEqualTo(4);
+        assertThat(linkedList.get(0)).isEqualTo(3);
+        assertThat(linkedList.get(1)).isEqualTo(7);
+        assertThat(linkedList.get(2)).isEqualTo(12);
+        assertThat(linkedList.get(3)).isEqualTo(34);
 
         linkedList.reverse();
 
-        assertThat(linkedList.size(), is(4));
-        assertThat(linkedList.get(0), is(34));
-        assertThat(linkedList.get(1), is(12));
-        assertThat(linkedList.get(2), is(7));
-        assertThat(linkedList.get(3), is(3));
+        assertThat(linkedList.size()).isEqualTo(4);
+        assertThat(linkedList.get(0)).isEqualTo(34);
+        assertThat(linkedList.get(1)).isEqualTo(12);
+        assertThat(linkedList.get(2)).isEqualTo(7);
+        assertThat(linkedList.get(3)).isEqualTo(3);
     }
 
     @Test
@@ -143,18 +141,18 @@ public class CustomLinkedListTest {
 
         var removed = linkedList.remove();
 
-        assertThat(removed, is(11));
-        assertThat(linkedList.size(), is(3));
-        assertThat(linkedList.get(0), is(7));
-        assertThat(linkedList.get(1), is(12));
-        assertThat(linkedList.get(2), is(34));
+        assertThat(removed).isEqualTo(11);
+        assertThat(linkedList.size()).isEqualTo(3);
+        assertThat(linkedList.get(0)).isEqualTo(7);
+        assertThat(linkedList.get(1)).isEqualTo(12);
+        assertThat(linkedList.get(2)).isEqualTo(34);
 
         var removed2 = linkedList.remove();
 
-        assertThat(removed2, is(7));
-        assertThat(linkedList.size(), is(2));
-        assertThat(linkedList.get(0), is(12));
-        assertThat(linkedList.get(1), is(34));
+        assertThat(removed2).isEqualTo(7);
+        assertThat(linkedList.size()).isEqualTo(2);
+        assertThat(linkedList.get(0)).isEqualTo(12);
+        assertThat(linkedList.get(1)).isEqualTo(34);
     }
 
     @Test
@@ -167,18 +165,18 @@ public class CustomLinkedListTest {
 
         var removed = linkedList.remove(2);
 
-        assertThat(removed, is(12));
-        assertThat(linkedList.size(), is(3));
-        assertThat(linkedList.get(0), is(11));
-        assertThat(linkedList.get(1), is(7));
-        assertThat(linkedList.get(2), is(34));
+        assertThat(removed).isEqualTo(12);
+        assertThat(linkedList.size()).isEqualTo(3);
+        assertThat(linkedList.get(0)).isEqualTo(11);
+        assertThat(linkedList.get(1)).isEqualTo(7);
+        assertThat(linkedList.get(2)).isEqualTo(34);
 
         var removed2 = linkedList.remove(2);
 
-        assertThat(removed2, is(34));
-        assertThat(linkedList.size(), is(2));
-        assertThat(linkedList.get(0), is(11));
-        assertThat(linkedList.get(1), is(7));
+        assertThat(removed2).isEqualTo(34);
+        assertThat(linkedList.size()).isEqualTo(2);
+        assertThat(linkedList.get(0)).isEqualTo(11);
+        assertThat(linkedList.get(1)).isEqualTo(7);
     }
 
     @Test
@@ -206,12 +204,12 @@ public class CustomLinkedListTest {
         var removeResult = linkedList.remove("Ilya");
 
         assertTrue(removeResult);
-        assertThat(linkedList.size(), is(5));
-        assertThat(linkedList.get(0), is("Andrei"));
-        assertThat(linkedList.get(1), is("Tikhon"));
-        assertThat(linkedList.get(2), is("Elena"));
-        assertThat(linkedList.get(3), is("Ilya"));      // Only first 'Ilya' occurrence should be removed
-        assertThat(linkedList.get(4), is("Yulia"));
+        assertThat(linkedList.size()).isEqualTo(5);
+        assertThat(linkedList.get(0)).isEqualTo("Andrei");
+        assertThat(linkedList.get(1)).isEqualTo("Tikhon");
+        assertThat(linkedList.get(2)).isEqualTo("Elena");
+        assertThat(linkedList.get(3)).isEqualTo("Ilya");      // Only first 'Ilya' occurrence should be removed
+        assertThat(linkedList.get(4)).isEqualTo("Yulia");
     }
 
     @Test
@@ -226,11 +224,11 @@ public class CustomLinkedListTest {
         var removeResult = linkedList.remove(null);
 
         assertTrue(removeResult);
-        assertThat(linkedList.size(), is(4));
-        assertThat(linkedList.get(0), is("Andrei"));
-        assertThat(linkedList.get(1), is("Tikhon"));
-        assertThat(linkedList.get(2), is(nullValue()));     // Only first null occurrence should be removed
-        assertThat(linkedList.get(3), is("Elena"));
+        assertThat(linkedList.size()).isEqualTo(4);
+        assertThat(linkedList.get(0)).isEqualTo("Andrei");
+        assertThat(linkedList.get(1)).isEqualTo("Tikhon");
+        assertThat(linkedList.get(2)).isNull();         // Only first null occurrence should be removed
+        assertThat(linkedList.get(3)).isEqualTo("Elena");
     }
 
     @Test
@@ -245,12 +243,12 @@ public class CustomLinkedListTest {
         var removeResult = linkedList.remove("Oksana");
 
         assertFalse(removeResult);
-        assertThat(linkedList.size(), is(5));
-        assertThat(linkedList.get(0), is("Andrei"));
-        assertThat(linkedList.get(1), is("Tikhon"));
-        assertThat(linkedList.get(2), is("Ilya"));
-        assertThat(linkedList.get(3), is("Elena"));
-        assertThat(linkedList.get(4), is("Yulia"));
+        assertThat(linkedList.size()).isEqualTo(5);
+        assertThat(linkedList.get(0)).isEqualTo("Andrei");
+        assertThat(linkedList.get(1)).isEqualTo("Tikhon");
+        assertThat(linkedList.get(2)).isEqualTo("Ilya");
+        assertThat(linkedList.get(3)).isEqualTo("Elena");
+        assertThat(linkedList.get(4)).isEqualTo("Yulia");
     }
 
     @Test
@@ -262,11 +260,11 @@ public class CustomLinkedListTest {
         linkedList.push(36);
         linkedList.push(39);
 
-        assertThat(linkedList.pop(), is(39));
-        assertThat(linkedList.pop(), is(36));
-        assertThat(linkedList.pop(), is(3));
+        assertThat(linkedList.pop()).isEqualTo(39);
+        assertThat(linkedList.pop()).isEqualTo(36);
+        assertThat(linkedList.pop()).isEqualTo(3);
         assertFalse(linkedList.isEmpty());
-        assertThat(linkedList.pop(), is(2));
+        assertThat(linkedList.pop()).isEqualTo(2);
         assertTrue(linkedList.isEmpty());
     }
 
@@ -276,16 +274,16 @@ public class CustomLinkedListTest {
         linkedList.push(2);
         linkedList.push(3);
         linkedList.push(36);    // 36 3 2
-        assertThat(linkedList.remove(1), is(3));   // 36 2
+        assertThat(linkedList.remove(1)).isEqualTo(3);   // 36 2
         linkedList.push(39);
         linkedList.push(43);
         linkedList.push(45);    // 45 43 39 36 2
-        assertThat(linkedList.remove(2), is(39));   // 45 43 36 2
+        assertThat(linkedList.remove(2)).isEqualTo(39);   // 45 43 36 2
 
-        assertThat(linkedList.pop(), is(45));
-        assertThat(linkedList.pop(), is(43));
-        assertThat(linkedList.pop(), is(36));
-        assertThat(linkedList.pop(), is(2));
+        assertThat(linkedList.pop()).isEqualTo(45);
+        assertThat(linkedList.pop()).isEqualTo(43);
+        assertThat(linkedList.pop()).isEqualTo(36);
+        assertThat(linkedList.pop()).isEqualTo(2);
         assertTrue(linkedList.isEmpty());
     }
 
@@ -297,12 +295,12 @@ public class CustomLinkedListTest {
         linkedList.add(36);
 
         assertFalse(linkedList.isEmpty());
-        assertThat(linkedList.size(), is(3));
+        assertThat(linkedList.size()).isEqualTo(3);
 
         linkedList.clear();
 
         assertTrue(linkedList.isEmpty());
-        assertThat(linkedList.size(), is(0));
+        assertThat(linkedList.size()).isEqualTo(0);
     }
 
     @Test
@@ -316,7 +314,7 @@ public class CustomLinkedListTest {
         for (var item : linkedList) {
             result.add(item);
         }
-        assertThat(result, is(List.of(3, 7, 12)));
+        assertThat(result).isEqualTo(List.of(3, 7, 12));
     }
 
     @Test
@@ -327,7 +325,7 @@ public class CustomLinkedListTest {
         for (var item : linkedList) {
             result.add(item);
         }
-        assertThat(result, is(List.of()));
+        assertThat(result).isEqualTo(List.of());
     }
 
     @Test
@@ -340,6 +338,6 @@ public class CustomLinkedListTest {
 
         var result = linkedList.toString();
 
-        assertThat(result, is("CustomLinkedList{head={3, next={7, next={12, next={34}}}}}"));
+        assertThat(result).isEqualTo("CustomLinkedList{head={3, next={7, next={12, next={34}}}}}");
     }
 }

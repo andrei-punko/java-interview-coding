@@ -5,8 +5,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BestAverageScoreTest {
 
@@ -15,8 +14,8 @@ public class BestAverageScoreTest {
         var items = buildItemsList();
         var items2 = buildBigItemsList();
 
-        assertThat(BestAverageScore.calculateUsingStreams(items), is(70.0));
-        assertThat(BestAverageScore.calculateUsingStreams(items2), is(500.0));
+        assertThat(BestAverageScore.calculateUsingStreams(items)).isEqualTo(70.0);
+        assertThat(BestAverageScore.calculateUsingStreams(items2)).isEqualTo(500.0);
     }
 
     @Test
@@ -24,8 +23,8 @@ public class BestAverageScoreTest {
         var items = buildItemsList();
         var items2 = buildBigItemsList();
 
-        assertThat(BestAverageScore.calculateUsualWay(items), is(70.0));
-        assertThat(BestAverageScore.calculateUsualWay(items2), is(500.0));
+        assertThat(BestAverageScore.calculateUsualWay(items)).isEqualTo(70.0);
+        assertThat(BestAverageScore.calculateUsualWay(items2)).isEqualTo(500.0);
     }
 
     private List<Item> buildItemsList() {

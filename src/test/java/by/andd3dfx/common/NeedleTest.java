@@ -6,8 +6,8 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static by.andd3dfx.common.Needle.count;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NeedleTest {
 
@@ -15,8 +15,8 @@ public class NeedleTest {
     public void countOneLine() throws IOException {
         String inMessage = "Hello, there!";
 
-        assertThat(Needle.count("there", buildStream(inMessage)), is(1));
-        assertThat(Needle.count("small", buildStream(inMessage)), is(0));
+        assertThat(count("there", buildStream(inMessage))).isEqualTo(1);
+        assertThat(count("small", buildStream(inMessage))).isEqualTo(0);
     }
 
     @Test
@@ -25,9 +25,9 @@ public class NeedleTest {
                 "How are you today?\n" +
                 "Yes, you over there.";
 
-        assertThat(Needle.count("there", buildStream(inMessage)), is(2));
-        assertThat(Needle.count("today", buildStream(inMessage)), is(1));
-        assertThat(Needle.count("small", buildStream(inMessage)), is(0));
+        assertThat(count("there", buildStream(inMessage))).isEqualTo(2);
+        assertThat(count("today", buildStream(inMessage))).isEqualTo(1);
+        assertThat(count("small", buildStream(inMessage))).isEqualTo(0);
     }
 
     private InputStream buildStream(String inMessage) {

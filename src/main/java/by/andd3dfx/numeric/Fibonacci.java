@@ -19,11 +19,11 @@ public class Fibonacci {
     /**
      * Top-down approach (recursive, better)
      */
-    public static int calculate(int n) {
+    public static int calculateTopDown(int n) {
         if (n < 0) throw new IllegalArgumentException("Number should be not less than 0!");
 
         if (!map.containsKey(n)) {
-            map.put(n, calculate(n - 1) + calculate(n - 2));
+            map.put(n, calculateTopDown(n - 1) + calculateTopDown(n - 2));
         }
 
         return map.get(n);
@@ -32,7 +32,7 @@ public class Fibonacci {
     /**
      * Down-top approach (loop, just as example)
      */
-    public static int calculate2(int n) {
+    public static int calculateDownTop(int n) {
         if (n < 0) throw new IllegalArgumentException("Number should be not less than 0!");
 
         for (int i = 2; i <= n; i++) {

@@ -3,8 +3,7 @@ package by.andd3dfx.common;
 import org.junit.Test;
 
 import static by.andd3dfx.common.CountStreamers.count;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CountStreamersTest {
 
@@ -15,7 +14,7 @@ public class CountStreamersTest {
                 {40, 50}
         };
 
-        assertThat(count(times), is(1));
+        assertThat(count(times)).isEqualTo(1);
     }
 
     @Test
@@ -25,7 +24,7 @@ public class CountStreamersTest {
                 {20, 50}
         };
 
-        assertThat(count(times), is(2));
+        assertThat(count(times)).isEqualTo(2);
     }
 
     @Test
@@ -40,6 +39,6 @@ public class CountStreamersTest {
                 {10, 120}
         };
 
-        assertThat(count(times), is(4));
+        assertThat(count(times)).isEqualTo(4);
     }
 }

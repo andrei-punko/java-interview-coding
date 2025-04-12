@@ -2,8 +2,7 @@ package by.andd3dfx.multithreading;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomAtomicTest {
 
@@ -11,18 +10,30 @@ public class CustomAtomicTest {
     public void getAndIncrementWithoutFailedAttempts() {
         CustomAtomic customAtomic = new CustomAtomicImpl(34, 0);
 
-        assertThat("Initial value for current() expected", customAtomic.current(), is(34));
-        assertThat("Initial value for getAndIncrement() expected", customAtomic.getAndIncrement(), is(34));
-        assertThat("Incremented value for current() expected", customAtomic.current(), is(35));
+        assertThat(customAtomic.current())
+                .as("Initial value for current() expected")
+                .isEqualTo(34);
+        assertThat(customAtomic.getAndIncrement())
+                .as("Initial value for getAndIncrement() expected")
+                .isEqualTo(34);
+        assertThat(customAtomic.current())
+                .as("Incremented value for current() expected")
+                .isEqualTo(35);
     }
 
     @Test
     public void getAndIncrementWithFailedAttempts() {
         CustomAtomic customAtomic = new CustomAtomicImpl(34, 5);
 
-        assertThat("Initial value for current() expected", customAtomic.current(), is(34));
-        assertThat("Initial value for getAndIncrement() expected", customAtomic.getAndIncrement(), is(34));
-        assertThat("Incremented value for current() expected", customAtomic.current(), is(35));
+        assertThat(customAtomic.current())
+                .as("Initial value for current() expected")
+                .isEqualTo(34);
+        assertThat(customAtomic.getAndIncrement())
+                .as("Initial value for getAndIncrement() expected")
+                .isEqualTo(34);
+        assertThat(customAtomic.current())
+                .as("Incremented value for current() expected")
+                .isEqualTo(35);
     }
 
     class CustomAtomicImpl extends CustomAtomic {

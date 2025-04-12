@@ -6,8 +6,7 @@ import static by.andd3dfx.collections.ReverseLinkedList.Node;
 import static by.andd3dfx.collections.ReverseLinkedList.reverseUsingLoop;
 import static by.andd3dfx.collections.ReverseLinkedList.reverseUsingRecursion;
 import static by.andd3dfx.collections.ReverseLinkedList.reverseUsingStack;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNull;
 
 public class ReverseLinkedListTest {
@@ -51,15 +50,20 @@ public class ReverseLinkedListTest {
         assertNull(reverseUsingRecursion(null));
     }
 
-    private Node buildLinkedList() {
-        return new Node(3, new Node(7, new Node(12, new Node(10, null))));
+    private Node<Integer> buildLinkedList() {
+        return new Node<>(3, new Node<>(7, new Node<>(12, new Node<>(10, null))));
     }
 
     private void checkReversedList(Node head) {
-        assertThat("Wrong 0 item of reversed list", head.getValue(), is(10));
-        assertThat("Wrong 1 item of reversed list", head.getNext().getValue(), is(12));
-        assertThat("Wrong 2 item of reversed list", head.getNext().getNext().getValue(), is(7));
-        assertThat("Wrong 3 item of reversed list", head.getNext().getNext().getNext().getValue(), is(3));
-        assertNull("Wrong next of 3 item of reversed list", head.getNext().getNext().getNext().getNext());
+        assertThat(head.getValue())
+                .as("Wrong 0 item of reversed list").isEqualTo(10);
+        assertThat(head.getNext().getValue())
+                .as("Wrong 1 item of reversed list").isEqualTo(12);
+        assertThat(head.getNext().getNext().getValue())
+                .as("Wrong 2 item of reversed list").isEqualTo(7);
+        assertThat(head.getNext().getNext().getNext().getValue())
+                .as("Wrong 3 item of reversed list").isEqualTo(3);
+        assertThat(head.getNext().getNext().getNext().getNext())
+                .as("Wrong next of 3 item of reversed list").isNull();
     }
 }

@@ -3,8 +3,7 @@ package by.andd3dfx.common;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class UrlShortenerTest {
 
@@ -17,32 +16,38 @@ public class UrlShortenerTest {
 
     @Test
     public void testEncodeNDecodeStrings() {
-        assertThat(urlShortener.buildShortUrl("tut.by"), is("b"));
-        assertThat(urlShortener.buildShortUrl("dev.by"), is("c"));
-        assertThat(urlShortener.buildShortUrl("thg.ru"), is("d"));
+        assertThat(urlShortener.buildShortUrl("tut.by")).isEqualTo("b");
+        assertThat(urlShortener.buildShortUrl("dev.by")).isEqualTo("c");
+        assertThat(urlShortener.buildShortUrl("thg.ru")).isEqualTo("d");
 
-        assertThat(urlShortener.restoreLongUrl("b"), is("tut.by"));
-        assertThat(urlShortener.restoreLongUrl("c"), is("dev.by"));
-        assertThat(urlShortener.restoreLongUrl("d"), is("thg.ru"));
+        assertThat(urlShortener.restoreLongUrl("b")).isEqualTo("tut.by");
+        assertThat(urlShortener.restoreLongUrl("c")).isEqualTo("dev.by");
+        assertThat(urlShortener.restoreLongUrl("d")).isEqualTo("thg.ru");
     }
 
     @Test
     public void encodePrimaryKeyToShortString() {
-        assertThat("Wrong short string for PK=1",
-                urlShortener.encodePrimaryKeyToShortString(1L), is("b"));
-        assertThat("Wrong short string for PK=100",
-                urlShortener.encodePrimaryKeyToShortString(100L), is("bM"));
-        assertThat("Wrong short string for PK=101",
-                urlShortener.encodePrimaryKeyToShortString(101L), is("bN"));
+        assertThat(urlShortener.encodePrimaryKeyToShortString(1L))
+                .as("Wrong short string for PK=1")
+                .isEqualTo("b");
+        assertThat(urlShortener.encodePrimaryKeyToShortString(100L))
+                .as("Wrong short string for PK=100")
+                .isEqualTo("bM");
+        assertThat(urlShortener.encodePrimaryKeyToShortString(101L))
+                .as("Wrong short string for PK=101")
+                .isEqualTo("bN");
     }
 
     @Test
     public void decodeShortStringToPrimaryKey() {
-        assertThat("Wrong PK for shortString=b",
-                urlShortener.decodeShortStringToPrimaryKey("b"), is(1L));
-        assertThat("Wrong PK for shortString=bM",
-                urlShortener.decodeShortStringToPrimaryKey("bM"), is(100L));
-        assertThat("Wrong PK for shortString=bN",
-                urlShortener.decodeShortStringToPrimaryKey("bN"), is(101L));
+        assertThat(urlShortener.decodeShortStringToPrimaryKey("b"))
+                .as("Wrong PK for shortString=b")
+                .isEqualTo(1L);
+        assertThat(urlShortener.decodeShortStringToPrimaryKey("bM"))
+                .as("Wrong PK for shortString=bM")
+                .isEqualTo(100L);
+        assertThat(urlShortener.decodeShortStringToPrimaryKey("bN"))
+                .as("Wrong PK for shortString=bN")
+                .isEqualTo(101L);
     }
 }

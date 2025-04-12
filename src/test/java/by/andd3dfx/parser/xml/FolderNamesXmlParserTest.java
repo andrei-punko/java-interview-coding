@@ -5,9 +5,7 @@ import org.junit.Test;
 
 import java.util.Collection;
 
-import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FolderNamesXmlParserTest {
 
@@ -31,7 +29,7 @@ public class FolderNamesXmlParserTest {
 
         Collection<String> result = parser.folderNames(xml, 'u');
 
-        assertThat(result.size(), is(2));
-        assertThat(result, hasItems("uninstall information", "users"));
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result).containsExactlyInAnyOrder("uninstall information", "users");
     }
 }

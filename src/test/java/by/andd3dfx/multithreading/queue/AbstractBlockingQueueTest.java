@@ -3,7 +3,6 @@ package by.andd3dfx.multithreading.queue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.SneakyThrows;
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,10 +13,10 @@ import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 import static org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS;
 import static org.awaitility.Durations.ONE_SECOND;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -136,7 +135,7 @@ public abstract class AbstractBlockingQueueTest {
             }
         }
         System.out.println(MessageFormat.format("valueA={0}, valueB={1}", valueA, valueB));
-        assertThat(Math.abs(valueA - valueB), Matchers.lessThan(ITEMS_AMOUNT * ITEMS_AMOUNT / 2));
+        assertThat(Math.abs(valueA - valueB)).isLessThan(ITEMS_AMOUNT * ITEMS_AMOUNT / 2);
     }
 
     @SneakyThrows
