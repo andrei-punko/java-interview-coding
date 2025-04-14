@@ -1,4 +1,4 @@
-# Java interview tasks solutions
+# Java coding interview tasks solutions
 
 [![Java CI with Gradle](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml/badge.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml)
 [![Coverage](.github/badges/jacoco.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml)
@@ -260,3 +260,4 @@ notes about interview preparation and useful links.
 | Поиск эквивалентных вершин бинарного дерева с макс. размером поддеревьев                         | [Youtube](https://youtu.be/Ued_W2Xs7ng) | [Code](src/main/java/by/andd3dfx/tree/equivalent/EquivalentNodesOfTree.java)                                                                                                        |
 | Как выпустить релиз на GitHub                                                                    | [Youtube](https://youtu.be/mtQ2UzPilsQ) | [Repo](https://github.com/andrei-punko/pde-solvers)                                                                                                                                 |
 | Расстояние Левенштейна. Получение одной строки из другой за одно изменение 2                     | [Youtube](https://youtu.be/0543ZryeIx4) | [Code](src/main/java/by/andd3dfx/string/StringTransformation.java)                                                                                                                  |
+| Обзор плейлистов на канале                                                                       | [Youtube](https://youtu.be/mT04NRk4UQY) | -                                                                                                                                                                                   |
