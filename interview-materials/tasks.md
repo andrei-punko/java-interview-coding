@@ -2,22 +2,17 @@
 
 ## Pet Clinic REST API
 
-Design REST service related with Pet Clinic, where pets have name and age.
-Add operation with pets batch update (for example, add new field - owner).
+Design REST service related with Pet Clinic, where pets have `name` and `age`.
+Add operation with pets batch update (for example, add new field: `owner`).
 
-- GET `/api/v1/clinic/{id}`
-- DELETE `/api/v1/clinic/{id}`
-- POST `/api/v1/clinic`  
-  params: { name: ..., age : ... }
-- PUT `/api/v1/clinic/{id}`  
-  params: { age: ... }
-- PATCH `/api/v1/clinic`  
-  params: { ids: ..., owner: ... }
-
-## Sorting big strings task
-
-Propose algorithm for sorting a bunch of long strings situated on disk.
-We have restriction of RAM size: so only one string could be loaded into RAM simultaneously.
+- `GET /api/v1/{id}`
+- `DELETE /api/v1/{id}`
+- `POST /api/v1`  
+  `{ name: ..., age : ... }`
+- `PUT /api/v1/{id}`  
+  `{ age: ... }`
+- `PATCH /api/v1`  
+  `{ ids: [...], owner: ... }`
 
 ## Сортировки:
 
@@ -55,6 +50,11 @@ We want to add the next feature: when a user starts typing - he will get a sugge
 with 10 most popular queries started from typed characters.
 File with the most popular searches generated 1 time per day, it contains 1 mln lines, sorted by popularity.
 Propose the design of such system.
+
+## Sorting big strings task
+
+Propose algorithm for sorting a bunch of long strings situated on disk.
+We have restriction of RAM size: so only one string could be loaded into RAM simultaneously.
 
 ## Multithreading
 

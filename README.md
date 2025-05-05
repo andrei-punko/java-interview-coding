@@ -24,7 +24,7 @@
 - [cache](src/main/java/by/andd3dfx/cache)
 - [collections](src/main/java/by/andd3dfx/collections)
 - [common](src/main/java/by/andd3dfx/common) (some uncategorized stuff)
-- [core](src/main/java/by/andd3dfx/core) (Java core stuff)
+- [core](src/main/java/by/andd3dfx/core)
 - [dynamic](src/main/java/by/andd3dfx/dynamic)
 - [iterators](src/main/java/by/andd3dfx/iterators)
 - [jvm](src/main/java/by/andd3dfx/jvm)
@@ -41,7 +41,7 @@
 - [string](src/main/java/by/andd3dfx/string)
 - [tree](src/main/java/by/andd3dfx/tree)
 
-Sure, we have [tests](src/test/java/by/andd3dfx); they contain enough code which describes implementation in a natural
+Sure, we have [tests](src/test/java/by/andd3dfx); they contain some code which describes implementation in a natural
 way.
 
 ## SQL-related stuff
@@ -199,7 +199,7 @@ notes about interview preparation and useful links.
 | Объединение упорядоченных массивов в массив без дубликатов                                       | [Youtube](https://youtu.be/uABGnnTD0Kw) | [Code](src/main/java/by/andd3dfx/common/ArraysUnion.java)                                                                                                                           |
 | Каверзный finally / Каверзный stream: предсказать, что произойдет                                | [Youtube](https://youtu.be/Man9zRalhPs) | [Code](src/main/java/by/andd3dfx/core/TrickyFinally.java) [Code2](src/main/java/by/andd3dfx/stream/TrickyStream.java)                                                               |
 | Как успеть посмотреть все обучающие ролики на YouTube (Ускорение выше 2х)                        | [Youtube](https://youtu.be/NjCizItxPdM) | -                                                                                                                                                                                   |
-| Генерация CV в PDF из Markdown и автоматизация взаимодействия с рекрутером                       | [Youtube](https://youtu.be/GV5LlPkrNQM) | [CV repo](https://github.com/andrei-punko/cv)                                                                                                                                       |
+| Генерация CV в PDF из Markdown и автоматизация взаимодействия с рекрутером                       | [Youtube](https://youtu.be/GV5LlPkrNQM) | [Repo](https://github.com/andrei-punko/cv)                                                                                                                                          |
 | Перестановка пары цифр числа для получения максимального значения (leetcode)                     | [Youtube](https://youtu.be/-my6feBZ6RY) | [Code](src/main/java/by/andd3dfx/numeric/MaximumSwap.java)                                                                                                                          |
 | Бинарный поиск в упорядоченном массиве                                                           | [Youtube](https://youtu.be/RaxWD5yAQ9Q) | [Code](src/main/java/by/andd3dfx/search/BinarySearch.java)                                                                                                                          |
 | Поиск первой и последней позиции элемента в упорядоченном массиве (leetcode)                     | [Youtube](https://youtu.be/6s-kAtOFXuY) | [Code](src/main/java/by/andd3dfx/search/FirstNLastPosOfElementInSortedArray.java)                                                                                                   |
@@ -249,7 +249,7 @@ notes about interview preparation and useful links.
 | Нагрузочное тестирование Spring Boot сервиса с помощью Gatling                                   | [Youtube](https://youtu.be/uO9luM8wowo) | [Repo](https://github.com/andrei-punko/articles-backend-app)                                                                                                                        |
 | Отражение бинарного дерева                                                                       | [Youtube](https://youtu.be/H2BBCUcVXDM) | [Code](src/main/java/by/andd3dfx/tree/MirrorTree.java)                                                                                                                              |
 | Web crawler (парсер сайта) на Java                                                               | [Youtube](https://youtu.be/4qxvkALcWjQ) | [Repo](https://github.com/andrei-punko/java-crawlers)                                                                                                                               |
-| Как скачать видео с Boosty                                                                       | [Youtube](https://youtu.be/b3ox1_xEx4U) | [Boosty](https://boosty.to/andd3dfx)                                                                                                                                                |
+| Как скачать видео с Boosty                                                                       | [Youtube](https://youtu.be/b3ox1_xEx4U) | -                                                                                                                                                                                   |
 | Прохождение теста подтверждения практического навыка "средний" по Java на hh.ru                  | [Youtube](https://youtu.be/ja4nLzZSj3s) | -                                                                                                                                                                                   |
 | Декодирование шифра Цезаря                                                                       | [Youtube](https://youtu.be/pjQ9sYo5bVE) | [Code](src/main/java/by/andd3dfx/string/CaesarCipher.java)                                                                                                                          |
 | Прохождение теста подтверждения практического навыка "продвинутый" по Java на hh.ru              | [Youtube](https://youtu.be/ce3g0nIJl24) | -                                                                                                                                                                                   |
