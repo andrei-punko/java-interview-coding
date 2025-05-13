@@ -18,7 +18,7 @@
 ./gradlew clean build
 ```
 
-## List of Java packages
+## List of packages
 
 - [annotation](src/main/java/by/andd3dfx/annotation)
 - [cache](src/main/java/by/andd3dfx/cache)
@@ -52,9 +52,12 @@ Check appropriate [video](https://youtu.be/GjDF_LdwYHU) on Youtube
 ## Interview materials
 
 The [interview-materials](interview-materials) folder contains some
-notes about interview preparation and useful links.
+notes about interview preparation and useful links. 
+We can perceive materials in this folder as project backlog or "box with other stuff"
 
 ## Videos on [YouTube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
+<details>
+  <summary><b>Expand me</b></summary>
 
 | Название                                                                                         | Youtube                                 | Code                                                                                                                                                                                |
 |--------------------------------------------------------------------------------------------------|-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -259,10 +262,11 @@ notes about interview preparation and useful links.
 | Выдача купюр банкоматом 2 (Яндекс)                                                               | [Youtube](https://youtu.be/0-BL-NO9-B8) | [Code](src/main/java/by/andd3dfx/common/atm/AtmUsingLoop.java) [Code2](src/main/java/by/andd3dfx/common/atm/AtmUsingRecursion.java)                                                 |
 | Поиск эквивалентных вершин бинарного дерева с макс. размером поддеревьев                         | [Youtube](https://youtu.be/Ued_W2Xs7ng) | [Code](src/main/java/by/andd3dfx/tree/equivalent/EquivalentNodesOfTree.java)                                                                                                        |
 | Как выпустить релиз на GitHub                                                                    | [Youtube](https://youtu.be/mtQ2UzPilsQ) | [Repo](https://github.com/andrei-punko/pde-solvers)                                                                                                                                 |
-| Расстояние Левенштейна. Получение одной строки из другой за одно изменение 2                     | [Youtube](https://youtu.be/0543ZryeIx4) | [Code](src/main/java/by/andd3dfx/string/StringTransformation.java)                                                                                                                  |
+| Редакционное расстояние. Получение одной строки из другой за одно изменение 2                    | [Youtube](https://youtu.be/0543ZryeIx4) | [Code](src/main/java/by/andd3dfx/string/StringTransformation.java)                                                                                                                  |
 | Обзор плейлистов на канале                                                                       | [Youtube](https://youtu.be/mT04NRk4UQY) | -                                                                                                                                                                                   |
 | AI чат с помощью Spring AI и Ollama                                                              | [Youtube](https://youtu.be/SoDIjw-Ov8o) | [Repo](https://github.com/andrei-punko/spring-ai-ollama)                                                                                                                            |
 | 7 классических задач (музыкальный выпуск)                                                        | [Youtube](https://youtu.be/KlD0hWZLFbg) | -                                                                                                                                                                                   |
 | Решение дифф. уравнений в ЧП на Java численно                                                    | [Youtube](https://youtu.be/AmPgu9vksTU) | [Repo](https://github.com/andrei-punko/pde-solvers)                                                                                                                                 |
 | 5 сортировок (музыкальный выпуск)                                                                | [Youtube](https://youtu.be/tOu0W-hkFCE) | -                                                                                                                                                                                   |
-| Распространение заражения между городами 2: матрица смежности                                    | [Youtube](https://youtu.be/d9v9DS1YVtk) | [Code](src/main/java/by/andd3dfx/common/InfectionDistribution.java)                                                                                                                 |
+| Матрица смежности. Распространение заражения между городами 2                                    | [Youtube](https://youtu.be/d9v9DS1YVtk) | [Code](src/main/java/by/andd3dfx/common/InfectionDistribution.java)                                                                                                                 |
+</details>
