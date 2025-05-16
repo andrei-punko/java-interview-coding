@@ -52,7 +52,7 @@ Check appropriate [video](https://youtu.be/GjDF_LdwYHU) on Youtube
 ## Interview materials
 
 The [interview-materials](interview-materials) folder contains some
-notes about interview preparation and useful links. 
+notes about interview preparation and useful links.
 We can perceive materials in this folder as project backlog or "box with other stuff"
 
 ## Videos on [YouTube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
@@ -269,4 +269,5 @@ We can perceive materials in this folder as project backlog or "box with other s
 | Решение дифф. уравнений в ЧП на Java численно                                                    | [Youtube](https://youtu.be/AmPgu9vksTU) | [Repo](https://github.com/andrei-punko/pde-solvers)                                                                                                                                 |
 | 5 сортировок (музыкальный выпуск)                                                                | [Youtube](https://youtu.be/tOu0W-hkFCE) | -                                                                                                                                                                                   |
 | Матрица смежности. Распространение заражения между городами 2                                    | [Youtube](https://youtu.be/d9v9DS1YVtk) | [Code](src/main/java/by/andd3dfx/common/InfectionDistribution.java)                                                                                                                 |
+| Сборка и запуск Java-проекта без помощи IDE и средств сборки                                     | [Youtube](https://youtu.be/bsWOXmZwrks) | -                                                                                                                                                                                   |
 </details>

@@ -21,7 +21,8 @@ import java.util.stream.Collectors;
  * weeks_count
  * </pre>
  *
- * @see <a href="https://youtu.be/Ei1uCCD_Iqg">Video solution</a>
+ * @see <a href="https://youtu.be/Ei1uCCD_Iqg">Video solution (initial)</a>
+ * @see <a href="https://youtu.be/d9v9DS1YVtk">Video solution (final)</a>
  */
 public class InfectionDistribution {
 
