@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 /**
  * <pre>
- * Build string with ranges for defined list:
+ * Build string with ranges for (unsorted) list of natural numbers:
  * [1,4,5,2,3,9,8,11,0] => "0-5,8-9,11"
  * [1,4,3,2] => "1-4"
  * [1,4] => "1,4"
@@ -20,9 +20,17 @@ import java.util.stream.Collectors;
 public class ArrayRanges {
 
     @AllArgsConstructor
-    public class Range {
+    public static class Range {
         private int left;
         private int right;
+
+        @Override
+        public String toString() {
+            if (left == right) {
+                return String.valueOf(left);
+            }
+            return left + "-" + right;
+        }
     }
 
     public String compact(int[] values) {
@@ -47,12 +55,7 @@ public class ArrayRanges {
         }
 
         return ranges.stream()
-                .map(range -> {
-                    if (range.left == range.right) {
-                        return String.valueOf(range.left);
-                    }
-                    return range.left + "-" + range.right;
-                })
+                .map(Range::toString)
                 .collect(Collectors.joining(","));
     }
 }
