@@ -5,7 +5,7 @@ package by.andd3dfx.sorting;
  */
 public class ShellSort {
 
-    public static <T extends Comparable> void apply(T[] array) {
+    public static <T extends Comparable<T>> void apply(T[] array) {
         int d = 1;
 
         while (d <= array.length / 3) {
@@ -28,7 +28,7 @@ public class ShellSort {
         }
     }
 
-    private static <T extends Comparable> boolean greaterThan(T a, T b) {
+    private static <T extends Comparable<T>> boolean greaterThan(T a, T b) {
         return a.compareTo(b) > 0;
     }
 }

@@ -7,7 +7,7 @@ package by.andd3dfx.sorting;
  */
 public class InsertionSort {
 
-    public static <T extends Comparable> void apply(T[] array) {
+    public static <T extends Comparable<T>> void apply(T[] array) {
         for (int i = 1; i < array.length; i++) {
             var x = array[i];
 

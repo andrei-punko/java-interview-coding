@@ -41,7 +41,7 @@ public class CustomRecursiveTask extends RecursiveTask<Integer> {
 
     private Integer processNLog(int[] arr) {
         String threadName = Thread.currentThread().getName();
-        logger.info(String.format("Work (%s) was processed by thread %s", arr, threadName));
+        logger.info(String.format("Work (%s) was processed by thread %s", Arrays.toString(arr), threadName));
 
         int result = process(arr);
         logger.info(String.format("Processed %s with result: %d", Arrays.toString(arr), result));

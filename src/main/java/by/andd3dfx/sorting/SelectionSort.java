@@ -5,7 +5,7 @@ package by.andd3dfx.sorting;
  */
 public class SelectionSort {
 
-    public static <T extends Comparable> void apply(T[] array) {
+    public static <T extends Comparable<T>> void apply(T[] array) {
         for (int i = 0; i < array.length; i++) {
             int minIndex = i;
 
@@ -17,7 +17,7 @@ public class SelectionSort {
         }
     }
 
-    private static <T extends Comparable> boolean lessThan(T a, T b) {
+    private static <T extends Comparable<T>> boolean lessThan(T a, T b) {
         return a.compareTo(b) < 0;
     }
 

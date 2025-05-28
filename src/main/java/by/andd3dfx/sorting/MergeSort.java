@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class MergeSort {
 
-    public static <T extends Comparable> void apply(T[] items) {
+    public static <T extends Comparable<T>> void apply(T[] items) {
         int n = items.length;
         if (n < 2) {
             return;
@@ -23,7 +23,7 @@ public class MergeSort {
         merge(items, left, right);
     }
 
-    private static <T extends Comparable> void merge(T[] items, T[] left, T[] right) {
+    private static <T extends Comparable<T>> void merge(T[] items, T[] left, T[] right) {
         int leftLength = left.length;
         int rightLength = right.length;
         int i = 0, j = 0, k = 0;
@@ -52,7 +52,7 @@ public class MergeSort {
         }
     }
 
-    private static <T extends Comparable> boolean lessOrEqualsThan(T a, T b) {
+    private static <T extends Comparable<T>> boolean lessOrEqualsThan(T a, T b) {
         return a.compareTo(b) <= 0;
     }
 }

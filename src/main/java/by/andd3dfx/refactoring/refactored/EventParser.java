@@ -8,7 +8,6 @@ import org.reflections.Reflections;
 
 import java.util.EnumMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @see <a href="https://youtu.be/jdnNYxVk5BE">Video solution</a>
@@ -19,7 +18,7 @@ public class EventParser {
 
     static {
         Reflections reflections = new Reflections(IEventParser.class.getPackageName());
-        reflections.getSubTypesOf(IEventParser.class).stream()
+        reflections.getSubTypesOf(IEventParser.class)
                 .forEach(aClass -> extracted(aClass));
 
         for (EventType eventType : EventType.values()) {

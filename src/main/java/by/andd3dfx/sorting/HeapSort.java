@@ -2,7 +2,7 @@ package by.andd3dfx.sorting;
 
 public class HeapSort {
 
-    public static <T extends Comparable> void apply(T[] items) {
+    public static <T extends Comparable<T>> void apply(T[] items) {
         var n = items.length;
 
         // Build heap (rearrange array)
@@ -22,7 +22,7 @@ public class HeapSort {
 
     // Heapify a subtree rooted with node items[root].
     // n is size of heap
-    private static <T extends Comparable> void heapify(T[] items, int n, int root) {
+    private static <T extends Comparable<T>> void heapify(T[] items, int n, int root) {
         var largest = root;
         var l = 2 * root + 1;
         var r = l + 1;
@@ -46,7 +46,7 @@ public class HeapSort {
         }
     }
 
-    private static <T extends Comparable> boolean greaterThan(T a, T b) {
+    private static <T extends Comparable<T>> boolean greaterThan(T a, T b) {
         return a.compareTo(b) > 0;
     }
 

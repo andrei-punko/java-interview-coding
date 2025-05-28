@@ -5,7 +5,7 @@ package by.andd3dfx.sorting;
  */
 public class BubbleSort {
 
-    public static <T extends Comparable> void apply(T[] array) {
+    public static <T extends Comparable<T>> void apply(T[] array) {
         var sorted = false;
         while (!sorted) {
             sorted = true;
@@ -19,7 +19,7 @@ public class BubbleSort {
         }
     }
 
-    public static <T extends Comparable> void apply2(T[] array) {
+    public static <T extends Comparable<T>> void apply2(T[] array) {
         for (var outIndex = array.length - 1; outIndex > 0; outIndex--) {
             for (var inIndex = 0; inIndex < outIndex; inIndex++) {
                 if (array[inIndex].compareTo(array[inIndex + 1]) > 0) {

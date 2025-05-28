@@ -1,7 +1,6 @@
 package by.andd3dfx.string;
 
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @see <a href="https://youtu.be/XZMOlvKRzd0">Video solution</a>
@@ -110,7 +109,7 @@ public class Palindrome {
          * Идея решения в том, что в палиндроме все символы встречаются четное кол-во раз, кроме, максимум одного символа.
          * Убеждаемся, что таких одиночных символов не более одного.
          */
-        Set set = new HashSet();
+        var set = new HashSet<>();
         for (var ch : str.toCharArray()) {
             if (!set.contains(ch)) {
                 set.add(ch);

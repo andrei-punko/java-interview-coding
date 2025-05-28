@@ -5,11 +5,11 @@ package by.andd3dfx.sorting;
  */
 public class QuickSort {
 
-    public static <T extends Comparable> void apply(T[] items) {
+    public static <T extends Comparable<T>> void apply(T[] items) {
         quickSort(items, 0, items.length - 1);
     }
 
-    private static <T extends Comparable> void quickSort(T[] items, int low, int high) {
+    private static <T extends Comparable<T>> void quickSort(T[] items, int low, int high) {
         if (low < high) {
             int p = partition(items, low, high);
             quickSort(items, low, p);
@@ -17,7 +17,7 @@ public class QuickSort {
         }
     }
 
-    private static <T extends Comparable> int partition(T[] items, int low, int high) {
+    private static <T extends Comparable<T>> int partition(T[] items, int low, int high) {
         var v = items[(low + high) / 2];
         int i = low;
         int j = high;
@@ -40,11 +40,11 @@ public class QuickSort {
         return j;
     }
 
-    private static <T extends Comparable> boolean lessThan(T a, T b) {
+    private static <T extends Comparable<T>> boolean lessThan(T a, T b) {
         return a.compareTo(b) < 0;
     }
 
-    private static <T extends Comparable> boolean greaterThan(T a, T b) {
+    private static <T extends Comparable<T>> boolean greaterThan(T a, T b) {
         return a.compareTo(b) > 0;
     }
 

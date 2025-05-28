@@ -18,8 +18,8 @@ import java.util.Deque;
  */
 public class StackWithMinSupportO1 {
 
-    private Deque<Integer> stack = new ArrayDeque<>();
-    private Deque<Integer> minHistoryStack = new ArrayDeque<>();
+    private final Deque<Integer> stack = new ArrayDeque<>();
+    private final Deque<Integer> minHistoryStack = new ArrayDeque<>();
 
     public void push(int element) {
         stack.push(element);
@@ -30,7 +30,7 @@ public class StackWithMinSupportO1 {
     }
 
     public int pop() {
-        Integer result = stack.pop();
+        var result = stack.pop();
         if (minHistoryStack.peek() == result) {
             minHistoryStack.pop();
         }

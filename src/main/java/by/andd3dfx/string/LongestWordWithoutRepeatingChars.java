@@ -1,7 +1,6 @@
 package by.andd3dfx.string;
 
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * <pre>
@@ -39,7 +38,7 @@ public class LongestWordWithoutRepeatingChars {
         int max = 0;
 
         var chars = s.toCharArray();
-        Set set = new HashSet();
+        var set = new HashSet<>();
 
         while (right < chars.length) {
             if (set.contains(chars[right])) {
