@@ -4,9 +4,6 @@
 [![Coverage](.github/badges/jacoco.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml)
 [![Branches](.github/badges/branches.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml)
 
-<a href="https://andrei-punko.github.io/java-interview-faq-n-answers"><img src="images/button_java-interview-faq.png" alt="Java interview FAQ" height="40"/></a>
-<a href="https://www.donationalerts.com/r/andd3dfx"><img src="images/button_donate.png" alt="Donate" height="40"/></a>
-
 ## Prerequisites
 
 - JDK 21
@@ -49,17 +46,17 @@ way.
 [SQL folder](sql/README.md) contains tasks which require writing SQL queries to solve them.
 Check appropriate [video](https://youtu.be/GjDF_LdwYHU) on YouTube
 
-## Interview materials
+## Coding interview materials
 
 The [interview-materials](interview-materials) folder contains some
 notes about interview preparation and useful links.
 We can perceive materials in this folder as project backlog or "box with other stuff"
 
-## Videos on [YouTube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
+## List of videos on [YouTube channel](https://www.youtube.com/@andd3dfx) (in chronological order)
 <details>
   <summary><b>Expand me</b></summary>
 
-| Название                                                                                         | YouTube                                 | Code                                                                                                                                                                                                                                             |
+| Title                                                                                            | YouTube video link                      | Code / Repo link                                                                                                                                                                                                                                 |
 |--------------------------------------------------------------------------------------------------|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Определение максимального количества зрителей стрима                                             | [YouTube](https://youtu.be/uMikT-xpE-w) | [Code](src/main/java/by/andd3dfx/common/CountStreamers.java)                                                                                                                                                                                     |
 | Подсчет количества людей каждого возраста (корзинная сортировка)                                 | [YouTube](https://youtu.be/vFsDPm7ecsM) | [Code](src/main/java/by/andd3dfx/sorting/ArrayOfAges.java)                                                                                                                                                                                       |
@@ -273,3 +270,7 @@ We can perceive materials in this folder as project backlog or "box with other s
 | Три типа аспектов на примере AspectJ                                                             | [YouTube](https://youtu.be/S-LrdkfDSCU) | [Repo](https://github.com/andrei-punko/aspectj-sandbox)                                                                                                                                                                                          |
 | GitHub Actions: workflows, coverage, badges                                                      | [YouTube](https://youtu.be/8O9ZmQfixF4) | [Repo1](https://github.com/andrei-punko/spring-boot-3-template) [Repo2](https://github.com/andrei-punko/aspectj-sandbox) [Repo3](https://github.com/andrei-punko/java-interview-coding) [Repo4](https://github.com/andrei-punko/spring-boot-jwt) |
 </details>
+
+## Appendix. Verbal interview materials
+
+Check [this repo](https://github.com/andrei-punko/java-interview-faq-n-answers) to get materials for preparation to Java verbal interview
