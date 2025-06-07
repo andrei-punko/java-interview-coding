@@ -19,9 +19,9 @@ public class CustomArrayListTest {
         CustomArrayList<Integer> list = new CustomArrayList<>();
         assertThat(list.size()).isEqualTo(0);
         assertTrue(list.isEmpty());
-        list.add(4);
-        list.add(5);
-        list.add(12);
+        assertTrue(list.add(4));
+        assertTrue(list.add(5));
+        assertTrue(list.add(12));
 
         assertThat(list.size()).isEqualTo(3);
         assertFalse(list.isEmpty());
@@ -328,5 +328,134 @@ public class CustomArrayListTest {
         list.add("Ilya");
 
         assertThat(list.toString()).isEqualTo("[Andrei, Tikhon, Ilya]");
+    }
+
+    @Test
+    public void testContains() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        assertThat(list.contains("Tikhon")).isTrue();
+        assertThat(list.contains("Andrei")).isTrue();
+        assertThat(list.contains("Isaac")).isFalse();
+    }
+
+    @Test
+    public void testContainsAll() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        assertThat(list.containsAll(List.of())).isTrue();
+        assertThat(list.containsAll(List.of("Ilya", "Tikhon"))).isTrue();
+        assertThat(list.containsAll(List.of("Ilya", "Pavel"))).isFalse();
+    }
+
+    @Test
+    public void testAddAllNoResize() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        list.addAll(List.of("Taisia", "Nika"));
+
+        assertThat(list.contains("Andrei")).isTrue();
+        assertThat(list.contains("Tikhon")).isTrue();
+        assertThat(list.contains("Ilya")).isTrue();
+        assertThat(list.contains("Taisia")).isTrue();
+        assertThat(list.contains("Nika")).isTrue();
+    }
+
+    @Test
+    public void testAddAllResizeRequired() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        list.addAll(List.of("Taisia", "Nika", "Taisia", "Nika", "Taisia", "Alexey", "Taisia", "Nika"));
+
+        assertThat(list.contains("Andrei")).isTrue();
+        assertThat(list.contains("Tikhon")).isTrue();
+        assertThat(list.contains("Ilya")).isTrue();
+        assertThat(list.contains("Taisia")).isTrue();
+        assertThat(list.contains("Nika")).isTrue();
+        assertThat(list.contains("Alexey")).isTrue();
+    }
+
+    @Test
+    public void testRemoveAll() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        list.removeAll(List.of("Nina", "Ilya"));
+
+        assertThat(list.contains("Andrei")).isTrue();
+        assertThat(list.contains("Tikhon")).isTrue();
+        assertThat(list.contains("Ilya")).isFalse();
+        assertThat(list.size()).isEqualTo(2);
+    }
+
+    @Test
+    public void testRetainAll() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        list.retainAll(List.of("Tikhon", "Nina", "Andrei"));
+
+        assertThat(list.contains("Andrei")).isTrue();
+        assertThat(list.contains("Tikhon")).isTrue();
+        assertThat(list.size()).isEqualTo(2);
+    }
+
+    @Test
+    public void testToArray() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        Object[] result = list.toArray();
+
+        assertThat(result[0]).isEqualTo("Andrei");
+        assertThat(result[1]).isEqualTo("Tikhon");
+        assertThat(result[2]).isEqualTo("Ilya");
+    }
+
+    @Test
+    public void testToArrayTyped() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        String[] result = list.toArray(new String[0]);
+
+        assertThat(result[0]).isEqualTo("Andrei");
+        assertThat(result[1]).isEqualTo("Tikhon");
+        assertThat(result[2]).isEqualTo("Ilya");
+    }
+
+    @Test
+    public void testToArrayTypedWhenLongArrayPassedAsParameter() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        String[] result = list.toArray(new String[]{"a", "b", "c", "d"});
+
+        assertThat(result[0]).isEqualTo("Andrei");
+        assertThat(result[1]).isEqualTo("Tikhon");
+        assertThat(result[2]).isEqualTo("Ilya");
+        assertThat(list.size()).isEqualTo(3);
     }
 }

@@ -3,12 +3,13 @@ package by.andd3dfx.collections.custom;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Iterator;
 
 /**
  * @see <a href="https://youtu.be/u7Vyh567ljs">Video solution</a>
  */
-public class CustomArrayList<T> implements Iterable<T> {
+public class CustomArrayList<T> implements Collection<T> {
 
     private static final int DEFAULT_INITIAL_SIZE = 10;
     private static final float RESIZE_FACTOR = 1.75f;
@@ -41,8 +42,9 @@ public class CustomArrayList<T> implements Iterable<T> {
         array[index] = value;
     }
 
-    public void add(T value) {
+    public boolean add(T value) {
         add(size, value);
+        return true;
     }
 
     public void add(int index, T value) {
@@ -97,7 +99,7 @@ public class CustomArrayList<T> implements Iterable<T> {
         return result;
     }
 
-    public boolean remove(T value) {
+    public boolean remove(Object value) {
         var i = 0;
         while (i < size) {
             T currValue = array[i];
@@ -110,7 +112,77 @@ public class CustomArrayList<T> implements Iterable<T> {
         return false;
     }
 
-    private boolean checkEquality(T value1, T value2) {
+    @Override
+    public boolean contains(Object o) {
+        for (var item : array) {
+            if (item == o) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        for (var item : c) {
+            if (!contains(item)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends T> c) {
+        if (c.isEmpty()) {
+            return false;
+        }
+
+        var incomingArray = c.toArray();
+        if (array.length >= size + c.size()) {
+            System.arraycopy(incomingArray, 0, array, size, c.size());
+        } else {
+            int oldLength = array.length;
+            var newLength = oldLength;
+            while (newLength < size + c.size()) {
+                newLength *= RESIZE_FACTOR;
+            }
+            var newArray = (T[]) new Object[newLength];
+            System.arraycopy(array, 0, newArray, 0, size);
+            array = newArray;
+            System.arraycopy(incomingArray, 0, array, size, c.size());
+        }
+        return true;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        var result = false;
+        for (var item : c) {
+            if (remove(item)) {
+                result = true;
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        var result = false;
+
+        var i = 0;
+        while (i < size) {
+            if (!c.contains(array[i])) {
+                remove(i);
+                result = true;
+            } else {
+                i++;
+            }
+        }
+        return result;
+    }
+
+    private boolean checkEquality(Object value1, Object value2) {
         if (value1 == null) {
             return value2 == null;
         }
@@ -130,6 +202,24 @@ public class CustomArrayList<T> implements Iterable<T> {
     @Override
     public Iterator<T> iterator() {
         return new CustomIterator(array, size);
+    }
+
+    @Override
+    public Object[] toArray() {
+        return Arrays.copyOf(array, size);
+    }
+
+    @Override
+    public <T1> T1[] toArray(T1[] a) {
+        if (a.length < size) {
+            return (T1[]) Arrays.copyOf(array, size, a.getClass());
+        }
+
+        System.arraycopy(array, 0, a, 0, size);
+        if (a.length > size) {
+            a[size] = null;
+        }
+        return a;
     }
 
     @RequiredArgsConstructor
