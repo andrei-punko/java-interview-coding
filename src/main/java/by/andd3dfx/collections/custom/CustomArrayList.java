@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 /**
- * @see <a href="https://youtu.be/u7Vyh567ljs">Video solution</a>
+ * @see <a href="https://youtu.be/u7Vyh567ljs">Video solution part1</a>, <a href="https://youtu.be/VBdYvDW8WL8">part2</a>
  */
 public class CustomArrayList<T> implements Collection<T> {
 
