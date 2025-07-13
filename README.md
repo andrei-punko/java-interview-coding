@@ -283,6 +283,8 @@ We can perceive materials in this folder as project backlog or "box with other s
 | Прохождение теоретического теста "базовый" по Java на hh.ru    | [YouTube](https://youtu.be/SHVPXcplGCk) |
 | Прохождение теста "средний" по ООП на hh.ru                    | [YouTube](https://youtu.be/avMEPc3tGUI) |
 | Прохождение теста "продвинутый" по ООП на hh.ru                | [YouTube](https://youtu.be/CYq6ThzXj1Q) |
+| Прохождение теста "средний" по Алгоритмам на hh.ru             | [YouTube](https://youtu.be/7rTVLwpg0U8) |
+| Прохождение теста "базовый" по Git на hh.ru                    | [YouTube](https://youtu.be/DiVsSMsuxP8) |
 
 </details>
 
