@@ -1,0 +1,53 @@
+
+* Design REST API to work with shop checks
+
+** Create check
+POST /api/v1/check
+request: {
+	"point_id": ...
+}
+201
+
+** Get check by id
+PUT /api/v1/check/{id}
+request: {
+	"items": [
+		{
+			"item_id": ...,
+			"product_id": ...,
+			"quantity": ...
+		},
+		{
+			"item_id": ...,
+			"product_id": ...,
+			"weight": ...
+		},
+		...
+	]
+}
+200
+
+** Delete check
+DELETE /api/v1/check/{id}/{item_id}
+204
+
+** Get discount
+GET /api/v1/check/{id}/discount
+response: {
+	"value": ...,
+	"reason": ...
+}
+200
+
+** Get checks with pagination
+GET /api/v1/check?day=...&page=2&size=50
+response: {
+	... (payload)
+	pageInfo: {
+		page: ...,
+		size: 50,
+		hasNext: true,
+		...
+	}
+}
+200

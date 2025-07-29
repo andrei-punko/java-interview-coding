@@ -262,6 +262,7 @@ We can perceive materials in this folder as project backlog or "box with other s
 | Три типа аспектов на примере AspectJ                                                             | [YouTube](https://youtu.be/S-LrdkfDSCU) | [Repo](https://github.com/andrei-punko/aspectj-sandbox)                                                                                                                                                                                          |
 | GitHub Actions: workflows, coverage, badges                                                      | [YouTube](https://youtu.be/8O9ZmQfixF4) | [Repo1](https://github.com/andrei-punko/spring-boot-3-template) [Repo2](https://github.com/andrei-punko/aspectj-sandbox) [Repo3](https://github.com/andrei-punko/java-interview-coding) [Repo4](https://github.com/andrei-punko/spring-boot-jwt) |
 | Самодельный ArrayList 2                                                                          | [YouTube](https://youtu.be/VBdYvDW8WL8) | [Code](src/main/java/by/andd3dfx/collections/custom/CustomArrayList.java)                                                                                                                                                                        |
+| Ревью и рефакторинг кода подписчика (Spring Boot сервис)                                         | [YouTube](https://youtu.be/sQQ0pkR9YRM) | [Repo](https://github.com/EkaterinaBezheskaia/CaseLabTestTask)                                                                                                                                                                                   |
 
 | Title                           |           YouTube video link            |
 |---------------------------------|:---------------------------------------:|
@@ -285,6 +286,7 @@ We can perceive materials in this folder as project backlog or "box with other s
 | Прохождение теста "продвинутый" по ООП на hh.ru                | [YouTube](https://youtu.be/CYq6ThzXj1Q) |
 | Прохождение теста "средний" по Алгоритмам на hh.ru             | [YouTube](https://youtu.be/7rTVLwpg0U8) |
 | Прохождение теста "базовый" по Git на hh.ru                    | [YouTube](https://youtu.be/DiVsSMsuxP8) |
+| Прохождение теста "средний" по Linux на hh.ru                  | [YouTube](https://youtu.be/fcCLJxcMhdA) |
 
 </details>
 
