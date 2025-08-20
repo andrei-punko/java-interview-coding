@@ -84,4 +84,5 @@ tasks.register('githubWorkflowTest', Test) {
     exclude '**/**AddMultithreadingTest.class'
     exclude '**/**BlockingQueueTest.class'
     exclude '**/**DeadlockTest.class'
+    exclude '**/**LivelockTest.class'
 }

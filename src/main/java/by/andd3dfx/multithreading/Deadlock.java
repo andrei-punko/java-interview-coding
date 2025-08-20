@@ -3,7 +3,7 @@ package by.andd3dfx.multithreading;
 import lombok.AllArgsConstructor;
 
 /**
- * <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/deadlock.html">Example</a> from JDK
+ * Taken from <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/deadlock.html">JDK docs</a>
  *
  * @see <a href="https://youtu.be/xuWU_6JTXi4">Video solution</a>
  */
