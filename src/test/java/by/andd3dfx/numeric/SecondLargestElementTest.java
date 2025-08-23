@@ -13,6 +13,9 @@ public class SecondLargestElementTest {
 
         int[] array2 = {3, 1, 2, 5, 8, 3, 7};
         assertThat(SecondLargestElement.find_NlogN(array2)).isEqualTo(7);
+
+        int[] array3 = {3, 1, 2, 5, 8, 3, 7, 8};
+        assertThat(SecondLargestElement.find_N(array3)).isEqualTo(8);
     }
 
     @Test
@@ -22,5 +25,8 @@ public class SecondLargestElementTest {
 
         int[] array2 = {3, 1, 2, 5, 8, 3, 7};
         assertThat(SecondLargestElement.find_N(array2)).isEqualTo(7);
+
+        int[] array3 = {3, 1, 2, 5, 8, 3, 7, 8};
+        assertThat(SecondLargestElement.find_N(array3)).isEqualTo(8);
     }
 }

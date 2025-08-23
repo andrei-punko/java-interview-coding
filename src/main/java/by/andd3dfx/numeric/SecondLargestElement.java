@@ -27,12 +27,12 @@ public class SecondLargestElement {
         int max_2 = Math.min(array[0], array[1]);
 
         for (int i = 2; i < array.length; i++) {
-            if (array[i] >= max_1) {
+            if (array[i] > max_1) {
                 max_2 = max_1;
                 max_1 = array[i];
                 continue;
             }
-            if (array[i] >= max_2) {
+            if (array[i] > max_2) {
                 max_2 = array[i];
             }
         }
