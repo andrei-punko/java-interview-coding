@@ -58,5 +58,5 @@ Placed [here](https://github.com/andrei-punko/youtube-channel-resources/blob/mas
 
 ## Appendix. Verbal interview materials
 
-Check [this repo](https://github.com/andrei-punko/java-interview-faq-n-answers) to get materials for preparation to Java
+Check [java-interview-faq-n-answers repo](https://github.com/andrei-punko/java-interview-faq-n-answers) to get materials for preparation to Java
 verbal interview
