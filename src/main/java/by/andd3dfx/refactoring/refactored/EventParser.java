@@ -21,10 +21,8 @@ public class EventParser {
         reflections.getSubTypesOf(IEventParser.class)
                 .forEach(aClass -> extracted(aClass));
 
-        for (EventType eventType : EventType.values()) {
-            if (!map.containsKey(eventType)) {
-                throw new IllegalStateException("Not all values of EventType have appropriate EventParser!");
-            }
+        if (map.size() != EventType.values().length) {
+            throw new IllegalStateException("Not all values of EventType have appropriate EventParser!");
         }
     }
 
