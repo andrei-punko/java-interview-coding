@@ -340,4 +340,27 @@ public class CustomLinkedListTest {
 
         assertThat(result).isEqualTo("CustomLinkedList{head={3, next={7, next={12, next={34}}}}}");
     }
+
+    @Test
+    public void testRemoveUsingIterator() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        linkedList.add(3);
+        linkedList.add(7);
+        linkedList.add(12);
+        linkedList.add(34);
+        linkedList.add(56);
+
+        var iterator = linkedList.iterator();
+        iterator.next();
+        iterator.next();
+        iterator.remove();  // 7 removed
+        iterator.next();
+        iterator.next();
+        iterator.remove();  //34 removed
+
+        assertThat(linkedList.size()).isEqualTo(3);
+        assertThat(linkedList.pop()).isEqualTo(3);
+        assertThat(linkedList.pop()).isEqualTo(12);
+        assertThat(linkedList.pop()).isEqualTo(56);
+    }
 }

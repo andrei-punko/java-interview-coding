@@ -26,7 +26,7 @@ public class CustomHashMap<K, V> {
         return size == 0;
     }
 
-    public V get(K key) {
+    public V get(Object key) {
         if (key == null) {
             return valueForNullKey;
         }
@@ -53,7 +53,7 @@ public class CustomHashMap<K, V> {
 
         int bucketNumber = determineBucketNumber(key);
         if (buckets[bucketNumber].isEmpty()) {
-            buckets[bucketNumber].add(new CustomEntry(key, value));
+            buckets[bucketNumber].add(new CustomEntry<>(key, value));
             size++;
             return null;
         }
@@ -66,12 +66,12 @@ public class CustomHashMap<K, V> {
             }
         }
 
-        buckets[bucketNumber].add(new CustomEntry(key, value));
+        buckets[bucketNumber].add(new CustomEntry<>(key, value));
         size++;
         return null;
     }
 
-    public boolean containsKey(K key) {
+    public boolean containsKey(Object key) {
         return get(key) != null;
     }
 
@@ -86,7 +86,7 @@ public class CustomHashMap<K, V> {
         return false;
     }
 
-    public V remove(K key) {
+    public V remove(Object key) {
         if (key == null) {
             var result = valueForNullKey;
             valueForNullKey = null;
@@ -95,13 +95,19 @@ public class CustomHashMap<K, V> {
         }
 
         int bucketNumber = determineBucketNumber(key);
-        for (var curr : buckets[bucketNumber]) {
+        var bucket = buckets[bucketNumber];
+        var iterator = bucket.iterator();
+        int index = 0;
+        
+        while (iterator.hasNext()) {
+            var curr = iterator.next();
             if (checkEquality(key, curr.getKey())) {
                 final V result = curr.getValue();
-                buckets[bucketNumber].remove(curr);
+                bucket.remove(index);
                 size--;
                 return result;
             }
+            index++;
         }
         return null;
     }
@@ -122,7 +128,7 @@ public class CustomHashMap<K, V> {
         return new KeyIterator<>(buckets);
     }
 
-    private int determineBucketNumber(K key) {
+    private int determineBucketNumber(Object key) {
         return Math.abs(key.hashCode() % BUCKETS_COUNT);
     }
 
@@ -130,6 +136,8 @@ public class CustomHashMap<K, V> {
         private final CustomLinkedList<CustomEntry<E, V>>[] buckets;
         private int currentBucketIndex;
         private Iterator<CustomEntry<E, V>> currentIterator;
+        private CustomEntry<E, V> lastReturned;
+        private boolean canRemove = false;
 
         public KeyIterator(CustomLinkedList<CustomEntry<E, V>>[] buckets) {
             this.buckets = buckets;
@@ -153,7 +161,9 @@ public class CustomHashMap<K, V> {
         @Override
         public E next() {
             if (currentIterator.hasNext()) {
-                return currentIterator.next().getKey();
+                lastReturned = currentIterator.next();
+                canRemove = true;
+                return lastReturned.getKey();
             }
             if (currentBucketIndex < buckets.length - 1) {
                 currentBucketIndex++;
@@ -161,6 +171,29 @@ public class CustomHashMap<K, V> {
                 return next();
             }
             throw new NoSuchElementException();
+        }
+
+        @Override
+        public void remove() {
+            if (!canRemove) {
+                throw new IllegalStateException("remove() can only be called after next()");
+            }
+            if (lastReturned != null) {
+                // Находим индекс элемента в текущем bucket и удаляем его
+                var bucket = buckets[currentBucketIndex];
+                var iterator = bucket.iterator();
+                int index = 0;
+                while (iterator.hasNext()) {
+                    var curr = iterator.next();
+                    if (curr == lastReturned) {
+                        bucket.remove(index);
+                        size--;
+                        canRemove = false;
+                        return;
+                    }
+                    index++;
+                }
+            }
         }
     }
 
@@ -182,6 +215,7 @@ public class CustomHashMap<K, V> {
         return o1.equals(o2);
     }
 
+    @SuppressWarnings("unchecked")
     private void initialize() {
         buckets = new CustomLinkedList[BUCKETS_COUNT];
         for (var i = 0; i < BUCKETS_COUNT; i++) {
