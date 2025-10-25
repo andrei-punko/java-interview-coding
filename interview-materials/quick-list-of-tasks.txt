@@ -1,0 +1,113 @@
+
+------------------------------------
+ *** Задачи для coding интервью ***
+------------------------------------
+
+Факториал (с кэшем)
+
+Числа Фибонначчи (с кэшем)
+
+Обратить односвязный список
+
+Определить факт наличия цикла в односвязном списке
+
+Бинарное дерево - обойти и вывести на печать все элементы (несколько способов)
+
+Обращение цифр числа
+
+Reverse given string of characters
+
+Написать код, который уронит JVM
+
+Ханойские башни
+
+Надо сделать несколько (2/3) параллельных запроса в разные системы. Написать код для этого
+
+Build iterator which returns only even numbers of underlying array:
+[1, 3, 5, 7, 8, 9, 14, 15] -> [8, 14]
+
+Реализовать методы next(), hasNext(), remove() у составного итератора, содержащего 2 обычных итератора внутри себя:
+class CompositeIterator<Integer> {
+  Iterator<Integer> a;
+  Iterator<Integer> b;
+}
+
+Дан итератор CustomIterator<Object>, который может возвращать String или CustomIterator.
+  Возможная вложенность внутренних итераторов неограниченна.
+  Написать для него методы next() и hasNext()
+
+Банкомат: дан банкомат, в котором есть набор купюр данных номиналов (задан в виде Map)
+Написать метод для выдачи заданной суммы.
+2 варианта задачи: кол-во купюр каждого номинала ограничено и неограничено
+
+Колл-центр: задан набор звонков в виде пар времен [начала, конца] звонка
+Надо вычислить минимальное кол-во операторов, которые смогли бы обработать эти звонки.
+Также есть похожая задача с фильмами по нескольким каналам, надо вычислить, удастся ли их все посмотреть.
+
+Спроектировать/написать сократитель ссылок
+
+Написать на выбор свой кэш: LRU/LFU или другой
+
+Написать/рассказать, что нужно для кастомной аннотации
+
+An insurance company has decided to change the format of its policy numbers from XXX-YY-ZZZZ to XXX/ZZZZ/YY (where X, Y and Z each represent the digits 0-9). Write a method that re-format all policy numbers in a well-formatted paragraph ('-' may appear elsewhere in the text).
+For example, changeFormat("Please quote your policy number: 112-39-8552.") should return "Please quote your policy number: 112/8552/39.".
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+  An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+  typically using all the original letters exactly once.
+ 
+Есть матрица NxN, состоящая из 0 и 1, и отражающая расположение кораблей на поле для морского боя. Поле может быть любого размера, но обязательно квадратное. Кораблей может быть любое кол-во. Размер кораблей - от 1х1 до 1хN Корабли никак не соприкасаются друг с другом. Необходимо подсчитать кол-во кораблей.
+
+Есть массив целых чисел и число K. Найти два таких (не обязательно различных) числа в массиве, сумма которых равна K, либо вывести, что такого нет.
+
+Есть прачечная с N стиральными машинами. На входе в прачечную в очереди стоят M человек для того, чтобы постирать свои вещи. Про каждого человека известно, сколько времени он будет стирать свои вещи. Каждый человек использует первую освободившуюся машину. Сколько времени займет стирка всех вещей?
+
+Given an unsorted integer array nums, return the smallest missing positive integer.
+  You must implement an algorithm that runs in O(n) time and uses constant extra space.
+
+Implement binary search in a sorted array. Return element index or -1 if it doesn't exist
+
+Write a function that transforms string into a new string.
+  New string does not contain repeating letters but contains a number after every letter
+  that means how many times the letter was repeated in the original string.
+  a.	“” -> “”
+  b.	“a” -> “a”
+  c.	“aaa” -> “a3”
+  d.	“aaabbcbbb” -> “a3b2cb3”
+
+Mirror binary tree: for each node left & right sub nodes should be swapped
+
+Determine height/depth of binary tree
+
+Предложить структуру данных, чтобы хранить в ней структуру папок и файлов.
+Описать алгоритм, который измерит размер содержимого определенной папки.
+
+
+SQL
+-------
+-- 1. Поиск отделов, суммарная зарплата сотрудников в которых больше заданной
+-- Даны две таблицы:
+-- Employee (id, salary,  dpt_id)
+-- Department (id, name)
+-- Написать sql-запрос, который выберет все названия отделов, суммарная зарплата сотрудников в которых больше 1000
+
+
+-- 2. Написать (разными способами) запрос, который выведет уникальные значения данного столбца
+
+
+-- 3. Задача про турникет
+-- Есть таблица T(id, timestamp), куда сохраняются проходы через турникет каждого сотрудника.
+-- Написать запрос, чтобы посчитать, сколько людей сейчас в здании (часть может быть на обеде).
+-- Интервал рабочего времени - известный, фиксированный
+
+
+-- 4. Поиск сотрудника с второй по величине зарплатой
+-- Есть таблица EMPLOYEE(ID, NAME, SALARY).
+-- Написать запрос, который выведет имя сотрудника с второй по величине зарплатой.
+-- Учесть случай, когда таких сотрудников может быть более одного.
+
+
+-- 5. Задача про стадионы и матчи
+-- Есть таблица s_m(stadium_id, match_date) c парами (ID стадиона, дата матча на нем).
+-- Получить для каждого стадиона количество дней, прошедших с последнего матча.
