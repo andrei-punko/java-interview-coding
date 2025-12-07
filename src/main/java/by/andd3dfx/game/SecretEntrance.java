@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
+ * <a href="https://adventofcode.com/2025/day/1">Task definition</a>
  * <pre>
  * --- Day 1: Secret Entrance ---
  *
