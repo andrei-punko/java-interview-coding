@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * <a href="https://adventofcode.com/2015/day/1">Task definition</a>
  * <pre>
  * --- Day 1: Not Quite Lisp ---
  *
@@ -34,6 +33,8 @@ import java.io.InputStreamReader;
  *
  * To what floor do the instructions take Santa?
  * </pre>
+ *
+ * @see <a href="https://youtu.be/7En4RJa6384">Video solution</a>
  */
 public class NotQuiteLisp {
 

@@ -11,7 +11,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * <a href="https://adventofcode.com/2025/day/1">Task definition</a>
  * <pre>
  * --- Day 1: Secret Entrance ---
  *
@@ -106,6 +105,9 @@ import java.io.InputStreamReader;
  *
  * Using password method 0x434C49434B, what is the password to open the door?
  * </pre>
+ *
+ * @see <a href="https://youtu.be/NGsUsBGIrYA">Video solution, part 1</a>
+ * @see <a href="https://youtu.be/V5fPufcno8Q">Video solution, part 2</a>
  */
 public class SecretEntrance {
 
