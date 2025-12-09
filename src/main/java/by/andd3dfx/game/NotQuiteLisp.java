@@ -32,6 +32,8 @@ import java.io.InputStreamReader;
  *     ))) and )())()) both result in floor -3.
  *
  * To what floor do the instructions take Santa?
+ *
+ * Your puzzle answer was 74.
  * </pre>
  *
  * @see <a href="https://youtu.be/7En4RJa6384">Video solution</a>
@@ -57,12 +59,12 @@ public class NotQuiteLisp {
 
     @SneakyThrows
     public static void main(String[] args) {
-        var inputString = readFromInputStream("/game/not-quite-lisp.txt");
+        var inputString = read("/game/not-quite-lisp.txt");
         var result = determineFloor(inputString);
         System.out.println(result);
     }
 
-    private static String readFromInputStream(String filePathName) throws IOException {
+    private static String read(String filePathName) throws IOException {
         InputStream inputStream = NotQuiteLisp.class.getResourceAsStream(filePathName);
         var resultStringBuilder = new StringBuilder();
         try (var br = new BufferedReader(new InputStreamReader(inputStream))) {
