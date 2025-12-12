@@ -34,9 +34,21 @@ import java.io.InputStreamReader;
  * To what floor do the instructions take Santa?
  *
  * Your puzzle answer was 74.
+ *
+ * --- Part Two ---
+ *
+ * Now, given the same instructions, find the position of the first character that causes him to enter the basement (floor -1). The first character in the instructions has position 1, the second character has position 2, and so on.
+ *
+ * For example:
+ *
+ *     ) causes him to enter the basement at character position 1.
+ *     ()()) causes him to enter the basement at character position 5.
+ *
+ * What is the position of the character that causes Santa to first enter the basement?
  * </pre>
  *
- * @see <a href="https://youtu.be/7En4RJa6384">Video solution</a>
+ * @see <a href="https://youtu.be/7En4RJa6384">Video solution, Part 1</a>
+ * @see <a href="https://youtu.be/8YI5GRQTltw">Video solution, Part 2</a>
  */
 public class NotQuiteLisp {
 
@@ -57,11 +69,34 @@ public class NotQuiteLisp {
         return result;
     }
 
+    public static int determinePosition(String input) {
+        var floor = 0;
+        var pos = 1;
+        for (var ch: input.toCharArray()) {
+            switch (ch) {
+                case '(':
+                    floor++;
+                    break;
+
+                case ')':
+                    floor--;
+                    if (floor == -1) {
+                        return pos;
+                    }
+                    break;
+            }
+            pos++;
+        }
+        throw new IllegalArgumentException("Basement was not reached!");
+    }
+
     @SneakyThrows
     public static void main(String[] args) {
         var inputString = read("/game/not-quite-lisp.txt");
-        var result = determineFloor(inputString);
-        System.out.println(result);
+        var floor = determineFloor(inputString);
+        var position = determinePosition(inputString);
+
+        System.out.println(floor + ", " + position);
     }
 
     private static String read(String filePathName) throws IOException {

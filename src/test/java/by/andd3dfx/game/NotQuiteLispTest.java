@@ -17,4 +17,11 @@ public class NotQuiteLispTest {
         assertThat(NotQuiteLisp.determineFloor(")))")).isEqualTo(-3);
         assertThat(NotQuiteLisp.determineFloor(")())())")).isEqualTo(-3);
     }
+
+    @Test
+    public void determinePosition() {
+        assertThat(NotQuiteLisp.determinePosition(")")).isEqualTo(1);
+        assertThat(NotQuiteLisp.determinePosition("()())")).isEqualTo(5);
+        assertThat(NotQuiteLisp.determinePosition("((()()))))))")).isEqualTo(9);
+    }
 }
