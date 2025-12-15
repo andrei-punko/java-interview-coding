@@ -19,7 +19,7 @@ public class CustomLinkedHashSet<T> extends CustomHashSet<T> {
     }
 
     @Override
-    public boolean remove(Object item) {
+    public boolean remove(T item) {
         final boolean result = super.remove(item);
         if (result) {
             linkedList.remove(item);

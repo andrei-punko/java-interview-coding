@@ -2,7 +2,6 @@ package by.andd3dfx.collections.custom;
 
 import org.junit.Test;
 
-import java.util.Collection;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -110,23 +109,6 @@ public class CustomHashSetTest {
     }
 
     @Test
-    public void retainAll() {
-        // TODO
-        CustomHashSet<String> set = new CustomHashSet<>();
-        set.add("One");
-        set.add("Two");
-        set.add("Three");
-
-        Collection<String> list = new CustomArrayList<>();
-        list.add("Two");
-        list.add("Three");
-        list.add("Four");
-
-        assertTrue(set.retainAll(list));
-        assertThat(set.size()).isEqualTo(2);
-    }
-
-    @Test
     public void clear() {
         CustomHashSet<String> set = new CustomHashSet<>();
         set.add("One");
@@ -180,34 +162,5 @@ public class CustomHashSetTest {
         set.add("Elena");
 
         assertThat(set.toString()).isEqualTo("[Elena, Yulia, Andrei, Tikhon]");
-    }
-
-    @Test
-    public void toArray() {
-        CustomHashSet<String> set = new CustomHashSet<>();
-        set.add("Andrei");
-        set.add("Tikhon");
-        set.add("Yulia");
-        set.add("Elena");
-
-        assertThat(set.toArray()).isEqualTo(new Object[]{"Elena", "Yulia", "Andrei", "Tikhon"});
-    }
-
-    @Test
-    public void toArrayTyped () {
-        CustomHashSet<String> set = new CustomHashSet<>();
-        set.add("Andrei");
-        set.add("Tikhon");
-        set.add("Yulia");
-        set.add("Elena");
-
-        String[] array = new String[2];
-        assertThat(set.toArray(array)).isEqualTo(new String[]{"Elena", "Yulia", "Andrei", "Tikhon"});
-
-        String[] array2 = new String[4];
-        assertThat(set.toArray(array2)).isEqualTo(new String[]{"Elena", "Yulia", "Andrei", "Tikhon"});
-
-        String[] array3 = new String[10];
-        assertThat(set.toArray(array3)).isEqualTo(new String[]{"Elena", "Yulia", "Andrei", "Tikhon"});
     }
 }

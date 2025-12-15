@@ -120,7 +120,7 @@ public class CustomLinkedList<T> implements Iterable<T> {
         return curr.value;
     }
 
-    public boolean remove(Object value) {
+    public boolean remove(T value) {
         var i = 0;
         var curr = head;
         while (curr != null) {
@@ -134,21 +134,7 @@ public class CustomLinkedList<T> implements Iterable<T> {
         return false;
     }
 
-    private boolean removeNode(Node<T> nodeToDelete) {
-        var i = 0;
-        var curr = head;
-        while (curr != null) {
-            if (checkEquality(nodeToDelete, curr)) {
-                remove(i);
-                return true;
-            }
-            i++;
-            curr = curr.next;
-        }
-        return false;
-    }
-
-    private boolean checkEquality(Object value1, Object value2) {
+    private boolean checkEquality(T value1, T value2) {
         if (value1 == null) {
             return value2 == null;
         }
@@ -183,20 +169,12 @@ public class CustomLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new CustomIterator<>(this);
+        return new CustomIterator<>(head);
     }
 
+    @AllArgsConstructor
     public static class CustomIterator<E> implements Iterator<E> {
-        private final CustomLinkedList<E> list;
         private Node<E> curr;
-        private Node<E> prevReturned;
-        private boolean canRemove = false;
-
-        public CustomIterator(CustomLinkedList<E> list) {
-            this.list = list;
-            this.curr = list.head;
-            this.prevReturned = null;
-        }
 
         @Override
         public boolean hasNext() {
@@ -205,25 +183,9 @@ public class CustomLinkedList<T> implements Iterable<T> {
 
         @Override
         public E next() {
-            if (curr == null) {
-                throw new IllegalStateException("No more elements");
-            }
             var result = curr.value;
-            prevReturned = curr;
             curr = curr.next;
-            canRemove = true;
             return result;
-        }
-
-        @Override
-        public void remove() {
-            if (!canRemove) {
-                throw new IllegalStateException("remove() can only be called after next()");
-            }
-            if (prevReturned != null) {
-                list.removeNode(prevReturned);
-                canRemove = false;
-            }
         }
     }
 
