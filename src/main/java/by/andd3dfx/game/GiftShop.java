@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashSet;
+import java.util.function.Function;
 
 /**
  * <pre>
@@ -49,31 +50,47 @@ import java.util.HashSet;
  * Adding up all the invalid IDs in this example produces 1227775554.
  *
  * What do you get if you add up all of the invalid IDs?
+ *
+ * Your puzzle answer was 23534117921.
+ *
+ * --- Part Two ---
+ *
+ * The clerk quickly discovers that there are still invalid IDs in the ranges in your list. Maybe the young Elf was doing other silly patterns as well?
+ *
+ * Now, an ID is invalid if it is made only of some sequence of digits repeated at least twice. So, 12341234 (1234 two times), 123123123 (123 three times), 1212121212 (12 five times), and 1111111 (1 seven times) are all invalid IDs.
+ *
+ * From the same example as before:
+ *
+ *     11-22 still has two invalid IDs, 11 and 22.
+ *     95-115 now has two invalid IDs, 99 and 111.
+ *     998-1012 now has two invalid IDs, 999 and 1010.
+ *     1188511880-1188511890 still has one invalid ID, 1188511885.
+ *     222220-222224 still has one invalid ID, 222222.
+ *     1698522-1698528 still contains no invalid IDs.
+ *     446443-446449 still has one invalid ID, 446446.
+ *     38593856-38593862 still has one invalid ID, 38593859.
+ *     565653-565659 now has one invalid ID, 565656.
+ *     824824821-824824827 now has one invalid ID, 824824824.
+ *     2121212118-2121212124 now has one invalid ID, 2121212121.
+ *
+ * Adding up all the invalid IDs in this example produces 4174379265.
+ *
+ * What do you get if you add up all of the invalid IDs using these new rules?
+ *
+ * Your puzzle answer was 31755323497.
  * </pre>
  *
- * @see <a href="https://youtu.be/qUsIi-084Xg">Video solution</a>
+ * @see <a href="https://youtu.be/qUsIi-084Xg">Video solution, Part 1</a>
+ * @see <a href="https://youtu.be/m45uHY63ZqI">Video solution, Part 2</a>
  */
 public class GiftShop {
 
-    public static Long determine(String inputString) {
-        var set = new HashSet<Long>();
-        var ranges = inputString.split(",");
-        for (var range : ranges) {
-            var borders = range.split("-");
-            var left = NumberUtils.toLong(borders[0]);
-            var right = NumberUtils.toLong(borders[1]);
+    public static Long determinePart1(String inputString) {
+        return determinePartInner(inputString, GiftShop::isInvalid);
+    }
 
-            for (var current = left; current <= right; current++) {
-                if (isInvalid(current)) {
-                    set.add(current);
-                }
-            }
-        }
-        var result = 0L;
-        for (var item : set) {
-            result += item;
-        }
-        return result;
+    public static Long determinePart2(String inputString) {
+        return determinePartInner(inputString, GiftShop::isInvalid2);
     }
 
     private static boolean isInvalid(Long id) {
@@ -85,23 +102,45 @@ public class GiftShop {
         return StringUtils.equals(str.substring(0, len / 2), str.substring(len / 2));
     }
 
+    static boolean isInvalid2(long id) {
+        var str = String.valueOf(id);
+        return str.matches("^(\\d+)\\1+$");
+    }
+
+    public static Long determinePartInner(String inputString, Function<Long, Boolean> isInvalidFunc) {
+        var set = new HashSet<Long>();
+        var ranges = inputString.split(",");
+        for (var range : ranges) {
+            var borders = range.split("-");
+            var left = NumberUtils.toLong(borders[0]);
+            var right = NumberUtils.toLong(borders[1]);
+
+            for (var current = left; current <= right; current++) {
+                if (isInvalidFunc.apply(current)) {
+                    set.add(current);
+                }
+            }
+        }
+        var result = 0L;
+        for (var item : set) {
+            result += item;
+        }
+
+        return result;
+    }
+
     @SneakyThrows
     public static void main(String[] args) {
         var inputString = read("/game/gift-shop.txt");
-        var result = determine(inputString);
-        System.out.println(result);
-        // 262060856
+        var resultPart1 = determinePart1(inputString);
+        var resultPart2 = determinePart2(inputString);
+        System.out.println(resultPart1 + ", " + resultPart2);
     }
 
     private static String read(String filePathName) throws IOException {
-        InputStream inputStream = NotQuiteLisp.class.getResourceAsStream(filePathName);
-        var resultStringBuilder = new StringBuilder();
+        InputStream inputStream = GiftShop.class.getResourceAsStream(filePathName);
         try (var br = new BufferedReader(new InputStreamReader(inputStream))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                resultStringBuilder.append(line).append("\n");
-            }
+            return br.readLine();
         }
-        return resultStringBuilder.toString();
     }
 }
