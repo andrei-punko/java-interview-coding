@@ -20,7 +20,8 @@ public class BuildingH2OTest {
     public void checkPrintingOrder() {
         var buildingH2O = new BuildingH2O();
 
-        var sb = new StringBuilder();
+        // Use StringBuffer instead of StringBuilder for thread-safety
+        var sb = new StringBuffer();
 
         for (int i1 = 0; i1 < MOLECULES_COUNT; i1++) {
             new Thread(
