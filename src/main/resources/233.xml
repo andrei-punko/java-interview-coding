@@ -1,4 +1,5 @@
-<DistDoc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xml.dowjones.net/distdoc/v8" xmlns:pd="PrivateData" doctype="article" dist="dist_id" action="add" distdocver="08.4" an="HNASNI0020170420ed4k00233">
+<DistDoc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xml.dowjones.net/distdoc/v8"
+         doctype="article" dist="dist_id" action="add" distdocver="08.4" an="HNASNI0020170420ed4k00233">
 	<Control>
 		<Stamp date="2017-04-20" time="14:49:41" type="Normaliser" value="Normaliser  value"/>
 	</Control>

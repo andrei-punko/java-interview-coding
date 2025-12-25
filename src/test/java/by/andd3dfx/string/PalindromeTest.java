@@ -1,6 +1,5 @@
 package by.andd3dfx.string;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import static by.andd3dfx.string.Palindrome.canFormPalindrome;
