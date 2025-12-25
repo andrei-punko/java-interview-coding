@@ -21,7 +21,7 @@ public class ArticlesXmlParserTest {
         List<String> articles = parser.parse("./src/main/resources/233.xml");
 
         assertThat(articles.size()).isEqualTo(1);
-        assertThat(articles.get(0)).isEqualTo(
+        assertThat(articles.getFirst()).isEqualTo(
             "SC reserves judgement in Fodder scam case\n" +
                 "New Delhi, April 20 -- The Supreme Court on Thursday reserved its judgement in the Fodder scam case and asked all parties concerned to give their submissions within a week.\n" +
                 "Earlier this week, the apex court heard the plea filed by Rashtriya Janata Dal (RJD) supremo Lalu Prasad Yadav challenging his jail sentence in connection with the mid-1990s fodder scam case.\n" +
