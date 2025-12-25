@@ -46,8 +46,8 @@ public class GoldDigger {
         }
 
         var result = m[i][j] + Math.max(
-                maxGold(i + 1, j, m),
-                maxGold(i + 1, j + 1, m)
+            maxGold(i + 1, j, m),
+            maxGold(i + 1, j + 1, m)
         );
         cache.put(cell, result);
         return result;

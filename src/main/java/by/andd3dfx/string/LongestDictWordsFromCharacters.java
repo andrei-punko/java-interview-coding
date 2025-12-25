@@ -25,8 +25,8 @@ public class LongestDictWordsFromCharacters {
         Map<Character, Integer> baseFreqMap = buildFreqMap(characters);
 
         List<String> sortedWords = Arrays.stream(words)
-                .sorted(Comparator.comparingInt(String::length))
-                .toList().reversed();
+            .sorted(Comparator.comparingInt(String::length))
+            .toList().reversed();
         var lastLength = -1;
         for (var word : sortedWords) {
             if (word.length() < lastLength) {
@@ -54,9 +54,9 @@ public class LongestDictWordsFromCharacters {
 
     private static Map<Character, Integer> buildFreqMap(char[] chars) {
         return Arrays.stream(ArrayUtils.toObject(chars))
-                .collect(Collectors.groupingBy(
-                        ch -> ch, Collectors.summingInt(element -> 1)
-                ));
+            .collect(Collectors.groupingBy(
+                ch -> ch, Collectors.summingInt(element -> 1)
+            ));
     }
 
     private static Map<Character, Integer> buildFreqMap_Old(char[] chars) {

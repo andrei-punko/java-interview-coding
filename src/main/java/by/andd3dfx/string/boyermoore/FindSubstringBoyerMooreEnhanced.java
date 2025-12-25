@@ -47,8 +47,8 @@ public class FindSubstringBoyerMooreEnhanced extends FindSubstringBoyerMoore {
         if (map.containsKey(characterInText)) {
             int finalPosInPattern = posInPattern;
             posInPatternOptional = map.get(characterInText).stream()
-                    .filter(charPos -> charPos < finalPosInPattern)
-                    .max(Integer::compareTo);
+                .filter(charPos -> charPos < finalPosInPattern)
+                .max(Integer::compareTo);
         }
 
         if (posInPatternOptional.isEmpty()) {    // Символ в паттерне не нашли. Или символ в паттерне расположен правее интересующей нас позиции

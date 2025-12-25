@@ -17,6 +17,6 @@ public class MakeStringCompactTest {
         assertThat(transform("aaacbb")).isEqualTo("a3cb2");
         assertThat(transform("aaacbbccc")).isEqualTo("a3cb2c3");
         assertThat(transform("AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB"))
-                .isEqualTo("A4B3C2XYZD4E3F3A6B28");
+            .isEqualTo("A4B3C2XYZD4E3F3A6B28");
     }
 }

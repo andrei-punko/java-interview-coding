@@ -56,14 +56,14 @@ public class ReverseLinkedListTest {
 
     private void checkReversedList(Node head) {
         assertThat(head.getValue())
-                .as("Wrong 0 item of reversed list").isEqualTo(10);
+            .as("Wrong 0 item of reversed list").isEqualTo(10);
         assertThat(head.getNext().getValue())
-                .as("Wrong 1 item of reversed list").isEqualTo(12);
+            .as("Wrong 1 item of reversed list").isEqualTo(12);
         assertThat(head.getNext().getNext().getValue())
-                .as("Wrong 2 item of reversed list").isEqualTo(7);
+            .as("Wrong 2 item of reversed list").isEqualTo(7);
         assertThat(head.getNext().getNext().getNext().getValue())
-                .as("Wrong 3 item of reversed list").isEqualTo(3);
+            .as("Wrong 3 item of reversed list").isEqualTo(3);
         assertThat(head.getNext().getNext().getNext().getNext())
-                .as("Wrong next of 3 item of reversed list").isNull();
+            .as("Wrong next of 3 item of reversed list").isNull();
     }
 }

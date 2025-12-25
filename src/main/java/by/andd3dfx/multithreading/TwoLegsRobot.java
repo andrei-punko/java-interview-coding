@@ -55,17 +55,17 @@ public class TwoLegsRobot {
         logWriter = new StringWriter();
 
         leftLeg = Foot.builder()
-                .name("left")
-                .mySemaphore(leftSemaphore)
-                .notMySemaphore(rightSemaphore)
-                .logWriter(logWriter)
-                .build();
+            .name("left")
+            .mySemaphore(leftSemaphore)
+            .notMySemaphore(rightSemaphore)
+            .logWriter(logWriter)
+            .build();
         rightLeg = Foot.builder()
-                .name("right")
-                .mySemaphore(rightSemaphore)
-                .notMySemaphore(leftSemaphore)
-                .logWriter(logWriter)
-                .build();
+            .name("right")
+            .mySemaphore(rightSemaphore)
+            .notMySemaphore(leftSemaphore)
+            .logWriter(logWriter)
+            .build();
     }
 
     public void start() {

@@ -23,7 +23,7 @@ public class NoTerminalOpOnStream {
     public static Stream<String> bar(Stream<String> stream) {
         System.out.println("start bar");
         return stream.filter(el -> !el.equals("bar"))
-                .peek(System.out::print);
+            .peek(System.out::print);
     }
 
     public static void main(String[] args) {

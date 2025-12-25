@@ -67,10 +67,10 @@ public class LFUCacheUsingTime<K, V> {
 
     K determineKeyToDelete() {
         return map.entrySet().stream()
-                .sorted(Comparator
-                        .comparingInt((Map.Entry<K, Item> entry) -> entry.getValue().hitsCount)
-                        .thenComparingLong(entry -> entry.getValue().lastUsedTime)
-                ).findFirst().get().getKey();
+            .sorted(Comparator
+                .comparingInt((Map.Entry<K, Item> entry) -> entry.getValue().hitsCount)
+                .thenComparingLong(entry -> entry.getValue().lastUsedTime)
+            ).findFirst().get().getKey();
     }
 
     @AllArgsConstructor

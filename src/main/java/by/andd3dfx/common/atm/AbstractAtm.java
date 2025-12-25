@@ -13,7 +13,7 @@ public abstract class AbstractAtm implements IAtm {
     public AbstractAtm(Map<Integer, Integer> state) {
         this.state = new HashMap<>(state);
         this.nominals = state.keySet().stream()
-                .sorted(Comparator.reverseOrder()).toList();
+            .sorted(Comparator.reverseOrder()).toList();
     }
 
     /**

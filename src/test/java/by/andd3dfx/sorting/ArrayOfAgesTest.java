@@ -11,7 +11,7 @@ public class ArrayOfAgesTest {
 
     @Test
     public void process() {
-        int[] ages = new int[] { 5, 7, 8, 57, 56, 42, 7, 90, 7, 5, 57};
+        int[] ages = new int[]{5, 7, 8, 57, 56, 42, 7, 90, 7, 5, 57};
         Map<Integer, Long> expectedResult = new HashMap() {{
             put(5, 2L);
             put(7, 3L);

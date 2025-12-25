@@ -48,8 +48,8 @@ public class UnmodifiableNodeTest {
     @Test
     public void checkImmutability() {
         var node = new UnmodifiableNode(
-                List.of(new UnmodifiableNode(2), new UnmodifiableNode(3)),
-                12
+            List.of(new UnmodifiableNode(2), new UnmodifiableNode(3)),
+            12
         );
         var oldValue = node.getChildren().get(0);
         var newValue = new UnmodifiableNode(333);
@@ -66,8 +66,8 @@ public class UnmodifiableNodeTest {
 
     private UnmodifiableNode prepareComplexNode() {
         return new UnmodifiableNode(Arrays.asList(
-                new UnmodifiableNode(2),
-                new UnmodifiableNode(List.of(new UnmodifiableNode(32), new UnmodifiableNode(11)), 3)
+            new UnmodifiableNode(2),
+            new UnmodifiableNode(List.of(new UnmodifiableNode(32), new UnmodifiableNode(11)), 3)
         ), 12);
     }
 }

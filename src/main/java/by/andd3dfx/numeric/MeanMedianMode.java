@@ -25,10 +25,10 @@ public class MeanMedianMode {
 
     public static double mode(int[] items) {
         var freqMap = Arrays.stream(items)
-                .boxed()
-                .collect(Collectors.groupingBy(
-                        i -> i, Collectors.counting()
-                ));
+            .boxed()
+            .collect(Collectors.groupingBy(
+                i -> i, Collectors.counting()
+            ));
 
         int mode = items[0];
         for (var key : freqMap.keySet()) {

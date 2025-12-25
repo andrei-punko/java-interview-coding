@@ -12,18 +12,18 @@ public class SortedSquaresTest {
     @Test
     public void transformUsingSorting() {
         assertThat(SortedSquares.transformUsingSorting(INITIAL_ARRAY))
-                .isEqualTo(EXPECTED_ARRAY);
+            .isEqualTo(EXPECTED_ARRAY);
     }
 
     @Test
     public void transformUsingDeque() {
         assertThat(SortedSquares.transformUsingDeque(INITIAL_ARRAY))
-                .isEqualTo(EXPECTED_ARRAY);
+            .isEqualTo(EXPECTED_ARRAY);
     }
 
     @Test
     public void transformUsingPriorityQueue() {
         assertThat(SortedSquares.transformUsingPriorityQueue(INITIAL_ARRAY))
-                .isEqualTo(EXPECTED_ARRAY);
+            .isEqualTo(EXPECTED_ARRAY);
     }
 }

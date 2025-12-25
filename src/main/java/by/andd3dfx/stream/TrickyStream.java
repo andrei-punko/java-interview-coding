@@ -23,14 +23,14 @@ public class TrickyStream {
      */
     public static void case1() {
         Arrays.stream(new Integer[]{1, 4, 3})
-                .peek(e -> {
-                    System.out.println("Saw " + e);
-                })
-                .sorted()
-                .peek(e -> {
-                    System.out.println("Saw 2 " + e);
-                })
-                .anyMatch(item -> item == 3);
+            .peek(e -> {
+                System.out.println("Saw " + e);
+            })
+            .sorted()
+            .peek(e -> {
+                System.out.println("Saw 2 " + e);
+            })
+            .anyMatch(item -> item == 3);
     }
 
 
@@ -39,10 +39,10 @@ public class TrickyStream {
      */
     public static void case2() {
         List.of(1, 2, 3, 4, 5, 6, 7, 8, 9)
-                .stream()
-                .peek(i -> System.out.print(i))
-                .filter(i -> i > 4)
-                .peek(i -> System.out.print(i))
-                .findAny();
+            .stream()
+            .peek(i -> System.out.print(i))
+            .filter(i -> i > 4)
+            .peek(i -> System.out.print(i))
+            .findAny();
     }
 }

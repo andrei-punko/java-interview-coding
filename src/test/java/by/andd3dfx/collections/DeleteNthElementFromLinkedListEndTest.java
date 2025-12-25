@@ -39,7 +39,7 @@ public class DeleteNthElementFromLinkedListEndTest {
         Node head = buildLinkedList();
 
         assertThrows("n should be >=0!", IllegalArgumentException.class,
-                () -> DeleteNthElementFromLinkedListEnd.apply(head, -1));
+            () -> DeleteNthElementFromLinkedListEnd.apply(head, -1));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class DeleteNthElementFromLinkedListEndTest {
         Node head = buildLinkedList();
 
         assertThrows("n should be less than list size!", IllegalArgumentException.class,
-                () -> DeleteNthElementFromLinkedListEnd.apply(head, 5));
+            () -> DeleteNthElementFromLinkedListEnd.apply(head, 5));
     }
 
     private Node buildLinkedList() {

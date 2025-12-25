@@ -13,8 +13,8 @@ import static org.awaitility.Durations.ONE_SECOND;
 public class TwoLegsRobotTest {
 
     private Map<Boolean, String> EXPECTED_STRING = Map.of(
-            false, "left steps",
-            true, "right steps"
+        false, "left steps",
+        true, "right steps"
     );
 
     private TwoLegsRobot robot;
@@ -28,9 +28,9 @@ public class TwoLegsRobotTest {
     public void testLogsOrder() {
         robot.start();
         await()
-                .atMost(ONE_SECOND)
-                .pollInterval(ONE_HUNDRED_MILLISECONDS)
-                .until(() -> robot.getLogs().split("!").length > 10);   // At least 10 steps
+            .atMost(ONE_SECOND)
+            .pollInterval(ONE_HUNDRED_MILLISECONDS)
+            .until(() -> robot.getLogs().split("!").length > 10);   // At least 10 steps
 
         checkLogs(robot.getLogs());
     }

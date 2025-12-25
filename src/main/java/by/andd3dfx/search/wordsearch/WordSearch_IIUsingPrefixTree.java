@@ -153,6 +153,6 @@ public class WordSearch_IIUsingPrefixTree implements IWordSearch_II {
         Object jsonObject = objectMapper.readValue(uglyString, Object.class);
 
         return objectMapper.writerWithDefaultPrettyPrinter()
-                .writeValueAsString(jsonObject);
+            .writeValueAsString(jsonObject);
     }
 }

@@ -24,16 +24,16 @@ public class DistinctNames {
 
     public static List<String> way1(List<Person> persons) {
         return persons.stream()
-                .map(Person::getNames)
-                .flatMap(Collection::stream)
-                .distinct().toList();
+            .map(Person::getNames)
+            .flatMap(Collection::stream)
+            .distinct().toList();
     }
 
     public static List<String> way2(List<Person> persons) {
         return persons.stream()
-                .map(Person::getNames)
-                .flatMap(Collection::stream)
-                .collect(Collectors.toSet())
-                .stream().toList();
+            .map(Person::getNames)
+            .flatMap(Collection::stream)
+            .collect(Collectors.toSet())
+            .stream().toList();
     }
 }

@@ -34,9 +34,9 @@ public class CountNegativesInSortedMatrixTest {
     @Parameters(name = "{0} -> {1}")
     public static Collection<Object[]> data() {
         return asList(
-                new Object[]{new Grid(new int[][]{{4, 3, 2, -1}, {3, 2, 1, -1}, {1, 1, -1, -2}, {-1, -1, -2, -3}}), 8},
-                new Object[]{new Grid(new int[][]{{3, 2}, {1, 0}}), 0},
-                new Object[]{new Grid(new int[][]{}), 0}
+            new Object[]{new Grid(new int[][]{{4, 3, 2, -1}, {3, 2, 1, -1}, {1, 1, -1, -2}, {-1, -1, -2, -3}}), 8},
+            new Object[]{new Grid(new int[][]{{3, 2}, {1, 0}}), 0},
+            new Object[]{new Grid(new int[][]{}), 0}
         );
     }
 

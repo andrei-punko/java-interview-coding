@@ -105,8 +105,8 @@ public class CommonRecursiveTaskTest {
             var partTwo = Arrays.copyOfRange(workload, workload.length / 2, workload.length);
 
             return Arrays.asList(
-                    new MyCommonRecursiveTask(new MyWorkContainer(partOne, threshold)),
-                    new MyCommonRecursiveTask(new MyWorkContainer(partTwo, threshold))
+                new MyCommonRecursiveTask(new MyWorkContainer(partOne, threshold)),
+                new MyCommonRecursiveTask(new MyWorkContainer(partTwo, threshold))
             );
         }
 
@@ -135,7 +135,7 @@ public class CommonRecursiveTaskTest {
 
             String threadName = Thread.currentThread().getName();
             logger.info(String.format("This result of work %s is equals to %d - was processed by thread %s",
-                    work, result, threadName));
+                work, result, threadName));
             return (long) result;
         }
     }

@@ -14,20 +14,20 @@ public class KNearestNumbersTest {
     @Test
     public void testFind() {
         assertThat(find(new int[]{1, 2, 2, 3, 4, 4, 4, 5, 6}, 4, 0))
-                .isEmpty();
+            .isEmpty();
         assertThat(find(new int[]{1, 2, 2, 3, 4, 4, 4, 5, 6}, 4, 2))
-                .containsExactlyInAnyOrder(4, 4);
+            .containsExactlyInAnyOrder(4, 4);
 
         var result = find(new int[]{1, 2, 3, 4, 5, 6}, 3, 2);
         assertTrue(
-                Arrays.equals(result, new int[]{4, 3}) ||
-                        Arrays.equals(result, new int[]{4, 5})
+            Arrays.equals(result, new int[]{4, 3}) ||
+                Arrays.equals(result, new int[]{4, 5})
         );
 
         assertThat(find(new int[]{1, 2, 3, 4, 5, 6}, 0, 3))
-                .containsExactlyInAnyOrder(1, 2, 3);
+            .containsExactlyInAnyOrder(1, 2, 3);
         assertThat(find(new int[]{1, 2, 2, 3, 3, 56, 78, 79, 79, 100}, 4, 3))
-                .containsExactlyInAnyOrder(3, 3, 2);
+            .containsExactlyInAnyOrder(3, 3, 2);
     }
 
     @Test

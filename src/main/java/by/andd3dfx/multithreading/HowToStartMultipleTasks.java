@@ -26,37 +26,37 @@ public class HowToStartMultipleTasks {
 
     public void usingCompletableFuture() {
         CompletableFuture<Void> combinedFuture = CompletableFuture.allOf(
-                CompletableFuture.runAsync(() -> log.info("    usingCompletableFuture: Make action 1")),
-                CompletableFuture.runAsync(() -> log.info("    usingCompletableFuture: Make action 2")),
-                CompletableFuture.runAsync(() -> log.info("    usingCompletableFuture: Make action 3"))
+            CompletableFuture.runAsync(() -> log.info("    usingCompletableFuture: Make action 1")),
+            CompletableFuture.runAsync(() -> log.info("    usingCompletableFuture: Make action 2")),
+            CompletableFuture.runAsync(() -> log.info("    usingCompletableFuture: Make action 3"))
         );
         combinedFuture.join();
     }
 
     public void usingForkJoinTask() {
         ForkJoinTask.invokeAll(
-                new RecursiveAction() {
-                    @Override
-                    protected void compute() {
-                        // Make action 1
-                        log.info("usingForkJoinTask: Make action 1");
-                    }
-                }, new RecursiveTask() {
-                    @Override
-                    protected Object compute() {
-                        // Add result 2 computation
-                        log.info("usingForkJoinTask: Make action 2");
-                        return null;
-                    }
-                },
-                new RecursiveTask() {
-                    @Override
-                    protected Object compute() {
-                        // Add result 3 computation
-                        log.info("usingForkJoinTask: Make action 3");
-                        return null;
-                    }
+            new RecursiveAction() {
+                @Override
+                protected void compute() {
+                    // Make action 1
+                    log.info("usingForkJoinTask: Make action 1");
                 }
+            }, new RecursiveTask() {
+                @Override
+                protected Object compute() {
+                    // Add result 2 computation
+                    log.info("usingForkJoinTask: Make action 2");
+                    return null;
+                }
+            },
+            new RecursiveTask() {
+                @Override
+                protected Object compute() {
+                    // Add result 3 computation
+                    log.info("usingForkJoinTask: Make action 3");
+                    return null;
+                }
+            }
         );
     }
 

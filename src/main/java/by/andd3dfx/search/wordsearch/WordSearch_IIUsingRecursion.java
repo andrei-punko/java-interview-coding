@@ -64,9 +64,9 @@ public class WordSearch_IIUsingRecursion implements IWordSearch_II {
     public List<String> findWords(char[][] board, String[] words) {
         var wordsToFind = Arrays.stream(words).collect(Collectors.toSet());
         int maxLen = Arrays.stream(words)
-                .map(String::length)
-                .max(Integer::compareTo)
-                .orElse(-1);
+            .map(String::length)
+            .max(Integer::compareTo)
+            .orElse(-1);
         var resultWordsSet = new HashSet<String>();
         var ctx = new Context(board, wordsToFind, maxLen, resultWordsSet);
 

@@ -51,11 +51,11 @@ public class CustomReentrantLockTest {
     @Test
     public void testLockReentrancy() {
         var future = CompletableFuture.runAsync(
-                () -> new ReentrantLockWrapper(lock).outer()
+            () -> new ReentrantLockWrapper(lock).outer()
         );
 
         await().atMost(ONE_SECOND)
-                .pollInterval(ONE_HUNDRED_MILLISECONDS)
-                .until(() -> future.isDone());
+            .pollInterval(ONE_HUNDRED_MILLISECONDS)
+            .until(() -> future.isDone());
     }
 }

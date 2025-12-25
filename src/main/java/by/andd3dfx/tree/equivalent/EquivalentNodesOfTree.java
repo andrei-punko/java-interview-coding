@@ -58,10 +58,10 @@ public class EquivalentNodesOfTree {
         }
 
         return voc2NodesMap.values().stream()
-                .filter(nodes -> nodes.size() >= 2)
-                .map(nodes -> nodes.stream().sorted(this::compare).limit(2).toList())
-                .min(this::compare)
-                .orElse(null);
+            .filter(nodes -> nodes.size() >= 2)
+            .map(nodes -> nodes.stream().sorted(this::compare).limit(2).toList())
+            .min(this::compare)
+            .orElse(null);
     }
 
     private int compare(Node n1, Node n2) {

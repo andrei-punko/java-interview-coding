@@ -22,8 +22,8 @@ public class NeedleTest {
     @Test
     public void countMultiLine() throws IOException {
         String inMessage = "Hello, there!\n" +
-                "How are you today?\n" +
-                "Yes, you over there.";
+            "How are you today?\n" +
+            "Yes, you over there.";
 
         assertThat(count("there", buildStream(inMessage))).isEqualTo(2);
         assertThat(count("today", buildStream(inMessage))).isEqualTo(1);

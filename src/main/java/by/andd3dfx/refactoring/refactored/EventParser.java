@@ -19,7 +19,7 @@ public class EventParser {
     static {
         Reflections reflections = new Reflections(IEventParser.class.getPackageName());
         reflections.getSubTypesOf(IEventParser.class)
-                .forEach(aClass -> extracted(aClass));
+            .forEach(aClass -> extracted(aClass));
 
         if (map.size() != EventType.values().length) {
             throw new IllegalStateException("Not all values of EventType have appropriate EventParser!");
@@ -34,12 +34,12 @@ public class EventParser {
 
     public String parse(Event event) {
         return map.get(event.getType())
-                .parse(event.getData());
+            .parse(event.getData());
     }
 
     public List<String> parse(List<Event> events) {
         return events.stream()
-                .map(this::parse)
-                .toList();
+            .map(this::parse)
+            .toList();
     }
 }

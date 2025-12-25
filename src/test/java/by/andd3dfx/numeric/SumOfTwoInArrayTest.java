@@ -11,10 +11,10 @@ public class SumOfTwoInArrayTest {
         var result = SumOfTwoInArray.find_2N(new int[]{1, 3, 5, 7, 9}, 12);
 
         assertThat(result).satisfiesAnyOf(
-                items -> assertThat(items).isEqualTo(new int[]{1, 4}),
-                items -> assertThat(items).isEqualTo(new int[]{2, 3}),
-                items -> assertThat(items).isEqualTo(new int[]{3, 2}),
-                items -> assertThat(items).isEqualTo(new int[]{4, 1})
+            items -> assertThat(items).isEqualTo(new int[]{1, 4}),
+            items -> assertThat(items).isEqualTo(new int[]{2, 3}),
+            items -> assertThat(items).isEqualTo(new int[]{3, 2}),
+            items -> assertThat(items).isEqualTo(new int[]{4, 1})
         );
     }
 
@@ -23,10 +23,10 @@ public class SumOfTwoInArrayTest {
         var result = SumOfTwoInArray.find_N2(new int[]{1, 3, 5, 7, 9}, 12);
 
         assertThat(result).satisfiesAnyOf(
-                items -> assertThat(items).isEqualTo(new int[]{1, 4}),
-                items -> assertThat(items).isEqualTo(new int[]{2, 3}),
-                items -> assertThat(items).isEqualTo(new int[]{3, 2}),
-                items -> assertThat(items).isEqualTo(new int[]{4, 1})
+            items -> assertThat(items).isEqualTo(new int[]{1, 4}),
+            items -> assertThat(items).isEqualTo(new int[]{2, 3}),
+            items -> assertThat(items).isEqualTo(new int[]{3, 2}),
+            items -> assertThat(items).isEqualTo(new int[]{4, 1})
         );
     }
 
@@ -35,8 +35,8 @@ public class SumOfTwoInArrayTest {
         var result = SumOfTwoInArray.find_2N(new int[]{1, 1, 6, 6, 1}, 12);
 
         assertThat(result).satisfiesAnyOf(
-                items -> assertThat(items).isEqualTo(new int[]{2, 3}),
-                items -> assertThat(items).isEqualTo(new int[]{3, 2})
+            items -> assertThat(items).isEqualTo(new int[]{2, 3}),
+            items -> assertThat(items).isEqualTo(new int[]{3, 2})
         );
     }
 
@@ -45,8 +45,8 @@ public class SumOfTwoInArrayTest {
         var result = SumOfTwoInArray.find_N2(new int[]{1, 1, 6, 6, 1}, 12);
 
         assertThat(result).satisfiesAnyOf(
-                items -> assertThat(items).isEqualTo(new int[]{2, 3}),
-                items -> assertThat(items).isEqualTo(new int[]{3, 2})
+            items -> assertThat(items).isEqualTo(new int[]{2, 3}),
+            items -> assertThat(items).isEqualTo(new int[]{3, 2})
         );
     }
 

@@ -9,20 +9,20 @@ public class PerfectlySphericalHousesInAVacuumTest {
     @Test
     public void countHouses() {
         assertThat(PerfectlySphericalHousesInAVacuum.countHouses(">"))
-                .isEqualTo(2);
+            .isEqualTo(2);
         assertThat(PerfectlySphericalHousesInAVacuum.countHouses("^>v<"))
-                .isEqualTo(4);
+            .isEqualTo(4);
         assertThat(PerfectlySphericalHousesInAVacuum.countHouses("^v^v^v^v^v"))
-                .isEqualTo(2);
+            .isEqualTo(2);
     }
 
     @Test
     public void countHouses2() {
         assertThat(PerfectlySphericalHousesInAVacuum.countHouses2("^v"))
-                .isEqualTo(3);
+            .isEqualTo(3);
         assertThat(PerfectlySphericalHousesInAVacuum.countHouses2("^>v<"))
-                .isEqualTo(3);
+            .isEqualTo(3);
         assertThat(PerfectlySphericalHousesInAVacuum.countHouses2("^v^v^v^v^v"))
-                .isEqualTo(11);
+            .isEqualTo(11);
     }
 }

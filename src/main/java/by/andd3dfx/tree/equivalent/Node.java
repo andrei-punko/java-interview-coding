@@ -18,9 +18,9 @@ public class Node {
     @Override
     public String toString() {
         return "{" +
-                value +
-                ((left != null) ? (", l=" + left) : "") +
-                ((right != null) ? (", r=" + right) : "") +
-                '}';
+            value +
+            ((left != null) ? (", l=" + left) : "") +
+            ((right != null) ? (", r=" + right) : "") +
+            '}';
     }
 }

@@ -9,26 +9,26 @@ public class GenerateParenthesesTest {
     @Test
     public void generate1() {
         assertThat(GenerateParentheses.generate(1))
-                .containsExactlyInAnyOrder("()");
+            .containsExactlyInAnyOrder("()");
     }
 
     @Test
     public void generate2() {
         assertThat(GenerateParentheses.generate(2))
-                .containsExactlyInAnyOrder("()()", "(())");
+            .containsExactlyInAnyOrder("()()", "(())");
     }
 
     @Test
     public void generate3() {
         assertThat(GenerateParentheses.generate(3))
-                .containsExactlyInAnyOrder("((()))", "(()())", "(())()", "()(())", "()()()");
+            .containsExactlyInAnyOrder("((()))", "(()())", "(())()", "()(())", "()()()");
     }
 
     @Test
     public void generate4() {
         assertThat(GenerateParentheses.generate(4))
-                .containsExactlyInAnyOrder("(((())))", "((()()))", "((())())", "((()))()", "(()(()))",
-                        "(()()())", "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()",
-                        "()()(())", "()()()()");
+            .containsExactlyInAnyOrder("(((())))", "((()()))", "((())())", "((()))()", "(()(()))",
+                "(()()())", "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()",
+                "()()(())", "()()()()");
     }
 }

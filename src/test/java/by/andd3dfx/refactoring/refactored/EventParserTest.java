@@ -36,8 +36,8 @@ public class EventParserTest {
     @Test
     public void testParseForList() {
         var events = List.of(
-                buildEvent(ONE_MORE_EVENT),
-                buildEvent(SOME_OTHER_EVENT)
+            buildEvent(ONE_MORE_EVENT),
+            buildEvent(SOME_OTHER_EVENT)
         );
         assertThrows(UnsupportedOperationException.class, () -> eventParser.parse(events));
     }

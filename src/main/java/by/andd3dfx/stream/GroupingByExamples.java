@@ -29,7 +29,7 @@ public class GroupingByExamples {
      */
     public static Map<String, List<Worker>> groupWorkersByPositionLists(List<Worker> workers) {
         return workers.stream()
-                .collect(Collectors.groupingBy(Worker::getPosition));
+            .collect(Collectors.groupingBy(Worker::getPosition));
     }
 
     /**
@@ -37,7 +37,7 @@ public class GroupingByExamples {
      */
     public static Map<String, Set<Worker>> groupWorkersByPositionSets(List<Worker> workers) {
         return workers.stream().collect(
-                Collectors.groupingBy(Worker::getPosition, Collectors.toSet())
+            Collectors.groupingBy(Worker::getPosition, Collectors.toSet())
         );
     }
 
@@ -46,7 +46,7 @@ public class GroupingByExamples {
      */
     public static Map<String, Long> calculateAmountOfWorkersForEachPosition(List<Worker> workers) {
         return workers.stream().collect(
-                Collectors.groupingBy(Worker::getPosition, Collectors.counting())
+            Collectors.groupingBy(Worker::getPosition, Collectors.counting())
         );
     }
 
@@ -55,7 +55,7 @@ public class GroupingByExamples {
      */
     public static Map<String, Set<String>> groupWorkersNamesByPosition(List<Worker> workers) {
         return workers.stream().collect(
-                Collectors.groupingBy(Worker::getPosition, Collectors.mapping(Worker::getName, Collectors.toSet()))
+            Collectors.groupingBy(Worker::getPosition, Collectors.mapping(Worker::getName, Collectors.toSet()))
         );
     }
 
@@ -64,7 +64,7 @@ public class GroupingByExamples {
      */
     public static Map<String, Double> calculateAverageSalaryForEachPosition(List<Worker> workers) {
         return workers.stream().collect(
-                Collectors.groupingBy(Worker::getPosition, Collectors.averagingInt(Worker::getSalary))
+            Collectors.groupingBy(Worker::getPosition, Collectors.averagingInt(Worker::getSalary))
         );
     }
 
@@ -73,9 +73,9 @@ public class GroupingByExamples {
      */
     public static Map<String, String> groupWorkersByPositionWhenWorkerRepresentedByString(List<Worker> workers) {
         return workers.stream().collect(
-                Collectors.groupingBy(
-                        Worker::getPosition, Collectors.mapping(Worker::getName, Collectors.joining(", ", "{", "}"))
-                ));
+            Collectors.groupingBy(
+                Worker::getPosition, Collectors.mapping(Worker::getName, Collectors.joining(", ", "{", "}"))
+            ));
     }
 
     /**
@@ -83,7 +83,7 @@ public class GroupingByExamples {
      */
     public static Map<String, Map<Integer, List<Worker>>> groupWorkersByPositionAndAge(List<Worker> workers) {
         return workers.stream().collect(
-                Collectors.groupingBy(Worker::getPosition, Collectors.groupingBy(Worker::getAge))
+            Collectors.groupingBy(Worker::getPosition, Collectors.groupingBy(Worker::getAge))
         );
     }
 }

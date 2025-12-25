@@ -21,10 +21,10 @@ public class ParseListIntoStructureTest {
     @Test
     public void parseOneRowSimpleStructure() {
         var lines = List.of(
-                "key=14"
+            "key=14"
         );
         var expectedResult = new Properties(Map.of(
-                "key", new Properties(14)
+            "key", new Properties(14)
         ));
 
         parseAndCheckAssertions(lines, expectedResult);
@@ -33,10 +33,10 @@ public class ParseListIntoStructureTest {
     @Test
     public void parseOneRowComplexStructure() {
         var lines = List.of(
-                "key.subkey=10"
+            "key.subkey=10"
         );
         var expectedResult = new Properties(Map.of(
-                "key", new Properties(Map.of("subkey", new Properties(10)))
+            "key", new Properties(Map.of("subkey", new Properties(10)))
         ));
 
         parseAndCheckAssertions(lines, expectedResult);
@@ -45,12 +45,12 @@ public class ParseListIntoStructureTest {
     @Test
     public void parseMultipleRowsSimpleStructure() {
         var lines = List.of(
-                "key=2",
-                "key2=3"
+            "key=2",
+            "key2=3"
         );
         var expectedResult = new Properties(Map.of(
-                "key", new Properties(2),
-                "key2", new Properties(3)
+            "key", new Properties(2),
+            "key2", new Properties(3)
         ));
 
         parseAndCheckAssertions(lines, expectedResult);
@@ -59,17 +59,17 @@ public class ParseListIntoStructureTest {
     @Test
     public void parseMultipleRowsComplexStructure() {
         var lines = List.of(
-                "key.subkey.subkey2=1",
-                "key.subkey=2",
-                "key.subkey3=3",
-                "key2.subkey4=5"
+            "key.subkey.subkey2=1",
+            "key.subkey=2",
+            "key.subkey3=3",
+            "key2.subkey4=5"
         );
         var expectedResult = new Properties(Map.of(
-                "key", new Properties(Map.of(
-                        "subkey", new Properties(2, Map.of("subkey2", new Properties(1))),
-                        "subkey3", new Properties(3)
-                )),
-                "key2", new Properties(Map.of("subkey4", new Properties(5)))
+            "key", new Properties(Map.of(
+                "subkey", new Properties(2, Map.of("subkey2", new Properties(1))),
+                "subkey3", new Properties(3)
+            )),
+            "key2", new Properties(Map.of("subkey4", new Properties(5)))
         ));
 
         parseAndCheckAssertions(lines, expectedResult);

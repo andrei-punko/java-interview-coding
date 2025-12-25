@@ -55,7 +55,7 @@ public class ArrayRanges {
         }
 
         return ranges.stream()
-                .map(Range::toString)
-                .collect(Collectors.joining(","));
+            .map(Range::toString)
+            .collect(Collectors.joining(","));
     }
 }

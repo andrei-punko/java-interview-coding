@@ -35,13 +35,13 @@ public class ArraysUnion {
 
         // Add the remaining part of one of the arrays
         Arrays.stream(Arrays.copyOfRange(a, aIndex, a.length))
-                .forEach(result::add);
+            .forEach(result::add);
         Arrays.stream(Arrays.copyOfRange(b, bIndex, b.length))
-                .forEach(result::add);
+            .forEach(result::add);
 
         return result.stream()
-                .mapToInt(value -> value)
-                .toArray();
+            .mapToInt(value -> value)
+            .toArray();
     }
 
     private static Integer addItemToArray(List<Integer> array, int itemToAdd, Integer lastAdded) {
@@ -71,12 +71,12 @@ public class ArraysUnion {
 
         // Add the remaining part of one of the arrays
         Arrays.stream(Arrays.copyOfRange(a, aIndex, a.length))
-                .forEach(result::add);
+            .forEach(result::add);
         Arrays.stream(Arrays.copyOfRange(b, bIndex, b.length))
-                .forEach(result::add);
+            .forEach(result::add);
 
         return result.stream()
-                .mapToInt(value -> value)
-                .toArray();
+            .mapToInt(value -> value)
+            .toArray();
     }
 }

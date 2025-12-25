@@ -53,9 +53,9 @@ public abstract class AbstractBlockingQueueTest {
 
         dequeue();
         await()
-                .atMost(ONE_SECOND)
-                .pollInterval(ONE_HUNDRED_MILLISECONDS)
-                .until(() -> enqueueFuture.isDone());
+            .atMost(ONE_SECOND)
+            .pollInterval(ONE_HUNDRED_MILLISECONDS)
+            .until(() -> enqueueFuture.isDone());
         assertTrue(enqueueFuture.isDone());
     }
 
@@ -69,9 +69,9 @@ public abstract class AbstractBlockingQueueTest {
 
         enqueue("DequeueEnqueue", 1);
         await()
-                .atMost(ONE_SECOND)
-                .pollInterval(ONE_HUNDRED_MILLISECONDS)
-                .until(() -> dequeueFuture.isDone());
+            .atMost(ONE_SECOND)
+            .pollInterval(ONE_HUNDRED_MILLISECONDS)
+            .until(() -> dequeueFuture.isDone());
         assertTrue(dequeueFuture.isDone());
     }
 
@@ -111,9 +111,9 @@ public abstract class AbstractBlockingQueueTest {
         CompletableFuture.runAsync(enqueue2);
         CompletableFuture<Callable<List<QueueItem>>> dequeueFuture = CompletableFuture.supplyAsync(() -> dequeue);
         await()
-                .atMost(ONE_SECOND)
-                .pollInterval(ONE_HUNDRED_MILLISECONDS)
-                .until(() -> dequeueFuture.isDone());
+            .atMost(ONE_SECOND)
+            .pollInterval(ONE_HUNDRED_MILLISECONDS)
+            .until(() -> dequeueFuture.isDone());
 
         // Test items distribution
         // Если значения распределены равномерно, средние значения для А и B будут примерно одинаковы,

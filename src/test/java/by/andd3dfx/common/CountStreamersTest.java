@@ -10,8 +10,8 @@ public class CountStreamersTest {
     @Test
     public void countWithoutOverlapping() {
         int[][] times = {
-                {10, 30},
-                {40, 50}
+            {10, 30},
+            {40, 50}
         };
 
         assertThat(count(times)).isEqualTo(1);
@@ -20,8 +20,8 @@ public class CountStreamersTest {
     @Test
     public void countWithOverlapping() {
         int[][] times = {
-                {10, 30},
-                {20, 50}
+            {10, 30},
+            {20, 50}
         };
 
         assertThat(count(times)).isEqualTo(2);
@@ -30,13 +30,13 @@ public class CountStreamersTest {
     @Test
     public void countComplexCase() {
         int[][] times = {
-                {10, 30},
-                {20, 40},
-                {39, 50},
-                {60, 110},
-                {80, 90},
-                {30, 70},
-                {10, 120}
+            {10, 30},
+            {20, 40},
+            {39, 50},
+            {60, 110},
+            {80, 90},
+            {30, 70},
+            {10, 120}
         };
 
         assertThat(count(times)).isEqualTo(4);

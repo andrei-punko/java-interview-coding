@@ -23,10 +23,10 @@ public class BracketsExpressionValidator {
 
     private static final Set<Character> CLOSING_BRACKETS = Set.of('}', ')', ']', '>');
     private static final Map<Character, Character> CLOSING_2_OPENING_BRACKET_MAP = Map.of(
-            ')', '(',
-            '}', '{',
-            ']', '[',
-            '>', '<'
+        ')', '(',
+        '}', '{',
+        ']', '[',
+        '>', '<'
     );
 
     /**

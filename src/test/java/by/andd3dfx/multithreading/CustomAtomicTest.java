@@ -11,14 +11,14 @@ public class CustomAtomicTest {
         CustomAtomic customAtomic = new CustomAtomicImpl(34, 0);
 
         assertThat(customAtomic.current())
-                .as("Initial value for current() expected")
-                .isEqualTo(34);
+            .as("Initial value for current() expected")
+            .isEqualTo(34);
         assertThat(customAtomic.getAndIncrement())
-                .as("Initial value for getAndIncrement() expected")
-                .isEqualTo(34);
+            .as("Initial value for getAndIncrement() expected")
+            .isEqualTo(34);
         assertThat(customAtomic.current())
-                .as("Incremented value for current() expected")
-                .isEqualTo(35);
+            .as("Incremented value for current() expected")
+            .isEqualTo(35);
     }
 
     @Test
@@ -26,14 +26,14 @@ public class CustomAtomicTest {
         CustomAtomic customAtomic = new CustomAtomicImpl(34, 5);
 
         assertThat(customAtomic.current())
-                .as("Initial value for current() expected")
-                .isEqualTo(34);
+            .as("Initial value for current() expected")
+            .isEqualTo(34);
         assertThat(customAtomic.getAndIncrement())
-                .as("Initial value for getAndIncrement() expected")
-                .isEqualTo(34);
+            .as("Initial value for getAndIncrement() expected")
+            .isEqualTo(34);
         assertThat(customAtomic.current())
-                .as("Incremented value for current() expected")
-                .isEqualTo(35);
+            .as("Incremented value for current() expected")
+            .isEqualTo(35);
     }
 
     class CustomAtomicImpl extends CustomAtomic {

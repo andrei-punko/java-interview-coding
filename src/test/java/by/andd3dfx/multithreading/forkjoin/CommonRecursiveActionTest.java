@@ -22,7 +22,7 @@ public class CommonRecursiveActionTest {
     @Test
     public void testCustomRecursiveActionViaSubmit() throws InterruptedException {
         MyCommonRecursiveAction myCommonRecursiveAction = new MyCommonRecursiveAction(
-                new MyWorkContainer("Some very long and boring string", 4)
+            new MyWorkContainer("Some very long and boring string", 4)
         );
 
         forkJoinPool.submit(myCommonRecursiveAction);
@@ -35,7 +35,7 @@ public class CommonRecursiveActionTest {
     @Test
     public void testCustomRecursiveActionViaExecute() throws InterruptedException {
         MyCommonRecursiveAction myCommonRecursiveAction = new MyCommonRecursiveAction(
-                new MyWorkContainer("Some very long and boring string", 4)
+            new MyWorkContainer("Some very long and boring string", 4)
         );
 
         forkJoinPool.execute(myCommonRecursiveAction);
@@ -48,7 +48,7 @@ public class CommonRecursiveActionTest {
     @Test
     public void testCustomRecursiveActionViaInvoke() throws InterruptedException {
         MyCommonRecursiveAction myCommonRecursiveAction = new MyCommonRecursiveAction(
-                new MyWorkContainer("Some very long and boring string", 4)
+            new MyWorkContainer("Some very long and boring string", 4)
         );
 
         forkJoinPool.invoke(myCommonRecursiveAction);
@@ -61,7 +61,7 @@ public class CommonRecursiveActionTest {
     @Test
     public void testCustomRecursiveActionViaForkNJoin() throws InterruptedException {
         MyCommonRecursiveAction myCommonRecursiveAction = new MyCommonRecursiveAction(
-                new MyWorkContainer("Some very long and boring string", 4)
+            new MyWorkContainer("Some very long and boring string", 4)
         );
 
         myCommonRecursiveAction.fork();
@@ -98,8 +98,8 @@ public class CommonRecursiveActionTest {
             String partTwo = workload.substring(workload.length() / 2);
 
             return Arrays.asList(
-                    new MyCommonRecursiveAction(new MyWorkContainer(partOne, threshold)),
-                    new MyCommonRecursiveAction(new MyWorkContainer(partTwo, threshold))
+                new MyCommonRecursiveAction(new MyWorkContainer(partOne, threshold)),
+                new MyCommonRecursiveAction(new MyWorkContainer(partTwo, threshold))
             );
         }
 

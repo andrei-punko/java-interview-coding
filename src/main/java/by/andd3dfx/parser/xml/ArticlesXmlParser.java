@@ -50,8 +50,8 @@ public class ArticlesXmlParser {
     private String prettyFormat(Node item) {
         String[] lines = item.getTextContent().split("\n");
         return Arrays.stream(lines)
-                .filter(StringUtils::isNotBlank)
-                .map(String::trim)
-                .collect(Collectors.joining("\n"));
+            .filter(StringUtils::isNotBlank)
+            .map(String::trim)
+            .collect(Collectors.joining("\n"));
     }
 }

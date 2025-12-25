@@ -49,7 +49,7 @@ public class CustomLockTest {
     @Test
     public void testLockReentrancy() throws InterruptedException {
         var future = CompletableFuture.runAsync(
-                () -> new ReentrantLockWrapper(lock).outer()
+            () -> new ReentrantLockWrapper(lock).outer()
         );
 
         Thread.sleep(500);

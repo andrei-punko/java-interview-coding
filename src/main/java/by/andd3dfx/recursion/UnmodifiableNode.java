@@ -62,14 +62,14 @@ public final class UnmodifiableNode {
 
     public int sumRecursive2() {
         return flattennedStream()
-                .map(UnmodifiableNode::getValue)
-                .reduce(0, (a, b) -> a + b);
+            .map(UnmodifiableNode::getValue)
+            .reduce(0, (a, b) -> a + b);
     }
 
     private Stream<UnmodifiableNode> flattennedStream() {
         return Stream.concat(
-                Stream.of(this),
-                children.stream().flatMap(UnmodifiableNode::flattennedStream)
+            Stream.of(this),
+            children.stream().flatMap(UnmodifiableNode::flattennedStream)
         );
     }
 

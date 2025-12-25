@@ -23,7 +23,7 @@ public class EightQueensTest {
         assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 1);
         assertThat(solution.prettyPrint()).isEqualTo(new int[][]{
-                {1}
+            {1}
         });
     }
 
@@ -48,10 +48,10 @@ public class EightQueensTest {
         assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 4);
         assertThat(solution.prettyPrint()).isEqualTo(new int[][]{
-                {0, 1, 0, 0},
-                {0, 0, 0, 1},
-                {1, 0, 0, 0},
-                {0, 0, 1, 0}
+            {0, 1, 0, 0},
+            {0, 0, 0, 1},
+            {1, 0, 0, 0},
+            {0, 0, 1, 0}
         });
     }
 
@@ -62,11 +62,11 @@ public class EightQueensTest {
         assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 5);
         assertThat(solution.prettyPrint()).isEqualTo(new int[][]{
-                {1, 0, 0, 0, 0},
-                {0, 0, 1, 0, 0},
-                {0, 0, 0, 0, 1},
-                {0, 1, 0, 0, 0},
-                {0, 0, 0, 1, 0}
+            {1, 0, 0, 0, 0},
+            {0, 0, 1, 0, 0},
+            {0, 0, 0, 0, 1},
+            {0, 1, 0, 0, 0},
+            {0, 0, 0, 1, 0}
         });
     }
 
@@ -77,67 +77,67 @@ public class EightQueensTest {
         assertTrue(solution.isFound());
         checkAmountOfPositionedQueens(solution, 8);
         assertThat(solution.prettyPrint()).isEqualTo(new int[][]{
-                {1, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 1, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 1},
-                {0, 0, 0, 0, 0, 1, 0, 0},
-                {0, 0, 1, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 1, 0},
-                {0, 1, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 1, 0, 0, 0, 0}
+            {1, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 1, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 1},
+            {0, 0, 0, 0, 0, 1, 0, 0},
+            {0, 0, 1, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 1, 0},
+            {0, 1, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 1, 0, 0, 0, 0}
         });
     }
 
     @Test
     public void prettyPrint() {
         var solution = new EightQueens.Solution(true, new boolean[][]{
-                {true, false},
-                {false, true}
+            {true, false},
+            {false, true}
         });
 
         assertThat(solution.prettyPrint()).isEqualTo(new int[][]{
-                {1, 0},
-                {0, 1}
+            {1, 0},
+            {0, 1}
         });
     }
 
     @Test
     public void isLegalEmptyBoard() {
         assertTrue(eightQueens.isLegal(2, new boolean[][]{
-                {false, false},
-                {false, false}
+            {false, false},
+            {false, false}
         }));
     }
 
     @Test
     public void isLegalOneQueen() {
         assertTrue(eightQueens.isLegal(2, new boolean[][]{
-                {true, false},
-                {false, false}
+            {true, false},
+            {false, false}
         }));
     }
 
     @Test
     public void isLegalSameCol() {
         assertFalse(eightQueens.isLegal(2, new boolean[][]{
-                {true, false},
-                {true, false}
+            {true, false},
+            {true, false}
         }));
     }
 
     @Test
     public void isLegalSameRow() {
         assertFalse(eightQueens.isLegal(2, new boolean[][]{
-                {true, true},
-                {false, false}
+            {true, true},
+            {false, false}
         }));
     }
 
     @Test
     public void isLegalSameDiagonal() {
         assertFalse(eightQueens.isLegal(2, new boolean[][]{
-                {true, false},
-                {false, true}
+            {true, false},
+            {false, true}
         }));
     }
 

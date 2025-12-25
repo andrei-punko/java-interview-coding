@@ -25,10 +25,10 @@ public class SortedSquares {
 
     public static Integer[] transformUsingSorting(Integer[] items) {
         return Arrays.stream(items)
-                .map(integer -> integer * integer)
-                .sorted()
-                .toList()
-                .toArray(new Integer[0]);
+            .map(integer -> integer * integer)
+            .sorted()
+            .toList()
+            .toArray(new Integer[0]);
     }
 
     public static Integer[] transformUsingDeque(Integer[] items) {

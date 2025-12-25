@@ -18,9 +18,9 @@ public class WordSearchTest {
     @Test
     public void exist() {
         char[][] board = new char[][]{
-                {'A', 'B', 'C', 'E'},
-                {'S', 'F', 'C', 'S'},
-                {'A', 'D', 'E', 'E'}
+            {'A', 'B', 'C', 'E'},
+            {'S', 'F', 'C', 'S'},
+            {'A', 'D', 'E', 'E'}
         };
         var word = "ABCCED";
 
@@ -30,9 +30,9 @@ public class WordSearchTest {
     @Test
     public void exist_startNotFromLeftRightCorner_multipleWrongPaths() {
         char[][] board = new char[][]{
-                {'A', 'B', 'C', 'E'},
-                {'S', 'F', 'C', 'S'},
-                {'A', 'D', 'E', 'E'}
+            {'A', 'B', 'C', 'E'},
+            {'S', 'F', 'C', 'S'},
+            {'A', 'D', 'E', 'E'}
         };
         var word = "SEE";
 
@@ -42,9 +42,9 @@ public class WordSearchTest {
     @Test
     public void exist_preventCharsReUsage() {
         char[][] board = new char[][]{
-                {'A', 'B', 'C', 'E'},
-                {'S', 'F', 'C', 'S'},
-                {'A', 'D', 'E', 'E'}
+            {'A', 'B', 'C', 'E'},
+            {'S', 'F', 'C', 'S'},
+            {'A', 'D', 'E', 'E'}
         };
         var word = "ABCB";
 
@@ -54,9 +54,9 @@ public class WordSearchTest {
     @Test
     public void exist_checkConnectivity() {
         char[][] board = new char[][]{
-                {'A', 'B', 'C', 'E'},
-                {'S', 'F', 'C', 'S'},
-                {'A', 'D', 'E', 'E'}
+            {'A', 'B', 'C', 'E'},
+            {'S', 'F', 'C', 'S'},
+            {'A', 'D', 'E', 'E'}
         };
         var word = "ABCD";
 
@@ -66,9 +66,9 @@ public class WordSearchTest {
     @Test
     public void exist_allCharsUsed() {
         char[][] board = new char[][]{
-                {'A', 'B', 'C', 'E'},
-                {'S', 'F', 'C', 'S'},
-                {'A', 'D', 'E', 'E'}
+            {'A', 'B', 'C', 'E'},
+            {'S', 'F', 'C', 'S'},
+            {'A', 'D', 'E', 'E'}
         };
         var word = "ASABFDECCESE";
 

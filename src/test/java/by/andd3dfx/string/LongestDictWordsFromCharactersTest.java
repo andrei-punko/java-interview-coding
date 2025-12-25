@@ -9,29 +9,29 @@ public class LongestDictWordsFromCharactersTest {
     @Test
     public void find() {
         assertThat(LongestDictWordsFromCharacters.find(
-                new char[]{'e', 'o', 't', 's'},
-                new String[]{"otse", "tse", "eo", "stoe"}
+            new char[]{'e', 'o', 't', 's'},
+            new String[]{"otse", "tse", "eo", "stoe"}
         )).containsExactlyInAnyOrder("otse", "stoe");
 
         assertThat(LongestDictWordsFromCharacters.find(
-                new char[]{'a', 's', 'd', 'd'},
-                new String[]{"add", "addd", "ad", "aeds"}
+            new char[]{'a', 's', 'd', 'd'},
+            new String[]{"add", "addd", "ad", "aeds"}
         )).containsExactlyInAnyOrder("add");
     }
 
     @Test
     public void find_forEmptyCharacters() {
         assertThat(LongestDictWordsFromCharacters.find(
-                new char[]{},
-                new String[]{"asd", "dasd", "sadd", "adsdt", "asdd"}
+            new char[]{},
+            new String[]{"asd", "dasd", "sadd", "adsdt", "asdd"}
         )).isEmpty();
     }
 
     @Test
     public void find_forEmptyWords() {
         assertThat(LongestDictWordsFromCharacters.find(
-                new char[]{'a', 's', 'd', 'd'},
-                new String[]{}
+            new char[]{'a', 's', 'd', 'd'},
+            new String[]{}
         )).isEmpty();
     }
 }

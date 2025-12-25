@@ -20,6 +20,6 @@ public class FactorialUsingForkJoinPoolTest extends AbstractFactorialTest {
         var ex = assertThrows(ExecutionException.class, () -> instance.calc(-1));
 
         assertThat(ex.getCause().getMessage())
-                .isEqualTo("java.lang.IllegalArgumentException: n should be greater than 0");
+            .isEqualTo("java.lang.IllegalArgumentException: n should be greater than 0");
     }
 }

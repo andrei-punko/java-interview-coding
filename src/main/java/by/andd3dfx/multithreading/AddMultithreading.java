@@ -74,8 +74,8 @@ public class AddMultithreading {
             var futureB = CompletableFuture.supplyAsync(() -> systemB.doRequest());
 
             return futureA
-                    .thenCombine(futureB, Aggregator::aggregate)
-                    .get();
+                .thenCombine(futureB, Aggregator::aggregate)
+                .get();
         }
 
         @SneakyThrows
@@ -91,7 +91,7 @@ public class AddMultithreading {
             var resultFuture = CompletableFuture.supplyAsync(() -> "");
             for (var future : futures) {
                 resultFuture = resultFuture.thenCombine(
-                        future, Aggregator::aggregate
+                    future, Aggregator::aggregate
                 );
             }
             return resultFuture.get();

@@ -25,19 +25,19 @@ public class BuildingH2OTest {
 
         for (int i1 = 0; i1 < MOLECULES_COUNT; i1++) {
             new Thread(
-                    () -> oxygen(buildingH2O, () -> sb.append("O"))
+                () -> oxygen(buildingH2O, () -> sb.append("O"))
             ).start();
         }
         for (int i1 = 0; i1 < 2 * MOLECULES_COUNT; i1++) {
             new Thread(
-                    () -> hydrogen(buildingH2O, () -> sb.append("H"))
+                () -> hydrogen(buildingH2O, () -> sb.append("H"))
             ).start();
         }
 
         await()
-                .atMost(Durations.ONE_MINUTE)
-                .pollInterval(200, TimeUnit.MILLISECONDS)
-                .until(() -> sb.length() == 3 * MOLECULES_COUNT);
+            .atMost(Durations.ONE_MINUTE)
+            .pollInterval(200, TimeUnit.MILLISECONDS)
+            .until(() -> sb.length() == 3 * MOLECULES_COUNT);
 
         var result = sb.toString();
         assertThat(result.length()).isEqualTo(3 * MOLECULES_COUNT);

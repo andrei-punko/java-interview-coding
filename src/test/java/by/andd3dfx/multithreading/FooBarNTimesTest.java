@@ -19,8 +19,8 @@ public class FooBarNTimesTest {
         thread2.start();
 
         await()
-                .atMost(ONE_SECOND)
-                .pollInterval(ONE_HUNDRED_MILLISECONDS)
-                .until(() -> fooBar.getLogWriter().toString().matches("(foobar){4}"));
+            .atMost(ONE_SECOND)
+            .pollInterval(ONE_HUNDRED_MILLISECONDS)
+            .until(() -> fooBar.getLogWriter().toString().matches("(foobar){4}"));
     }
 }

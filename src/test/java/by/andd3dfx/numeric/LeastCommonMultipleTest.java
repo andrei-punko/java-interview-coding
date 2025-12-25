@@ -12,7 +12,7 @@ public class LeastCommonMultipleTest {
     @Test
     public void testFind() {
         assertThrows("Numbers array should be populated!",
-                IllegalArgumentException.class, () -> find(new int[]{}));
+            IllegalArgumentException.class, () -> find(new int[]{}));
 
         assertThat(find(new int[]{10})).isEqualTo(10);
         assertThat(find(new int[]{11})).isEqualTo(11);
@@ -30,7 +30,7 @@ public class LeastCommonMultipleTest {
     @Test
     public void testFind_usingGCD() {
         assertThrows("Numbers array should be populated!",
-                IllegalArgumentException.class, () -> find_usingGCD(new int[]{}));
+            IllegalArgumentException.class, () -> find_usingGCD(new int[]{}));
 
         assertThat(find_usingGCD(new int[]{10})).isEqualTo(10);
         assertThat(find_usingGCD(new int[]{11})).isEqualTo(11);

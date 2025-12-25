@@ -23,9 +23,9 @@ public abstract class CommonRecursiveTask<T extends CommonRecursiveTask.IWorkCon
         }
 
         return calculateResult(
-                ForkJoinTask.invokeAll(workload.createSubtasks())
-                        .stream()
-                        .map(ForkJoinTask::join)
+            ForkJoinTask.invokeAll(workload.createSubtasks())
+                .stream()
+                .map(ForkJoinTask::join)
         );
     }
 

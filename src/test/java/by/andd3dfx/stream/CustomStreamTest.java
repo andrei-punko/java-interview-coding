@@ -18,7 +18,7 @@ public class CustomStreamTest {
     @Test
     public void testEmpty() {
         List result = CustomStream.empty()
-                .collectToList();
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of());
     }
@@ -26,28 +26,28 @@ public class CustomStreamTest {
     @Test
     public void testOfForSingle() {
         List result = CustomStream.of(new Item(56, 78))
-                .collectToList();
+            .collectToList();
 
         assertThat(result).isEqualTo(
-                List.of(new Item(56, 78))
+            List.of(new Item(56, 78))
         );
     }
 
     @Test
     public void testOfForMultiple() {
         List result = CustomStream.of(new Item(56, 78), new Item(57, 79))
-                .collectToList();
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of(
-                new Item(56, 78), new Item(57, 79)
+            new Item(56, 78), new Item(57, 79)
         ));
     }
 
     @Test
     public void testOfNullableForNull() {
         List<Object> result = CustomStream
-                .ofNullable(null)
-                .collectToList();
+            .ofNullable(null)
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of());
     }
@@ -55,8 +55,8 @@ public class CustomStreamTest {
     @Test
     public void testOfNullable() {
         List<Item> result = CustomStream
-                .ofNullable(new Item(56, 78))
-                .collectToList();
+            .ofNullable(new Item(56, 78))
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of(new Item(56, 78)));
     }
@@ -66,12 +66,12 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         List result = new CustomStream<>(list)
-                .filter(item -> item.getY() > 10)
-                .collectToList();
+            .filter(item -> item.getY() > 10)
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of(
-                new Item(2, 18),
-                new Item(5, 11)
+            new Item(2, 18),
+            new Item(5, 11)
         ));
     }
 
@@ -80,8 +80,8 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         List result = new CustomStream<>(list)
-                .map(Item::getX)
-                .collectToList();
+            .map(Item::getX)
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of(1, 2, 5));
     }
@@ -91,9 +91,9 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         List result = new CustomStream<>(list)
-                .filter(item -> item.getY() > 10)
-                .map(Item::getX)
-                .collectToList();
+            .filter(item -> item.getY() > 10)
+            .map(Item::getX)
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of(2, 5));
     }
@@ -103,8 +103,8 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         List<Item> result = new CustomStream<>(list)
-                .skip(2)
-                .collectToList();
+            .skip(2)
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of(new Item(5, 11)));
     }
@@ -114,8 +114,8 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         List<Item> result = new CustomStream<>(list)
-                .skip(4)
-                .collectToList();
+            .skip(4)
+            .collectToList();
 
         assertThat(result.isEmpty()).isEqualTo(true);
     }
@@ -125,8 +125,8 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         List<Item> result = new CustomStream<>(list)
-                .dropWhile(item -> item.getX() < 5)
-                .collectToList();
+            .dropWhile(item -> item.getX() < 5)
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of(new Item(5, 11)));
     }
@@ -136,8 +136,8 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         List<Item> result = new CustomStream<>(list)
-                .limit(2)
-                .collectToList();
+            .limit(2)
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of(new Item(1, 3), new Item(2, 18)));
     }
@@ -147,8 +147,8 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         List<Item> result = new CustomStream<>(list)
-                .takeWhile(item -> item.getX() < 4)
-                .collectToList();
+            .takeWhile(item -> item.getX() < 4)
+            .collectToList();
 
         assertThat(result).isEqualTo(List.of(new Item(1, 3), new Item(2, 18)));
     }
@@ -158,7 +158,7 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         int result = new CustomStream<>(list)
-                .count();
+            .count();
 
         assertThat(result).isEqualTo(3);
     }
@@ -179,11 +179,11 @@ public class CustomStreamTest {
         list.addAll(buildList());
 
         var result = new CustomStream<>(list)
-                .distinct()
-                .collectToList();
+            .distinct()
+            .collectToList();
 
         assertThat(result).isEqualTo(
-                List.of(new Item(1, 3), new Item(2, 18), new Item(5, 11))
+            List.of(new Item(1, 3), new Item(2, 18), new Item(5, 11))
         );
     }
 
@@ -195,11 +195,11 @@ public class CustomStreamTest {
         list.add(null);
 
         var result = new CustomStream<>(list)
-                .distinct()
-                .collectToList();
+            .distinct()
+            .collectToList();
 
         assertThat(result).isEqualTo(
-                Arrays.asList(new Item(1, 3), new Item(2, 18), new Item(5, 11), null)
+            Arrays.asList(new Item(1, 3), new Item(2, 18), new Item(5, 11), null)
         );
     }
 
@@ -208,7 +208,7 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         Object[] result = new CustomStream<>(list)
-                .toArray();
+            .toArray();
 
         assertThat(result).isEqualTo(new Object[]{new Item(1, 3), new Item(2, 18), new Item(5, 11)});
     }
@@ -218,10 +218,10 @@ public class CustomStreamTest {
         List<Item> list = buildList();
 
         List<Item> result = new CustomStream<>(list)
-                .toList();
+            .toList();
 
         assertThat(result).isEqualTo(
-                Arrays.asList(new Item(1, 3), new Item(2, 18), new Item(5, 11))
+            Arrays.asList(new Item(1, 3), new Item(2, 18), new Item(5, 11))
         );
         try {
             result.add(new Item(3, 3));
@@ -237,7 +237,7 @@ public class CustomStreamTest {
 
         var result = new ArrayList<>();
         new CustomStream<>(list)
-                .forEach(item -> result.add(item.getX() * item.getY()));
+            .forEach(item -> result.add(item.getX() * item.getY()));
 
         assertThat(result).isEqualTo(List.of(3, 36, 55));
     }
@@ -249,21 +249,21 @@ public class CustomStreamTest {
         list.add(new Item(78, 7));
 
         List<Item> result = new CustomStream<>(list)
-                .sorted(Comparator.comparingInt(Item::getY))
-                .toList();
+            .sorted(Comparator.comparingInt(Item::getY))
+            .toList();
 
         assertThat(result).isEqualTo(Arrays.asList(
-                new Item(1, 3),
-                new Item(78, 7),
-                new Item(4, 10),
-                new Item(5, 11),
-                new Item(2, 18)
+            new Item(1, 3),
+            new Item(78, 7),
+            new Item(4, 10),
+            new Item(5, 11),
+            new Item(2, 18)
         ));
     }
 
     private List<Item> buildList() {
         return new ArrayList<>(List.of(
-                new Item(1, 3), new Item(2, 18), new Item(5, 11)
+            new Item(1, 3), new Item(2, 18), new Item(5, 11)
         ));
     }
 }

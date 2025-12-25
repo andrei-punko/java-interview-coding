@@ -72,7 +72,7 @@ public class NotQuiteLisp {
     public static int determinePosition(String input) {
         var floor = 0;
         var pos = 1;
-        for (var ch: input.toCharArray()) {
+        for (var ch : input.toCharArray()) {
             switch (ch) {
                 case '(':
                     floor++;

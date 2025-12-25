@@ -57,9 +57,9 @@ public class ReplaceQCharToAvoidConsecutiveRepeatingCharsTest {
         for (var i = 1; i < out.length(); i++) {
             var curr = out.charAt(i);
             var errMsg = "Chars on positions %d and %d for conversion %s->%s should differ"
-                    .formatted(i - 1, i, in, out);
+                .formatted(i - 1, i, in, out);
             assertNotEquals(errMsg, curr, last);
             last = curr;
         }
     }
-}
+}

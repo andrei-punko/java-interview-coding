@@ -23,26 +23,26 @@ package by.andd3dfx.common;
  */
 public class UserInput {
 
-  public static class TextInput {
+    public static class TextInput {
 
-    private String value = "";
+        private String value = "";
 
-    public void add(char c) {
-      this.value = this.value + c;
+        public void add(char c) {
+            this.value = this.value + c;
+        }
+
+        public String getValue() {
+            return value;
+        }
     }
 
-    public String getValue() {
-      return value;
-    }
-  }
+    public static class NumericInput extends TextInput {
 
-  public static class NumericInput extends TextInput {
-
-    @Override
-    public void add(char c) {
-      if (Character.isDigit(c)) {
-        super.add(c);
-      }
+        @Override
+        public void add(char c) {
+            if (Character.isDigit(c)) {
+                super.add(c);
+            }
+        }
     }
-  }
 }

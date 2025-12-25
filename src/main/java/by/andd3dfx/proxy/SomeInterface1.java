@@ -5,5 +5,5 @@ package by.andd3dfx.proxy;
  */
 public interface SomeInterface1 {
 
-  int performActionOne(int x);
+    int performActionOne(int x);
 }

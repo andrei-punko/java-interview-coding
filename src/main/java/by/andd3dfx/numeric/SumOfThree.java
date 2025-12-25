@@ -21,9 +21,9 @@ public class SumOfThree {
                 for (int k = 0; k < c.length; k++) {
                     if (a[i] + b[j] + c[k] == N) {
                         return SearchResult.builder()
-                                .exists(true)
-                                .indexes(new int[]{i, j, k})
-                                .build();
+                            .exists(true)
+                            .indexes(new int[]{i, j, k})
+                            .build();
                     }
                 }
             }
@@ -37,9 +37,9 @@ public class SumOfThree {
                 int k = Arrays.binarySearch(c, N - a[i] - b[j]);
                 if (k >= 0) {
                     return SearchResult.builder()
-                            .exists(true)
-                            .indexes(new int[]{i, j, k})
-                            .build();
+                        .exists(true)
+                        .indexes(new int[]{i, j, k})
+                        .build();
                 }
 
             }

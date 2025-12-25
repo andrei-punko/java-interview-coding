@@ -27,9 +27,9 @@ public class CustomRecursiveTask extends RecursiveTask<Integer> {
         }
 
         return ForkJoinTask.invokeAll(createSubtasks())
-                .stream()
-                .mapToInt(ForkJoinTask::join)
-                .sum();
+            .stream()
+            .mapToInt(ForkJoinTask::join)
+            .sum();
     }
 
     private Collection<CustomRecursiveTask> createSubtasks() {

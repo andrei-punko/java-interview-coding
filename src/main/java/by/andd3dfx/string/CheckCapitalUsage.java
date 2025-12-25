@@ -37,7 +37,7 @@ public class CheckCapitalUsage {
         var onlyFirstLetterCapitalized = buildWordWithFirstLetterCapitalized(word);
 
         return new HashSet<>(List.of(uppercase, lowercase, onlyFirstLetterCapitalized))
-                .contains(word);
+            .contains(word);
     }
 
     private String buildWordWithFirstLetterCapitalized(String word) {

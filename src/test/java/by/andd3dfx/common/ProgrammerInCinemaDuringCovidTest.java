@@ -17,12 +17,12 @@ public class ProgrammerInCinemaDuringCovidTest {
     @Parameters(name = "{0}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {"Interval with length=3", new int[]{1, 0, 0, 0, 1}, 2},
-                {"Interval with length=4", new int[]{1, 0, 0, 0, 0, 1}, 2},
-                {"Interval with length=5", new int[]{1, 0, 0, 0, 0, 0, 1}, 3},
-                {"Two intervals", new int[]{1, 0, 0, 0, 0, 0, 1, 0, 0, 1}, 3},
-                {"Right interval", new int[]{1, 0, 0, 0}, 3},
-                {"Left interval", new int[]{0, 0, 1, 0}, 2},
+            {"Interval with length=3", new int[]{1, 0, 0, 0, 1}, 2},
+            {"Interval with length=4", new int[]{1, 0, 0, 0, 0, 1}, 2},
+            {"Interval with length=5", new int[]{1, 0, 0, 0, 0, 0, 1}, 3},
+            {"Two intervals", new int[]{1, 0, 0, 0, 0, 0, 1, 0, 0, 1}, 3},
+            {"Right interval", new int[]{1, 0, 0, 0}, 3},
+            {"Left interval", new int[]{0, 0, 1, 0}, 2},
         });
     }
 

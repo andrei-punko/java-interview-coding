@@ -45,8 +45,8 @@ public class Livelock {
                 // If spouse is hungry, insist upon passing the spoon.
                 if (spouse.isHungry()) {
                     System.out.printf(
-                            "%s: You eat first my darling %s!%n",
-                            name, spouse.getName());
+                        "%s: You eat first my darling %s!%n",
+                        name, spouse.getName());
                     spoon.setOwner(spouse);
                     continue;
                 }
@@ -55,8 +55,8 @@ public class Livelock {
                 spoon.use();
                 isHungry = false;
                 System.out.printf(
-                        "%s: I am stuffed, my darling %s!%n",
-                        name, spouse.getName());
+                    "%s: I am stuffed, my darling %s!%n",
+                    name, spouse.getName());
                 spoon.setOwner(spouse);
             }
         }

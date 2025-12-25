@@ -52,8 +52,8 @@ public class KNearestNumbers {
             }
         }
         return result.stream()
-                .mapToInt(value -> value)
-                .toArray();
+            .mapToInt(value -> value)
+            .toArray();
     }
 
     private static int determineLeftDistance(int[] nums, int left, int curr) {

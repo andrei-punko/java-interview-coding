@@ -39,7 +39,7 @@ public class BrickPyramidTest {
             fail("Exception should be thrown!");
         } catch (IllegalArgumentException iae) {
             assertThat(iae.getMessage())
-                    .isEqualTo("row and pos should satisfy conditions: row>=0, pos>=0, row>=pos");
+                .isEqualTo("row and pos should satisfy conditions: row>=0, pos>=0, row>=pos");
         }
     }
 }

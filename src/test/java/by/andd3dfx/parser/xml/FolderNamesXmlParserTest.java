@@ -19,13 +19,13 @@ public class FolderNamesXmlParserTest {
     @Test
     public void folderNames() throws Exception {
         String xml =
-                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
-                        "<folder name=\"c\">" +
-                        "<folder name=\"program files\">" +
-                        "<folder name=\"uninstall information\" />" +
-                        "</folder>" +
-                        "<folder name=\"users\" />" +
-                        "</folder>";
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+                "<folder name=\"c\">" +
+                "<folder name=\"program files\">" +
+                "<folder name=\"uninstall information\" />" +
+                "</folder>" +
+                "<folder name=\"users\" />" +
+                "</folder>";
 
         Collection<String> result = parser.folderNames(xml, 'u');
 

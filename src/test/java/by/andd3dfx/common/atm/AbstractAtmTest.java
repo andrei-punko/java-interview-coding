@@ -15,9 +15,9 @@ public abstract class AbstractAtmTest {
     @Before
     public void setUp() throws Exception {
         atm = buildAtm(Map.of(
-                500, 1,
-                200, 3,
-                50, 5
+            500, 1,
+            200, 3,
+            50, 5
         ));
     }
 
@@ -36,8 +36,8 @@ public abstract class AbstractAtmTest {
         var result = atm.withdraw(450);
 
         assertThat(result).isEqualTo(Map.of(
-                200, 2,
-                50, 1
+            200, 2,
+            50, 1
         ));
     }
 
@@ -52,7 +52,7 @@ public abstract class AbstractAtmTest {
         var result = atm.withdraw(600);
 
         assertThat(result).isEqualTo(Map.of(
-                200, 3
+            200, 3
         ));
     }
 
@@ -66,15 +66,15 @@ public abstract class AbstractAtmTest {
     public void withdrawForConsequentCalls() {
         var result = atm.withdraw(650);
         assertThat(result).isEqualTo(Map.of(
-                500, 1,
-                50, 3
+            500, 1,
+            50, 3
         ));
 
         // No 500 banknotes already, need to use 200
         var result2 = atm.withdraw(650);
         assertThat(result2).isEqualTo(Map.of(
-                200, 3,
-                50, 1
+            200, 3,
+            50, 1
         ));
     }
 }

@@ -192,9 +192,9 @@ public class CustomStream<T> {
 
         var stream = new CustomStream<>(list);
         var result = stream
-                .filter(item -> item.getY() > 10)
-                .map(Item::getX)
-                .collectToList();
+            .filter(item -> item.getY() > 10)
+            .map(Item::getX)
+            .collectToList();
 
         System.out.println(result);
     }

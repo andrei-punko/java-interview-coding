@@ -43,6 +43,6 @@ public class RemoveElementTest {
 
         assertThat(result).isEqualTo(expectedResult);
         assertThat(Arrays.copyOfRange(numbers, 0, result))
-                .containsExactlyInAnyOrder(expectedNumbers);
+            .containsExactlyInAnyOrder(expectedNumbers);
     }
 }

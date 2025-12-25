@@ -26,15 +26,15 @@ public class FileSystemTreeTest {
 
     private FileSystemTree.Node buildFolder(List<FileSystemTree.Node> children) {
         return FileSystemTree.Node.builder()
-                .type(FileSystemTree.NodeType.FOLDER)
-                .children(children)
-                .build();
+            .type(FileSystemTree.NodeType.FOLDER)
+            .children(children)
+            .build();
     }
 
     private FileSystemTree.Node buildFile(long size) {
         return FileSystemTree.Node.builder()
-                .type(FileSystemTree.NodeType.FILE)
-                .size(size)
-                .build();
+            .type(FileSystemTree.NodeType.FILE)
+            .size(size)
+            .build();
     }
 }

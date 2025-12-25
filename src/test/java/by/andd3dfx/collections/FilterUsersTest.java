@@ -13,11 +13,11 @@ public class FilterUsersTest {
     @Test
     public void apply() {
         List<User> users = List.of(
-                new User("Anton", LocalDate.now().minusDays(5)),
-                new User("Gena", LocalDate.now().minusDays(3)),
-                new User("John", LocalDate.now().minusDays(2)),
-                new User("Vladimir", LocalDate.now().minusDays(1)),
-                new User("Anatoliy", LocalDate.now().minusDays(3))
+            new User("Anton", LocalDate.now().minusDays(5)),
+            new User("Gena", LocalDate.now().minusDays(3)),
+            new User("John", LocalDate.now().minusDays(2)),
+            new User("Vladimir", LocalDate.now().minusDays(1)),
+            new User("Anatoliy", LocalDate.now().minusDays(3))
         );
 
         var result = FilterUsers.apply(users);

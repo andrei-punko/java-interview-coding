@@ -66,8 +66,8 @@ public class StringTransformation {
 
     private static boolean remainingPartsShouldBeEqual(String first, int from1, String second, int from2) {
         return StringUtils.equals(
-                first.substring(from1),
-                second.substring(from2)
+            first.substring(from1),
+            second.substring(from2)
         );
     }
 
@@ -109,8 +109,8 @@ public class StringTransformation {
                 var substitutionCost = (str1.charAt(i - 1) == str2.charAt(j - 1)) ? 0 : 1;
 
                 d[i][j] = min(d[i - 1][j] + 1,               // deletion
-                        d[i][j - 1] + 1,                        // insertion
-                        d[i - 1][j - 1] + substitutionCost);    // substitution
+                    d[i][j - 1] + 1,                        // insertion
+                    d[i - 1][j - 1] + substitutionCost);    // substitution
             }
         }
         return d[m][n];

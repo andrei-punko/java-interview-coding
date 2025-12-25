@@ -29,19 +29,19 @@ public class MovieNightTest {
     @Test
     public void canViewAllWhenNoOverlap() {
         assertTrue(canViewAll(List.of(
-                buildMovie("2023-01-01 20:00", "2023-01-01 21:00"),
-                buildMovie("2023-01-01 22:30", "2023-01-01 23:45"),
-                buildMovie("2023-01-01 21:00", "2023-01-01 22:30"),
-                buildMovie("2023-01-01 23:47", "2023-01-01 23:49")
+            buildMovie("2023-01-01 20:00", "2023-01-01 21:00"),
+            buildMovie("2023-01-01 22:30", "2023-01-01 23:45"),
+            buildMovie("2023-01-01 21:00", "2023-01-01 22:30"),
+            buildMovie("2023-01-01 23:47", "2023-01-01 23:49")
         )));
     }
 
     @Test
     public void canViewAllWhenOverlapPresent() {
         assertFalse(canViewAll(List.of(
-                buildMovie("2023-01-01 20:00", "2023-01-01 22:00"),
-                buildMovie("2023-01-01 22:30", "2023-01-01 23:45"),
-                buildMovie("2023-01-01 21:45", "2023-01-01 22:30")
+            buildMovie("2023-01-01 20:00", "2023-01-01 22:00"),
+            buildMovie("2023-01-01 22:30", "2023-01-01 23:45"),
+            buildMovie("2023-01-01 21:45", "2023-01-01 22:30")
         )));
     }
 

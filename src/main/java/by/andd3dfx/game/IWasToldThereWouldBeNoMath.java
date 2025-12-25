@@ -38,8 +38,8 @@ public class IWasToldThereWouldBeNoMath {
         for (var dimensions : dimensionsList) {
             var dimensionStrings = dimensions.split("x");
             var sortedDimensions = Arrays.stream(dimensionStrings).map(NumberUtils::toInt)
-                    .sorted()
-                    .toList();
+                .sorted()
+                .toList();
             result += fullArea(sortedDimensions) + areaOfSmallestSide(sortedDimensions);
         }
         return result;
@@ -47,8 +47,8 @@ public class IWasToldThereWouldBeNoMath {
 
     private static int fullArea(List<Integer> dimension) {
         return 2 * (dimension.get(0) * dimension.get(1)
-                + dimension.get(1) * dimension.get(2)
-                + dimension.get(2) * dimension.get(0));
+            + dimension.get(1) * dimension.get(2)
+            + dimension.get(2) * dimension.get(0));
     }
 
     private static int areaOfSmallestSide(List<Integer> dimension) {

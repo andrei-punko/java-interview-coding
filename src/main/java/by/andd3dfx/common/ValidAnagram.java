@@ -45,7 +45,7 @@ public class ValidAnagram {
             frequencies.put(ch, frequencies.get(ch) - 1);
         }
         return frequencies.values().stream()
-                .filter(value -> value > 0).findAny().isEmpty();
+            .filter(value -> value > 0).findAny().isEmpty();
     }
 
     public static boolean isAnagram2(String s1, String s2) {

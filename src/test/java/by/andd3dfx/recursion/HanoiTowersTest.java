@@ -37,8 +37,8 @@ public class HanoiTowersTest {
         List<Integer> disks = ht.getRight().getStack().stream().toList();
         for (int i = 1; i < disks.size(); i++) {
             assertThat(disks.get(i - 1))
-                    .as("Disk " + (i - 1) + " should be less than disk " + i)
-                    .isLessThan(disks.get(i));
+                .as("Disk " + (i - 1) + " should be less than disk " + i)
+                .isLessThan(disks.get(i));
         }
     }
 }

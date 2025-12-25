@@ -22,8 +22,8 @@ public class CustomLinkedListTest {
         linkedList.add(7);
 
         assertThat(linkedList.size()).isEqualTo(2);
-       assertFalse(linkedList.isEmpty());
-       assertThat(linkedList.get(0)).isEqualTo(3);
+        assertFalse(linkedList.isEmpty());
+        assertThat(linkedList.get(0)).isEqualTo(3);
         assertThat(linkedList.get(1)).isEqualTo(7);
 
         linkedList.add(12);

@@ -9,22 +9,22 @@ package by.andd3dfx.numeric;
  */
 public class BitsRow {
 
-  public static int determineBit(int n) {
-    int period = 1;
-    int position = 0;
+    public static int determineBit(int n) {
+        int period = 1;
+        int position = 0;
 
-    for (; ; ) {
-      if (position == n) {
-        return 1;
-      }
-      position++;
+        for (; ; ) {
+            if (position == n) {
+                return 1;
+            }
+            position++;
 
-      if (n < position + period) {
-        return 0;
-      }
-      position += period;
+            if (n < position + period) {
+                return 0;
+            }
+            position += period;
 
-      period++;
+            period++;
+        }
     }
-  }
 }

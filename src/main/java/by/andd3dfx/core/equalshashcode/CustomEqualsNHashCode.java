@@ -29,9 +29,9 @@ public class CustomEqualsNHashCode {
 
         var that = (CustomEqualsNHashCode) o;
         return primitive == that.primitive
-                && Objects.equals(objectField, that.objectField)
-                && Objects.equals(customObject, that.customObject)
-                && Objects.equals(collectionField, that.collectionField);
+            && Objects.equals(objectField, that.objectField)
+            && Objects.equals(customObject, that.customObject)
+            && Objects.equals(collectionField, that.collectionField);
     }
 
     @Override

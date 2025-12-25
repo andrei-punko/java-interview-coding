@@ -38,8 +38,8 @@ public class SortAnagrams {
             Collections.sort(value);
         }
         return vocabulary.values().stream()
-                .sorted((List<String> a, List<String> b) -> (b.size() - a.size()))
-                .toList();
+            .sorted((List<String> a, List<String> b) -> (b.size() - a.size()))
+            .toList();
     }
 
     /**

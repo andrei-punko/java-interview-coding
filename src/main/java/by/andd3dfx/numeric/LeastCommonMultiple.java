@@ -52,7 +52,7 @@ public class LeastCommonMultiple {
 
                 if (power > 0) {
                     if (!dividerNItsPowerMap.containsKey(divider)
-                            || power > dividerNItsPowerMap.get(divider)) {
+                        || power > dividerNItsPowerMap.get(divider)) {
                         dividerNItsPowerMap.put(divider, power);
                     }
                 }

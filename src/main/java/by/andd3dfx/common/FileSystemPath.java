@@ -29,40 +29,40 @@ import java.util.Deque;
  */
 public class FileSystemPath {
 
-  @Getter
-  private String path;
-  private Deque<String> deque = new ArrayDeque<>();
+    @Getter
+    private String path;
+    private Deque<String> deque = new ArrayDeque<>();
 
-  public FileSystemPath(String path) {
-    this.path = path;
+    public FileSystemPath(String path) {
+        this.path = path;
 
-    String[] directories = path.split("/");
-    for (String directory : directories) {
-      deque.addLast(directory);
-    }
-  }
-
-  public void cd(String newPath) {
-    path = process(newPath);
-  }
-
-  private String process(String newPath) {
-    if (newPath.startsWith("/")) {
-      return newPath;
+        String[] directories = path.split("/");
+        for (String directory : directories) {
+            deque.addLast(directory);
+        }
     }
 
-    if (newPath.startsWith("./")) {
-      return path + newPath.substring(1);
+    public void cd(String newPath) {
+        path = process(newPath);
     }
 
-    String[] directories = newPath.split("/");
-    for (String directory : directories) {
-      if (directory.equals("..")) {
-        deque.removeLast();
-      } else {
-        deque.addLast(directory);
-      }
+    private String process(String newPath) {
+        if (newPath.startsWith("/")) {
+            return newPath;
+        }
+
+        if (newPath.startsWith("./")) {
+            return path + newPath.substring(1);
+        }
+
+        String[] directories = newPath.split("/");
+        for (String directory : directories) {
+            if (directory.equals("..")) {
+                deque.removeLast();
+            } else {
+                deque.addLast(directory);
+            }
+        }
+        return String.join("/", deque);
     }
-    return String.join("/", deque);
-  }
 }

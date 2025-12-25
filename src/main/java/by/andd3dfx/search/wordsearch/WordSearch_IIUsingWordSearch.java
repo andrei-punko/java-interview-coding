@@ -40,7 +40,7 @@ public class WordSearch_IIUsingWordSearch implements IWordSearch_II {
     @Override
     public List<String> findWords(char[][] board, String[] words) {
         return Arrays.stream(words)
-                .filter(word -> wordSearch.exist(board, word))
-                .toList();
+            .filter(word -> wordSearch.exist(board, word))
+            .toList();
     }
 }

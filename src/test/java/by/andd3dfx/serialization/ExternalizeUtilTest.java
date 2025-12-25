@@ -18,11 +18,11 @@ public class ExternalizeUtilTest {
 
     private static UserInfo buildUserInfo() {
         return UserInfo.builder()
-                .firstName("Andrei")
-                .lastName("Punko")
-                .email("andd3dfx@gmail.com")
-                .url("https://github.com/andrei-punko")
-                .superSecretInformation("Some security data")
-                .build();
+            .firstName("Andrei")
+            .lastName("Punko")
+            .email("andd3dfx@gmail.com")
+            .url("https://github.com/andrei-punko")
+            .superSecretInformation("Some security data")
+            .build();
     }
 }

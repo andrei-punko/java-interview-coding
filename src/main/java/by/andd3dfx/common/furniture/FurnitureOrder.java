@@ -37,15 +37,15 @@ public class FurnitureOrder implements FurnitureOrderInterface {
     @Override
     public float getTotalOrderCost() {
         return map.keySet().stream()
-                .map(this::getTypeCost)
-                .reduce((a, b) -> a + b)
-                .get();
+            .map(this::getTypeCost)
+            .reduce((a, b) -> a + b)
+            .get();
     }
 
     @Override
     public int getTotalOrderQuantity() {
         return map.values().stream()
-                .reduce((a, b) -> a + b)
-                .get();
+            .reduce((a, b) -> a + b)
+            .get();
     }
 }

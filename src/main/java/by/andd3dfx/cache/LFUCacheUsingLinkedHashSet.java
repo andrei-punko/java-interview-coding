@@ -79,14 +79,14 @@ public class LFUCacheUsingLinkedHashSet<K, V> {
     K determineKeyToDelete() {
         List<K> keys = keySet.stream().toList();
         return map.entrySet().stream()
-                .sorted((o1, o2) -> {
-                    int delta = o1.getValue().hitsCount - o2.getValue().hitsCount;
-                    if (delta != 0) {
-                        return delta;
-                    }
+            .sorted((o1, o2) -> {
+                int delta = o1.getValue().hitsCount - o2.getValue().hitsCount;
+                if (delta != 0) {
+                    return delta;
+                }
 
-                    return keys.indexOf(o1.getKey()) - keys.indexOf(o2.getKey());
-                }).findFirst().get().getKey();
+                return keys.indexOf(o1.getKey()) - keys.indexOf(o2.getKey());
+            }).findFirst().get().getKey();
     }
 
     @AllArgsConstructor

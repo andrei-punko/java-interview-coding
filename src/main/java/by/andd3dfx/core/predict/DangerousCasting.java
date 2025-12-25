@@ -20,7 +20,7 @@ public class DangerousCasting {
         list.add(new Manager(100));
         list.add(new Manager(200));
         //((List<Manager>)list).get(1).getBonus();
-        var bonus = ((Manager)list.get(0)).getBonus();
+        var bonus = ((Manager) list.get(0)).getBonus();
         System.out.println(bonus);
 
         /*
@@ -32,7 +32,7 @@ public class DangerousCasting {
     public static class Employee {
     }
 
-    public static class Manager extends Employee{
+    public static class Manager extends Employee {
         private int bonus;
 
         public Manager(int bonus) {

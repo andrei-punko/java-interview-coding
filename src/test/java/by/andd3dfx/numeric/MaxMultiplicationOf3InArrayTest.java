@@ -20,16 +20,16 @@ public class MaxMultiplicationOf3InArrayTest {
     @Test
     public void testFind() {
         assertThat(find(new int[]{1, 4, 3, 8, 1}))
-                .as("All positive")
-                .isEqualTo(96L);
+            .as("All positive")
+            .isEqualTo(96L);
         assertThat(find(new int[]{1, -3, 4, 8, 2}))
-                .as("One negative")
-                .isEqualTo(64L);
+            .as("One negative")
+            .isEqualTo(64L);
         assertThat(find(new int[]{-1, 3, 4, -2, 1}))
-                .as("Two negative")
-                .isEqualTo(12L);
+            .as("Two negative")
+            .isEqualTo(12L);
         assertThat(find(new int[]{-1, -3, -4, -2, -1}))
-                .as("All negative")
-                .isEqualTo(-2L);
+            .as("All negative")
+            .isEqualTo(-2L);
     }
 }

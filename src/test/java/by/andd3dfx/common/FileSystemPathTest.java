@@ -6,51 +6,51 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class FileSystemPathTest {
 
-  @Test
-  public void moveToParentDir() {
-    FileSystemPath path = new FileSystemPath("/a/b/c/d");
-    path.cd("../x");
+    @Test
+    public void moveToParentDir() {
+        FileSystemPath path = new FileSystemPath("/a/b/c/d");
+        path.cd("../x");
 
-    assertThat(path.getPath()).isEqualTo("/a/b/c/x");
-  }
+        assertThat(path.getPath()).isEqualTo("/a/b/c/x");
+    }
 
-  @Test
-  public void moveToParentDir2() {
-    FileSystemPath path = new FileSystemPath("/a/b/c/d");
-    path.cd("../../x/d");
+    @Test
+    public void moveToParentDir2() {
+        FileSystemPath path = new FileSystemPath("/a/b/c/d");
+        path.cd("../../x/d");
 
-    assertThat(path.getPath()).isEqualTo("/a/b/x/d");
-  }
+        assertThat(path.getPath()).isEqualTo("/a/b/x/d");
+    }
 
-  @Test
-  public void moveToPathFromRoot() {
-    FileSystemPath path = new FileSystemPath("/a/b/c/d");
-    path.cd("/f/g/h");
+    @Test
+    public void moveToPathFromRoot() {
+        FileSystemPath path = new FileSystemPath("/a/b/c/d");
+        path.cd("/f/g/h");
 
-    assertThat(path.getPath()).isEqualTo("/f/g/h");
-  }
+        assertThat(path.getPath()).isEqualTo("/f/g/h");
+    }
 
-  @Test
-  public void moveToRootDirectly() {
-    FileSystemPath path = new FileSystemPath("/a/b/c/d");
-    path.cd("/");
+    @Test
+    public void moveToRootDirectly() {
+        FileSystemPath path = new FileSystemPath("/a/b/c/d");
+        path.cd("/");
 
-    assertThat(path.getPath()).isEqualTo("/");
-  }
+        assertThat(path.getPath()).isEqualTo("/");
+    }
 
-  @Test
-  public void moveFromCurrentDir() {
-    FileSystemPath path = new FileSystemPath("/a/b/c/d");
-    path.cd("./f/g");
+    @Test
+    public void moveFromCurrentDir() {
+        FileSystemPath path = new FileSystemPath("/a/b/c/d");
+        path.cd("./f/g");
 
-    assertThat(path.getPath()).isEqualTo("/a/b/c/d/f/g");
-  }
+        assertThat(path.getPath()).isEqualTo("/a/b/c/d/f/g");
+    }
 
-  @Test
-  public void moveFromCurrentDir2() {
-    FileSystemPath path = new FileSystemPath("/a/b/c/d");
-    path.cd("f/g");
+    @Test
+    public void moveFromCurrentDir2() {
+        FileSystemPath path = new FileSystemPath("/a/b/c/d");
+        path.cd("f/g");
 
-    assertThat(path.getPath()).isEqualTo("/a/b/c/d/f/g");
-  }
+        assertThat(path.getPath()).isEqualTo("/a/b/c/d/f/g");
+    }
 }

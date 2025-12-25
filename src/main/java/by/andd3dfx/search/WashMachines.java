@@ -25,7 +25,7 @@ public class WashMachines {
             queue.add(polled + times[i]);
         }
         return queue.stream()
-                .max(Comparator.comparingInt(o -> o))
-                .orElse(0);
+            .max(Comparator.comparingInt(o -> o))
+            .orElse(0);
     }
 }

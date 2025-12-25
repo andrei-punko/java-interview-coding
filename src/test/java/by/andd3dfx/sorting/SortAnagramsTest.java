@@ -21,9 +21,9 @@ public class SortAnagramsTest {
         var result = sortAnagrams.apply(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
 
         assertThat(result).isEqualTo(List.of(
-                List.of("ate", "eat", "tea"),
-                List.of("nat", "tan"),
-                List.of("bat")
+            List.of("ate", "eat", "tea"),
+            List.of("nat", "tan"),
+            List.of("bat")
         ));
     }
 }

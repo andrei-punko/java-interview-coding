@@ -11,10 +11,10 @@ public class IWasToldThereWouldBeNoMathTest {
     @Test
     public void calculate() {
         assertThat(IWasToldThereWouldBeNoMath.calculate(List.of("2x3x4")))
-                .isEqualTo(58);
+            .isEqualTo(58);
         assertThat(IWasToldThereWouldBeNoMath.calculate(List.of("1x1x10")))
-                .isEqualTo(43);
+            .isEqualTo(43);
         assertThat(IWasToldThereWouldBeNoMath.calculate(List.of("2x3x4", "1x1x10")))
-                .isEqualTo(58 + 43);
+            .isEqualTo(58 + 43);
     }
 }

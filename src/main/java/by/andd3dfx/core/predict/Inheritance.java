@@ -40,6 +40,7 @@ public class Inheritance {
 
     public static class A {
         private int a = 1;
+
         public A() {
             System.out.println(getA());
         }
@@ -51,6 +52,7 @@ public class Inheritance {
 
     public static class B extends A {
         private int a = 2;
+
         public B() {
             System.out.println(getA());
         }
