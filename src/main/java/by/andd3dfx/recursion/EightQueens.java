@@ -15,6 +15,7 @@ public class EightQueens {
     @Data
     @AllArgsConstructor
     public static class Solution {
+
         private boolean isFound;
         private boolean[][] cellsTaken;
 
@@ -32,16 +33,16 @@ public class EightQueens {
 
     public Solution solve(int boardSize) {
         boolean[][] cellsTaken = new boolean[boardSize][boardSize];
-        boolean isFound = checkSolution(boardSize, cellsTaken, 0);
+        boolean isSolutionFound = checkSolution(boardSize, cellsTaken, 0);
 
-        return new Solution(isFound, cellsTaken);
+        return new Solution(isSolutionFound, cellsTaken);
     }
 
-    private boolean checkSolution(int size, boolean[][] cellsTaken, int queensPositioned) {
+    private boolean checkSolution(int size, boolean[][] cellsTaken, int positionedQueensAmount) {
         if (!isLegal(size, cellsTaken)) {
             return false;
         }
-        if (queensPositioned == size) {
+        if (positionedQueensAmount == size) {
             return true;
         }
 
@@ -50,7 +51,7 @@ public class EightQueens {
                 if (!cellsTaken[row][col]) {
                     cellsTaken[row][col] = true;
 
-                    if (checkSolution(size, cellsTaken, queensPositioned + 1)) {
+                    if (checkSolution(size, cellsTaken, positionedQueensAmount + 1)) {
                         return true;
                     } else {
                         cellsTaken[row][col] = false;

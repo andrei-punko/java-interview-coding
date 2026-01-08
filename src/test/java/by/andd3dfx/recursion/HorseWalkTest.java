@@ -88,8 +88,8 @@ public class HorseWalkTest {
     private void commonSolve(int boardSize, boolean solutionExpected) {
         HorseWalk.Solution solution = horseWalk.solve(boardSize);
 
-        assertThat(solution.isFound()).isEqualTo(solutionExpected);
-        if (solution.isFound()) {
+        assertThat(solution.isSolutionFound()).isEqualTo(solutionExpected);
+        if (solution.isSolutionFound()) {
             checkAreAllCellsVisited(boardSize, solution);
             System.out.println(solution.logToString());
         }

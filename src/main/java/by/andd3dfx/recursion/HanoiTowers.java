@@ -16,13 +16,13 @@ public class HanoiTowers {
     public static class Column {
         private final String name;
         @Getter
-        private Deque<Integer> stack = new ArrayDeque<>();
+        private final Deque<Integer> stack = new ArrayDeque<>();
     }
 
     private final int height;
-    private Column left;
-    private Column middle;
-    private Column right;
+    private final Column left;
+    private final Column middle;
+    private final Column right;
 
     public HanoiTowers(int height) {
         this.height = height;

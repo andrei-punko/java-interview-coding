@@ -28,14 +28,14 @@ public class HorseWalk {
     @Data
     @AllArgsConstructor
     public static class Solution {
-        private final boolean isFound;
+        private final boolean isSolutionFound;
         private final boolean[][] cellsTaken;
         private final Deque<Cell> log;
 
         public String logToString() {
             var size = cellsTaken.length;
-            if (!isFound || log.size() != size * size) {
-                throw new IllegalStateException("Solution still not found!");
+            if (!isSolutionFound || log.size() != size * size) {
+                throw new IllegalStateException("The solution is still not found!");
             }
 
             int[][] board = new int[size][size];
@@ -45,15 +45,14 @@ public class HorseWalk {
                 board[cell.x][cell.y] = positionNumber;
             }
 
-            var result = "";
+            StringBuilder sb = new StringBuilder();
             for (var x = 0; x < size; x++) {
-                var line = "";
                 for (var y = 0; y < size; y++) {
-                    line += board[x][y] + "\t";
+                    sb.append(board[x][y]).append("\t");
                 }
-                result += line.trim() + "\n";
+                sb.append("\n");
             }
-            return result;
+            return sb.toString();
         }
     }
 
@@ -64,13 +63,13 @@ public class HorseWalk {
         Deque<Cell> log = new ArrayDeque<>();
         log.push(new Cell(0, 0));
 
-        boolean isFound = checkSolution(boardSize, cellsTaken, 1, 0, 0, log);
+        boolean isSolutionFound = checkSolution(boardSize, cellsTaken, 1, 0, 0, log);
 
-        return new Solution(isFound, cellsTaken, log);
+        return new Solution(isSolutionFound, cellsTaken, log);
     }
 
-    public boolean checkSolution(int size, boolean[][] cellsTaken, int cellsVisited, int currX, int currY, Deque<Cell> log) {
-        if (cellsVisited == size * size) {
+    public boolean checkSolution(int size, boolean[][] cellsTaken, int visitedCellsAmount, int currX, int currY, Deque<Cell> log) {
+        if (visitedCellsAmount == size * size) {
             return true;
         }
 
@@ -88,7 +87,8 @@ public class HorseWalk {
 
             cellsTaken[nextX][nextY] = true;
             log.push(new Cell(nextX, nextY));
-            if (checkSolution(size, cellsTaken, cellsVisited + 1, nextX, nextY, log)) {
+
+            if (checkSolution(size, cellsTaken, visitedCellsAmount + 1, nextX, nextY, log)) {
                 return true;
             } else {
                 log.pop();
