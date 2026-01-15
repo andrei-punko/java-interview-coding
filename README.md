@@ -52,10 +52,6 @@ The [interview-materials](interview-materials) folder contains some
 notes about interview preparation and useful links.
 We can perceive materials in this folder as project backlog or "box with other stuff"
 
-## List of videos from the [Java coding](https://www.youtube.com/@andd3dfx) YouTube channel
-
-Placed [here](https://github.com/andrei-punko/youtube-channel-resources/blob/master/README.md)
-
 ## Appendix. Verbal interview materials
 
 Check [java-interview-faq-n-answers repo](https://github.com/andrei-punko/java-interview-faq-n-answers) to get materials for preparation to Java
