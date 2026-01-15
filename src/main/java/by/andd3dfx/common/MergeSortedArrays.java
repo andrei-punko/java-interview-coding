@@ -7,6 +7,8 @@ import java.util.PriorityQueue;
 
 /**
  * <pre>
+ * <a href="https://leetcode.com/problems/merge-sorted-array/">Task description</a>
+ *
  * Дано К массивов целых чисел длиной N каждый, упорядоченных по возрастанию.
  * Вернуть один массив, содержащий все эти числа, также упорядоченные по возрастанию.
  *

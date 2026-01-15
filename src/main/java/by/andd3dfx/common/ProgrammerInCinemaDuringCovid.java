@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * <pre>
+ * <a href="https://leetcode.com/problems/maximize-distance-to-closest-person/description/">Task description</a>
+ *
  * Программист решил пойти в кино. Но он хочет сесть как можно дальше от других людей, чтобы не заразиться covid.
  * Поэтому он хочет написать функцию, определяющую максимальное расстояние,
  * на котором можно сесть от других зрителей в одном ряду.
