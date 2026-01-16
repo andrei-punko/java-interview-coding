@@ -15,5 +15,6 @@ public class SimplifyPathTest {
         assertThat(SimplifyPath.simplifyPath("/../")).isEqualTo("/");
         assertThat(SimplifyPath.simplifyPath("/.../a/../b/c/../d/./"))
             .isEqualTo("/.../b/d");
+        assertThat(SimplifyPath.simplifyPath("/a//b////c/d//././/..")).isEqualTo("/a/b/c");
     }
 }

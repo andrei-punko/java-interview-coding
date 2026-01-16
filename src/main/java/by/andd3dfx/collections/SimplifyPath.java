@@ -70,11 +70,7 @@ public class SimplifyPath {
         while (i < chars.length) {
             switch (chars[i]) {
                 case '/':
-                    if (accumulator.toString().equals("..") && !stack.isEmpty()) {
-                        stack.pop();
-                    } else {
-                        checkAndPush(stack, accumulator);
-                    }
+                    process2DotsCase(accumulator, stack);
                     accumulator = new StringBuilder();
                     break;
 
@@ -83,12 +79,20 @@ public class SimplifyPath {
             }
             i++;
         }
-        checkAndPush(stack, accumulator);
+        process2DotsCase(accumulator, stack);
 
         List<String> folders = Arrays.stream(stack.toArray(new String[0]))
             .toList()
             .reversed();
         return "/" + String.join("/", folders);
+    }
+
+    private static void process2DotsCase(StringBuilder accumulator, Deque<String> stack) {
+        if (accumulator.toString().equals("..") && !stack.isEmpty()) {
+            stack.pop();
+        } else {
+            checkAndPush(stack, accumulator);
+        }
     }
 
     private static void checkAndPush(Deque<String> stack, StringBuilder accumulator) {
