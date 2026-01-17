@@ -25,11 +25,10 @@ public class NestedIteratorTest {
             ),
             List.of(1, 4, 6));
 
-        // TODO: fix implementation to support this case
-        // check(List.of(
-        //     new NestedIntegerList()
-        //     ),
-        //     List.of());
+        check(List.of(
+                new NestedIntegerList()
+            ),
+            List.of());
     }
 
     private void check(List<INestedInteger> incoming, List<Integer> outgoing) {

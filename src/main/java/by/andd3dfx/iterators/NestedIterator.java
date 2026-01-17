@@ -42,6 +42,7 @@ import java.util.NoSuchElementException;
 public class NestedIterator implements Iterator<Integer> {
 
     private final Deque<Iterator<INestedInteger>> stack = new ArrayDeque<>();
+    private Integer nextElement;
 
     public NestedIterator(List<INestedInteger> nestedList) {
         stack.push(nestedList.iterator());
@@ -49,36 +50,49 @@ public class NestedIterator implements Iterator<Integer> {
 
     @Override
     public Integer next() {
-        if (stack.isEmpty()) {
+        var result = determineNextElement();
+        if (result == null) {
             throw new NoSuchElementException();
         }
-
-        var currentIterator = stack.peek();
-        if (!currentIterator.hasNext()) {
-            stack.pop();
-            return next();
-        }
-
-        INestedInteger object = currentIterator.next();
-        if (object.isInteger()) {
-            return object.getInteger();
-        }
-        stack.push(object.getList().iterator());
-        return next();
+        return result;
     }
 
     @Override
     public boolean hasNext() {
-        if (stack.isEmpty()) {
-            return false;
-        }
-
-        var currentIterator = stack.peek();
-        if (currentIterator.hasNext()) {
+        if (nextElement != null) {
             return true;
         }
-        stack.pop();
-        return hasNext();
+        nextElement = determineNextElement();
+        return nextElement != null;
+    }
+
+    private Integer determineNextElement() {
+        if (nextElement != null) {
+            var result = nextElement;
+            nextElement = null;
+            return result;
+        }
+
+        if (stack.isEmpty()) {
+            return null;
+        }
+
+        while (!stack.isEmpty()) {
+            Iterator<INestedInteger> iterator = stack.peek();
+            if (iterator.hasNext()) {
+                var next = iterator.next();
+
+                if (!next.isInteger()) {
+                    stack.push(next.getList().iterator());
+                    return determineNextElement();
+                } else {
+                    return next.getInteger();
+                }
+            } else {
+                stack.pop();
+            }
+        }
+        return null;
     }
 
     public interface INestedInteger {
