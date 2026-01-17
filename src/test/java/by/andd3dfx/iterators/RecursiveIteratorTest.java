@@ -45,7 +45,7 @@ public class RecursiveIteratorTest {
     @Ignore("TODO: change implemetation to support this case")
     @Test
     public void testNextForListOfEmptyLists() {
-        List<Object> list = Arrays.asList(List.of(), List.of(List.of()));
+        List<Object> list = Arrays.asList(List.of().iterator(), List.of(List.of().iterator()).iterator());
         var iterator = new RecursiveIterator<>(list.iterator());
 
         List<String> result = new ArrayList<>();
