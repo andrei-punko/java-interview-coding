@@ -1,5 +1,6 @@
 package by.andd3dfx.iterators;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -39,6 +40,20 @@ public class RecursiveIteratorTest {
         }
 
         assertThat(result).isEqualTo(List.of("1", "3", "9", "4", "23", "31", "88", "22", "5", "37", "11"));
+    }
+
+    @Ignore("TODO: change implemetation to support this case")
+    @Test
+    public void testNextForListOfEmptyLists() {
+        List<Object> list = Arrays.asList(List.of(), List.of(List.of()));
+        var iterator = new RecursiveIterator<>(list.iterator());
+
+        List<String> result = new ArrayList<>();
+        while (iterator.hasNext()) {
+            result.add((String) iterator.next());
+        }
+
+        assertThat(result).isEqualTo(List.of());
     }
 
     @Test(expected = NoSuchElementException.class)
