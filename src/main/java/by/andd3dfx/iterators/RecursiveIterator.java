@@ -18,6 +18,7 @@ import java.util.NoSuchElementException;
 public class RecursiveIterator<Object> implements Iterator<Object> {
 
     private final Deque<Iterator<Object>> stack = new ArrayDeque<>();
+    private Object nextElement;
 
     public RecursiveIterator(Iterator<Object> iterator) {
         stack.push(iterator);
@@ -25,35 +26,48 @@ public class RecursiveIterator<Object> implements Iterator<Object> {
 
     @Override
     public boolean hasNext() {
-        if (stack.isEmpty()) {
-            return false;
-        }
-
-        Iterator<Object> currentIterator = stack.peek();
-        if (currentIterator.hasNext()) {
+        if (nextElement != null) {
             return true;
         }
-        stack.pop();
-        return hasNext();
+        nextElement = determineNextElement();
+        return nextElement != null;
     }
 
     @Override
     public Object next() {
-        if (stack.isEmpty()) {
+        var result = determineNextElement();
+        if (result == null) {
             throw new NoSuchElementException();
         }
+        return result;
+    }
 
-        Iterator<Object> currentIterator = stack.peek();
-        if (!currentIterator.hasNext()) {
-            stack.pop();
-            return next();
+    private Object determineNextElement() {
+        if (nextElement != null) {
+            var result = nextElement;
+            nextElement = null;
+            return result;
         }
 
-        Object object = currentIterator.next();
-        if (object instanceof String) {
-            return object;
+        if (stack.isEmpty()) {
+            return null;
         }
-        stack.push((Iterator<Object>) object);
-        return next();
+
+        while (!stack.isEmpty()) {
+            Iterator<Object> iterator = stack.peek();
+            if (iterator.hasNext()) {
+                var next = iterator.next();
+
+                if (next instanceof Iterator) {
+                    stack.push((Iterator<Object>) next);
+                    return determineNextElement();
+                } else {
+                    return next;
+                }
+            } else {
+                stack.pop();
+            }
+        }
+        return null;
     }
 }

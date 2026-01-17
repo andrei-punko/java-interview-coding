@@ -42,7 +42,6 @@ public class RecursiveIteratorTest {
         assertThat(result).isEqualTo(List.of("1", "3", "9", "4", "23", "31", "88", "22", "5", "37", "11"));
     }
 
-    @Ignore("TODO: change implemetation to support this case")
     @Test
     public void testNextForListOfEmptyLists() {
         List<Object> list = Arrays.asList(List.of().iterator(), List.of(List.of().iterator()).iterator());
