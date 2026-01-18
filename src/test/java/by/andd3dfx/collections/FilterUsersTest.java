@@ -13,16 +13,18 @@ public class FilterUsersTest {
     @Test
     public void apply() {
         List<User> users = List.of(
-            new User("Anton", LocalDate.now().minusDays(5)),
-            new User("Gena", LocalDate.now().minusDays(3)),
-            new User("John", LocalDate.now().minusDays(2)),
-            new User("Vladimir", LocalDate.now().minusDays(1)),
-            new User("Anatoliy", LocalDate.now().minusDays(3))
+            new User("Anton", LocalDate.now().minusDays(5)),    // not max chars amount, too old
+            new User("Gena", LocalDate.now().minusDays(3)),     // not max chars amount
+            new User("John", LocalDate.now().minusDays(2)),     // not max chars amount
+            new User("Anatoliy", LocalDate.now().minusDays(1)), // expected (max chars amount)
+            new User("Vladimir", LocalDate.now().minusDays(1)), // expected (max chars amount)
+            new User("Kirillus", LocalDate.now().minusDays(4)), // too old
+            new User("Anatoliy", LocalDate.now().minusDays(3))  // duplicate
         );
 
         var result = FilterUsers.apply(users);
 
-        assertThat(result).isEqualTo(List.of("Vladimir", "Anatoliy"));
+        assertThat(result).containsOnly("Vladimir", "Anatoliy");
     }
 
     @Test

@@ -26,12 +26,11 @@ public class FilterUsers {
 
     public static List<String> apply(List<User> users) {
         return users.stream()
-            .filter(user -> !user.lastLogin
-                .plusDays(3)
-                .isBefore(LocalDate.now()))
+            .filter(user -> user.lastLogin.isAfter(LocalDate.now().minusDays(3)))
             .map(User::getName)
             .distinct()
-            .collect(Collectors.groupingBy(String::length)).entrySet().stream()
+            .collect(Collectors.groupingBy(String::length))
+            .entrySet().stream()
             .max(Comparator.comparingInt(Map.Entry::getKey))
             .map(Map.Entry::getValue)
             .orElseGet(List::of);
