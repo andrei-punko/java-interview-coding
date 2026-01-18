@@ -24,10 +24,12 @@ package by.andd3dfx.numeric;
  * Explanation:
  * n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/JGqssodAKJM">Video solution</a>
  */
 public class MissingNumber {
 
-    public int missingNumber(int[] nums) {
+    public int find_On_memory(int[] nums) {
         var n = nums.length;
         var flags = new boolean[n + 1];
         for (var num : nums) {
@@ -38,22 +40,24 @@ public class MissingNumber {
                 return i;
             }
         }
-        return -1;
+        throw new IllegalStateException();
     }
 
-    public int missingNumber2(int[] nums) {
+    public int find_O1_memory(int[] nums) {
         var n = nums.length;
         for (var i = 0; i < n; i++) {
-            var num = Math.abs(nums[i]);
-            if (num < n) {
-                nums[num] = -nums[num];
+            var index = Math.abs(nums[i]);
+            if (index < n) {
+                nums[index] = -nums[index];
             }
         }
+
         for (var i = 0; i < n; i++) {
             if (nums[i] > 0) {
                 return i;
             }
         }
+
         return n;
     }
 }

@@ -2,23 +2,29 @@ package by.andd3dfx.numeric;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class MissingNumberTest {
 
-    private final MissingNumber missingNumber = new MissingNumber();
+    private MissingNumber missingNumber;
 
-    @Test
-    public void testMissingNumber() {
-        assertThat(missingNumber.missingNumber(new int[]{3, 0, 1})).isEqualTo(2);
-        assertThat(missingNumber.missingNumber(new int[]{0, 1})).isEqualTo(2);
-        assertThat(missingNumber.missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1})).isEqualTo(8);
+    @Before
+    public void setUp() throws Exception {
+        missingNumber = new MissingNumber();
     }
 
     @Test
-    public void testMissingNumber2() {
-        assertThat(missingNumber.missingNumber2(new int[]{3, 0, 1})).isEqualTo(2);
-        assertThat(missingNumber.missingNumber2(new int[]{0, 1})).isEqualTo(2);
-        assertThat(missingNumber.missingNumber2(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1})).isEqualTo(8);
+    public void find_On_memory() {
+        assertThat(missingNumber.find_On_memory(new int[]{3, 0, 1})).isEqualTo(2);
+        assertThat(missingNumber.find_On_memory(new int[]{0, 1})).isEqualTo(2);
+        assertThat(missingNumber.find_On_memory(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1})).isEqualTo(8);
+    }
+
+    @Test
+    public void find_O1_memory() {
+        assertThat(missingNumber.find_O1_memory(new int[]{3, 0, 1})).isEqualTo(2);
+        assertThat(missingNumber.find_O1_memory(new int[]{0, 1})).isEqualTo(2);
+        assertThat(missingNumber.find_O1_memory(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1})).isEqualTo(8);
     }
 }
