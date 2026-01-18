@@ -40,4 +40,20 @@ public class MissingNumber {
         }
         return -1;
     }
+
+    public int missingNumber2(int[] nums) {
+        var n = nums.length;
+        for (var i = 0; i < n; i++) {
+            var num = Math.abs(nums[i]);
+            if (num < n) {
+                nums[num] = -nums[num];
+            }
+        }
+        for (var i = 0; i < n; i++) {
+            if (nums[i] > 0) {
+                return i;
+            }
+        }
+        return n;
+    }
 }

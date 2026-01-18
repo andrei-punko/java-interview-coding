@@ -14,4 +14,11 @@ public class MissingNumberTest {
         assertThat(missingNumber.missingNumber(new int[]{0, 1})).isEqualTo(2);
         assertThat(missingNumber.missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1})).isEqualTo(8);
     }
+
+    @Test
+    public void testMissingNumber2() {
+        assertThat(missingNumber.missingNumber2(new int[]{3, 0, 1})).isEqualTo(2);
+        assertThat(missingNumber.missingNumber2(new int[]{0, 1})).isEqualTo(2);
+        assertThat(missingNumber.missingNumber2(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1})).isEqualTo(8);
+    }
 }
