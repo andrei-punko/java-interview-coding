@@ -19,6 +19,8 @@ package by.andd3dfx.common;
  * Input: height = [4,2,0,3,2,5]
  * Output: 9
  * </pre>
+ *
+ * @see <a href="https://youtu.be/zGrmT8V8PVE">Video solution</a>
  */
 public class TrappingRainWater {
 
@@ -32,13 +34,13 @@ public class TrappingRainWater {
         int[] rightMax = new int[n];
         int water = 0;
 
-        // Calculate left_max
+        // Calculate leftMax
         leftMax[0] = height[0];
         for (int i = 1; i < n; i++) {
             leftMax[i] = Math.max(height[i], leftMax[i - 1]);
         }
 
-        // Calculate right_max
+        // Calculate rightMax
         rightMax[n - 1] = height[n - 1];
         for (int i = n - 2; i >= 0; i--) {
             rightMax[i] = Math.max(height[i], rightMax[i + 1]);

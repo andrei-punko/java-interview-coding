@@ -20,6 +20,8 @@ import java.util.stream.Collectors;
  * Input: jewels = "z", stones = "ZZ"
  * Output: 0
  * </pre>
+ *
+ * @see <a href="https://youtu.be/QrJq3q1e0Jw">Video solution</a>
  */
 public class JewelsAndStones {
 
