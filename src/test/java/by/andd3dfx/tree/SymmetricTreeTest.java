@@ -8,7 +8,7 @@ import org.junit.Test;
 public class SymmetricTreeTest {
 
     @Test
-    public void isSymmetricMirroredLeftNRight() {
+    public void isSymmetricWhenMirroredLeftNRightNodes() {
         TreeNode root = new TreeNode(1,
             new TreeNode(2, new TreeNode(3), new TreeNode(4)),
             new TreeNode(2, new TreeNode(4), new TreeNode(3))
@@ -17,11 +17,11 @@ public class SymmetricTreeTest {
     }
 
     @Test
-    public void isSymmetricTheSameLeftNRight() {
-        TreeNode root2 = new TreeNode(1,
+    public void isSymmetricWhenTheSameLeftNRightNodes() {
+        TreeNode root = new TreeNode(1,
             new TreeNode(2, null, new TreeNode(3)),
             new TreeNode(2, null, new TreeNode(3))
         );
-        assertThat(SymmetricTree.isSymmetric(root2)).isFalse();
+        assertThat(SymmetricTree.isSymmetric(root)).isFalse();
     }
 }

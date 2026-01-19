@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * <pre>
+ * <a href="https://leetcode.com/problems/symmetric-tree/description/">Task description</a>
+ *
  * Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
  *
  * Example 1:
@@ -17,6 +19,8 @@ import lombok.NoArgsConstructor;
  * Input: root = [1,2,2,null,3,null,3]
  * Output: false
  * </pre>
+ *
+ * @see <a href="https://youtu.be/pZJ852c2CAE">Video solution</a>
  */
 public class SymmetricTree {
 
