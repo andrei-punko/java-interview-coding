@@ -1,14 +1,12 @@
 package by.andd3dfx.iterators;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.Test;
 
 public class RecursiveIteratorTest {
 
