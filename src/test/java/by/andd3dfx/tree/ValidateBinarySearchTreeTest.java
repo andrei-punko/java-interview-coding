@@ -8,11 +8,11 @@ import org.junit.Test;
 
 public class ValidateBinarySearchTreeTest {
 
-    private ValidateBinarySearchTree binarySearchTree;
+    private ValidateBinarySearchTree validator;
 
     @Before
     public void setUp() throws Exception {
-        binarySearchTree = new ValidateBinarySearchTree();
+        validator = new ValidateBinarySearchTree();
     }
 
     @Test
@@ -21,18 +21,18 @@ public class ValidateBinarySearchTreeTest {
             new TreeNode(1),
             new TreeNode(3)
         );
-        assertThat(binarySearchTree.isValidBST(root)).isTrue();
+        assertThat(validator.isValidBST(root)).isTrue();
 
         TreeNode root2 = new TreeNode(5,
             new TreeNode(1),
             new TreeNode(4, new TreeNode(3), new TreeNode(6))
         );
-        assertThat(binarySearchTree.isValidBST(root2)).isFalse();
+        assertThat(validator.isValidBST(root2)).isFalse();
 
         TreeNode root3 = new TreeNode(5,
             new TreeNode(1),
             new TreeNode(7, new TreeNode(6), new TreeNode(9))
         );
-        assertThat(binarySearchTree.isValidBST(root3)).isTrue();
+        assertThat(validator.isValidBST(root3)).isTrue();
     }
 }
