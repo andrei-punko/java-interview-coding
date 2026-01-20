@@ -8,13 +8,14 @@ public class SimplifyPathTest {
 
     @Test
     public void testSimplifyPath() {
+        assertThat(SimplifyPath.simplifyPath("/")).isEqualTo("/");
+        assertThat(SimplifyPath.simplifyPath("/home")).isEqualTo("/home");
         assertThat(SimplifyPath.simplifyPath("/home/")).isEqualTo("/home");
         assertThat(SimplifyPath.simplifyPath("/home//foo/")).isEqualTo("/home/foo");
-        assertThat(SimplifyPath.simplifyPath("/home/user/Documents/../Pictures"))
-            .isEqualTo("/home/user/Pictures");
+        assertThat(SimplifyPath.simplifyPath("/home/user/Documents/../Pictures")).isEqualTo("/home/user/Pictures");
+        assertThat(SimplifyPath.simplifyPath("/..")).isEqualTo("/");
         assertThat(SimplifyPath.simplifyPath("/../")).isEqualTo("/");
-        assertThat(SimplifyPath.simplifyPath("/.../a/../b/c/../d/./"))
-            .isEqualTo("/.../b/d");
+        assertThat(SimplifyPath.simplifyPath("/.../a/../b/c/../d/./")).isEqualTo("/.../b/d");
         assertThat(SimplifyPath.simplifyPath("/a//b////c/d//././/..")).isEqualTo("/a/b/c");
     }
 }

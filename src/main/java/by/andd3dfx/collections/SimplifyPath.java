@@ -1,7 +1,6 @@
 package by.andd3dfx.collections;
 
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
 
@@ -70,7 +69,7 @@ public class SimplifyPath {
         while (i < chars.length) {
             switch (chars[i]) {
                 case '/':
-                    process2DotsCase(accumulator, stack);
+                    processAccumulated(accumulator, stack);
                     accumulator = new StringBuilder();
                     break;
 
@@ -79,26 +78,20 @@ public class SimplifyPath {
             }
             i++;
         }
-        process2DotsCase(accumulator, stack);
+        processAccumulated(accumulator, stack);
 
-        List<String> folders = Arrays.stream(stack.toArray(new String[0]))
+        List<String> folders = stack.stream()
             .toList()
             .reversed();
         return "/" + String.join("/", folders);
     }
 
-    private static void process2DotsCase(StringBuilder accumulator, Deque<String> stack) {
-        if (accumulator.toString().equals("..") && !stack.isEmpty()) {
+    private static void processAccumulated(StringBuilder accumulator, Deque<String> stack) {
+        var accumulated = accumulator.toString();
+        if (accumulated.equals("..") && !stack.isEmpty()) {
             stack.pop();
-        } else {
-            checkAndPush(stack, accumulator);
-        }
-    }
-
-    private static void checkAndPush(Deque<String> stack, StringBuilder accumulator) {
-        var string = accumulator.toString();
-        if (!string.isEmpty() && !string.matches("\\.{1,2}")) {
-            stack.push(string);
+        } else if (!accumulated.matches("\\.{1,2}") && !accumulated.isEmpty()) {
+            stack.push(accumulated);
         }
     }
 }
