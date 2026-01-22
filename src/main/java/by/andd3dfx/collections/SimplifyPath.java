@@ -55,6 +55,8 @@ import java.util.Deque;
  * Explanation:
  * "..." is a valid name for a directory in this problem.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/ZONpIPMSNPk">Video solution</a>
  */
 public class SimplifyPath {
 
