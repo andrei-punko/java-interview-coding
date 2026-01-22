@@ -2,7 +2,6 @@ package by.andd3dfx.collections;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.List;
 
 /**
  * <pre>
@@ -67,23 +66,17 @@ public class SimplifyPath {
         var chars = path.toCharArray();
         var i = 1;
         while (i < chars.length) {
-            switch (chars[i]) {
-                case '/':
-                    processAccumulated(accumulator, stack);
-                    accumulator = new StringBuilder();
-                    break;
-
-                default:
-                    accumulator.append(chars[i]);
+            if (chars[i] == '/') {
+                processAccumulated(accumulator, stack);
+                accumulator = new StringBuilder();
+            } else {
+                accumulator.append(chars[i]);
             }
             i++;
         }
         processAccumulated(accumulator, stack);
 
-        List<String> folders = stack.stream()
-            .toList()
-            .reversed();
-        return "/" + String.join("/", folders);
+        return "/" + String.join("/", stack.reversed());
     }
 
     private static void processAccumulated(StringBuilder accumulator, Deque<String> stack) {
