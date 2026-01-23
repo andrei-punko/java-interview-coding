@@ -6,6 +6,7 @@ import by.andd3dfx.iterators.NestedIterator.INestedInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import org.junit.Test;
 
 public class NestedIteratorTest {
@@ -24,11 +25,20 @@ public class NestedIteratorTest {
                 new NestedIntegerList(new NestedInteger(4), new NestedIntegerList(6))
             ),
             List.of(1, 4, 6));
+    }
 
+    @Test
+    public void testNextAndHasNext_emptyList() {
         check(List.of(
                 new NestedIntegerList()
             ),
             List.of());
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void testNextWhenNoElements() {
+        var nestedIterator = new NestedIterator(List.of());
+        nestedIterator.next();
     }
 
     private void check(List<INestedInteger> incoming, List<Integer> outgoing) {
