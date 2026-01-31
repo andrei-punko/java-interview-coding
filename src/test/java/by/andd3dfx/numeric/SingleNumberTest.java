@@ -2,11 +2,11 @@ package by.andd3dfx.numeric;
 
 import org.junit.Test;
 
-import static by.andd3dfx.numeric.FindNumberWhichAppearsOnce.find;
-import static by.andd3dfx.numeric.FindNumberWhichAppearsOnce.findSubOptimal;
+import static by.andd3dfx.numeric.SingleNumber.find;
+import static by.andd3dfx.numeric.SingleNumber.findSubOptimal;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FindNumberWhichAppearsOnceTest {
+public class SingleNumberTest {
 
     @Test
     public void testFindSubOptimal() {

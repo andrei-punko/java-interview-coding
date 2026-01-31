@@ -24,7 +24,7 @@ import java.util.HashSet;
  *
  * @see <a href="https://youtu.be/dNB8tOvx5Gk">Video solution</a>
  */
-public class FindNumberWhichAppearsOnce {
+public class SingleNumber {
 
     public static int findSubOptimal(int[] numbers) {
         var set = new HashSet<Integer>();
