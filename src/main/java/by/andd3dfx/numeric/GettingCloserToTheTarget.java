@@ -32,14 +32,10 @@ public class GettingCloserToTheTarget {
     }
 
     @Builder
-    public static class Condition {
+    public record Condition(double x0, double y0, double vx, double vy,
+                            double vRocket,
+                            double t, double distance
+    ) {
 
-        double x0;
-        double y0;
-        double vx;
-        double vy;
-        double vRocket;
-        double t;
-        double distance;
     }
 }
