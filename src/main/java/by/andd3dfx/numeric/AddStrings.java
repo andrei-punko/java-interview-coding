@@ -37,32 +37,34 @@ public class AddStrings {
             int n1 = chars1[i] - '0';
             int n2 = chars2[j] - '0';
 
-            var res = n1 + n2 + accumulator;
-            accumulator = 0;
-            if (res <= 9) {
-                sb.append(res);
-            } else {
-                sb.append(res % 10);
-                res = res / 10;
-                accumulator = res;
-            }
+            accumulator = calcAccumulator(n1 + n2 + accumulator, sb);
 
             i--;
             j--;
         }
         while (i >= 0) {
-            int n1 = chars1[i] - '0' + accumulator;
-            accumulator = 0;
-            sb.append(n1);
+            int n1 = chars1[i] - '0';
+            accumulator = calcAccumulator(n1 + accumulator, sb);
             i--;
         }
         while (j >= 0) {
-            int n2 = chars2[j] - '0' + accumulator;
-            accumulator = 0;
-            sb.append(n2);
+            int n2 = chars2[j] - '0';
+            accumulator = calcAccumulator(n2 + accumulator, sb);
             j--;
+        }
+        if (accumulator > 0) {
+            sb.append(accumulator);
         }
 
         return sb.reverse().toString();
+    }
+
+    private static int calcAccumulator(int res, StringBuilder sb) {
+        if (res <= 9) {
+            sb.append(res);
+        } else {
+            sb.append(res % 10);
+        }
+        return res / 10;
     }
 }
