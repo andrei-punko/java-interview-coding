@@ -1,5 +1,7 @@
 package by.andd3dfx.numeric;
 
+import java.util.Iterator;
+
 /**
  * <pre>
  * <a href="https://leetcode.com/problems/add-strings/">Task description</a>
@@ -66,5 +68,45 @@ public class AddStrings {
             sb.append(res % 10);
         }
         return res / 10;
+    }
+
+    public static String addStrings_usingIterators(String num1, String num2) {
+        var iterator1 = new DigitsIterator(num1);
+        var iterator2 = new DigitsIterator(num2);
+
+        var sb = new StringBuilder();
+        var accumulator = 0;
+        while (iterator1.hasNext() || iterator2.hasNext() || accumulator > 0) {
+            int n1 = iterator1.next();
+            int n2 = iterator2.next();
+
+            accumulator = calcAccumulator(n1 + n2 + accumulator, sb);
+        }
+
+        return sb.reverse().toString();
+    }
+
+    public static class DigitsIterator implements Iterator<Integer> {
+
+        private final char[] chars;
+        private int index;
+
+        public DigitsIterator(String str) {
+            this.chars = str.toCharArray();
+            this.index = chars.length - 1;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return index >= 0;
+        }
+
+        @Override
+        public Integer next() {
+            if (index >= 0) {
+                return chars[index--] - '0';
+            }
+            return 0;
+        }
     }
 }

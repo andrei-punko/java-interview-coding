@@ -16,4 +16,15 @@ public class AddStringsTest {
 
         assertThat(AddStrings.addStrings("79", "179")).isEqualTo("258");
     }
+
+    @Test
+    public void addStrings_usingIterators() {
+        assertThat(AddStrings.addStrings_usingIterators("11", "123")).isEqualTo("134");
+        assertThat(AddStrings.addStrings_usingIterators("456", "77")).isEqualTo("533");
+        assertThat(AddStrings.addStrings_usingIterators("0", "0")).isEqualTo("0");
+        assertThat(AddStrings.addStrings_usingIterators("1", "9")).isEqualTo("10");
+        assertThat(AddStrings.addStrings_usingIterators("9", "99")).isEqualTo("108");
+
+        assertThat(AddStrings.addStrings_usingIterators("79", "179")).isEqualTo("258");
+    }
 }
