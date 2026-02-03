@@ -8,9 +8,9 @@ public class ConsecutiveCharactersTest {
 
     @Test
     public void maxPower() {
+        assertThat(ConsecutiveCharacters.maxPower("j")).isEqualTo(1);
         assertThat(ConsecutiveCharacters.maxPower("abcdef")).isEqualTo(1);
         assertThat(ConsecutiveCharacters.maxPower("ffffff")).isEqualTo(6);
-        assertThat(ConsecutiveCharacters.maxPower("ggwpbbbbaac")).isEqualTo(4);
 
         assertThat(ConsecutiveCharacters.maxPower("leetcode")).isEqualTo(2);
         assertThat(ConsecutiveCharacters.maxPower("abbcccddddeeeeedcba")).isEqualTo(5);

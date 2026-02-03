@@ -23,21 +23,18 @@ public class ConsecutiveCharacters {
 
     public static int maxPower(String s) {
         var n = s.length();
-        var chars = s.toCharArray();
+        char[] chars = s.toCharArray();
 
         var left = 0;
         var right = 0;
         var max = 1;
-        var curr = 1;
         while (right < n - 1) {
             right++;
-            if (chars[right] == chars[left]) {
-                curr++;
-            } else {
+            if (chars[left] != chars[right]) {
                 left = right;
-                curr = 1;
             }
 
+            var curr = right - left + 1;
             if (curr > max) {
                 max = curr;
             }
