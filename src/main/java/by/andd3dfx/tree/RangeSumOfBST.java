@@ -25,7 +25,7 @@ import java.util.Deque;
  */
 public class RangeSumOfBST {
 
-    public static int rangeSumBST(TreeNode root, int low, int high) {
+    public static int rangeSumBST_usingQueue(TreeNode root, int low, int high) {
         Deque<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
         var sum = 0;
@@ -42,6 +42,21 @@ public class RangeSumOfBST {
             }
         }
         return sum;
+    }
+
+    public static int rangeSumBST_usingRecursion(TreeNode root, int low, int high) {
+        return recursion(root, low, high);
+    }
+
+    private static int recursion(TreeNode root, int low, int high) {
+        if (root == null) {
+            return 0;
+        }
+        int result = recursion(root.left, low, high) + recursion(root.right, low, high);
+        if (low <= root.val && root.val <= high) {
+            result += root.val;
+        }
+        return result;
     }
 
     public static class TreeNode {
