@@ -17,6 +17,8 @@ import lombok.Builder;
  * Необходимо выяснить, может ли РК-2000 через заданное время t оказаться ровно на заданном расстоянии d от цели.
  * Для простоты считайте, что РК-2000 может мгновенно изменять свою скорость.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/OXpju4Yzmo0">Video solution</a>
  */
 public class GettingCloserToTheTarget {
 

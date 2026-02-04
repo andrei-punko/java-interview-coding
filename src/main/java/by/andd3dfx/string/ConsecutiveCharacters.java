@@ -18,6 +18,8 @@ package by.andd3dfx.string;
  * Output: 5
  * Explanation: The substring "eeeee" is of length 5 with the character 'e' only.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/6dMXdSdOXG8">Video solution</a>
  */
 public class ConsecutiveCharacters {
 

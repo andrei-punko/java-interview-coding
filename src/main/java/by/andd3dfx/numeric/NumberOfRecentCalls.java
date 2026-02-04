@@ -32,6 +32,8 @@ import java.util.Deque;
  *   recentCounter.ping(3001);  // requests = [1, 100, 3001], range is [1,3001], return 3
  *   recentCounter.ping(3002);  // requests = [1, 100, 3001, 3002], range is [2,3002], return 3
  * </pre>
+ *
+ * @see <a href="https://youtu.be/546AEEzHneY">Video solution</a>
  */
 public class NumberOfRecentCalls {
 
