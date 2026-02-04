@@ -18,6 +18,8 @@ package by.andd3dfx.numeric;
  * Input: nums = [-1,1,0,-3,3]
  * Output: [0,0,9,0,0]
  * </pre>
+ *
+ * @see <a href="https://youtu.be/DY1XhqN4e9g">Video solution</a>
  */
 public class ProductOfArrayExceptSelf {
 

@@ -14,6 +14,8 @@ package by.andd3dfx.string;
  *   Input: s = "Mr Ding"
  *   Output: "rM gniD"
  * </pre>
+ *
+ * @see <a href="https://youtu.be/gwQfBcIDa7s">Video solution</a>
  */
 public class ReverseWordsInAStringIII {
 
