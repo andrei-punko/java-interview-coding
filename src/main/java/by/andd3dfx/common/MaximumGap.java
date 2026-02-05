@@ -29,7 +29,6 @@ public class MaximumGap {
         }
 
         Arrays.sort(nums);
-
         int result = 0;
         for (int i = 1; i < nums.length; i++) {
             var diff = nums[i] - nums[i - 1];

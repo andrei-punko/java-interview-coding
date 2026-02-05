@@ -15,15 +15,11 @@ public class PalindromeNumber {
         }
 
         var chars = String.valueOf(x).toCharArray();
-        var left = 0;
-        var right = chars.length - 1;
-
-        while (left < right) {
-            if (chars[left] != chars[right]) {
+        var n = chars.length;
+        for (int i = 0; i < n / 2; i++) {
+            if (chars[i] != chars[n - i - 1]) {
                 return false;
             }
-            left++;
-            right--;
         }
         return true;
     }
