@@ -2,6 +2,7 @@ package by.andd3dfx.tree;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import lombok.AllArgsConstructor;
 
 /**
  * <pre>
@@ -31,10 +32,10 @@ public class RangeSumOfBST {
         var sum = 0;
         while (!queue.isEmpty()) {
             var element = queue.pop();
-            if (element.left != null) {
+            if (element.left != null && root.val >= low) {
                 queue.add(element.left);
             }
-            if (element.right != null) {
+            if (element.right != null && root.val <= high) {
                 queue.add(element.right);
             }
             if (low <= element.val && element.val <= high) {
@@ -45,20 +46,23 @@ public class RangeSumOfBST {
     }
 
     public static int rangeSumBST_usingRecursion(TreeNode root, int low, int high) {
-        return recursion(root, low, high);
-    }
-
-    private static int recursion(TreeNode root, int low, int high) {
         if (root == null) {
             return 0;
         }
-        int result = recursion(root.left, low, high) + recursion(root.right, low, high);
+        int result = 0;
+        if (root.val >= low) {
+            result += rangeSumBST_usingRecursion(root.left, low, high);
+        }
+        if (root.val <= high) {
+            result += rangeSumBST_usingRecursion(root.right, low, high);
+        }
         if (low <= root.val && root.val <= high) {
             result += root.val;
         }
         return result;
     }
 
+    @AllArgsConstructor
     public static class TreeNode {
 
         int val;
@@ -67,12 +71,6 @@ public class RangeSumOfBST {
 
         TreeNode(int val) {
             this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
         }
     }
 }
