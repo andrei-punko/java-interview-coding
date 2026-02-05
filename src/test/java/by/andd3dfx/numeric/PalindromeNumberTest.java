@@ -1,20 +1,32 @@
 package by.andd3dfx.numeric;
 
-import org.junit.Test;
-
 import static by.andd3dfx.numeric.PalindromeNumber.isPalindrome;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static by.andd3dfx.numeric.PalindromeNumber.isPalindrome2;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Test;
 
 public class PalindromeNumberTest {
 
     @Test
     public void testIsPalindrome() {
-        assertTrue(isPalindrome(121));
-        assertTrue(isPalindrome(1568651));
-        assertFalse(isPalindrome(-121));
-        assertFalse(isPalindrome(123));
-        assertFalse(isPalindrome(10));
-        assertTrue(isPalindrome(0));
+        assertThat(isPalindrome(121)).isTrue();
+        assertThat(isPalindrome(1568651)).isTrue();
+        assertThat(isPalindrome(-121)).isFalse();
+        assertThat(isPalindrome(10)).isFalse();
+        assertThat(isPalindrome(123)).isFalse();
+        assertThat(isPalindrome(1001)).isTrue();
+        assertThat(isPalindrome(0)).isTrue();
+    }
+
+    @Test
+    public void testIsPalindrome2() {
+        assertThat(isPalindrome2(121)).isTrue();
+        assertThat(isPalindrome2(1568651)).isTrue();
+        assertThat(isPalindrome2(-121)).isFalse();
+        assertThat(isPalindrome2(10)).isFalse();
+        assertThat(isPalindrome2(123)).isFalse();
+        assertThat(isPalindrome2(1001)).isTrue();
+        assertThat(isPalindrome2(0)).isTrue();
     }
 }
