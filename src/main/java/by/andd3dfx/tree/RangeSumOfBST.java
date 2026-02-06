@@ -34,10 +34,10 @@ public class RangeSumOfBST {
         var sum = 0;
         while (!queue.isEmpty()) {
             var element = queue.pop();
-            if (element.left != null && root.val >= low) {
+            if (element.left != null && element.val >= low) {
                 queue.add(element.left);
             }
-            if (element.right != null && root.val <= high) {
+            if (element.right != null && element.val <= high) {
                 queue.add(element.right);
             }
             if (low <= element.val && element.val <= high) {
