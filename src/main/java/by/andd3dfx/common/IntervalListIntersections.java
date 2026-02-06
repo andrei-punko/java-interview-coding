@@ -32,10 +32,29 @@ public class IntervalListIntersections {
 
     public static int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
         List<Point> points = new ArrayList<>();
-        populatePointList(firstList, points, 1);
-        populatePointList(secondList, points, 2);
-        points.sort(Comparator.comparing(Point::x).thenComparingInt(o -> o.type.ordinal()));
+        populatePointList(firstList, points);
+        populatePointList(secondList, points);
+        points.sort(Comparator.comparing(Point::x)
+            .thenComparingInt(o -> o.type.ordinal()));
 
+        List<Pair> intersections = determinePairs(points);
+
+        int[][] result = new int[intersections.size()][2];
+        for (int i = 0; i < intersections.size(); i++) {
+            result[i][0] = intersections.get(i).x1;
+            result[i][1] = intersections.get(i).x2;
+        }
+        return result;
+    }
+
+    private static void populatePointList(int[][] intervals, List<Point> points) {
+        for (var pair : intervals) {
+            points.add(new Point(pair[0], Point.Type.START));
+            points.add(new Point(pair[1], Point.Type.END));
+        }
+    }
+
+    private static List<Pair> determinePairs(List<Point> points) {
         List<Pair> intersections = new ArrayList<>();
         var startsAmount = 0;
         var x = 0;
@@ -56,23 +75,10 @@ public class IntervalListIntersections {
                 }
             }
         }
-
-        int[][] result = new int[intersections.size()][2];
-        for (int i = 0; i < intersections.size(); i++) {
-            result[i][0] = intersections.get(i).x1;
-            result[i][1] = intersections.get(i).x2;
-        }
-        return result;
+        return intersections;
     }
 
-    private static void populatePointList(int[][] firstList, List<Point> points, int listNumber) {
-        for (var pair : firstList) {
-            points.add(new Point(pair[0], Point.Type.START, listNumber));
-            points.add(new Point(pair[1], Point.Type.END, listNumber));
-        }
-    }
-
-    public record Point(int x, Type type, int listNumber) {
+    public record Point(int x, Type type) {
 
         public enum Type {
             START, END
