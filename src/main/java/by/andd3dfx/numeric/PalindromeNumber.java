@@ -21,6 +21,8 @@ package by.andd3dfx.numeric;
  * Output: false
  * Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/KRoRD7HGrfo">Video solution</a>
  */
 public class PalindromeNumber {
 

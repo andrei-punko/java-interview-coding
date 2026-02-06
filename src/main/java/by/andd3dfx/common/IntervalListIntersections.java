@@ -27,6 +27,8 @@ import java.util.List;
  * Input: firstList = [[1,3],[5,9]], secondList = []
  * Output: []
  * </pre>
+ *
+ * @see <a href="https://youtu.be/k0v528Zb-jk">Video solution</a>
  */
 public class IntervalListIntersections {
 

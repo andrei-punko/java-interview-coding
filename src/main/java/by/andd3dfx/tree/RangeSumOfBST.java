@@ -23,6 +23,8 @@ import lombok.AllArgsConstructor;
  *   Output: 23
  *   Explanation: Nodes 6, 7, and 10 are in the range [6, 10]. 6 + 7 + 10 = 23.
  * </pre>
+ *
+ * @see <a href="https://youtu.be/gnSyhRpfHNU">Video solution</a>
  */
 public class RangeSumOfBST {
 
