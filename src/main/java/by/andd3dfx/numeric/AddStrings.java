@@ -35,27 +35,14 @@ public class AddStrings {
 
         var sb = new StringBuilder();
         var accumulator = 0;
-        while (i >= 0 && j >= 0) {
-            int n1 = chars1[i] - '0';
-            int n2 = chars2[j] - '0';
+        while (i >= 0 || j >= 0 || accumulator > 0) {
+            int n1 = (i >= 0) ? (chars1[i] - '0') : 0;
+            int n2 = (j >= 0) ? (chars2[j] - '0') : 0;
 
             accumulator = calcAccumulator(n1 + n2 + accumulator, sb);
 
             i--;
             j--;
-        }
-        while (i >= 0) {
-            int n1 = chars1[i] - '0';
-            accumulator = calcAccumulator(n1 + accumulator, sb);
-            i--;
-        }
-        while (j >= 0) {
-            int n2 = chars2[j] - '0';
-            accumulator = calcAccumulator(n2 + accumulator, sb);
-            j--;
-        }
-        if (accumulator > 0) {
-            sb.append(accumulator);
         }
 
         return sb.reverse().toString();
