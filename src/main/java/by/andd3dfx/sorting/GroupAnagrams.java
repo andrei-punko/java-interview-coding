@@ -9,6 +9,8 @@ import java.util.Map;
 
 /**
  * <pre>
+ * <a href="https://leetcode.com/problems/group-anagrams/description/">Task description</a>
+ *
  * We have an array: ["eat", "tea", "tan", "ate", "nat", "bat"]
  * We need to transform it next way:
  * [
@@ -21,7 +23,7 @@ import java.util.Map;
  *
  * @see <a href="https://youtu.be/_i77ixQLijs">Video solution</a>
  */
-public class SortAnagrams {
+public class GroupAnagrams {
 
     public List<List<String>> apply(String[] items) {
         Map<String, List<String>> vocabulary = new HashMap<>();

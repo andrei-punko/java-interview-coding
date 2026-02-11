@@ -7,18 +7,18 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SortAnagramsTest {
+public class GroupAnagramsTest {
 
-    private SortAnagrams sortAnagrams;
+    private GroupAnagrams groupAnagrams;
 
     @Before
     public void setup() {
-        sortAnagrams = new SortAnagrams();
+        groupAnagrams = new GroupAnagrams();
     }
 
     @Test
     public void apply() {
-        var result = sortAnagrams.apply(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
+        var result = groupAnagrams.apply(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
 
         assertThat(result).isEqualTo(List.of(
             List.of("ate", "eat", "tea"),
