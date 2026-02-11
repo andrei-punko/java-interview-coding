@@ -2,11 +2,11 @@ package by.andd3dfx.string;
 
 import org.junit.Test;
 
-import static by.andd3dfx.string.StringTransformation.couldTransform;
-import static by.andd3dfx.string.StringTransformation.couldTransformUsingLevenshteinDistance;
+import static by.andd3dfx.string.OneEditDistance.couldTransform;
+import static by.andd3dfx.string.OneEditDistance.couldTransformUsingLevenshteinDistance;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class StringTransformationTest {
+public class OneEditDistanceTest {
 
     @Test
     public void couldTransform_changeOneChar() {

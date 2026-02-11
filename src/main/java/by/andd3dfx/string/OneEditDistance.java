@@ -6,8 +6,10 @@ import static org.apache.commons.lang3.math.NumberUtils.min;
 
 /**
  * <pre>
- * Написать метод (класс и импорты не нужны) на вход которого приходит две строки.
- * На выходе надо проверить можно ли получить одну строку из другой за 1 исправление:
+ * <a href="https://leetcode.com/problems/one-edit-distance/description/">Task description</a>
+ *
+ * Написать метод, на вход которого приходит две строки.
+ * На выходе надо проверить, можно ли получить одну строку из другой за 1 исправление:
  * - замена одного символа в одной строке
  * - вставка/удаление одного символа из одной строки
  *
@@ -22,7 +24,7 @@ import static org.apache.commons.lang3.math.NumberUtils.min;
  * @see <a href="https://youtu.be/GOSWr4jHng8">Video solution</a>
  * @see <a href="https://youtu.be/0543ZryeIx4">Video solution 2</a>
  */
-public class StringTransformation {
+public class OneEditDistance {
 
     public static boolean couldTransform(String first, String second) {
         char[] s1 = first.toCharArray();
