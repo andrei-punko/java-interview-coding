@@ -23,6 +23,8 @@ import java.util.Iterator;
  * Input: num1 = "0", num2 = "0"
  * Output: "0"
  * </pre>
+ *
+ * @see <a href="https://youtu.be/387g63Rvqsw">Video solution</a>
  */
 public class AddStrings {
 
