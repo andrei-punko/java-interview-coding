@@ -26,10 +26,12 @@ import lombok.NoArgsConstructor;
  * Input: list1 = [], list2 = [0]
  * Output: [0]
  * </pre>
+ *
+ * @see <a href="https://youtu.be/_jj1zgf0FBM">Video solution</a>
  */
 public class MergeTwoSortedLists {
 
-    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    public static ListNode mergeTwoLists_usingIterators(ListNode list1, ListNode list2) {
         var head = new ListNode();
         var iterator1 = new MyIterator(list1);
         var iterator2 = new MyIterator(list2);
@@ -55,7 +57,7 @@ public class MergeTwoSortedLists {
         return head.next;
     }
 
-    public static ListNode mergeTwoLists2(ListNode list1, ListNode list2) {
+    public static ListNode mergeTwoLists_usingRecursion(ListNode list1, ListNode list2) {
         if (list1 == null) {
             return list2;
         }
@@ -64,10 +66,10 @@ public class MergeTwoSortedLists {
         }
 
         if (list1.val < list2.val) {
-            list1.next = mergeTwoLists2(list1.next, list2);
+            list1.next = mergeTwoLists_usingRecursion(list1.next, list2);
             return list1;
         } else {
-            list2.next = mergeTwoLists2(list1, list2.next);
+            list2.next = mergeTwoLists_usingRecursion(list1, list2.next);
             return list2;
         }
     }

@@ -9,13 +9,13 @@ import org.junit.Test;
 public class MergeTwoSortedListsTest {
 
     @Test
-    public void testMergeTwoLists() {
-        testMergeOfTwoList(MergeTwoSortedLists::mergeTwoLists);
+    public void testMergeTwoListsUsingIterators() {
+        testMergeOfTwoList(MergeTwoSortedLists::mergeTwoLists_usingIterators);
     }
 
     @Test
-    public void testMergeTwoLists2() {
-        testMergeOfTwoList(MergeTwoSortedLists::mergeTwoLists2);
+    public void testMergeTwoListsUsingRecursion() {
+        testMergeOfTwoList(MergeTwoSortedLists::mergeTwoLists_usingRecursion);
     }
 
     public void testMergeOfTwoList(BiFunction<ListNode, ListNode, ListNode> function) {
