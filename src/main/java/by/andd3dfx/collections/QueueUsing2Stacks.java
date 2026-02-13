@@ -37,6 +37,8 @@ import java.util.Deque;
  *   myQueue.pop();     // return 1, queue is [2]
  *   myQueue.empty();   // return false
  * </pre>
+ *
+ * @see <a href="https://youtu.be/VlG_4iOE9MY">Video solution</a>
  */
 public class QueueUsing2Stacks {
 

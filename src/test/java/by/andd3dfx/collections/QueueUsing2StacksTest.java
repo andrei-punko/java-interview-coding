@@ -14,7 +14,7 @@ public class QueueUsing2StacksTest {
         queue.push(3);      // queue is [1 2 3] (leftmost is front of the queue)
         assertThat(queue.peek()).isEqualTo(1);  // return 1
         assertThat(queue.pop()).isEqualTo(1);   // return 1, queue is [2 3]
-        assertThat(queue.pop()).isEqualTo(2);   // return 1, queue is [3]
+        assertThat(queue.pop()).isEqualTo(2);   // return 2, queue is [3]
         assertThat(queue.peek()).isEqualTo(3);  // return 3
         assertThat(queue.empty()).isFalse();
         assertThat(queue.pop()).isEqualTo(3);   // return 3, queue is []

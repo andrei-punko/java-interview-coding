@@ -21,6 +21,8 @@ import java.util.LinkedHashMap;
  * Input: s = "aabb"
  * Output: -1
  * </pre>
+ *
+ * @see <a href="https://youtu.be/Xg5ztSmpl-0">Video solution</a>
  */
 public class FirstUniqueCharacterInString {
 
@@ -33,11 +35,13 @@ public class FirstUniqueCharacterInString {
                 map.put(ch, 1);
             }
         }
+
         for (var entry : map.entrySet()) {
             if (entry.getValue() == 1) {
                 return s.indexOf(entry.getKey());
             }
         }
+
         return -1;
     }
 }
