@@ -16,6 +16,8 @@ package by.andd3dfx.string;
  *   Input: s = "axc", t = "ahbgdc"
  *   Output: false
  * </pre>
+ *
+ * @see <a href="https://youtu.be/UbXVhH4NIuQ">Video solution</a>
  */
 public class IsSubsequence {
 

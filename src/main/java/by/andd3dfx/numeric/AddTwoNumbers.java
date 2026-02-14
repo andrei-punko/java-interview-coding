@@ -26,6 +26,8 @@ import lombok.NoArgsConstructor;
  *   Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
  *   Output: [8,9,9,9,0,0,0,1]
  * </pre>
+ *
+ * @see <a href="https://youtu.be/RKAeQ1o5pRo">Video solution</a>
  */
 public class AddTwoNumbers {
 
