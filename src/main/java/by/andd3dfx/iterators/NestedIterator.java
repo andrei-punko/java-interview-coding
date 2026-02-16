@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
  * or other lists. Implement an iterator to flatten it.
  *
  * Implement the NestedIterator class:
- *     NestedIterator(List<NestedInteger> nestedList) Initializes the iterator with the nested list nestedList.
+ *     NestedIterator(List&lt;NestedInteger&gt; nestedList) Initializes the iterator with the nested list nestedList.
  *     int next() Returns the next integer in the nested list.
  *     boolean hasNext() Returns true if there are still some integers in the nested list and false otherwise.
  *
@@ -29,15 +29,17 @@ import java.util.NoSuchElementException;
  * If res matches the expected flattened list, then your code will be judged as correct.
  *
  * Example 1:
- * Input: nestedList = [[1,1],2,[1,1]]
- * Output: [1,1,2,1,1]
- * Explanation: By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,1,2,1,1].
+ *   Input: nestedList = [[1,1],2,[1,1]]
+ *   Output: [1,1,2,1,1]
+ *   Explanation: By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,1,2,1,1].
  *
  * Example 2:
- * Input: nestedList = [1,[4,[6]]]
- * Output: [1,4,6]
- * Explanation: By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,4,6].
+ *   Input: nestedList = [1,[4,[6]]]
+ *   Output: [1,4,6]
+ *   Explanation: By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,4,6].
  * </pre>
+ *
+ * @see <a href="https://youtu.be/RiJ7Rc98vkI">Video solution</a>
  */
 public class NestedIterator implements Iterator<Integer> {
 
@@ -76,11 +78,11 @@ public class NestedIterator implements Iterator<Integer> {
         while (!stack.isEmpty()) {
             Iterator<INestedInteger> iterator = stack.peek();
             if (iterator.hasNext()) {
-                var next = iterator.next();
+                INestedInteger next = iterator.next();
 
-                if (next.isInteger()) {
+                if (next.isInteger()) {     // is integer
                     return next.getInteger();
-                } else {
+                } else {                    // is list
                     stack.push(next.getList().iterator());
                     return determineNextElement();
                 }
@@ -91,6 +93,9 @@ public class NestedIterator implements Iterator<Integer> {
         return null;
     }
 
+    /**
+     * This is the interface that allows for creating nested lists. You should not implement it, or speculate about its implementation
+     */
     public interface INestedInteger {
 
         // @return true if this NestedInteger holds a single integer, rather than a nested list.

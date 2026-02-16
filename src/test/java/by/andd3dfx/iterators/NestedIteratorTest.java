@@ -13,6 +13,9 @@ public class NestedIteratorTest {
 
     @Test
     public void testNextAndHasNext() {
+        check(List.of(new NestedInteger(2)), List.of(2));
+        check(List.of(new NestedIntegerList(new NestedIntegerList())), List.of());
+
         check(List.of(
                 new NestedIntegerList(1, 1),
                 new NestedInteger(2),
@@ -72,7 +75,7 @@ public class NestedIteratorTest {
 
         @Override
         public List<INestedInteger> getList() {
-            throw new IllegalStateException();
+            throw new IllegalStateException("Could not call getList on Integer!");
         }
     }
 
@@ -102,7 +105,7 @@ public class NestedIteratorTest {
 
         @Override
         public Integer getInteger() {
-            throw new IllegalStateException();
+            throw new IllegalStateException("Could not call getInteger on list!");
         }
 
         @Override
