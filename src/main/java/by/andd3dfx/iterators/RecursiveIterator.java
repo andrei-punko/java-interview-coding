@@ -49,20 +49,16 @@ public class RecursiveIterator<Object> implements Iterator<Object> {
             return result;
         }
 
-        if (stack.isEmpty()) {
-            return null;
-        }
-
         while (!stack.isEmpty()) {
             Iterator<Object> iterator = stack.peek();
             if (iterator.hasNext()) {
                 var next = iterator.next();
 
-                if (next instanceof Iterator) {
+                if (next instanceof String) {
+                    return next;
+                } else {
                     stack.push((Iterator<Object>) next);
                     return determineNextElement();
-                } else {
-                    return next;
                 }
             } else {
                 stack.pop();

@@ -73,20 +73,16 @@ public class NestedIterator implements Iterator<Integer> {
             return result;
         }
 
-        if (stack.isEmpty()) {
-            return null;
-        }
-
         while (!stack.isEmpty()) {
             Iterator<INestedInteger> iterator = stack.peek();
             if (iterator.hasNext()) {
                 var next = iterator.next();
 
-                if (!next.isInteger()) {
+                if (next.isInteger()) {
+                    return next.getInteger();
+                } else {
                     stack.push(next.getList().iterator());
                     return determineNextElement();
-                } else {
-                    return next.getInteger();
                 }
             } else {
                 stack.pop();
