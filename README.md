@@ -3,6 +3,7 @@
 [![Java CI with Gradle](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml/badge.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml)
 [![Coverage](.github/badges/jacoco.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml)
 [![Branches](.github/badges/branches.svg)](https://github.com/andrei-punko/java-interview-coding/actions/workflows/gradle.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Prerequisites
 
