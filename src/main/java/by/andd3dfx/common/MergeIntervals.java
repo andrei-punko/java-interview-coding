@@ -26,7 +26,8 @@ import java.util.List;
  *  Output: [[1,7]]
  *  Explanation: Intervals [1,4] and [4,7] are considered overlapping.
  * </pre>
- * <p>
+ *
+ * @see <a href="https://youtu.be/gyTPrnGg2Yk">Video solution</a>
  */
 public class MergeIntervals {
 
