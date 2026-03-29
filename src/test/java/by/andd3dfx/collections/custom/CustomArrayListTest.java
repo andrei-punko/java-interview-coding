@@ -1,6 +1,7 @@
 package by.andd3dfx.collections.custom;
 
 import lombok.SneakyThrows;
+import org.apache.commons.lang3.NotImplementedException;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
@@ -16,7 +17,7 @@ public class CustomArrayListTest {
 
     @Test
     public void addNGet() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         assertThat(list.size()).isEqualTo(0);
         assertTrue(list.isEmpty());
         assertTrue(list.add(4));
@@ -32,7 +33,7 @@ public class CustomArrayListTest {
 
     @Test
     public void addByIndexNGet() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         list.add(3);
         list.add(7);
         list.add(12);                 // 3 7 12
@@ -51,7 +52,7 @@ public class CustomArrayListTest {
 
     @Test
     public void addNGetWhenArrayUpResizeExpected() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         assertThat(determineInnerArrayLength(list)).isEqualTo(10);
         for (int i = 0; i < 20; i++) {
             list.add(i * i);
@@ -67,7 +68,7 @@ public class CustomArrayListTest {
 
     @Test
     public void addIntoMiddleOfListNGetWhenArrayUpResizeExpected() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         assertThat(determineInnerArrayLength(list)).isEqualTo(10);
         for (int i = 0; i < 10; i++) {
             list.add(i * i);
@@ -92,14 +93,14 @@ public class CustomArrayListTest {
 
     @Test
     public void addNSetNGet() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         assertThat(list.size()).isEqualTo(0);
         assertTrue(list.isEmpty());
         list.add(4);
         list.add(5);
-        list.set(1, 56);
+        assertThat(list.set(1, 56)).isEqualTo(56);
         list.add(12);
-        list.set(0, 31);
+        assertThat(list.set(0, 31)).isEqualTo(31);
 
         assertThat(list.size()).isEqualTo(3);
         assertFalse(list.isEmpty());
@@ -110,7 +111,7 @@ public class CustomArrayListTest {
 
     @Test
     public void addByIndexWhenOutOfRange() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         list.add(3);
         list.add(7);
         list.add(12);
@@ -121,7 +122,7 @@ public class CustomArrayListTest {
 
     @Test
     public void getByIndexWhenOutOfRange() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         list.add(3);
         list.add(7);
         list.add(12);
@@ -133,7 +134,7 @@ public class CustomArrayListTest {
 
     @Test
     public void setByIndexWhenOutOfRange() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         list.add(3);
         list.add(7);
         list.add(12);
@@ -144,7 +145,7 @@ public class CustomArrayListTest {
 
     @Test
     public void removeByIndex() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         list.add(11);
         list.add(7);
         list.add(12);
@@ -168,7 +169,7 @@ public class CustomArrayListTest {
 
     @Test
     public void removeByIndexWhenArrayDecResizedExpected() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         assertThat(determineInnerArrayLength(list)).isEqualTo(10);
         for (int i = 0; i < 20; i++) {
             list.add(i * i);
@@ -184,7 +185,7 @@ public class CustomArrayListTest {
     }
 
     @SneakyThrows
-    private static int determineInnerArrayLength(CustomArrayList list) {
+    private static int determineInnerArrayLength(List list) {
         Field field = list.getClass().getDeclaredField("array");
         field.setAccessible(true);
         var length = ((Object[]) field.get(list)).length;
@@ -193,7 +194,7 @@ public class CustomArrayListTest {
 
     @Test
     public void removeByIndexWhenOutOfRange() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         list.add(3);
         list.add(7);
         list.add(12);
@@ -205,7 +206,7 @@ public class CustomArrayListTest {
 
     @Test
     public void removeByValue() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -226,7 +227,7 @@ public class CustomArrayListTest {
 
     @Test
     public void removeByValueWhenArrayDecResizedExpected() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         for (int i = 0; i < 20; i++) {
             list.add(String.valueOf(i * i));
         }
@@ -242,7 +243,7 @@ public class CustomArrayListTest {
 
     @Test
     public void removeByValueWhenNullsPresent() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add(null);
         list.add("Tikhon");
@@ -261,7 +262,7 @@ public class CustomArrayListTest {
 
     @Test
     public void removeByValueWhenAbsent() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -281,7 +282,7 @@ public class CustomArrayListTest {
 
     @Test
     public void clear() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         list.add(2);
         list.add(3);
         list.add(36);
@@ -297,7 +298,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testForEach() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
         list.add(3);
         list.add(7);
         list.add(12);
@@ -311,7 +312,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testForEachForEmptyList() {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
+        List<Integer> list = new CustomArrayList<>();
 
         var result = new ArrayList<>();
         for (var item : list) {
@@ -322,7 +323,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testToString() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -332,7 +333,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testContains() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -344,7 +345,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testContainsAll() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -356,7 +357,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testAddAllNoResize() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -372,7 +373,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testAddAllResizeRequired() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -389,7 +390,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testRemoveAll() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -404,7 +405,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testRetainAll() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -418,7 +419,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testToArray() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -432,7 +433,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testToArrayTyped() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -446,7 +447,7 @@ public class CustomArrayListTest {
 
     @Test
     public void testToArrayTypedWhenLongArrayPassedAsParameter() {
-        CustomArrayList<String> list = new CustomArrayList<>();
+        List<String> list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
@@ -457,5 +458,62 @@ public class CustomArrayListTest {
         assertThat(result[1]).isEqualTo("Tikhon");
         assertThat(result[2]).isEqualTo("Ilya");
         assertThat(list.size()).isEqualTo(3);
+    }
+
+    @Test
+    public void indexOf() {
+        List<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Nina");
+        list.add(null);
+        list.add("Ilya");
+        list.add(null);
+
+        assertThat(list.indexOf("Tikhon")).isEqualTo(1);
+        assertThat(list.indexOf(null)).isEqualTo(3);
+    }
+
+    @Test
+    public void lastIndexOf() {
+        List<String> list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Nina");
+        list.add(null);
+        list.add("Tikhon");
+        list.add("Ilya");
+        list.add(null);
+
+        assertThat(list.lastIndexOf("Tikhon")).isEqualTo(4);
+        assertThat(list.lastIndexOf(null)).isEqualTo(6);
+    }
+
+    @Test
+    public void listIterator() {
+        var list = new CustomArrayList<>();
+
+        assertThrows(NotImplementedException.class, list::listIterator);
+    }
+
+    @Test
+    public void listIteratorWithIndex() {
+        var list = new CustomArrayList<>();
+
+        assertThrows(NotImplementedException.class, () -> list.listIterator(1));
+    }
+
+    @Test
+    public void subList() {
+        var list = new CustomArrayList<>();
+
+        assertThrows(NotImplementedException.class, () -> list.subList(1, 3));
+    }
+
+    @Test
+    public void addAllWithIndex() {
+        var list = new CustomArrayList<>();
+
+        assertThrows(NotImplementedException.class, () -> list.addAll(1, List.of(25, 27)));
     }
 }

@@ -1,15 +1,18 @@
 package by.andd3dfx.collections.custom;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * @see <a href="https://youtu.be/u7Vyh567ljs">Video solution part1</a>, <a href="https://youtu.be/VBdYvDW8WL8">part2</a>
  */
-public class CustomArrayList<T> implements Collection<T> {
+public class CustomArrayList<T> implements List<T> {
 
     private static final int DEFAULT_INITIAL_SIZE = 10;
     private static final float RESIZE_FACTOR = 1.75f;
@@ -26,27 +29,33 @@ public class CustomArrayList<T> implements Collection<T> {
         array = (T[]) new Object[length];
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
-    public void set(int index, T value) {
+    @Override
+    public T set(int index, T value) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(String.format("Wrong index: %d", index));
         }
 
         array[index] = value;
+        return value;
     }
 
+    @Override
     public boolean add(T value) {
         add(size, value);
         return true;
     }
 
+    @Override
     public void add(int index, T value) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
@@ -69,6 +78,7 @@ public class CustomArrayList<T> implements Collection<T> {
         size++;
     }
 
+    @Override
     public T get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(String.format("Wrong index: %d", index));
@@ -77,6 +87,7 @@ public class CustomArrayList<T> implements Collection<T> {
         return array[index];
     }
 
+    @Override
     public T remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(String.format("Wrong index: %d", index));
@@ -97,6 +108,60 @@ public class CustomArrayList<T> implements Collection<T> {
         }
 
         return result;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (array[i] == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(array[i])) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
+        if (o == null) {
+            for (int i = size - 1; i >= 0; i--) {
+                if (array[i] == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = size - 1; i >= 0; i--) {
+                if (o.equals(array[i])) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public ListIterator<T> listIterator() {
+        // TODO add implementation
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public ListIterator<T> listIterator(int index) {
+        // TODO add implementation
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public List<T> subList(int fromIndex, int toIndex) {
+        // TODO add implementation
+        throw new NotImplementedException();
     }
 
     public boolean remove(Object value) {
@@ -156,6 +221,12 @@ public class CustomArrayList<T> implements Collection<T> {
     }
 
     @Override
+    public boolean addAll(int index, Collection<? extends T> c) {
+        // TODO add implementation
+        throw new NotImplementedException();
+    }
+
+    @Override
     public boolean removeAll(Collection<?> c) {
         var result = false;
         for (var item : c) {
@@ -189,6 +260,7 @@ public class CustomArrayList<T> implements Collection<T> {
         return value1.equals(value2);
     }
 
+    @Override
     public void clear() {
         array = (T[]) new Object[DEFAULT_INITIAL_SIZE];
         size = 0;
@@ -224,6 +296,7 @@ public class CustomArrayList<T> implements Collection<T> {
 
     @RequiredArgsConstructor
     public class CustomIterator<E> implements Iterator<E> {
+
         private final E[] array;
         private final int size;
 
