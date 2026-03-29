@@ -356,36 +356,29 @@ public class CustomArrayListTest {
     }
 
     @Test
-    public void testAddAllNoResize() {
-        List<String> list = new CustomArrayList<>();
+    public void testAddAll_NoResize() {
+        var list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
 
         list.addAll(List.of("Taisia", "Nika"));
 
-        assertThat(list.contains("Andrei")).isTrue();
-        assertThat(list.contains("Tikhon")).isTrue();
-        assertThat(list.contains("Ilya")).isTrue();
-        assertThat(list.contains("Taisia")).isTrue();
-        assertThat(list.contains("Nika")).isTrue();
+        assertThat(list.size()).isEqualTo(5);
+        assertThat(list.toString()).isEqualTo("[Andrei, Tikhon, Ilya, Taisia, Nika]");
     }
 
     @Test
-    public void testAddAllResizeRequired() {
-        List<String> list = new CustomArrayList<>();
+    public void testAddAll_ResizeRequired() {
+        var list = new CustomArrayList<>();
         list.add("Andrei");
         list.add("Tikhon");
         list.add("Ilya");
 
         list.addAll(List.of("Taisia", "Nika", "Taisia", "Nika", "Taisia", "Alexey", "Taisia", "Nika"));
 
-        assertThat(list.contains("Andrei")).isTrue();
-        assertThat(list.contains("Tikhon")).isTrue();
-        assertThat(list.contains("Ilya")).isTrue();
-        assertThat(list.contains("Taisia")).isTrue();
-        assertThat(list.contains("Nika")).isTrue();
-        assertThat(list.contains("Alexey")).isTrue();
+        assertThat(list.size()).isEqualTo(11);
+        assertThat(list.toString()).isEqualTo("[Andrei, Tikhon, Ilya, Taisia, Nika, Taisia, Nika, Taisia, Alexey, Taisia, Nika]");
     }
 
     @Test
@@ -511,9 +504,28 @@ public class CustomArrayListTest {
     }
 
     @Test
-    public void addAllWithIndex() {
+    public void testAddAllWithIndex_NoResize() {
         var list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
 
-        assertThrows(NotImplementedException.class, () -> list.addAll(1, List.of(25, 27)));
+        list.addAll(1, List.of("Taisia", "Nika"));
+
+        assertThat(list.size()).isEqualTo(5);
+        assertThat(list.toString()).isEqualTo("[Andrei, Taisia, Nika, Tikhon, Ilya]");
+    }
+
+    @Test
+    public void testAddAllWithIndex_ResizeRequired() {
+        var list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        list.addAll(1, List.of("Taisia", "Nika", "Taisia", "Nika", "Taisia", "Alexey", "Taisia", "Nika"));
+
+        assertThat(list.size()).isEqualTo(11);
+        assertThat(list.toString()).isEqualTo("[Andrei, Taisia, Nika, Taisia, Nika, Taisia, Alexey, Taisia, Nika, Tikhon, Ilya]");
     }
 }

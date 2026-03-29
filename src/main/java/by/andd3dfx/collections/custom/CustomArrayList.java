@@ -204,26 +204,46 @@ public class CustomArrayList<T> implements List<T> {
         }
 
         var incomingArray = c.toArray();
-        if (array.length >= size + c.size()) {
-            System.arraycopy(incomingArray, 0, array, size, c.size());
-        } else {
-            int oldLength = array.length;
-            var newLength = oldLength;
+        if (array.length < size + c.size()) {
+            var newLength = array.length;
             while (newLength < size + c.size()) {
                 newLength *= RESIZE_FACTOR;
             }
             var newArray = (T[]) new Object[newLength];
             System.arraycopy(array, 0, newArray, 0, size);
             array = newArray;
-            System.arraycopy(incomingArray, 0, array, size, c.size());
         }
+        System.arraycopy(incomingArray, 0, array, size, c.size());
+        size += c.size();
+
         return true;
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends T> c) {
-        // TODO add implementation
-        throw new NotImplementedException();
+        if (c.isEmpty()) {
+            return false;
+        }
+
+        var incomingArray = c.toArray();
+        if (array.length < size + c.size()) {
+            var newLength = array.length;
+            while (newLength < size + c.size()) {
+                newLength *= RESIZE_FACTOR;
+            }
+            var newArray = (T[]) new Object[newLength];
+
+            System.arraycopy(array, 0, newArray, 0, index);
+            System.arraycopy(incomingArray, 0, newArray, index, c.size());
+            System.arraycopy(array, index, newArray, index + c.size(), size - index);
+            array = newArray;
+        } else {
+            System.arraycopy(array, index, array, index + c.size(), size - index);
+            System.arraycopy(incomingArray, 0, array, index, c.size());
+        }
+        size += c.size();
+
+        return true;
     }
 
     @Override
