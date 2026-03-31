@@ -537,6 +537,17 @@ public class CustomArrayListTest {
     }
 
     @Test
+    public void listIteratorWithIndex_InvalidIndex() {
+        var list = new CustomArrayList<String>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Nina");
+
+        assertThrows(IndexOutOfBoundsException.class, () -> list.listIterator(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.listIterator(4));
+    }
+
+    @Test
     public void listIteratorWithIndex() {
         var list = new CustomArrayList<String>();
         list.add("Andrei");
@@ -566,6 +577,17 @@ public class CustomArrayListTest {
         var list = new CustomArrayList<>();
 
         assertThrows(NotImplementedException.class, () -> list.subList(1, 3));
+    }
+
+    @Test
+    public void testAddAllWithIndex_InvalidIndex() {
+        var list = new CustomArrayList<>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Ilya");
+
+        assertThrows(IndexOutOfBoundsException.class, () -> list.addAll(-1, List.of("Taisia", "Nika")));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.addAll(4, List.of("Taisia", "Nika")));
     }
 
     @Test

@@ -154,6 +154,9 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public ListIterator<T> listIterator(int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
         return new CustomListIterator<>(this, index);
     }
 
@@ -220,6 +223,9 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public boolean addAll(int index, Collection<? extends T> c) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
         if (c.isEmpty()) {
             return false;
         }
