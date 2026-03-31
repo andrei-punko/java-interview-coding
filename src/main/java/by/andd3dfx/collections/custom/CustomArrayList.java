@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 /**
  * @see <a href="https://youtu.be/u7Vyh567ljs">Video solution part1</a>, <a href="https://youtu.be/VBdYvDW8WL8">part2</a>
@@ -148,14 +149,12 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public ListIterator<T> listIterator() {
-        // TODO add implementation
-        throw new NotImplementedException();
+        return new CustomListIterator<>(this);
     }
 
     @Override
     public ListIterator<T> listIterator(int index) {
-        // TODO add implementation
-        throw new NotImplementedException();
+        return new CustomListIterator<>(this, index);
     }
 
     @Override
@@ -293,7 +292,7 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new CustomIterator(array, size);
+        return new CustomArrayIterator<>(array, size);
     }
 
     @Override
@@ -315,11 +314,10 @@ public class CustomArrayList<T> implements List<T> {
     }
 
     @RequiredArgsConstructor
-    public class CustomIterator<E> implements Iterator<E> {
+    public static class CustomArrayIterator<E> implements Iterator<E> {
 
         private final E[] array;
         private final int size;
-
         private int curr = 0;
 
         @Override
@@ -329,7 +327,78 @@ public class CustomArrayList<T> implements List<T> {
 
         @Override
         public E next() {
+            if (curr == size) {
+                throw new NoSuchElementException();
+            }
             return array[curr++];
+        }
+    }
+
+    public static class CustomListIterator<E> implements ListIterator<E> {
+
+        private final E[] array;
+        private final int size;
+        private int curr;
+
+        public CustomListIterator(CustomArrayList<E> list) {
+            this(list, 0);
+        }
+
+        public CustomListIterator(CustomArrayList<E> list, int index) {
+            this.array = list.array;
+            this.size = list.size;
+            this.curr = index;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return curr < size;
+        }
+
+        @Override
+        public E next() {
+            if (curr == size) {
+                throw new NoSuchElementException();
+            }
+            return array[curr++];
+        }
+
+        @Override
+        public boolean hasPrevious() {
+            return curr > 0;
+        }
+
+        @Override
+        public E previous() {
+            if (curr == 0) {
+                throw new NoSuchElementException();
+            }
+            return array[--curr];
+        }
+
+        @Override
+        public int nextIndex() {
+            return curr + 1;
+        }
+
+        @Override
+        public int previousIndex() {
+            return curr - 1;
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void set(E e) {
+            array[curr] = e;
+        }
+
+        @Override
+        public void add(E e) {
+            throw new UnsupportedOperationException();
         }
     }
 }

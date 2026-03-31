@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
@@ -483,17 +484,81 @@ public class CustomArrayListTest {
     }
 
     @Test
-    public void listIterator() {
-        var list = new CustomArrayList<>();
+    public void iterator() {
+        var list = new CustomArrayList<String>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Nina");
 
-        assertThrows(NotImplementedException.class, list::listIterator);
+        var iterator = list.iterator();
+        var collectedItems = new ArrayList<String>();
+        while (iterator.hasNext()) {
+            collectedItems.add(iterator.next());
+        }
+        assertThat(collectedItems).isEqualTo(List.of("Andrei", "Tikhon", "Nina"));
+    }
+
+    @Test
+    public void listIterator() {
+        var list = new CustomArrayList<String>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Nina");
+
+        var iterator = list.listIterator();
+        var collectedItems = new ArrayList<String>();
+        while (iterator.hasNext()) {
+            collectedItems.add(iterator.next());
+        }
+        assertThat(collectedItems).isEqualTo(List.of("Andrei", "Tikhon", "Nina"));
+    }
+
+    @Test
+    public void listIteratorComplex() {
+        var list = new CustomArrayList<String>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Nina");
+
+        var iterator = list.listIterator();
+        var collectedItems = new ArrayList<String>();
+        collectedItems.add(iterator.next());
+        collectedItems.add(iterator.next());
+        collectedItems.add(iterator.previous());
+        collectedItems.add(iterator.previous());
+        assertThat(iterator.hasPrevious()).isEqualTo(false);
+        collectedItems.add(iterator.next());
+        collectedItems.add(iterator.next());
+        assertThat(iterator.hasNext()).isEqualTo(true);
+        collectedItems.add(iterator.next());
+        assertThat(iterator.hasNext()).isEqualTo(false);
+
+        assertThat(collectedItems).isEqualTo(List.of("Andrei", "Tikhon", "Tikhon", "Andrei", "Andrei", "Tikhon", "Nina"));
     }
 
     @Test
     public void listIteratorWithIndex() {
-        var list = new CustomArrayList<>();
+        var list = new CustomArrayList<String>();
+        list.add("Andrei");
+        list.add("Tikhon");
+        list.add("Nina");
 
-        assertThrows(NotImplementedException.class, () -> list.listIterator(1));
+        var iterator = list.listIterator(1);
+        var collectedItems = new ArrayList<String>();
+        collectedItems.add(iterator.next());
+        assertThat(iterator.hasNext()).isEqualTo(true);
+        collectedItems.add(iterator.next());
+        assertThat(iterator.hasNext()).isEqualTo(false);
+        assertThrows(NoSuchElementException.class, iterator::next);
+        collectedItems.add(iterator.previous());
+        assertThat(iterator.hasPrevious()).isEqualTo(true);
+        collectedItems.add(iterator.previous());
+        assertThat(iterator.hasPrevious()).isEqualTo(true);
+        collectedItems.add(iterator.previous());
+        assertThat(iterator.hasPrevious()).isEqualTo(false);
+        assertThrows(NoSuchElementException.class, iterator::previous);
+
+        assertThat(collectedItems).isEqualTo(List.of("Tikhon", "Nina", "Nina", "Tikhon", "Andrei"));
     }
 
     @Test
