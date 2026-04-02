@@ -26,7 +26,7 @@ public class CustomHashMap<K, V> {
         return size == 0;
     }
 
-    public V get(K key) {
+    public V get(Object key) {
         if (key == null) {
             return valueForNullKey;
         }
@@ -71,7 +71,7 @@ public class CustomHashMap<K, V> {
         return null;
     }
 
-    public boolean containsKey(K key) {
+    public boolean containsKey(Object key) {
         return get(key) != null;
     }
 
@@ -86,7 +86,7 @@ public class CustomHashMap<K, V> {
         return false;
     }
 
-    public V remove(K key) {
+    public V remove(Object key) {
         if (key == null) {
             var result = valueForNullKey;
             valueForNullKey = null;
@@ -122,7 +122,7 @@ public class CustomHashMap<K, V> {
         return new KeyIterator<>(buckets);
     }
 
-    private int determineBucketNumber(K key) {
+    private int determineBucketNumber(Object key) {
         return Math.abs(key.hashCode() % BUCKETS_COUNT);
     }
 
