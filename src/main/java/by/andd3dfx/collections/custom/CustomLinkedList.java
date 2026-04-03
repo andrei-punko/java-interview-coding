@@ -1,13 +1,15 @@
 package by.andd3dfx.collections.custom;
 
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.NotImplementedException;
 
+import java.util.Collection;
 import java.util.Iterator;
 
 /**
  * @see <a href="https://youtu.be/vHjvNHBQP3o">Video solution</a>
  */
-public class CustomLinkedList<T> implements Iterable<T> {
+public class CustomLinkedList<T> implements Collection<T> {
 
     @AllArgsConstructor
     public static class Node<M> {
@@ -26,8 +28,10 @@ public class CustomLinkedList<T> implements Iterable<T> {
     private Node<T> head;
     private int size = 0;
 
-    public void add(T value) {
+    @Override
+    public boolean add(T value) {
         add(size, value);
+        return true;
     }
 
     public void add(int index, T value) {
@@ -53,12 +57,35 @@ public class CustomLinkedList<T> implements Iterable<T> {
         size++;
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        var curr = head;
+        if (o == null) {
+            while (curr != null) {
+                if (curr.value == null) {
+                    return true;
+                }
+                curr = curr.next;
+            }
+        } else {
+            while (curr != null) {
+                if (o.equals(curr.value)) {
+                    return true;
+                }
+                curr = curr.next;
+            }
+        }
+        return false;
     }
 
     public T get(int index) {
@@ -120,7 +147,8 @@ public class CustomLinkedList<T> implements Iterable<T> {
         return curr.value;
     }
 
-    public boolean remove(T value) {
+    @Override
+    public boolean remove(Object value) {
         var i = 0;
         var curr = head;
         while (curr != null) {
@@ -134,7 +162,35 @@ public class CustomLinkedList<T> implements Iterable<T> {
         return false;
     }
 
-    private boolean checkEquality(T value1, T value2) {
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        for (var element : c) {
+            if (!contains(element)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends T> c) {
+        // TODO add implementation
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        // TODO add implementation
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        // TODO add implementation
+        throw new UnsupportedOperationException();
+    }
+
+    private boolean checkEquality(Object value1, Object value2) {
         if (value1 == null) {
             return value2 == null;
         }
@@ -162,6 +218,7 @@ public class CustomLinkedList<T> implements Iterable<T> {
         head = prev;
     }
 
+    @Override
     public void clear() {
         head = null;
         size = 0;
@@ -170,6 +227,18 @@ public class CustomLinkedList<T> implements Iterable<T> {
     @Override
     public Iterator<T> iterator() {
         return new CustomIterator<>(head);
+    }
+
+    @Override
+    public Object[] toArray() {
+        // TODO add implementation
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public <T1> T1[] toArray(T1[] a) {
+        // TODO add implementation
+        throw new NotImplementedException();
     }
 
     @AllArgsConstructor

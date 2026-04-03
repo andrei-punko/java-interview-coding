@@ -3,6 +3,7 @@ package by.andd3dfx.collections.custom;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,8 +19,8 @@ public class CustomLinkedListTest {
         assertThat(linkedList.size()).isEqualTo(0);
         assertTrue(linkedList.isEmpty());
 
-        linkedList.add(3);
-        linkedList.add(7);
+        assertTrue(linkedList.add(3));
+        assertTrue(linkedList.add(7));
 
         assertThat(linkedList.size()).isEqualTo(2);
         assertFalse(linkedList.isEmpty());
@@ -339,5 +340,33 @@ public class CustomLinkedListTest {
         var result = linkedList.toString();
 
         assertThat(result).isEqualTo("CustomLinkedList{head={3, next={7, next={12, next={34}}}}}");
+    }
+
+    @Test
+    public void contains() {
+        var linkedList = new CustomLinkedList<>();
+        linkedList.add(3);
+        linkedList.add(7);
+        assertThat(linkedList.contains(null)).isFalse();
+
+        linkedList.add(null);
+        linkedList.add(12);
+        assertThat(linkedList.contains(3)).isTrue();
+        assertThat(linkedList.contains(99)).isFalse();
+        assertThat(linkedList.contains(12)).isTrue();
+        assertThat(linkedList.contains(null)).isTrue();
+    }
+
+    @Test
+    public void containsAll() {
+        var linkedList = new CustomLinkedList<>();
+        linkedList.add(3);
+        linkedList.add(7);
+        linkedList.add(null);
+        linkedList.add(99);
+
+        assertThat(linkedList.containsAll(List.of(3, 99))).isTrue();
+        assertThat(linkedList.containsAll(Arrays.asList(7, null, 99))).isTrue();
+        assertThat(linkedList.containsAll(List.of(7, 12))).isFalse();
     }
 }
