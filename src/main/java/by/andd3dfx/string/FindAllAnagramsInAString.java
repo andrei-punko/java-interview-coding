@@ -27,6 +27,8 @@ import java.util.Set;
  *   The substring with start index = 1 is "ba", which is an anagram of "ab".
  *   The substring with start index = 2 is "ab", which is an anagram of "ab".
  * </pre>
+ *
+ * @see <a href="https://youtu.be/RiEtVGg_Lm8">Video solution</a>
  */
 public class FindAllAnagramsInAString {
 
@@ -35,9 +37,8 @@ public class FindAllAnagramsInAString {
         var normalizedP = normalize(p);
 
         Set<String> approvedStrings = new HashSet<>();
-        approvedStrings.add(normalizedP);
         for (var start = 0; start <= s.length() - p.length(); start++) {
-            String candidate = s.substring(start, start + p.length());
+            var candidate = s.substring(start, start + p.length());
 
             if (approvedStrings.contains(candidate) || normalizedP.equals(normalize(candidate))) {
                 approvedStrings.add(candidate);
