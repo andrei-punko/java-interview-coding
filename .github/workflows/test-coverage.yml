@@ -18,15 +18,11 @@ jobs:
           cache: gradle
 
       - name: Build with Gradle Wrapper
-        run: ./gradlew githubWorkflowTest --no-daemon -i
-
-      - name: Run Test Coverage
-        run: ./gradlew jacocoTestReport -i -PexecutionData='/home/runner/work/java-interview-coding/java-interview-coding/build/jacoco/jacocoTest.exec'
+        run: ./gradlew githubWorkflowTest
 
       - name: Generate JaCoCo Badge
         uses: cicirello/jacoco-badge-generator@v2
         with:
-          generate-branches-badge: false
           jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
 
       - name: Commit the badge (if it changed)

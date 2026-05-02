@@ -22,4 +22,4 @@ jobs:
           cache: gradle
 
       - name: Build with Gradle Wrapper
-        run: ./gradlew githubWorkflowTest --no-daemon -i
+        run: ./gradlew githubWorkflowTest
