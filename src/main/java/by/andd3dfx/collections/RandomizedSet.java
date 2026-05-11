@@ -68,8 +68,11 @@ public class RandomizedSet {
         var isExist = map.containsKey(val);
         if (isExist) {
             var index = map.get(val);
-            values.set(index, values.getLast());
-            map.put(values.get(index), index);
+
+            var lastValue = values.getLast();
+            values.set(index, lastValue);
+            map.put(lastValue, index);
+
             values.removeLast();
             map.remove(val);
         }
