@@ -39,9 +39,15 @@ import java.util.Random;
  */
 public class RandomizedSet {
 
-    private final Random random = new Random();
-    private final Map<Integer, Integer> map = new HashMap<>();
-    private final List<Integer> keys = new ArrayList<>();
+    private final Random random;
+    private final Map<Integer, Integer> map;
+    private final List<Integer> values;
+
+    public RandomizedSet() {
+        this.random = new Random();
+        this.map = new HashMap<>();
+        this.values = new ArrayList<>();
+    }
 
     /**
      * Inserts an item val into the set if not present. Returns true if the item was not present, false otherwise.
@@ -49,8 +55,8 @@ public class RandomizedSet {
     public boolean insert(int val) {
         var isNotExist = !map.containsKey(val);
         if (isNotExist) {
-            keys.add(val);
-            map.put(val, keys.size() - 1);
+            values.add(val);
+            map.put(val, values.size() - 1);
         }
         return isNotExist;
     }
@@ -62,9 +68,9 @@ public class RandomizedSet {
         var isExist = map.containsKey(val);
         if (isExist) {
             var index = map.get(val);
-            keys.set(index, keys.getLast());
-            map.put(keys.get(index), index);
-            keys.removeLast();
+            values.set(index, values.getLast());
+            map.put(values.get(index), index);
+            values.removeLast();
             map.remove(val);
         }
         return isExist;
@@ -75,7 +81,7 @@ public class RandomizedSet {
      * when this method is called). Each element must have the same probability of being returned.
      */
     public int getRandom() {
-        var index = random.nextInt(keys.size());
-        return keys.get(index);
+        var index = random.nextInt(values.size());
+        return values.get(index);
     }
 }
