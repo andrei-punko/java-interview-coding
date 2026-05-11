@@ -48,7 +48,7 @@ Check appropriate [video](https://youtu.be/GjDF_LdwYHU) on YouTube
 
 ## Coding interview materials
 
-The [interview-materials](interview-materials) folder contains some
+The [docs](docs) folder contains some
 notes about interview preparation and useful links.
 We can perceive materials in this folder as project backlog or "box with other stuff"
 
