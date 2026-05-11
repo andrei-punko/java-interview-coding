@@ -23,6 +23,7 @@
 - [common](src/main/java/by/andd3dfx/common) (some uncategorized stuff)
 - [core](src/main/java/by/andd3dfx/core)
 - [dynamic](src/main/java/by/andd3dfx/dynamic)
+- [game](src/main/java/by/andd3dfx/game)
 - [iterators](src/main/java/by/andd3dfx/iterators)
 - [jvm](src/main/java/by/andd3dfx/jvm)
 - [multithreading](src/main/java/by/andd3dfx/multithreading)
@@ -54,5 +55,5 @@ We can perceive materials in this folder as project backlog or "box with other s
 
 ## Appendix. Verbal interview materials
 
-Check [java-interview-faq-n-answers repo](https://github.com/andrei-punko/java-interview-faq-n-answers) to get materials for preparation to Java
+Check [java-interview-faq-n-answers](https://github.com/andrei-punko/java-interview-faq-n-answers) repo to get materials for preparation to Java
 verbal interview
