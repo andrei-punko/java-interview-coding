@@ -1,7 +1,7 @@
 package by.andd3dfx.search.wordsearch;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
+import tools.jackson.databind.ObjectMapper;
 
 import java.util.Arrays;
 import java.util.HashMap;
