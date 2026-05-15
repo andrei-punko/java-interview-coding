@@ -19,6 +19,8 @@ public class ChangeWithMinNumberOfCoinsTest {
         assertThat(determine_usingRecursion(new int[]{25, 10, 5}, 55)).isEqualTo(3);
         assertThat(determine_usingRecursion(new int[]{25, 10, 5}, 4)).isEqualTo(-1);
         assertThat(determine_usingRecursion(new int[]{25, 10, 5}, 34)).isEqualTo(-1);
+
+        assertThat(determine_usingRecursion(new int[]{500, 500, 500, 200, 200, 200, 200, 200}, 1100)).isEqualTo(4);
     }
 
     @Test
@@ -32,5 +34,7 @@ public class ChangeWithMinNumberOfCoinsTest {
         assertThat(determine_usingMemoization(new int[]{25, 10, 5}, 55)).isEqualTo(3);
         assertThat(determine_usingMemoization(new int[]{25, 10, 5}, 4)).isEqualTo(-1);
         assertThat(determine_usingMemoization(new int[]{25, 10, 5}, 34)).isEqualTo(-1);
+
+        assertThat(determine_usingMemoization(new int[]{500, 500, 500, 200, 200, 200, 200, 200}, 1100)).isEqualTo(4);
     }
 }

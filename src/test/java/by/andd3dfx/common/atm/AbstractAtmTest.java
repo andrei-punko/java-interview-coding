@@ -1,6 +1,7 @@
 package by.andd3dfx.common.atm;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Map;
@@ -11,6 +12,7 @@ import static org.junit.Assert.assertThrows;
 public abstract class AbstractAtmTest {
 
     private IAtm atm;
+    private IAtm atm2;
 
     @Before
     public void setUp() throws Exception {
@@ -18,6 +20,10 @@ public abstract class AbstractAtmTest {
             500, 1,
             200, 3,
             50, 5
+        ));
+        atm2 = buildAtm(Map.of(
+            500, 3,
+            200, 5
         ));
     }
 
@@ -75,6 +81,17 @@ public abstract class AbstractAtmTest {
         assertThat(result2).isEqualTo(Map.of(
             200, 3,
             50, 1
+        ));
+    }
+
+    // TODO: fix implementation to make this test passed
+    @Ignore
+    @Test
+    public void withdraw_vsGreedyAlgorithm() {
+        var result = atm2.withdraw(1100);
+        assertThat(result).isEqualTo(Map.of(
+            500, 1,
+            200, 3
         ));
     }
 }
