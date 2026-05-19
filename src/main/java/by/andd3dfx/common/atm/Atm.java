@@ -22,6 +22,7 @@ public class Atm {
 
     public Atm(Map<Integer, Integer> state) {
         this.state = new HashMap<>(state);
+        // Порядок важен для backtracking: сначала пробуем крупные номиналы.
         this.nominals = state.keySet().stream()
             .sorted(Comparator.reverseOrder()).toList();
     }
@@ -33,44 +34,48 @@ public class Atm {
      * @return map with solution - pairs {banknote nominal->quantity}
      */
     public Map<Integer, Integer> withdraw(int amount) {
-        // Try to make withdraw using banknote of highest nominal,
-        // in case of fail - try to start from next nominal
-        for (int i = 0; i < nominals.size(); i++) {
-            try {
-                return withdraw(amount, i);
-            } catch (IllegalStateException ex) {
-                // do nothing
-            }
+        if (amount == 0) {
+            return Map.of();
+        }
+
+        // Перебор всех комбинаций (не жадный): для каждого номинала пробуем 0..max купюр.
+        var result = new HashMap<Integer, Integer>();
+        if (findSolution(amount, 0, result)) {
+            mutateAtm(result);
+            return result;
         }
 
         throw new IllegalStateException("Could not perform withdraw!");
     }
 
-    private Map<Integer, Integer> withdraw(int amount, int nominalIndex) {
-        var result = new HashMap<Integer, Integer>();
-
-        for (var index = nominalIndex; index < nominals.size(); index++) {
-            var nominal = nominals.get(index);
-            if (nominal > amount || state.get(nominal) == 0) {
-                continue;
-            }
-
-            int count = amount / nominal;
-            count = Math.min(count, state.get(nominal));
-            result.put(nominal, count);
-            amount -= nominal * count;
-
-            if (amount == 0) {
-                break;
-            }
+    /**
+     * Рекурсивный поиск комбинации купюр для {@code amount}, начиная с номинала {@code index}.
+     * Найденное решение накапливается в {@code result}.
+     */
+    private boolean findSolution(int amount, int index, Map<Integer, Integer> result) {
+        if (amount == 0) {
+            return true;
+        }
+        if (index >= nominals.size()) {
+            return false; // купюры закончились, сумма не набрана
         }
 
-        if (amount > 0) {
-            throw new IllegalStateException("Could not perform withdraw!");
+        var nominal = nominals.get(index);
+        // Сколько купюр этого номинала можно взять: min(есть в банкомате, amount / nominal).
+        int maxCount = Math.min(state.get(nominal), amount / nominal);
+        // От max к 0: сначала варианты с большим числом крупных купюр (см. тесты).
+        for (int count = maxCount; count >= 0; count--) {
+            if (count > 0) {
+                result.put(nominal, count);
+            }
+            if (findSolution(amount - nominal * count, index + 1, result)) {
+                return true;
+            }
+            if (count > 0) {
+                result.remove(nominal); // backtrack
+            }
         }
-
-        mutateAtm(result);
-        return result;
+        return false;
     }
 
     private void mutateAtm(Map<Integer, Integer> result) {

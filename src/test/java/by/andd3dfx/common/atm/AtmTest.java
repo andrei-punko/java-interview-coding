@@ -1,7 +1,6 @@
 package by.andd3dfx.common.atm;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Map;
@@ -81,8 +80,6 @@ public class AtmTest {
         ));
     }
 
-    // TODO: fix implementation to make this test passed
-    @Ignore
     @Test
     public void withdraw_vsGreedyAlgorithm() {
         var atm2 = buildAtm(Map.of(
