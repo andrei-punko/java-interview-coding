@@ -9,10 +9,13 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
 
-public abstract class AbstractAtmTest {
+public class AtmTest {
 
-    private IAtm atm;
-    private IAtm atm2;
+    private Atm atm;
+
+    protected Atm buildAtm(Map<Integer, Integer> state) {
+        return new Atm(state);
+    }
 
     @Before
     public void setUp() throws Exception {
@@ -21,13 +24,7 @@ public abstract class AbstractAtmTest {
             200, 3,
             50, 5
         ));
-        atm2 = buildAtm(Map.of(
-            500, 3,
-            200, 5
-        ));
     }
-
-    protected abstract IAtm buildAtm(Map<Integer, Integer> state);
 
     @Test
     public void withdrawFor0() {
@@ -88,7 +85,13 @@ public abstract class AbstractAtmTest {
     @Ignore
     @Test
     public void withdraw_vsGreedyAlgorithm() {
+        var atm2 = buildAtm(Map.of(
+            500, 3,
+            200, 5
+        ));
+
         var result = atm2.withdraw(1100);
+
         assertThat(result).isEqualTo(Map.of(
             500, 1,
             200, 3
