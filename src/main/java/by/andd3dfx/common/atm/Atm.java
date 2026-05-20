@@ -8,17 +8,20 @@ import java.util.Map;
 /**
  * <pre>
  * Есть банкомат (ATM), который заряжают купюрами.
- * Надо реализовать метод withdraw() для выдачи заданной суммы amount имеющимися в банкомате купюрами.
- * Метод withdraw() - мутирующий, т.е. меняет состояние банкомата после вызова (кол-во купюр может уменьшиться):
- *   Map<Integer, Integer> withdraw(int amount)
+ *
+ * Надо реализовать метод <code>Map&lt;Integer, Integer&gt; withdraw(int amount)</code> для выдачи заданной суммы
+ * <code>amount</code> имеющимися в банкомате купюрами.
+ * Метод <code>withdraw</code> - мутирующий, т.е. меняет состояние банкомата после вызова (кол-во купюр может уменьшиться).
  * </pre>
  *
- * @see <a href="https://youtu.be/LDKZtDevRRI">Video solution 1</a> and <a href="https://youtu.be/0-BL-NO9-B8">Video solution 2</a>
+ * @see <a href="https://youtu.be/LDKZtDevRRI">Video solution 1</a>
+ * and <a href="https://youtu.be/0-BL-NO9-B8">Video solution 2</a>
+ * and <a href="https://youtu.be/1JrcFU_Wig8">Video solution 3</a>
  */
 public class Atm {
 
-    private Map<Integer, Integer> state;
-    private List<Integer> nominals;
+    private final Map<Integer, Integer> state;
+    private final List<Integer> nominals;
 
     public Atm(Map<Integer, Integer> state) {
         this.state = new HashMap<>(state);
