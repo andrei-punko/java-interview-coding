@@ -18,12 +18,12 @@ public class StringComparisonTest {
         assertThat(serencen("кошка", "кошак")).isEqualTo(0.5);
         assertThat(serencen("кошка", "носок")).isEqualTo(0.0);
         assertThat(serencen("Василевский", "Василевские")).isEqualTo(0.9);
-        assertThat(serencen("алкогольдегридрогеназа", "алкоголь гидропоника генезис"))
-            .isCloseTo(0.5217, byLessThan(1e-4));
+        assertThat(serencen("алкогольдегидрогеназа", "алкоголь гидропоника генезис"))
+            .isCloseTo(0.5778, byLessThan(0.0001));
     }
 
     @Test
-    public void testSerencenForSets() {
+    public void serencenForSets() {
         assertThat(serencen(Set.of(1, 2, 3), Set.of())).isEqualTo(0.0);
         assertThat(serencen(Set.of(1, 2, 3), Set.of(1, 2, 3))).isEqualTo(1.0);
         assertThat(serencen(Set.of(1, 2, 3), Set.of(3, 2, 1))).isEqualTo(1.0);
