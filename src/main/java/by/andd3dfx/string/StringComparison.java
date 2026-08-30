@@ -1,28 +1,48 @@
 package by.andd3dfx.string;
 
+import org.apache.commons.text.similarity.JaroWinklerSimilarity;
+import org.apache.commons.text.similarity.LevenshteinDistance;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.IntStream;
 
 /**
  * <pre>
- * String comparison methods
+ * String comparison methods:
  *
  * Dice-Sørensen coefficient, also known as:
  * - Sørensen–Dice index
  * - Sørensen index
  * - Dice's coefficient
  * - Dice similarity coefficient (DSC)
+ *
+ * Levenstein similarity
+ *
+ * Jaro-Winkler similarity
  * </pre>
  *
  * @see <a href="https://en.wikipedia.org/wiki/Dice-S%C3%B8rensen_coefficient">Wiki page</a>
  * @see <a href="https://youtu.be/i7O4R4gfZqE">Video solution</a>
  * @see <a href="https://habr.com/ru/articles/671136/">Habr article</a>
+ * @see <a href="https://www.baeldung.com/cs/string-similarity-edit-distance">Baeldung article</a>
  */
 public class StringComparison {
 
+    private static final LevenshteinDistance LEVENSHTEIN_DISTANCE = LevenshteinDistance.getDefaultInstance();
+    private static final JaroWinklerSimilarity JARO_WINKLER_SIMILARITY = new JaroWinklerSimilarity();
+
     public static double serencen(String first, String second) {
         return serencen(toBigram(first), toBigram(second));
+    }
+
+    public static double levensteinSimilarity(String first, String second) {
+        double levensteinDistance = LEVENSHTEIN_DISTANCE.apply(first, second);
+        return 1.0 - levensteinDistance / Math.max(first.length(), second.length());
+    }
+
+    public static double jaroWinklerSimilarity(String first, String second) {
+        return JARO_WINKLER_SIMILARITY.apply(first, second);
     }
 
     private static Set<String> toBigram(String text) {
