@@ -28,7 +28,8 @@ public class SomeServiceImpl implements SomeService {
 
     @Transactional(readOnly = true)
     public List<Receipt> getRefundReceipts() {
-        return receiptDao.findAllBySourceAndProcessedFalse(ReceiptSource.REFUND); // select * from receipt where source = 'REFUND' and processed = false;
+        // select * from receipt where source = 'REFUND' and processed = false;
+        return receiptDao.findAllBySourceAndProcessedFalse(ReceiptSource.REFUND);
     }
 }
 
@@ -37,7 +38,7 @@ public interface ReceiptDao extends JpaRepository<Receipt, Long> {
     List<Receipt> findAllBySourceAndProcessedFalse(ReceiptSource source);
 }
 
-//ниже этой строки - все корректно - enum, dto, entity - только для наглядности
+// ниже этой строки - все корректно - enum, dto, entity - только для наглядности
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -58,5 +59,6 @@ public class ReceiptDto {
     private String sum;
     private ReceiptSource source;
 }
+
 public enum ReceiptSource { DISCOUNT, SELL, REFUND}
 ```
