@@ -34,6 +34,12 @@ public class AtmTest {
     }
 
     @Test
+    public void withdrawForNegativeAmount() {
+        var thrown = assertThrows(IllegalArgumentException.class, () -> atm.withdraw(-1));
+        assertThat(thrown.getMessage()).isEqualTo("Amount should be >=0!");
+    }
+
+    @Test
     public void withdraw() {
         var result = atm.withdraw(450);
 
@@ -93,5 +99,23 @@ public class AtmTest {
             500, 1,
             200, 3
         ));
+    }
+
+    @Test
+    public void constructorRejectsNotPositiveNominals() {
+        var thrown = assertThrows(IllegalArgumentException.class,
+            () -> buildAtm(Map.of(500, 1, 0, 2)));
+        assertThat(thrown.getMessage()).isEqualTo("Nominal should be >0!");
+
+        var thrown2 = assertThrows(IllegalArgumentException.class,
+            () -> buildAtm(Map.of(-100, 1)));
+        assertThat(thrown2.getMessage()).isEqualTo("Nominal should be >0!");
+    }
+
+    @Test
+    public void constructorRejectsNegativeCount() {
+        var thrown = assertThrows(IllegalArgumentException.class,
+            () -> buildAtm(Map.of(500, 1, 200, -1)));
+        assertThat(thrown.getMessage()).isEqualTo("Count should be >=0!");
     }
 }

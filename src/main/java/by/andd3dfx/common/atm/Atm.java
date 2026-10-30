@@ -24,6 +24,16 @@ public class Atm {
     private final List<Integer> nominals;
 
     public Atm(Map<Integer, Integer> state) {
+        // Валидируем входное состояние: с некорректными номиналами/количеством дальше нечего делать.
+        state.forEach((nominal, count) -> {
+            if (nominal == null || nominal <= 0) {
+                throw new IllegalArgumentException("Nominal should be >0!");
+            }
+            if (count == null || count < 0) {
+                throw new IllegalArgumentException("Count should be >=0!");
+            }
+        });
+
         this.state = new HashMap<>(state);
         // Порядок важен для backtracking: сначала пробуем крупные номиналы.
         this.nominals = state.keySet().stream()
@@ -37,6 +47,9 @@ public class Atm {
      * @return map with solution - pairs {banknote nominal->quantity}
      */
     public Map<Integer, Integer> withdraw(int amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Amount should be >=0!");
+        }
         if (amount == 0) {
             return Map.of();
         }
