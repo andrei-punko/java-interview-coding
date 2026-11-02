@@ -1,8 +1,8 @@
 package by.andd3dfx.tree;
 
 import by.andd3dfx.tree.BinaryTreeWalking.Node;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class BinaryTreeWalkingTest {
 
     private BinaryTreeWalking binaryTreeWalking;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         binaryTreeWalking = new BinaryTreeWalking();
     }

@@ -1,7 +1,7 @@
 package by.andd3dfx.collections;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
@@ -11,7 +11,7 @@ public class RemoveDuplicatesFromSortedArrayTest {
 
     private RemoveDuplicatesFromSortedArray removeDuplicatesFromSortedArray;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         removeDuplicatesFromSortedArray = new RemoveDuplicatesFromSortedArray();
     }

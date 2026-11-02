@@ -2,14 +2,14 @@ package by.andd3dfx.multithreading;
 
 import lombok.SneakyThrows;
 import org.awaitility.Durations;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BuildingH2OTest {
 

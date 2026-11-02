@@ -1,13 +1,13 @@
 package by.andd3dfx.collections;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static by.andd3dfx.collections.ReverseLinkedList.Node;
 import static by.andd3dfx.collections.ReverseLinkedList.reverseUsingLoop;
 import static by.andd3dfx.collections.ReverseLinkedList.reverseUsingRecursion;
 import static by.andd3dfx.collections.ReverseLinkedList.reverseUsingStack;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ReverseLinkedListTest {
 

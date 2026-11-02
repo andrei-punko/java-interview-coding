@@ -1,7 +1,7 @@
 package by.andd3dfx.numeric;
 
 import by.andd3dfx.numeric.BestAverageScore.Item;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 

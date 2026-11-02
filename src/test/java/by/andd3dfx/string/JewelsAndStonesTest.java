@@ -4,7 +4,7 @@ import static by.andd3dfx.string.JewelsAndStones.numJewelsInStones;
 import static by.andd3dfx.string.JewelsAndStones.numJewelsInStones2;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class JewelsAndStonesTest {
 

@@ -1,7 +1,7 @@
 package by.andd3dfx.collections;
 
 import by.andd3dfx.collections.FilterUsers.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.List;

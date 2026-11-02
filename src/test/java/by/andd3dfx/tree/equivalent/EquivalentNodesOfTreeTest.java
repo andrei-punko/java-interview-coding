@@ -1,7 +1,7 @@
 package by.andd3dfx.tree.equivalent;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class EquivalentNodesOfTreeTest {
 
     private EquivalentNodesOfTree equivalentNodesOfTree;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         equivalentNodesOfTree = new EquivalentNodesOfTree();
     }

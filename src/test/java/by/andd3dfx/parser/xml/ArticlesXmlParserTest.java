@@ -1,7 +1,7 @@
 package by.andd3dfx.parser.xml;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class ArticlesXmlParserTest {
 
     private ArticlesXmlParser parser;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         parser = new ArticlesXmlParser();
     }

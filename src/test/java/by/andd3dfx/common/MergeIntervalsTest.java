@@ -2,14 +2,14 @@ package by.andd3dfx.common;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class MergeIntervalsTest {
 
     private MergeIntervals mergeIntervals;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         mergeIntervals = new MergeIntervals();
     }

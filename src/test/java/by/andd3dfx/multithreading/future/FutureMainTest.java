@@ -1,20 +1,20 @@
 package by.andd3dfx.multithreading.future;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class FutureMainTest {
 
     private FutureMain futureMain;
 
-    @Before
+    @BeforeEach
     public void setup() {
         futureMain = new FutureMain();
     }

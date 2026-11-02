@@ -1,6 +1,6 @@
 package by.andd3dfx.multithreading.future;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;

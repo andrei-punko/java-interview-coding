@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import by.andd3dfx.tree.RangeSumOfBST.TreeNode;
 import org.apache.commons.lang3.function.TriFunction;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RangeSumOfBSTTest {
 

@@ -1,7 +1,7 @@
 package by.andd3dfx.multithreading;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
@@ -19,7 +19,7 @@ public class TwoLegsRobotTest {
 
     private TwoLegsRobot robot;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         robot = new TwoLegsRobot();
     }

@@ -1,6 +1,6 @@
 package by.andd3dfx.numeric;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static by.andd3dfx.numeric.MeanMedianMode.mean;
 import static by.andd3dfx.numeric.MeanMedianMode.median;

@@ -1,6 +1,6 @@
 package by.andd3dfx.annotation;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

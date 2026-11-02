@@ -1,12 +1,12 @@
 package by.andd3dfx.common.atm;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AtmTest {
 
@@ -16,7 +16,7 @@ public class AtmTest {
         return new Atm(state);
     }
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         atm = buildAtm(Map.of(
             500, 1,

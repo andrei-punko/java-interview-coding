@@ -1,7 +1,7 @@
 package by.andd3dfx.core.equalshashcode;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class CustomEqualsNHashCode2Test {
 

@@ -1,11 +1,11 @@
 package by.andd3dfx.common.birdsfarm;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * Tests:
@@ -19,26 +19,26 @@ public class BirdsFarmTest {
     @Test
     public void testChickenHatch() throws Exception {
         Chicken chicken = new Chicken();
-        assertTrue("Chicken should be instance of IBird", chicken instanceof IBird);
+        assertTrue(chicken instanceof IBird, "Chicken should be instance of IBird");
 
         Egg egg = chicken.lay();
         IBird hatchedBird = egg.hatch();
 
-        assertTrue("Hatched bird should be instance of Chicken", hatchedBird instanceof Chicken);
-        assertFalse("Hatched bird shouldn't be instance of Goose", hatchedBird instanceof Goose);
+        assertTrue(hatchedBird instanceof Chicken, "Hatched bird should be instance of Chicken");
+        assertFalse(hatchedBird instanceof Goose, "Hatched bird shouldn't be instance of Goose");
         checkExceptionDuringSecondHatching(egg);
     }
 
     @Test
     public void testGooseHatch() throws Exception {
         Goose goose = new Goose();
-        assertTrue("Goose should be instance of IBird", goose instanceof IBird);
+        assertTrue(goose instanceof IBird, "Goose should be instance of IBird");
 
         Egg egg = goose.lay();
         IBird hatchedBird = egg.hatch();
 
-        assertTrue("Hatched bird should be instance of Goose", hatchedBird instanceof Goose);
-        assertFalse("Hatched bird shouldn't be instance of Chicken", hatchedBird instanceof Chicken);
+        assertTrue(hatchedBird instanceof Goose, "Hatched bird should be instance of Goose");
+        assertFalse(hatchedBird instanceof Chicken, "Hatched bird shouldn't be instance of Chicken");
         checkExceptionDuringSecondHatching(egg);
     }
 

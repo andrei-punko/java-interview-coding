@@ -1,7 +1,7 @@
 package by.andd3dfx.multithreading.lock;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -15,7 +15,7 @@ public class CustomReentrantLockTest {
 
     private Lock lock;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         lock = new CustomReentrantLock();
     }

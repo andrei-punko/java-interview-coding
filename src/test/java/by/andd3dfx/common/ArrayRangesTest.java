@@ -1,7 +1,7 @@
 package by.andd3dfx.common;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -9,7 +9,7 @@ public class ArrayRangesTest {
 
     private ArrayRanges ranges;
 
-    @Before
+    @BeforeEach
     public void setup() {
         ranges = new ArrayRanges();
     }

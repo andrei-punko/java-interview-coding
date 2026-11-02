@@ -1,10 +1,10 @@
 package by.andd3dfx.collections;
 
 import by.andd3dfx.collections.DeleteNthElementFromLinkedListEnd.Node;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DeleteNthElementFromLinkedListEndTest {
 
@@ -38,16 +38,14 @@ public class DeleteNthElementFromLinkedListEndTest {
     public void applyWhenNIsNegative() {
         Node head = buildLinkedList();
 
-        assertThrows("n should be >=0!", IllegalArgumentException.class,
-            () -> DeleteNthElementFromLinkedListEnd.apply(head, -1));
+        assertThrows(IllegalArgumentException.class, () -> DeleteNthElementFromLinkedListEnd.apply(head, -1), "n should be >=0!");
     }
 
     @Test
     public void applyWhenNGreaterThanListSize() {
         Node head = buildLinkedList();
 
-        assertThrows("n should be less than list size!", IllegalArgumentException.class,
-            () -> DeleteNthElementFromLinkedListEnd.apply(head, 5));
+        assertThrows(IllegalArgumentException.class, () -> DeleteNthElementFromLinkedListEnd.apply(head, 5), "n should be less than list size!");
     }
 
     private Node buildLinkedList() {

@@ -2,8 +2,8 @@ package by.andd3dfx.refactoring.refactored;
 
 import by.andd3dfx.refactoring.refactored.model.Event;
 import by.andd3dfx.refactoring.refactored.model.EventType;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Random;
@@ -11,7 +11,7 @@ import java.util.Random;
 import static by.andd3dfx.refactoring.refactored.model.EventType.ONE_MORE_EVENT;
 import static by.andd3dfx.refactoring.refactored.model.EventType.SOME_EVENT;
 import static by.andd3dfx.refactoring.refactored.model.EventType.SOME_OTHER_EVENT;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class EventParserTest {
 
@@ -21,7 +21,7 @@ public class EventParserTest {
     /**
      * Test is valuable because some actions made using reflection during the creation of EventParser class
      */
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         eventParser = new EventParser();
     }

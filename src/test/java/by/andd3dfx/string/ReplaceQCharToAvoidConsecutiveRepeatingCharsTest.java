@@ -1,17 +1,17 @@
 package by.andd3dfx.string;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class ReplaceQCharToAvoidConsecutiveRepeatingCharsTest {
 
     private ReplaceQCharToAvoidConsecutiveRepeatingChars instance;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         instance = new ReplaceQCharToAvoidConsecutiveRepeatingChars();
     }
@@ -50,7 +50,7 @@ public class ReplaceQCharToAvoidConsecutiveRepeatingCharsTest {
         }
 
         // Check absence of '?' in result string
-        assertFalse("'?' should absent in result string", out.contains("?"));
+        assertFalse(out.contains("?"), "'?' should absent in result string");
 
         // Check the absence of consecutive repeating characters in result string
         var last = out.charAt(0);
@@ -58,7 +58,7 @@ public class ReplaceQCharToAvoidConsecutiveRepeatingCharsTest {
             var curr = out.charAt(i);
             var errMsg = "Chars on positions %d and %d for conversion %s->%s should differ"
                 .formatted(i - 1, i, in, out);
-            assertNotEquals(errMsg, curr, last);
+            assertNotEquals(curr, last, errMsg);
             last = curr;
         }
     }

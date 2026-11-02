@@ -1,6 +1,6 @@
 package by.andd3dfx.string;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 

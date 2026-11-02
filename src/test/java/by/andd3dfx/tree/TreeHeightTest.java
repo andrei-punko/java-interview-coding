@@ -1,7 +1,7 @@
 package by.andd3dfx.tree;
 
 import by.andd3dfx.tree.TreeHeight.Node;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static by.andd3dfx.tree.TreeHeight.calcHeight;
 import static org.assertj.core.api.Assertions.assertThat;

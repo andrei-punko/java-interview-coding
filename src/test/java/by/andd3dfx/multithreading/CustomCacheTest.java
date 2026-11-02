@@ -1,8 +1,8 @@
 package by.andd3dfx.multithreading;
 
 import lombok.SneakyThrows;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static java.lang.Math.random;
 import static java.lang.Thread.sleep;
@@ -16,7 +16,7 @@ public class CustomCacheTest {
 
     private CustomCache customCache;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         customCache = new CustomCache();
         for (int i = 0; i < ITEMS_COUNT; i++) {

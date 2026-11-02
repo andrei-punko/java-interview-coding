@@ -1,8 +1,8 @@
 package by.andd3dfx.collections;
 
 import by.andd3dfx.collections.DistinctNames.Person;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class DistinctNamesTest {
 
     private List<Person> persons;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         persons = List.of(
             new Person(List.of("A", "B", "C")),

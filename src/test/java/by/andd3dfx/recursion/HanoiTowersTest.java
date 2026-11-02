@@ -1,11 +1,11 @@
 package by.andd3dfx.recursion;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HanoiTowersTest {
 
@@ -31,8 +31,8 @@ public class HanoiTowersTest {
     }
 
     private void checkIsFinished(HanoiTowers ht) {
-        assertTrue("Left column should be empty", ht.getLeft().getStack().isEmpty());
-        assertTrue("Middle column should be empty", ht.getMiddle().getStack().isEmpty());
+        assertTrue(ht.getLeft().getStack().isEmpty(), "Left column should be empty");
+        assertTrue(ht.getMiddle().getStack().isEmpty(), "Middle column should be empty");
 
         List<Integer> disks = ht.getRight().getStack().stream().toList();
         for (int i = 1; i < disks.size(); i++) {

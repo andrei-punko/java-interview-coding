@@ -1,18 +1,19 @@
 package by.andd3dfx.recursion;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class HorseWalkTest {
 
     private HorseWalk horseWalk;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         horseWalk = new HorseWalk();
     }
@@ -47,28 +48,34 @@ public class HorseWalkTest {
         commonSolve(6, true);
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void printSolutionWhenIsFoundEqualsToFalse() {
-        Deque<HorseWalk.Cell> log = new ArrayDeque<>();
-        log.add(new HorseWalk.Cell(0, 0));
-        HorseWalk.Solution solution = new HorseWalk.Solution(false, new boolean[][]{{}}, log);
-        System.out.println(solution.logToString());
+        assertThrows(IllegalStateException.class, () -> {
+            Deque<HorseWalk.Cell> log = new ArrayDeque<>();
+            log.add(new HorseWalk.Cell(0, 0));
+            HorseWalk.Solution solution = new HorseWalk.Solution(false, new boolean[][]{{}}, log);
+            System.out.println(solution.logToString());
+        });
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void printSolutionWhenLogSizeLessThanExpectation() {
-        Deque<HorseWalk.Cell> log = new ArrayDeque<>();
-        HorseWalk.Solution solution = new HorseWalk.Solution(true, new boolean[][]{{}}, log);
-        System.out.println(solution.logToString());
+        assertThrows(IllegalStateException.class, () -> {
+            Deque<HorseWalk.Cell> log = new ArrayDeque<>();
+            HorseWalk.Solution solution = new HorseWalk.Solution(true, new boolean[][]{{}}, log);
+            System.out.println(solution.logToString());
+        });
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void printSolutionWhenLogSizeGreaterThanExpectation() {
-        Deque<HorseWalk.Cell> log = new ArrayDeque<>();
-        log.add(new HorseWalk.Cell(0, 0));
-        log.add(new HorseWalk.Cell(0, 1));
-        HorseWalk.Solution solution = new HorseWalk.Solution(true, new boolean[][]{{}}, log);
-        System.out.println(solution.logToString());
+        assertThrows(IllegalStateException.class, () -> {
+            Deque<HorseWalk.Cell> log = new ArrayDeque<>();
+            log.add(new HorseWalk.Cell(0, 0));
+            log.add(new HorseWalk.Cell(0, 1));
+            HorseWalk.Solution solution = new HorseWalk.Solution(true, new boolean[][]{{}}, log);
+            System.out.println(solution.logToString());
+        });
     }
 
     @Test

@@ -2,7 +2,7 @@ package by.andd3dfx.multithreading;
 
 import by.andd3dfx.multithreading.AddMultithreading.SystemA;
 import by.andd3dfx.multithreading.AddMultithreading.SystemB;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;

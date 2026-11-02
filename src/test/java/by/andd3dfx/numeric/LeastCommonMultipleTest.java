@@ -1,18 +1,17 @@
 package by.andd3dfx.numeric;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static by.andd3dfx.numeric.LeastCommonMultiple.find;
 import static by.andd3dfx.numeric.LeastCommonMultiple.find_usingGCD;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LeastCommonMultipleTest {
 
     @Test
     public void testFind() {
-        assertThrows("Numbers array should be populated!",
-            IllegalArgumentException.class, () -> find(new int[]{}));
+        assertThrows(IllegalArgumentException.class, () -> find(new int[]{}), "Numbers array should be populated!");
 
         assertThat(find(new int[]{10})).isEqualTo(10);
         assertThat(find(new int[]{11})).isEqualTo(11);
@@ -29,8 +28,7 @@ public class LeastCommonMultipleTest {
 
     @Test
     public void testFind_usingGCD() {
-        assertThrows("Numbers array should be populated!",
-            IllegalArgumentException.class, () -> find_usingGCD(new int[]{}));
+        assertThrows(IllegalArgumentException.class, () -> find_usingGCD(new int[]{}), "Numbers array should be populated!");
 
         assertThat(find_usingGCD(new int[]{10})).isEqualTo(10);
         assertThat(find_usingGCD(new int[]{11})).isEqualTo(11);

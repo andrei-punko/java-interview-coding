@@ -1,6 +1,6 @@
 package by.andd3dfx.iterators;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,6 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CompositeIteratorTest {
 
@@ -28,17 +29,19 @@ public class CompositeIteratorTest {
         assertThat(result).isEqualTo(List.of(12, 52, 34, 98, 2));
     }
 
-    @Test(expected = NoSuchElementException.class)
+    @Test
     public void callNextAfterEndOfIterator() {
-        List<Integer> list1 = Arrays.asList(12, 52);
-        List<Integer> list2 = Arrays.asList(34, 98, 2);
-        var compositeIterator = new CompositeIterator<>(list1.iterator(), list2.iterator());
+        assertThrows(NoSuchElementException.class, () -> {
+            List<Integer> list1 = Arrays.asList(12, 52);
+            List<Integer> list2 = Arrays.asList(34, 98, 2);
+            var compositeIterator = new CompositeIterator<>(list1.iterator(), list2.iterator());
 
-        while (compositeIterator.hasNext()) {
+            while (compositeIterator.hasNext()) {
+                compositeIterator.next();
+            }
+
             compositeIterator.next();
-        }
-
-        compositeIterator.next();
+        });
     }
 
     @Test

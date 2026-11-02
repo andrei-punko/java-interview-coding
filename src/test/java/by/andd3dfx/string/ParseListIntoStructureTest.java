@@ -1,8 +1,8 @@
 package by.andd3dfx.string;
 
 import by.andd3dfx.string.ParseListIntoStructure.Properties;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ public class ParseListIntoStructureTest {
 
     private ParseListIntoStructure parser;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         parser = new ParseListIntoStructure();
     }

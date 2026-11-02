@@ -1,13 +1,13 @@
 package by.andd3dfx.common;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 import java.util.function.Function;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class PasswordBruteforceTest {
 
@@ -17,7 +17,7 @@ public class PasswordBruteforceTest {
 
     private static Random random = new Random();
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         alphabet = new char[]{'P', 'u', 'n', 'k', 'o'};
         var alphabetStr = new String(alphabet);

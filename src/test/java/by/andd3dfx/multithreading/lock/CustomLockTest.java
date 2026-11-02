@@ -1,19 +1,19 @@
 package by.andd3dfx.multithreading.lock;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class CustomLockTest {
 
     private Lock lock;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         lock = new CustomLock();
     }

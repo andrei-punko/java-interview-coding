@@ -1,10 +1,10 @@
 package by.andd3dfx.numeric;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static by.andd3dfx.numeric.PlusOne.plusOne;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PlusOneTest {
 

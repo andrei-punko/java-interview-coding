@@ -3,7 +3,7 @@ package by.andd3dfx.tree;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import by.andd3dfx.tree.SymmetricTree.TreeNode;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SymmetricTreeTest {
 

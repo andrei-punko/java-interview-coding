@@ -1,6 +1,6 @@
 package by.andd3dfx.multithreading;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class GenerateNumbersTest {
 

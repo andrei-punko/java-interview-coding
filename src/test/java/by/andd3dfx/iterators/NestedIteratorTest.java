@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class NestedIteratorTest {
 
@@ -38,10 +39,12 @@ public class NestedIteratorTest {
             List.of());
     }
 
-    @Test(expected = NoSuchElementException.class)
+    @Test
     public void testNextWhenNoElements() {
-        var nestedIterator = new NestedIterator(List.of());
-        nestedIterator.next();
+        assertThrows(NoSuchElementException.class, () -> {
+            var nestedIterator = new NestedIterator(List.of());
+            nestedIterator.next();
+        });
     }
 
     private void check(List<INestedInteger> incoming, List<Integer> outgoing) {

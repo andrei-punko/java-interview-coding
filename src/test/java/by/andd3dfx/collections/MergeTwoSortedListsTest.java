@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import by.andd3dfx.collections.MergeTwoSortedLists.ListNode;
 import java.util.function.BiFunction;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class MergeTwoSortedListsTest {
 

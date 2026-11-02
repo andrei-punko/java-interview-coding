@@ -1,20 +1,25 @@
 package by.andd3dfx.numeric;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static by.andd3dfx.numeric.MaxMultiplicationOf3InArray.find;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MaxMultiplicationOf3InArrayTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void findWhenEmptyArray() {
-        find(new int[]{});
+        assertThrows(IllegalArgumentException.class, () -> {
+            find(new int[]{});
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void findWhenLessThan3ElementsInArray() {
-        find(new int[]{2, 9});
+        assertThrows(IllegalArgumentException.class, () -> {
+            find(new int[]{2, 9});
+        });
     }
 
     @Test

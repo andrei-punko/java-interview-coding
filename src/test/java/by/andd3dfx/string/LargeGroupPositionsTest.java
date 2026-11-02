@@ -1,7 +1,7 @@
 package by.andd3dfx.string;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class LargeGroupPositionsTest {
 
     private LargeGroupPositions largeGroupPositions;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         largeGroupPositions = new LargeGroupPositions();
     }

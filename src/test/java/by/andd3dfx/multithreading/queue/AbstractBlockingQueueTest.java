@@ -3,8 +3,8 @@ package by.andd3dfx.multithreading.queue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.SneakyThrows;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -17,8 +17,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 import static org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS;
 import static org.awaitility.Durations.ONE_SECOND;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public abstract class AbstractBlockingQueueTest {
 
@@ -26,7 +26,7 @@ public abstract class AbstractBlockingQueueTest {
     private CustomBlockingQueue<QueueItem> queue;
     private Random random = new Random();
 
-    @Before
+    @BeforeEach
     public void setUp() {
         queue = buildQueue(ITEMS_AMOUNT);
     }

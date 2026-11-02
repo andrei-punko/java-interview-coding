@@ -1,6 +1,6 @@
 package by.andd3dfx.proxy;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Proxy;
 

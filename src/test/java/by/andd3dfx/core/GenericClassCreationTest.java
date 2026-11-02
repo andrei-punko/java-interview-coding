@@ -3,10 +3,10 @@ package by.andd3dfx.core;
 import by.andd3dfx.core.GenericClassCreation.CreatorUsingDeclaredConstructor;
 import by.andd3dfx.core.GenericClassCreation.CreatorUsingSupplier;
 import lombok.AllArgsConstructor;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class GenericClassCreationTest {
 

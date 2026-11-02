@@ -1,6 +1,6 @@
 package by.andd3dfx.string;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static by.andd3dfx.string.Palindrome.canFormPalindrome;
 import static by.andd3dfx.string.Palindrome.isPalindrome;
@@ -9,8 +9,8 @@ import static by.andd3dfx.string.Palindrome.longestPalindromeSubstring;
 import static by.andd3dfx.string.Palindrome.removeNthPalindrome;
 import static by.andd3dfx.string.Palindrome.removePalindromes;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PalindromeTest {
 

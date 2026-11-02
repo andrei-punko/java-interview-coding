@@ -1,17 +1,18 @@
 package by.andd3dfx.multithreading.stack;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CustomConcurrentStackTest {
 
     private CustomConcurrentStack<Integer> stack;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         stack = new CustomConcurrentStack<>();
     }
@@ -38,11 +39,13 @@ public class CustomConcurrentStackTest {
         assertThat(stack.isEmpty()).isEqualTo(true);
     }
 
-    @Test(expected = NoSuchElementException.class)
+    @Test
     public void testPopForEmptyStack() {
-        stack.push(2);
-        stack.pop();
-        stack.pop();
+        assertThrows(NoSuchElementException.class, () -> {
+            stack.push(2);
+            stack.pop();
+            stack.pop();
+        });
     }
 
     @Test

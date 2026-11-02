@@ -1,7 +1,7 @@
 package by.andd3dfx.multithreading.forkjoin;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
@@ -15,7 +15,7 @@ public class CustomRecursiveTaskTest {
 
     private ForkJoinPool forkJoinPool;
 
-    @Before
+    @BeforeEach
     public void setup() {
         forkJoinPool = ForkJoinPool.commonPool();
     }

@@ -1,18 +1,18 @@
 package by.andd3dfx.common.furniture;
 
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class FurnitureOrderFirstTest {
 
     private static FurnitureOrder furnitureFactory;
 
-    @BeforeClass
+    @BeforeAll
     public static void initiate() {
         furnitureFactory = new FurnitureOrder();
     }

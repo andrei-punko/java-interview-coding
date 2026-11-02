@@ -1,16 +1,16 @@
 package by.andd3dfx.numeric.factorial;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class AbstractFactorialTest {
 
     protected IFactorial instance;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         instance = buildInstance();
     }

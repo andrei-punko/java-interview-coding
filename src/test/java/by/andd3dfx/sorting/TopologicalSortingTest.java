@@ -1,21 +1,21 @@
 package by.andd3dfx.sorting;
 
 import by.andd3dfx.sorting.TopologicalSorting.Dependency;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TopologicalSortingTest {
 
     private TopologicalSorting topologicalSorting;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         topologicalSorting = new TopologicalSorting();
     }

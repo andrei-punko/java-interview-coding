@@ -1,6 +1,6 @@
 package by.andd3dfx.search;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static by.andd3dfx.search.BinarySearch.perform;
 import static org.assertj.core.api.Assertions.assertThat;

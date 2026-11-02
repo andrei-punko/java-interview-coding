@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RecursiveIteratorTest {
 
@@ -53,15 +54,17 @@ public class RecursiveIteratorTest {
         assertThat(result).isEqualTo(List.of());
     }
 
-    @Test(expected = NoSuchElementException.class)
+    @Test
     public void callNextAfterEndOfIterator() {
-        List<String> list = Arrays.asList("1", "3", "5", "7", "9");
-        var iterator = new RecursiveIterator<>(list.iterator());
+        assertThrows(NoSuchElementException.class, () -> {
+            List<String> list = Arrays.asList("1", "3", "5", "7", "9");
+            var iterator = new RecursiveIterator<>(list.iterator());
 
-        while (iterator.hasNext()) {
+            while (iterator.hasNext()) {
+                iterator.next();
+            }
+
             iterator.next();
-        }
-
-        iterator.next();
+        });
     }
 }

@@ -3,14 +3,14 @@ package by.andd3dfx.tree;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import by.andd3dfx.tree.ValidateBinarySearchTree.TreeNode;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ValidateBinarySearchTreeTest {
 
     private ValidateBinarySearchTree validator;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         validator = new ValidateBinarySearchTree();
     }

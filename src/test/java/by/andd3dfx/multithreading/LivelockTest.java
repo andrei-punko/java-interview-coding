@@ -1,11 +1,11 @@
 package by.andd3dfx.multithreading;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class LivelockTest {
 
@@ -28,6 +28,6 @@ public class LivelockTest {
         // Wait 1 sec
         Thread.sleep(1000);
 
-        assertFalse("Should not be completed after 1 sec wait", future.isDone());
+        assertFalse(future.isDone(), "Should not be completed after 1 sec wait");
     }
 }
