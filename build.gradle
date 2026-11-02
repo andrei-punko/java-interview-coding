@@ -5,7 +5,8 @@ plugins {
 }
 
 repositories {
-    mavenLocal()
+    // Only Maven Central: mavenLocal() here used to shadow release artifacts with stale jars
+    // from ~/.m2, which made the build non-reproducible between machines.
     mavenCentral()
 }
 
